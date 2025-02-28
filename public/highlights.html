@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serviços em Destaque - Nort Elétrica</title>
+  <meta name="description" content="Conheça os serviços em destaque da Nort Elétrica com fotos de antes e depois.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <style>
+    :root {
+      --primary-blue: #2563eb;
+      --dark-blue: #1e40af;
+      --solar-green: #22c55e;
+      --light-bg: #f9fafb;
+      --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    body { font-family: 'Roboto', sans-serif; background: var(--light-bg); padding-top: 80px; }
+    header { background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); position: fixed; top: 0; width: 100%; z-index: 50; }
+    .btn-modern { background: linear-gradient(135deg, var(--solar-green), #16a34a); color: white; padding: 12px 24px; border-radius: 8px; transition: all 0.3s ease; }
+    .btn-modern:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); }
+    footer { background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue)); }
+  </style>
+</head>
+<body>
+  <header class="text-white py-4">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <a href="index.html" class="flex flex-col">
+          <span class="text-2xl font-bold">Nort Elétrica</span>
+          <span class="text-sm text-blue-200 hidden md:block">Energia Inteligente para Todos</span>
+        </a>
+      </div>
+      <nav class="hidden md:flex items-center space-x-6">
+        <a href="index.html" class="hover:text-blue-200">Home</a>
+        <a href="index.html#services" class="hover:text-blue-200">Serviços</a>
+        <a href="index.html#contact" class="hover:text-blue-200">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center mb-12 text-[var(--primary-blue)]">Serviços em Destaque</h1>
+      <div class="space-y-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h2 class="text-2xl font-semibold mb-4 text-[var(--primary-blue)]">Residência Solar</h2>
+            <p class="text-gray-700">Instalação de um sistema de 5 kWp em São José do Norte, reduzindo a conta de luz em 80%.</p>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <img src="https://via.placeholder.com/300x200?text=Antes" alt="Antes" class="rounded-lg shadow-lg" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1508514177221-188b0df6a373?q=80&w=600" alt="Depois" class="rounded-lg shadow-lg" loading="lazy">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h2 class="text-2xl font-semibold mb-4 text-[var(--primary-blue)]">Casa Inteligente</h2>
+            <p class="text-gray-700">Automação residencial completa em Pelotas, com controle via aplicativo.</p>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <img src="https://via.placeholder.com/300x200?text=Antes" alt="Antes" class="rounded-lg shadow-lg" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600" alt="Depois" class="rounded-lg shadow-lg" loading="lazy">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h2 class="text-2xl font-semibold mb-4 text-[var(--primary-blue)]">Fábrica Sustentável</h2>
+            <p class="text-gray-700">Modernização elétrica em Rio Grande, com eficiência energética.</p>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <img src="https://via.placeholder.com/300x200?text=Antes" alt="Antes" class="rounded-lg shadow-lg" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?q=80&w=600" alt="Depois" class="rounded-lg shadow-lg" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-white py-12">
+    <div class="container mx-auto px-4 text-center">
+      <p id="footer-year" class="text-blue-100">© 2025 Nort Elétrica. Todos os direitos reservados.</p>
+      <p class="mt-2"><a href="politica-de-privacidade.html" class="text-blue-200 hover:underline">Política de Privacidade</a> | <a href="termos-de-uso.html" class="text-blue-200 hover:underline">Termos de Uso</a> | <a href="area-cliente.html" class="text-blue-200 hover:underline">Área do Cliente</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('footer-year').innerHTML = `© ${new Date().getFullYear()} Nort Elétrica. Todos os direitos reservados.`;
+  </script>
+</body>
+</html>
