@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administração de Pedidos - Nort Elétrica</title>
+  <meta name="description" content="Página de administração para controle interno de pedidos da Nort Elétrica.">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    :root {
+      --primary-blue: #2563eb;
+      --dark-blue: #1e40af;
+      --solar-green: #22c55e;
+      --light-bg: #f9fafb;
+      --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light-bg);
+      padding-top: 80px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark {
+      background: #1f2937;
+      color: #f3f4f6;
+    }
+    body.dark .order-card {
+      background: #4b5563;
+    }
+    body.dark .btn-modern {
+      background: linear-gradient(135deg, #34d399, #16a34a);
+    }
+    body.dark #login-section,
+    body.dark #admin-content {
+      background: linear-gradient(135deg, #4b5563, #1f2937);
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 50;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    .btn-modern {
+      background: linear-gradient(135deg, var(--solar-green), #16a34a);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-modern:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    footer {
+      background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+    }
+    section {
+      padding: 5rem 1rem;
+    }
+    h1, h2, h3 {
+      font-weight: 700;
+    }
+    h2 {
+      font-size: 2.5rem;
+      letter-spacing: 0.025em;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--primary-blue), var(--solar-green));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 1.5rem;
+      }
+      .grid-cols-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+      color: white;
+      padding: 12px;
+      border-radius: 50%;
+      display: none;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .back-to-top:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    .back-to-top.show {
+      display: block;
+    }
+    a:focus, button:focus {
+      outline: 2px solid var(--primary-blue);
+      outline-offset: 2px;
+    }
+    #admin-content {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    #admin-content.active {
+      display: block;
+      opacity: 1;
+    }
+    .order-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+    .order-card:hover {
+      transform: translateY(-5px);
+    }
+    .status-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    .status-dot.green {
+      background: var(--solar-green);
+    }
+    .status-dot.yellow {
+      background: #eab308;
+    }
+    .status-dot.red {
+      background: #ef4444;
+    }
+    .history-timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+    .history-item {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .history-item::before {
+      content: '';
+      position: absolute;
+      left: -25px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      background: var(--primary-blue);
+      border-radius: 50%;
+      z-index: 1;
+      transition: all 0.3s ease;
+    }
+    .history-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--primary-blue);
+    }
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, var(--solar-green), #16a34a);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      box-shadow: var(--shadow-md);
+      z-index: 1000;
+      animation: fadeInOut 3s ease forwards;
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateY(-20px); }
+      20% { opacity: 1; transform: translateY(0); }
+      80% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-20px); display: none; }
+    }
+    input, textarea, select {
+      transition: all 0.3s ease;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="text-white py-4">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <a href="index.html" class="flex flex-col">
+          <span class="text-2xl font-bold tracking-tight">Nort Elétrica</span>
+          <span class="text-sm text-blue-200 hidden md:block">Energia Inteligente para Todos</span>
+        </a>
+      </div>
+      <nav class="hidden md:flex items-center space-x-6">
+        <a href="index.html" class="hover:text-blue-200 transition-colors">Home</a>
+        <a href="index.html#services" class="hover:text-blue-200 transition-colors">Serviços</a>
+        <a href="index.html#contact" class="hover:text-blue-200 transition-colors">Contato</a>
+        <button id="theme-toggle" class="btn-modern">Tema Escuro</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Administração de Pedidos -->
+  <section>
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center mb-12 text-[var(--primary-blue)]">Administração de Pedidos</h1>
+      
+      <!-- Formulário de Login -->
+      <div id="login-section" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-semibold mb-4">Login do Administrador</h2>
+        <form id="admin-login-form" class="space-y-4">
+          <div>
+            <input type="email" id="admin-email" placeholder="E-mail" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" required aria-label="E-mail">
+            <p id="admin-email-error" class="text-red-500 text-sm hidden">Insira um e-mail válido.</p>
+          </div>
+          <div>
+            <input type="password" id="admin-password" placeholder="Senha" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" required aria-label="Senha">
+            <p id="admin-password-error" class="text-red-500 text-sm hidden">Insira a senha correta.</p>
+          </div>
+          <button type="submit" class="btn-modern w-full">Entrar</button>
+          <p id="login-success" class="hidden text-green-600 text-center mt-4">Login realizado com sucesso!</p>
+        </form>
+      </div>
+
+      <!-- Conteúdo da Administração -->
+      <div id="admin-content" class="max-w-4xl mx-auto mt-8">
+        <h2 class="text-3xl font-bold text-center mb-8">Gerenciar Pedidos</h2>
+
+        <!-- Dashboard -->
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+          <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Estatísticas</h3>
+          <canvas id="stats-chart" class="w-full h-64"></canvas>
+          <div id="stats-text" class="mt-4 text-gray-700"></div>
+        </div>
+
+        <!-- Formulário para Gerar Pedidos -->
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+          <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Gerar Novo Pedido</h3>
+          <form id="generate-order-form" class="space-y-4">
+            <div>
+              <label for="order-number" class="block text-gray-700 font-semibold">Número do Pedido</label>
+              <input type="text" id="order-number" placeholder="Ex.: #12348" class="border border-gray-300 p-3 w-full rounded-lg" required aria-label="Número do Pedido">
+            </div>
+            <div>
+              <label for="order-date" class="block text-gray-700 font-semibold">Data do Pedido</label>
+              <input type="date" id="order-date" class="border border-gray-300 p-3 w-full rounded-lg" required aria-label="Data do Pedido">
+            </div>
+            <div>
+              <label for="order-service" class="block text-gray-700 font-semibold">Serviço</label>
+              <select id="order-service" class="border border-gray-300 p-3 w-full rounded-lg" required aria-label="Serviço">
+                <option value="">Selecione o serviço</option>
+                <option value="Sistemas Fotovoltaicos">Sistemas Fotovoltaicos</option>
+                <option value="Elétrica Predial">Elétrica Predial</option>
+                <option value="Elétrica Industrial">Elétrica Industrial</option>
+                <option value="Automação Residencial">Automação Residencial</option>
+                <option value="Cabeamento Estruturado">Cabeamento Estruturado</option>
+                <option value="CFTV e Monitoramento">CFTV e Monitoramento</option>
+              </select>
+            </div>
+            <div>
+              <label for="order-description" class="block text-gray-700 font-semibold">Descrição</label>
+              <textarea id="order-description" placeholder="Descrição do serviço" class="border border-gray-300 p-3 w-full rounded-lg" rows="3" required aria-label="Descrição"></textarea>
+            </div>
+            <div>
+              <label for="order-transport" class="block text-gray-700 font-semibold">Transporte</label>
+              <input type="text" id="order-transport" placeholder="Ex.: Transportadora XYZ - Código XYZ789" class="border border-gray-300 p-3 w-full rounded-lg" aria-label="Transporte">
+            </div>
+            <div>
+              <label for="order-delivery" class="block text-gray-700 font-semibold">Previsão de Entrega</label>
+              <input type="date" id="order-delivery" class="border border-gray-300 p-3 w-full rounded-lg" aria-label="Previsão de Entrega">
+            </div>
+            <div>
+              <label for="order-installation" class="block text-gray-700 font-semibold">Previsão de Instalação</label>
+              <input type="text" id="order-installation" placeholder="Ex.: 15/03/2025 (08:00 - 12:00)" class="border border-gray-300 p-3 w-full rounded-lg" aria-label="Previsão de Instalação">
+            </div>
+            <div>
+              <label for="order-maintenance" class="block text-gray-700 font-semibold">Próxima Manutenção</label>
+              <input type="date" id="order-maintenance" class="border border-gray-300 p-3 w-full rounded-lg" aria-label="Próxima Manutenção">
+            </div>
+            <div>
+              <label for="order-user" class="block text-gray-700 font-semibold">E-mail do Cliente</label>
+              <input type="email" id="order-user" placeholder="Ex.: norteeletrica1@gmail.com" class="border border-gray-300 p-3 w-full rounded-lg" required aria-label="E-mail do Cliente">
+            </div>
+            <div>
+              <label for="order-valor" class="block text-gray-700 font-semibold">Valor do Pedido (R$)</label>
+              <input type="number" id="order-valor" placeholder="Ex.: 5000.00" step="0.01" class="border border-gray-300 p-3 w-full rounded-lg" required aria-label="Valor do Pedido">
+            </div>
+            <button type="submit" class="btn-modern w-full">Gerar Pedido</button>
+          </form>
+        </div>
+
+        <!-- Filtros e Exportação -->
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+          <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Filtros e Exportação</h3>
+          <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+            <input type="email" id="filter-user" placeholder="Filtrar por e-mail do cliente" class="border border-gray-300 p-3 rounded-lg w-full md:w-1/3" aria-label="Filtrar por e-mail">
+            <select id="filter-status" class="border border-gray-300 p-3 rounded-lg w-full md:w-1/3" aria-label="Filtrar por status">
+              <option value="">Filtrar por status</option>
+              <option value="Aguardando Pagamento">Aguardando Pagamento</option>
+              <option value="Pagamento Confirmado">Pagamento Confirmado</option>
+              <option value="Em Trânsito">Em Trânsito</option>
+              <option value="Concluído">Concluído</option>
+              <option value="Solicitação Pendente">Solicitação Pendente</option>
+            </select>
+            <button onclick="filterOrders()" class="btn-modern">Filtrar</button>
+            <button onclick="exportToCSV()" class="btn-modern">Exportar CSV</button>
+            <button onclick="exportToPDF()" class="btn-modern">Exportar PDF</button>
+          </div>
+        </div>
+
+        <!-- Lista de Pedidos Gerados -->
+        <div id="generated-orders" class="space-y-6">
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)] mb-4">Pedidos Gerados</h3>
+          <!-- Pedidos serão adicionados dinamicamente aqui -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Botão Voltar ao Topo -->
+  <a href="#" class="back-to-top" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></a>
+
+  <!-- Footer -->
+  <footer class="text-white py-12">
+    <div class="container mx-auto px-4 text-center">
+      <p id="footer-year" class="text-blue-200">© 2025 Nort Elétrica. Todos os direitos reservados.</p>
+      <p class="mt-2">
+        <a href="politica-de-privacidade.html" class="text-blue-200 hover:underline">Política de Privacidade</a> | 
+        <a href="termos-de-uso.html" class="text-blue-200 hover:underline">Termos de Uso</a> | 
+        <a href="area-cliente.html" class="text-blue-200 hover:underline">Área do Cliente</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" defer></script>
+  <script>
+    document.getElementById('footer-year').innerHTML = `© ${new Date().getFullYear()} Nort Elétrica. Todos os direitos reservados.`;
+
+    const backToTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.scrollY > 100));
+    backToTop.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+    document.querySelectorAll('img').forEach(img => img.setAttribute('loading', 'lazy'));
+
+    let currentOrders = [];
+
+    // Notificação
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.className = 'notification';
+      notification.textContent = message;
+      document.body.appendChild(notification);
+      setTimeout(() => notification.remove(), 3000);
+    }
+
+    // Alternar Tema
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      const isDark = document.body.classList.contains('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      themeToggle.textContent = isDark ? 'Tema Claro' : 'Tema Escuro';
+    });
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+      themeToggle.textContent = 'Tema Claro';
+    }
+
+    // Validação do Login Admin
+    document.getElementById('admin-login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('admin-email').value;
+      const password = document.getElementById('admin-password').value;
+      fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          document.getElementById('login-success').classList.remove('hidden');
+          setTimeout(() => {
+            document.getElementById('login-success').classList.add('hidden');
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('admin-content').style.display = 'block';
+            setTimeout(() => document.getElementById('admin-content').classList.add('active'), 10);
+            loadAllOrders();
+            loadStats();
+          }, 1000);
+          this.reset();
+        } else {
+          document.getElementById('admin-email-error').classList.remove('hidden');
+          document.getElementById('admin-password-error').classList.remove('hidden');
+        }
+      })
+      .catch(err => console.error('Erro no login:', err));
+    });
+
+    // Carregar Estatísticas
+    function loadStats() {
+      fetch('/api/stats')
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            const ctx = document.getElementById('stats-chart').getContext('2d');
+            new Chart(ctx, {
+              type: 'bar',
+              data: {
+                labels: ['Aguardando', 'Confirmado', 'Em Trânsito', 'Concluído'],
+                datasets: [{
+                  label: 'Pedidos por Status',
+                  data: [data.stats.aguardando, data.stats.confirmado, data.stats.transito, data.stats.concluido],
+                  backgroundColor: ['#eab308', '#16a34a', '#2563eb', '#ef4444']
+                }]
+              },
+              options: { scales: { y: { beginAtZero: true } } }
+            });
+            document.getElementById('stats-text').innerHTML = `
+              Total de Pedidos: ${data.stats.total}<br>
+              Aguardando Pagamento: ${data.stats.aguardando}<br>
+              Pagamento Confirmado: ${data.stats.confirmado}<br>
+              Em Trânsito: ${data.stats.transito}<br>
+              Concluído: ${data.stats.concluido}
+            `;
+          }
+        })
+        .catch(err => console.error('Erro ao carregar estatísticas:', err));
+    }
+
+    // Exibir Pedidos
+    function displayOrders(pedidos) {
+      currentOrders = pedidos;
+      const container = document.getElementById('generated-orders');
+      if (!container) return;
+      container.innerHTML = '<h3 class="text-xl font-semibold text-[var(--primary-blue)] mb-4">Pedidos Gerados</h3>';
+      pedidos.forEach(pedido => {
+        const orderCard = document.createElement('div');
+        orderCard.className = 'order-card';
+        orderCard.innerHTML = `
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-semibold text-[var(--primary-blue)]">${pedido.numero}</h3>
+            <span class="status-dot ${pedido.status === 'Em Trânsito' ? 'green' : pedido.status === 'Aguardando Pagamento' ? 'yellow' : pedido.status === 'Concluído' ? 'red' : pedido.status === 'Solicitação Pendente' ? '#eab308' : '#16a34a'}"></span>
+            <span class="text-gray-700 font-semibold">${pedido.status}${pedido.solicitacao ? ' (Solicitação do Cliente)' : ''}</span>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <p class="text-gray-700"><strong>Data do Pedido:</strong> ${pedido.data}</p>
+              <p class="text-gray-700"><strong>Serviço:</strong> ${pedido.servico}</p>
+              <p class="text-gray-700"><strong>Descrição:</strong> ${pedido.descricao}</p>
+              <p class="text-gray-700"><strong>Transporte:</strong> ${pedido.transporte}</p>
+            </div>
+            <div>
+              <p class="text-gray-700"><strong>Previsão de Entrega:</strong> ${pedido.entrega}</p>
+              <p class="text-gray-700"><strong>Previsão de Instalação:</strong> ${pedido.instalacao}</p>
+              <p class="text-gray-700"><strong>Próxima Manutenção:</strong> ${pedido.manutencao}</p>
+              <p class="text-gray-700"><strong>Cliente:</strong> ${pedido.usuario}</p>
+              <p class="text-gray-700"><strong>Endereço:</strong> ${pedido.endereco || 'Não informado'}</p>
+              <p class="text-gray-700"><strong>Pagamento:</strong> ${pedido.metodo_pagamento || 'Não informado'}</p>
+              <p class="text-gray-700"><strong>Valor:</strong> R$ ${pedido.valor || 0}</p>
+              <p class="text-gray-700"><strong>Comprovante:</strong> ${pedido.comprovante ? '<a href="data:image/jpeg;base64,' + pedido.comprovante + '" target="_blank">Ver</a>' : 'Não enviado'}</p>
+            </div>
+          </div>
+          <div class="mt-6">
+            <h4 class="text-lg font-semibold text-[var(--primary-blue)] mb-4">Histórico</h4>
+            <div class="history-timeline">
+              ${pedido.historico.split(';').map(item => `<div class="history-item"><p class="text-gray-700">${item}</p></div>`).join('')}
+            </div>
+          </div>
+          <div class="mt-6 text-center space-x-4 flex flex-wrap justify-center">
+            <a href="mailto:lucassjn1999@gmail.com" class="btn-modern">Fale Conosco</a>
+            <select class="border border-gray-300 p-2 rounded-lg" onchange="updateOrderStatus(${pedido.id}, this.value, '${pedido.historico}')" aria-label="Atualizar Status">
+              <option value="">Atualizar Status</option>
+              <option value="Aguardando Pagamento" ${pedido.status === 'Aguardando Pagamento' ? 'selected' : ''}>Aguardando Pagamento</option>
+              <option value="Pagamento Confirmado" ${pedido.status === 'Pagamento Confirmado' ? 'selected' : ''}>Pagamento Confirmado</option>
+              <option value="Em Trânsito" ${pedido.status === 'Em Trânsito' ? 'selected' : ''}>Em Trânsito</option>
+              <option value="Concluído" ${pedido.status === 'Concluído' ? 'selected' : ''}>Concluído</option>
+            </select>
+            <button class="btn-modern" onclick="editOrder(${pedido.id})">Editar</button>
+            <button class="btn-modern bg-red-500" onclick="deleteOrder(${pedido.id})">Excluir</button>
+          </div>
+          <div id="edit-form-${pedido.id}" class="mt-4 hidden">
+            <form class="space-y-4" onsubmit="submitEdit(event, ${pedido.id})">
+              <input type="text" name="numero" value="${pedido.numero}" class="border border-gray-300 p-3 w-full rounded-lg" required aria-label="Número do Pedido">
+              <input type="date" name="data" value="${pedido.data}" class="border border-gray-300 p-3 w-full rounded-lg" required aria-label="Data do Pedido">
+              <select name="servico" class="border border-gray-300 p-3 w-full rounded-lg" required aria-label="Serviço">
+                <option value="Sistemas Fotovoltaicos" ${pedido.servico === 'Sistemas Fotovoltaicos' ? 'selected' : ''}>Sistemas Fotovoltaicos</option>
+                <option value="Elétrica Predial" ${pedido.servico === 'Elétrica Predial' ? 'selected' : ''}>Elétrica Predial</option>
+                <option value="Elétrica Industrial" ${pedido.servico === 'Elétrica Industrial' ? 'selected' : ''}>Elétrica Industrial</option>
+                <option value="Automação Residencial" ${pedido.servico === 'Automação Residencial' ? 'selected' : ''}>Automação Residencial</option>
+                <option value="Cabeamento Estruturado" ${pedido.servico === 'Cabeamento Estruturado' ? 'selected' : ''}>Cabeamento Estruturado</option>
+                <option value="CFTV e Monitoramento" ${pedido.servico === 'CFTV e Monitoramento' ? 'selected' : ''}>CFTV e Monitoramento</option>
+              </select>
+              <textarea name="descricao" class="border border-gray-300 p-3 w-full rounded-lg" rows="3" required aria-label="Descrição">${pedido.descricao}</textarea>
+              <input type="text" name="transporte" value="${pedido.transporte}" class="border border-gray-300 p-3 w-full rounded-lg" aria-label="Transporte">
+              <input type="date" name="entrega" value="${pedido.entrega}" class="border border-gray-300 p-3 w-full rounded-lg" aria-label="Previsão de Entrega">
+              <input type="text" name="instalacao" value="${pedido.instalacao}" class="border border-gray-300 p-3 w-full rounded-lg" aria-label="Previsão de Instalação">
+              <input type="date" name="manutencao" value="${pedido.manutencao}" class="border border-gray-300 p-3 w-full rounded-lg" aria-label="Próxima Manutenção">
+              <input type="email" name="usuario" value="${pedido.usuario}" class="border border-gray-300 p-3 w-full rounded-lg" required aria-label="E-mail do Cliente">
+              <input type="number" name="valor" value="${pedido.valor || 0}" step="0.01" class="border border-gray-300 p-3 w-full rounded-lg" required aria-label="Valor do Pedido">
+              <button type="submit" class="btn-modern w-full">Salvar Alterações</button>
+            </form>
+          </div>
+        `;
+        container.appendChild(orderCard);
+      });
+    }
+
+    // Carregar Todos os Pedidos
+    function loadAllOrders() {
+      fetch('/api/pedidos')
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) displayOrders(data.pedidos);
+          else console.error('Erro ao carregar pedidos:', data.message);
+        })
+        .catch(err => console.error('Erro ao carregar pedidos:', err));
+    }
+
+    // Filtrar Pedidos
+    function filterOrders() {
+      const usuario = document.getElementById('filter-user').value;
+      const status = document.getElementById('filter-status').value;
+      let url = '/api/pedidos';
+      if (usuario || status) {
+        url += '?';
+        if (usuario) url += `usuario=${encodeURIComponent(usuario)}`;
+        if (status) url += usuario ? `&status=${encodeURIComponent(status)}` : `status=${encodeURIComponent(status)}`;
+      }
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) displayOrders(data.pedidos);
+          else console.error('Erro ao filtrar pedidos:', data.message);
+        })
+        .catch(err => console.error('Erro ao filtrar pedidos:', err));
+    }
+
+    // Atualizar Status do Pedido
+    function updateOrderStatus(orderId, newStatus, historico) {
+      if (!newStatus) return;
+      const updatedHistorico = `${historico};${new Date().toLocaleDateString()}: Status alterado para ${newStatus}`;
+      fetch(`/api/pedidos/${orderId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: newStatus, historico: updatedHistorico })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          showNotification('Status atualizado com sucesso!');
+          loadAllOrders();
+        } else {
+          alert('Erro ao atualizar status: ' + data.message);
+        }
+      })
+      .catch(err => console.error('Erro ao atualizar status:', err));
+    }
+
+    // Editar Pedido
+    function editOrder(orderId) {
+      const editForm = document.getElementById(`edit-form-${orderId}`);
+      if (editForm) editForm.classList.toggle('hidden');
+    }
+
+    function submitEdit(event, orderId) {
+      event.preventDefault();
+      const form = event.target;
+      const orderData = {
+        numero: form.numero.value,
+        data: form.data.value,
+        servico: form.servico.value,
+        descricao: form.descricao.value,
+        transporte: form.transporte.value,
+        entrega: form.entrega.value,
+        instalacao: form.instalacao.value,
+        manutencao: form.manutencao.value,
+        usuario: form.usuario.value,
+        valor: parseFloat(form.valor.value) || 0
+      };
+      fetch(`/api/pedidos/${orderId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          showNotification('Pedido editado com sucesso!');
+          loadAllOrders();
+          form.parentElement.classList.add('hidden');
+        } else {
+          alert('Erro ao editar pedido: ' + data.message);
+        }
+      })
+      .catch(err => console.error('Erro ao editar pedido:', err));
+    }
+
+    // Excluir Pedido
+    function deleteOrder(orderId) {
+      if (confirm('Tem certeza que deseja excluir este pedido?')) {
+        fetch(`/api/pedidos/${orderId}`, {
+          method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            showNotification('Pedido excluído com sucesso!');
+            loadAllOrders();
+          } else {
+            alert('Erro ao excluir pedido: ' + data.message);
+          }
+        })
+        .catch(err => console.error('Erro ao excluir pedido:', err));
+      }
+    }
+
+    // Gerar Pedidos
+    document.getElementById('generate-order-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const orderData = {
+        numero: document.getElementById('order-number').value,
+        data: document.getElementById('order-date').value,
+        servico: document.getElementById('order-service').value,
+        descricao: document.getElementById('order-description').value,
+        transporte: document.getElementById('order-transport').value || 'A definir',
+        entrega: document.getElementById('order-delivery').value || 'A definir',
+        instalacao: document.getElementById('order-installation').value || 'A definir',
+        manutencao: document.getElementById('order-maintenance').value || 'A definir',
+        status: 'Aguardando Pagamento',
+        historico: `${new Date().toLocaleDateString()}: Pedido registrado`,
+        usuario: document.getElementById('order-user').value,
+        valor: parseFloat(document.getElementById('order-valor').value) || 0
+      };
+      fetch('/api/pedidos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          showNotification('Pedido gerado com sucesso!');
+          loadAllOrders();
+          this.reset();
+        } else {
+          alert('Erro ao gerar pedido: ' + data.message);
+        }
+      })
+      .catch(err => console.error('Erro ao enviar pedido:', err));
+    });
+
+    // Exportar para CSV
+    function exportToCSV() {
+      const csv = Papa.unparse(currentOrders.map(p => ({
+        Número: p.numero,
+        Data: p.data,
+        Serviço: p.servico,
+        Descrição: p.descricao,
+        Transporte: p.transporte || 'A definir',
+        Entrega: p.entrega || 'A definir',
+        Instalação: p.instalacao || 'A definir',
+        Manutenção: p.manutencao || 'A definir',
+        Status: p.status,
+        Histórico: p.historico,
+        Cliente: p.usuario,
+        Endereço: p.endereco || 'Não informado',
+        Pagamento: p.metodo_pagamento || 'Não informado',
+        Valor: p.valor || 0
+      })));
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      if (link) {
+        link.href = URL.createObjectURL(blob);
+        link.download = 'pedidos.csv';
+        link.click();
+      }
+    }
+
+    // Exportar para PDF
+    function exportToPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.text('Lista de Pedidos - Nort Elétrica', 10, 10);
+      let y = 20;
+      currentOrders.forEach(p => {
+        doc.text(`Número: ${p.numero} | Cliente: ${p.usuario} | Status: ${p.status}`, 10, y);
+        y += 10;
+        doc.text(`Serviço: ${p.servico} | Valor: R$ ${p.valor || 0}`, 10, y);
+        y += 10;
+        doc.text(`Histórico: ${p.historico || 'Nenhum'}`, 10, y);
+        y += 20;
+      });
+      doc.save('pedidos.pdf');
+    }
+  </script>
+</body>
+</html>
