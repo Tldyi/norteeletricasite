@@ -336,6 +336,9 @@
   <!-- Scripts -->
   <script src="https://kit.fontawesome.com/a076d05399.js" defer></script>
   <script>
+    // Define a URL base dinamicamente com base no ambiente
+    const API_BASE_URL = window.location.hostname === 'localhost' ? 'http://localhost:3000' : '';
+
     document.getElementById('footer-year').innerHTML = `© ${new Date().getFullYear()} Nort Elétrica. Todos os direitos reservados.`;
 
     const backToTop = document.querySelector('.back-to-top');
@@ -408,8 +411,7 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <p class="text-gray-700"><strong>Data do Pedido:</strong> ${pedido.data}</p>
-              <p class="text-gray-70
-            0"><strong>Serviço:</strong> ${pedido.servico}</p>
+              <p class="text-gray-700"><strong>Serviço:</strong> ${pedido.servico}</p>
               <p class="text-gray-700"><strong>Descrição:</strong> ${pedido.descricao}</p>
               <p class="text-gray-700"><strong>Transporte:</strong> ${pedido.transporte}</p>
             </div>
@@ -495,7 +497,7 @@
 
     // Carregar Pedidos com Paginação
     function loadOrders(usuario, containerId, page) {
-      fetch(`/api/pedidos/${usuario}?page=${page}&limit=${limit}`)
+      fetch(`${API_BASE_URL}/api/pedidos/${usuario}?page=${page}&limit=${limit}`)
         .then(response => response.json())
         .then(data => {
           if (data.success) {
@@ -535,7 +537,7 @@
 
     // Carregar Estatísticas do Cliente
     function loadClientStats(usuario) {
-      fetch(`/api/pedidos/${usuario}`)
+      fetch(`${API_BASE_URL}/api/pedidos/${usuario}`)
         .then(response => response.json())
         .then(data => {
           if (data.success) {
@@ -571,7 +573,7 @@
 
     // Carregar Perfil
     function loadProfile(email) {
-      fetch(`/api/cliente/perfil/${email}`)
+      fetch(`${API_BASE_URL}/api/cliente/perfil/${email}`)
         .then(response => response.json())
         .then(data => {
           if (data.success) {
@@ -591,7 +593,7 @@
 
     // Carregar Histórico de Pagamentos
     function loadPayments(usuario) {
-      fetch(`/api/pagamentos/${usuario}`)
+      fetch(`${API_BASE_URL}/api/pagamentos/${usuario}`)
         .then(response => response.json())
         .then(data => {
           if (data.success) {
@@ -677,7 +679,7 @@
     }
 
     function sendPayment(orderId, status, historico, endereco, metodoPagamento, comprovante) {
-      fetch(`/api/pedidos/${orderId}`, {
+      fetch(`${API_BASE_URL}/api/pedidos/${orderId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status, historico, endereco, metodo_pagamento: metodoPagamento, comprovante, valor: document.getElementById(`comprovante-${orderId}`).closest('.order-card').querySelector('p:nth-child(6) strong').nextSibling.textContent.split(' ')[1] })
@@ -711,7 +713,7 @@
       const email = document.getElementById('login-email').value;
       const password = document.getElementById('login-password').value;
       console.log('Tentando login com:', { email, password }); // Log para debug
-      fetch('/api/cliente/login', {
+      fetch(`${API_BASE_URL}/api/cliente/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -771,7 +773,7 @@
       if (password !== passwordConfirm) { document.getElementById('cadastro-password-confirm-error').classList.remove('hidden'); isValid = false; } else document.getElementById('cadastro-password-confirm-error').classList.add('hidden');
 
       if (isValid) {
-        fetch('/api/cliente/cadastro', {
+        fetch(`${API_BASE_URL}/api/cliente/cadastro`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, senha: password, nome: name, telefone: phone, endereco_padrao: address })
@@ -824,7 +826,7 @@
     });
 
     function updateProfile(email, name, phone, address, foto_perfil, notificar_email) {
-      fetch('/api/cliente/perfil', {
+      fetch(`${API_BASE_URL}/api/cliente/perfil`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, nome: name, telefone: phone, endereco_padrao: address, foto_perfil, notificar_email })
@@ -868,7 +870,7 @@
         usuario: currentUser,
         solicitacao: 1
       };
-      fetch('/api/pedidos', {
+      fetch(`${API_BASE_URL}/api/pedidos`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderData)
@@ -952,5 +954,5 @@
       doc.save('meus_pedidos.pdf');
     }
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91a560850f65451f',t:'MTc0MDk2NTUxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
