@@ -10,17 +10,17 @@
   <!-- Open Graph -->
   <meta property="og:title" content="Nort Elétrica - Energia Inteligente para Todos">
   <meta property="og:description" content="Soluções elétricas modernas e sustentáveis em São José do Norte/RS. Entre em contato para transformar sua energia!">
-  <meta property="og:image" content="https://www.norteletrica.com.br/Logo-Marca.png">
-  <meta property="og:url" content="https://www.norteletrica.com.br">
+  <meta property="og:image" content="/assets/Logo-Marca.webp">
+  <meta property="og:url" content="https://norteeletricasite-git-master-lucas-projects-62e48a84.vercel.app">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Nort Elétrica">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Nort Elétrica - Energia Inteligente para Todos">
   <meta name="twitter:description" content="Soluções elétricas modernas e sustentáveis em São José do Norte/RS.">
-  <meta name="twitter:image" content="https://www.norteletrica.com.br/Logo-Marca.png">
-  <link rel="canonical" href="https://www.norteletrica.com.br">
-  <link rel="icon" href="https://www.norteletrica.com.br/favicon.ico" type="image/x-icon">
+  <meta name="twitter:image" content="/assets/Logo-Marca.webp">
+  <link rel="canonical" href="https://norteeletricasite-git-master-lucas-projects-62e48a84.vercel.app">
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
   <!-- Cache -->
   <meta http-equiv="Cache-Control" content="max-age=3600">
   <!-- Preload -->
@@ -28,7 +28,7 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@400;500&display=swap" as="style" onload="this.rel='stylesheet'">
   <!-- Stylesheets -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
   <style>
     :root {
       --primary-blue: #1e3a8a;
@@ -39,7 +39,7 @@
       --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
     body { 
-      font-family: 'Inter', sans-serif; 
+      font-family: 'Inter', 'Roboto', sans-serif; 
       margin: 0; 
       padding: 0; 
       background: var(--light-bg); 
@@ -47,7 +47,7 @@
       overflow-x: hidden; 
       color: #1f2937;
     }
-    h1, h2, h3 { font-family: 'Inter', sans-serif; font-weight: 700; }
+    h1, h2, h3 { font-family: 'Inter', 'Roboto', sans-serif; font-weight: 700; }
     h2 { font-size: 2.5rem; letter-spacing: 0.025em; margin-bottom: 1.5rem; }
     @media (min-width: 768px) { h2 { font-size: 3.5rem; } }
     @media (max-width: 768px) { h2 { font-size: 2rem; } }
@@ -231,7 +231,7 @@
   <header class="text-white">
     <div class="container mx-auto px-4 flex justify-between items-center h-full">
       <div class="logo">
-        <img src="https://your-hosted-logo-url.com/nort-eletrica-logo.png" alt="Logo Nort Elétrica">
+        <img src="/assets/Logo-Marca.webp" alt="Logo Nort Elétrica">
       </div>
       <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">
         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -246,7 +246,6 @@
         <a href="#comments" class="hover:text-blue-200 transition-colors">Comentários</a>
         <a href="#blog" class="hover:text-blue-200 transition-colors">Blog</a>
         <a href="#contact" class="hover:text-blue-200 transition-colors">Contato</a>
-        <a href="javascript:void(0)" onclick="window.location.href='area-cliente.html'" class="btn-modern text-sm px-4 py-2">Área do Cliente</a>
       </nav>
     </div>
     <div id="mobile-menu" class="md:hidden fixed top-16 right-0 w-full max-w-xs text-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
@@ -259,13 +258,12 @@
         <a href="#comments" class="hover:text-blue-200 transition-colors">Comentários</a>
         <a href="#blog" class="hover:text-blue-200 transition-colors">Blog</a>
         <a href="#contact" class="hover:text-blue-200 transition-colors">Contato</a>
-        <a href="javascript:void(0)" onclick="window.location.href='area-cliente.html'" class="btn-modern text-sm px-4 py-2 text-center">Área do Cliente</a>
       </div>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="text-white py-28 bg-cover bg-center mt-16" style="background-image: linear-gradient(to right, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), url('https://images.unsplash.com/photo-1509395062183-67c5ad6faff9?q=80&w=1920&auto=format&fit=crop');">
+  <section class="text-white py-28 bg-cover bg-center mt-16" style="background-image: linear-gradient(to right, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), url('/assets/photo-1509395062183-67c5ad6faff9.webp');">
     <div class="container mx-auto text-center">
       <h1 class="text-4xl md:text-5xl font-bold mb-6">Soluções Elétricas do Futuro</h1>
       <p class="mb-8 text-lg md:text-xl text-blue-100 max-w-2xl mx-auto">Projetos modernos e sustentáveis em São José do Norte/RS para residências e empresas.</p>
@@ -289,7 +287,7 @@
         </ul>
       </div>
       <div class="flex items-center">
-        <img src="https://images.unsplash.com/photo-1508514177221-188b0df6a373?q=80&w=400&auto=format&fit=crop" alt="Equipe da Nort Elétrica" class="rounded-lg shadow-lg w-full transition-all duration-300 hover:scale-105" loading="lazy">
+        <img src="/assets/photo-1508514177221-188b0df6a373.webp" alt="Equipe da Nort Elétrica" class="rounded-lg shadow-lg w-full transition-all duration-300 hover:scale-105" loading="lazy">
       </div>
     </div>
     <div class="container mx-auto px-4 mt-12">
@@ -320,40 +318,40 @@
       <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Nossos Serviços</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1509395062183-67c5ad6faff9?q=80&w=300&auto=format&fit=crop" alt="Sistemas Fotovoltaicos" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <img src="/assets/photo-1509395062183-67c5ad6faff9.webp" alt="Sistemas Fotovoltaicos" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
           <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Sistemas Fotovoltaicos</h3>
           <p class="text-gray-600">Energia solar moderna e eficiente para sua casa ou empresa.</p>
-          <a href="servicos/sistemas-fotovoltaicos.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+          <a href="#contact" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
         </div>
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1581094281238-1fce0ee653c8?q=80&w=300&auto=format&fit=crop" alt="Elétrica Predial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <img src="/assets/photo-1581094281238-1fce0ee653c8.webp" alt="Elétrica Predial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
           <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Elétrica Predial</h3>
           <p class="text-gray-600">Instalações elétricas seguras para residências.</p>
-          <a href="servicos/eletrica-predial.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+          <a href="#contact" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
         </div>
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?q=80&w=300&auto=format&fit=crop" alt="Elétrica Industrial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <img src="/assets/photo-1508780709619-79562169bc64.webp" alt="Elétrica Industrial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
           <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Elétrica Industrial</h3>
           <p class="text-gray-600">Soluções robustas para indústrias de todos os portes.</p>
-          <a href="servicos/eletrica-industrial.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+          <a href="#contact" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
         </div>
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop" alt="Automação Residencial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <img src="/assets/photo-1600585154340-be6161a56a0c.webp" alt="Automação Residencial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
           <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Automação Residencial</h3>
           <p class="text-gray-600">Casas inteligentes ao seu alcance.</p>
-          <a href="servicos/automacao-residencial.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+          <a href="#contact" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
         </div>
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1623601515359-d9b460b1e5?q=80&w=300&auto=format&fit=crop" alt="Cabeamento Estruturado" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <img src="/assets/photo-1623601515359-d9b460b1e5.webp" alt="Cabeamento Estruturado" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
           <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Cabeamento Estruturado</h3>
           <p class="text-gray-600">Conectividade eficiente para redes corporativas.</p>
-          <a href="servicos/cabeamento-estruturado.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+          <a href="#contact" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
         </div>
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1552858036-2b686cminor6e?q=80&w=300&auto=format&fit=crop" alt="CFTV e Monitoramento" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <img src="/assets/photo-1552858036-2b686cminor6e.webp" alt="CFTV e Monitoramento" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
           <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">CFTV e Monitoramento</h3>
           <p class="text-gray-600">Segurança 24/7 com tecnologia de ponta.</p>
-          <a href="servicos/cftv-monitoramento.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+          <a href="#contact" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
         </div>
       </div>
       <div class="text-center mt-12">
@@ -400,22 +398,22 @@
       <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Projetos em Destaque</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
         <div class="highlight-card">
-          <img src="https://images.unsplash.com/photo-1509395062183-67c5ad6faff9?q=80&w=300&auto=format&fit=crop" alt="Projeto Solar Residencial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <img src="/assets/photo-1509395062183-67c5ad6faff9.webp" alt="Projeto Solar Residencial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
           <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Residência Solar</h3>
           <p class="text-gray-600">Sistema de 5 kWp em São José do Norte.</p>
-          <a href="highlights.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+          <a href="#contact" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
         </div>
         <div class="highlight-card">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop" alt="Automação Residencial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <img src="/assets/photo-1600585154340-be6161a56a0c.webp" alt="Automação Residencial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
           <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Casa Inteligente</h3>
           <p class="text-gray-600">Automação completa em Pelotas.</p>
-          <a href="highlights.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+          <a href="#contact" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
         </div>
         <div class="highlight-card">
-          <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?q=80&w=300&auto=format&fit=crop" alt="Elétrica Industrial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <img src="/assets/photo-1508780709619-79562169bc64.webp" alt="Elétrica Industrial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
           <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Fábrica Sustentável</h3>
           <p class="text-gray-600">Instalação elétrica em Rio Grande.</p>
-          <a href="highlights.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+          <a href="#contact" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
         </div>
       </div>
     </div>
@@ -433,38 +431,38 @@
       </div>
       <div id="gallery-carousel" class="grid gap-6">
         <div class="gallery-item" data-category="solar">
-          <a href="https://images.unsplash.com/photo-1509395062183-67c5ad6faff9?q=80&w=2072&auto=format&fit=crop" data-lightbox="gallery" data-title="Sistemas Fotovoltaicos">
-            <img src="https://images.unsplash.com/photo-1509395062183-67c5ad6faff9?q=80&w=600&auto=format&fit=crop" alt="Sistemas Fotovoltaicos" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
+          <a href="/assets/photo-1509395062183-67c5ad6faff9.webp" data-lightbox="gallery" data-title="Sistemas Fotovoltaicos">
+            <img src="/assets/photo-1509395062183-67c5ad6faff9-thumbnail.webp" alt="Sistemas Fotovoltaicos" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
           </a>
           <div class="caption text-center mt-2 text-gray-700 font-semibold">Sistemas Fotovoltaicos</div>
         </div>
         <div class="gallery-item" data-category="eletrica">
-          <a href="https://images.unsplash.com/photo-1581094281238-1fce0ee653c8?q=80&w=2070&auto=format&fit=crop" data-lightbox="gallery" data-title="Elétrica Predial">
-            <img src="https://images.unsplash.com/photo-1581094281238-1fce0ee653c8?q=80&w=600&auto=format&fit=crop" alt="Elétrica Predial" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
+          <a href="/assets/photo-1581094281238-1fce0ee653c8.webp" data-lightbox="gallery" data-title="Elétrica Predial">
+            <img src="/assets/photo-1581094281238-1fce0ee653c8-thumbnail.webp" alt="Elétrica Predial" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
           </a>
           <div class="caption text-center mt-2 text-gray-700 font-semibold">Elétrica Predial</div>
         </div>
         <div class="gallery-item" data-category="eletrica">
-          <a href="https://images.unsplash.com/photo-1508780709619-79562169bc64?q=80&w=2070&auto=format&fit=crop" data-lightbox="gallery" data-title="Elétrica Industrial">
-            <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?q=80&w=600&auto=format&fit=crop" alt="Elétrica Industrial" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
+          <a href="/assets/photo-1508780709619-79562169bc64.webp" data-lightbox="gallery" data-title="Elétrica Industrial">
+            <img src="/assets/photo-1508780709619-79562169bc64-thumbnail.webp" alt="Elétrica Industrial" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
           </a>
           <div class="caption text-center mt-2 text-gray-700 font-semibold">Elétrica Industrial</div>
         </div>
         <div class="gallery-item" data-category="automacao">
-          <a href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" data-lightbox="gallery" data-title="Automação Residencial">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop" alt="Automação Residencial" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
+          <a href="/assets/photo-1600585154340-be6161a56a0c.webp" data-lightbox="gallery" data-title="Automação Residencial">
+            <img src="/assets/photo-1600585154340-be6161a56a0c-thumbnail.webp" alt="Automação Residencial" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
           </a>
           <div class="caption text-center mt-2 text-gray-700 font-semibold">Automação Residencial</div>
         </div>
         <div class="gallery-item" data-category="eletrica">
-          <a href="https://images.unsplash.com/photo-1623601515359-d9b460b1e5?q=80&w=2070&auto=format&fit=crop" data-lightbox="gallery" data-title="Cabeamento Estruturado">
-            <img src="https://images.unsplash.com/photo-1623601515359-d9b460b1e5?q=80&w=600&auto=format&fit=crop" alt="Cabeamento Estruturado" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
+          <a href="/assets/photo-1623601515359-d9b460b1e5.webp" data-lightbox="gallery" data-title="Cabeamento Estruturado">
+            <img src="/assets/photo-1623601515359-d9b460b1e5-thumbnail.webp" alt="Cabeamento Estruturado" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
           </a>
           <div class="caption text-center mt-2 text-gray-700 font-semibold">Cabeamento Estruturado</div>
         </div>
         <div class="gallery-item" data-category="eletrica">
-          <a href="https://images.unsplash.com/photo-1552858036-2b686cminor6e?q=80&w=2070&auto=format&fit=crop" data-lightbox="gallery" data-title="CFTV e Monitoramento">
-            <img src="https://images.unsplash.com/photo-1552858036-2b686cminor6e?q=80&w=600&auto=format&fit=crop" alt="CFTV e Monitoramento" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
+          <a href="/assets/photo-1552858036-2b686cminor6e.webp" data-lightbox="gallery" data-title="CFTV e Monitoramento">
+            <img src="/assets/photo-1552858036-2b686cminor6e-thumbnail.webp" alt="CFTV e Monitoramento" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
           </a>
           <div class="caption text-center mt-2 text-gray-700 font-semibold">CFTV e Monitoramento</div>
         </div>
@@ -529,40 +527,40 @@
       <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Nosso Blog</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1509395062183-67c5ad6faff9?q=80&w=300&auto=format&fit=crop" alt="Sistemas Fotovoltaicos" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <img src="/assets/photo-1509395062183-67c5ad6faff9.webp" alt="Sistemas Fotovoltaicos" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
           <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Tudo Sobre Sistemas Fotovoltaicos</h3>
           <p class="text-gray-600">Como a energia solar pode transformar sua casa.</p>
-          <a href="blog/sistemas-fotovoltaicos.html" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
+          <a href="#contact" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
         </div>
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1581094281238-1fce0ee653c8?q=80&w=300&auto=format&fit=crop" alt="Elétrica Predial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <img src="/assets/photo-1581094281238-1fce0ee653c8.webp" alt="Elétrica Predial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
           <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Guia de Elétrica Predial</h3>
           <p class="text-gray-600">Dicas para manter sua instalação segura.</p>
-          <a href="blog/eletrica-predial.html" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
+          <a href="#contact" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
         </div>
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?q=80&w=300&auto=format&fit=crop" alt="Elétrica Industrial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <img src="/assets/photo-1508780709619-79562169bc64.webp" alt="Elétrica Industrial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
           <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Elétrica Industrial: O que Você Precisa Saber</h3>
           <p class="text-gray-600">Soluções para otimizar sua produção.</p>
-          <a href="blog/eletrica-industrial.html" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
+          <a href="#contact" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
         </div>
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop" alt="Automação Residencial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <img src="/assets/photo-1600585154340-be6161a56a0c.webp" alt="Automação Residencial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
           <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Automação Residencial: O Futuro Hoje</h3>
           <p class="text-gray-600">Transforme sua casa com tecnologia inteligente.</p>
-          <a href="blog/automacao-residencial.html" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
+          <a href="#contact" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
         </div>
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1623601515359-d9b460b1e5?q=80&w=300&auto=format&fit=crop" alt="Cabeamento Estruturado" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <img src="/assets/photo-1623601515359-d9b460b1e5.webp" alt="Cabeamento Estruturado" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
           <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Cabeamento Estruturado Simplificado</h3>
           <p class="text-gray-600">Conexões rápidas e eficientes para sua rede.</p>
-          <a href="blog/cabeamento-estruturado.html" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
+          <a href="#contact" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
         </div>
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1552858036-2b686cminor6e?q=80&w=300&auto=format&fit=crop" alt="CFTV e Monitoramento" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <img src="/assets/photo-1552858036-2b686cminor6e.webp" alt="CFTV e Monitoramento" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
           <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">CFTV: Segurança Moderna</h3>
           <p class="text-gray-600">Como proteger sua casa ou empresa 24/7.</p>
-          <a href="blog/cftv-monitoramento.html" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
+          <a href="#contact" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
         </div>
       </div>
     </div>
@@ -623,7 +621,7 @@
           <p class="text-gray-600 text-lg">Estamos prontos para atender você com rapidez e profissionalismo.</p>
           <div class="bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Contato</h3>
-            <p class="text-gray-600"><i class="fas fa-envelope mr-2 text-[var(--primary-blue)]"></i> E-mail: <a href="mailto:contato@norteletrica.com.br" class="text-[var(--primary-blue)] hover:underline">contato@norteletrica.com.br</a></p>
+            <p class="text-gray-600"><i class="fas fa-envelope mr-2 text-[var(--primary-blue)]"></i> E-mail: <a href="mailto:lucascsjn1999@gmail.com" class="text-[var(--primary-blue)] hover:underline">lucascsjn1999@gmail.com</a></p>
             <p class="text-gray-600 mt-2"><i class="fab fa-whatsapp mr-2 text-[var(--primary-blue)]"></i> WhatsApp: <a href="https://wa.me/5533981087746" class="text-[var(--primary-blue)] hover:underline">+55 53 98108-7746</a></p>
           </div>
           <div class="bg-white p-6 rounded-lg shadow-md">
@@ -663,15 +661,15 @@
             <h3 class="text-2xl font-semibold text-center mb-6 text-[var(--primary-blue)]">Certificações</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
-                <img src="https://via.placeholder.com/100x100" alt="Certificado CREA-RS" loading="lazy">
+                <img src="/assets/crea-rs.webp" alt="Certificado CREA-RS" loading="lazy">
                 <p class="text-gray-700 mt-2">CREA-RS</p>
               </div>
               <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
-                <img src="https://via.placeholder.com/100x100" alt="Certificado NR-10" loading="lazy">
+                <img src="/assets/nr-10.webp" alt="Certificado NR-10" loading="lazy">
                 <p class="text-gray-700 mt-2">NR-10</p>
               </div>
               <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
-                <img src="https://via.placeholder.com/100x100" alt="Certificado NR-35" loading="lazy">
+                <img src="/assets/nr-35.webp" alt="Certificado NR-35" loading="lazy">
                 <p class="text-gray-700 mt-2">NR-35</p>
               </div>
             </div>
@@ -680,15 +678,15 @@
             <h3 class="text-2xl font-semibold text-center mb-6 text-[var(--primary-blue)]">Parceiros</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
-                <img src="https://via.placeholder.com/100x100" alt="WEG" loading="lazy">
+                <img src="/assets/weg.webp" alt="WEG" loading="lazy">
                 <p class="text-gray-700 mt-2">WEG</p>
               </div>
               <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
-                <img src="https://via.placeholder.com/100x100" alt="Fronius" loading="lazy">
+                <img src="/assets/fronius.webp" alt="Fronius" loading="lazy">
                 <p class="text-gray-700 mt-2">Fronius</p>
               </div>
               <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
-                <img src="https://via.placeholder.com/100x100" alt="Schneider Electric" loading="lazy">
+                <img src="/assets/schneider-electric.webp" alt="Schneider Electric" loading="lazy">
                 <p class="text-gray-700 mt-2">Schneider Electric</p>
               </div>
             </div>
@@ -724,7 +722,7 @@
           <div class="flex flex-wrap gap-4">
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="h-8" loading="lazy">
             <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="h-8" loading="lazy">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Pix-Logo.svg" alt="PIX" class="h-8" loading="lazy">
+            <img src="/assets/pix.webp" alt="PIX" class="h-8" loading="lazy">
           </div>
           <p class="text-blue-100 mt-2 text-sm">Parcelamento em até 12x</p>
         </div>
@@ -738,15 +736,23 @@
       </div>
       <div class="mt-8 text-center border-t border-blue-700 pt-4">
         <p id="footer-year" class="text-blue-100 text-sm">© 2025 Nort Elétrica. Todos os direitos reservados.</p>
-        <p class="mt-2 text-sm"><a href="politica-de-privacidade.html" class="text-blue-200 hover:underline">Política de Privacidade</a> | <a href="termos-de-uso.html" class="text-blue-200 hover:underline">Termos de Uso</a> | <a href="area-cliente.html" class="text-blue-200 hover:underline">Área do Cliente</a></p>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" defer></script>
+  <script src="https://kit.fontawesome.com/4a076d0539.js" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" defer></script>
   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof lightbox !== 'undefined') {
+        lightbox.option({
+          'resizeDuration': 200,
+          'wrapAround': true
+        });
+      }
+    });
+
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const closeMenu = document.getElementById('close-menu');
@@ -779,8 +785,6 @@
             mobileMenu.classList.remove('open');
             menuToggle.setAttribute('aria-expanded', 'false');
           }
-        } else if (href === 'area-cliente.html') {
-          window.location.href = href;
         }
       });
     });
