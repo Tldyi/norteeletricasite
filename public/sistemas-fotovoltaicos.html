@@ -7,176 +7,292 @@
   <meta name="description" content="Sistemas fotovoltaicos modernos e eficientes para residências e empresas em São José do Norte/RS. Conheça nossos kits solares e monte seu kit personalizado!">
   <meta name="keywords" content="energia solar, sistemas fotovoltaicos, kits solares, energia solar residencial, energia solar empresarial">
   <meta name="author" content="Nort Elétrica">
-  <!-- Open Graph para redes sociais -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Sistemas Fotovoltaicos - Nort Elétrica">
   <meta property="og:description" content="Sistemas fotovoltaicos modernos e eficientes para residências e empresas em São José do Norte/RS.">
   <meta property="og:image" content="/assets/solar-hero.webp">
-  <meta property="og:url" content="https://www.norteletrica.com.br">
+  <meta property="og:url" content="https://www.norteletrica.com.br/sistemas-fotovoltaicos.html">
+  <meta property="og:type" content="website">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sistemas Fotovoltaicos - Nort Elétrica">
+  <meta name="twitter:description" content="Sistemas fotovoltaicos modernos e eficientes para residências e empresas em São José do Norte/RS.">
+  <meta name="twitter:image" content="/assets/solar-hero.webp">
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <!-- Fontes -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  <!-- Preload -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="/assets/solar-hero.webp" as="image">
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
   <style>
     :root {
-      --primary-blue: #2563EB; /* Azul mais suave */
-      --dark-blue: #1E40AF; /* Azul mais escuro */
-      --solar-green: #10B981; /* Verde mais suave */
-      --light-bg: #F9FAFB; /* Fundo claro */
-      --text-dark: #1F2937; /* Texto escuro */
-      --text-light: #FFFFFF; /* Texto claro */
+      --primary-blue: #1e3a8a;
+      --dark-blue: #1e293b;
+      --solar-green: #22c55e;
+      --solar-yellow: #fbbf24;
+      --light-bg: #f9fafb;
+      --shadow-sm: 0 4px 10px rgba(34, 197, 94, 0.1);
+      --shadow-md: 0 10px 30px rgba(34, 197, 94, 0.2);
     }
-    body {
-      background: var(--light-bg);
-      color: var(--text-dark);
-      font-family: 'Inter', sans-serif;
-      font-size: 1.125rem; /* 18px para melhor legibilidade */
+    html, body { 
+      margin: 0; 
+      padding: 0; 
+      width: 100%;
+      overflow-x: hidden;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
-    h1 {
-      font-size: 2.5rem; /* 40px */
-      font-weight: 700;
+    body { 
+      background: var(--light-bg); 
+      padding-top: 80px; 
+      color: #1f2937;
+      line-height: 1.6;
     }
-    h2 {
-      font-size: 2rem; /* 32px */
-      font-weight: 700;
+    *, *:before, *:after { box-sizing: inherit; }
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; }
+    h2 { font-size: 4rem; letter-spacing: 0.025em; margin-bottom: 2.5rem; }
+    p { font-size: 1.1rem; }
+    @media (max-width: 768px) { 
+      h2 { font-size: 2.5rem; } 
+      p { font-size: 1rem; }
     }
-    h3 {
-      font-size: 1.5rem; /* 24px */
-      font-weight: 700;
+    section { 
+      scroll-margin-top: 80px; 
+      padding: 6rem 0; 
+      opacity: 0; 
+      transform: translateY(20px); 
+      animation: fadeInSection 0.8s ease forwards; 
     }
-    .btn-modern {
-      background: linear-gradient(135deg, var(--solar-green), #059669);
-      color: var(--text-light);
-      padding: 12px 24px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
+    @keyframes fadeInSection { to { opacity: 1; transform: translateY(0); } }
+    header { 
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); 
+      box-shadow: var(--shadow-sm); 
+      height: 80px; 
+      position: fixed; 
+      top: 0; 
+      width: 100%; 
+      z-index: 50; 
+      transition: transform 0.4s ease, background 0.3s ease;
+    }
+    header.hidden { transform: translateY(-100%); }
+    header.scrolled { background: rgba(30, 58, 138, 0.95); }
+    @media (max-width: 768px) { header { height: 60px; } }
+    .whatsapp-button, .cta-float { 
+      position: fixed; 
+      color: white; 
+      border-radius: 50px; 
+      padding: 12px 24px; 
+      display: flex; 
+      align-items: center; 
+      box-shadow: var(--shadow-md); 
+      transition: all 0.3s ease; 
+      z-index: 1000; 
       font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    .whatsapp-button { 
+      bottom: 100px; 
+      right: 20px; 
+      background: linear-gradient(135deg, #25D366, #128C7E); 
+      z-index: 1001; 
+    }
+    .cta-float { 
+      bottom: 20px; 
+      left: 20px; 
+      background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); 
+      z-index: 1002;
+    }
+    .whatsapp-button:hover, .cta-float:hover { 
+      transform: translateY(-3px); 
+      box-shadow: var(--shadow-md); 
+    }
+    .whatsapp-button img { width: 28px; height: 28px; margin-right: 10px; }
+    @media (max-width: 768px) {
+      .whatsapp-button, .cta-float { padding: 8px 16px; font-size: 0.9rem; }
+      .whatsapp-button { bottom: 80px; right: 15px; }
+      .cta-float { bottom: 15px; left: 15px; }
+      .whatsapp-button img { width: 20px; height: 20px; }
+    }
+    .service-card { 
+      background: white; 
+      border-radius: 12px; 
+      padding: 20px; 
+      transition: transform 0.3s ease, box-shadow 0.3s ease; 
+      box-shadow: var(--shadow-sm); 
+      border: 1px solid #e5e7eb;
+      width: 100%;
+    }
+    .service-card:hover { 
+      transform: translateY(-5px); 
+      box-shadow: var(--shadow-md); 
+    }
+    .btn-modern { 
+      background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); 
+      color: white; 
+      padding: 12px 24px; 
+      border-radius: 8px; 
+      transition: all 0.3s ease; 
+      font-weight: 600; 
+      display: inline-flex; 
+      align-items: center; 
+      box-shadow: var(--shadow-sm);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    .btn-modern:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      background: linear-gradient(135deg, #059669, var(--solar-green));
-    }
-    .service-card {
-      background: var(--text-light);
-      border-radius: 12px;
-      padding: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      border: 1px solid #E5E7EB;
-    }
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    .btn-modern:hover { 
+      transform: translateY(-2px); 
+      box-shadow: var(--shadow-md); 
+      background: linear-gradient(135deg, var(--solar-yellow), var(--solar-green)); 
     }
     .custom-kit-form {
-      background: var(--text-light);
+      background: white;
       border-radius: 12px;
       padding: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      box-shadow: var(--shadow-sm);
     }
-    header {
-      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-      color: var(--text-light);
+    footer { background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue)); }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
     }
-    footer {
-      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-      color: var(--text-light);
+    .header-branding h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      margin: 0;
+    }
+    .header-branding p {
+      font-size: 0.9rem;
+      color: #93c5fd;
+      margin: 0;
+    }
+    @media (max-width: 768px) {
+      .header-branding h1 { font-size: 1.2rem; }
+      .header-branding p { font-size: 0.8rem; }
+      #mobile-menu {
+        background: #1e293b;
+        width: 100%;
+        max-width: 100vw;
+        transform: translateX(100%);
+      }
+      #mobile-menu.open { transform: translateX(0); }
     }
   </style>
 </head>
-<body class="pt-20">
+<body>
+
+  <!-- WhatsApp Button -->
+  <a id="whatsapp-button" href="https://wa.me/5533981087746?text=Olá, gostaria de falar com um especialista sobre sistemas fotovoltaicos!" target="_blank" class="whatsapp-button">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+    <span>Fale Conosco</span>
+  </a>
+
+  <!-- CTA Flutuante -->
+  <a href="#contact" class="cta-float">
+    <span>Economize Agora!</span>
+  </a>
+
   <!-- Header -->
-  <header class="fixed top-0 w-full z-50 shadow-md">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="index.html">
-        <img src="/assets/logo-nort-eletrica.png" alt="Nort Elétrica" class="h-12">
-      </a>
-      <nav class="hidden md:flex space-x-6">
-        <a href="index.html" class="hover:text-[var(--solar-green)]">Início</a>
-        <a href="#kits" class="hover:text-[var(--solar-green)]">Kits Solares</a>
-        <a href="#custom-kit" class="hover:text-[var(--solar-green)]">Monte Seu Kit</a>
-        <a href="#contact" class="hover:text-[var(--solar-green)]">Contato</a>
-      </nav>
-      <button class="md:hidden text-white focus:outline-none" onclick="toggleMenu()">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+  <header class="text-white">
+    <div class="header-container">
+      <div class="header-branding">
+        <h1 onclick="scrollToTop()" class="cursor-pointer hover:text-[var(--solar-yellow)] transition-colors">Nort Elétrica</h1>
+        <p>Energia Inteligente para Todos</p>
+      </div>
+      <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menu">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" class="menu-open"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" class="menu-close hidden"></path>
         </svg>
       </button>
+      <nav id="menu" class="hidden md:flex items-center space-x-4">
+        <a href="index.html" class="hover:text-[var(--solar-yellow)] transition-colors">Início</a>
+        <a href="#kits" class="hover:text-[var(--solar-yellow)] transition-colors">Kits Solares</a>
+        <a href="#custom-kit" class="hover:text-[var(--solar-yellow)] transition-colors">Monte Seu Kit</a>
+        <a href="#contact" class="hover:text-[var(--solar-yellow)] transition-colors">Contato</a>
+      </nav>
     </div>
-    <nav id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 w-full bg-[var(--dark-blue)] text-white p-4">
-      <a href="index.html" class="block py-2 hover:text-[var(--solar-green)]">Início</a>
-      <a href="#kits" class="block py-2 hover:text-[var(--solar-green)]">Kits Solares</a>
-      <a href="#custom-kit" class="block py-2 hover:text-[var(--solar-green)]">Monte Seu Kit</a>
-      <a href="#contact" class="block py-2 hover:text-[var(--solar-green)]">Contato</a>
-    </nav>
+    <div id="mobile-menu" class="md:hidden fixed top-16 right-0 w-full max-w-xs text-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
+      <button id="close-menu" class="text-white p-4"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+      <div class="flex flex-col p-4 space-y-4">
+        <a href="index.html" class="hover:text-[var(--solar-yellow)] transition-colors">Início</a>
+        <a href="#kits" class="hover:text-[var(--solar-yellow)] transition-colors">Kits Solares</a>
+        <a href="#custom-kit" class="hover:text-[var(--solar-yellow)] transition-colors">Monte Seu Kit</a>
+        <a href="#contact" class="hover:text-[var(--solar-yellow)] transition-colors">Contato</a>
+      </div>
+    </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="bg-cover bg-center py-20" style="background-image: linear-gradient(to right, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), url('/assets/solar-hero.webp'); background-color: var(--primary-blue);">
-    <div class="container mx-auto px-4 text-center text-white">
+  <section class="text-white py-28 bg-cover bg-center mt-16 relative" style="background-image: linear-gradient(to right, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), url('/assets/solar-hero.webp');">
+    <div class="container mx-auto text-center">
       <h1 class="text-4xl md:text-5xl font-bold mb-6">Sistemas Fotovoltaicos</h1>
-      <p class="text-lg md:text-xl mb-8">Energia solar moderna e eficiente para sua casa ou empresa em São José do Norte/RS.</p>
+      <p class="mb-8 text-lg md:text-xl text-blue-100 max-w-2xl mx-auto">Energia solar moderna e eficiente para sua casa ou empresa em São José do Norte/RS.</p>
       <div class="space-x-4">
-        <a href="#kits" class="btn-modern">Conheça Nossos Kits</a>
-        <a href="#contact" class="btn-modern">Fale com um Especialista</a>
+        <a href="#kits" class="btn-modern text-lg">Conheça Nossos Kits</a>
+        <a href="#contact" class="btn-modern text-lg">Fale com um Especialista</a>
       </div>
     </div>
   </section>
 
-  <!-- Conteúdo -->
-  <section class="container mx-auto px-4 py-16">
-    <div class="grid md:grid-cols-2 gap-12">
+  <!-- Sobre Sistemas Fotovoltaicos -->
+  <section>
+    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12">
       <div>
-        <h2 class="text-3xl font-bold text-[var(--primary-blue)] mb-6">Energia Solar para Todos</h2>
-        <p class="text-gray-600 mb-4">A energia solar é a solução ideal para quem busca reduzir custos com energia elétrica e contribuir para um futuro mais sustentável. Na Nort Elétrica, oferecemos sistemas fotovoltaicos de alta qualidade, projetados para atender às necessidades de residências e empresas.</p>
-        <p class="text-gray-600 mb-4">Nossos sistemas são compostos por painéis solares, inversores e outros componentes de última geração, garantindo eficiência e durabilidade. Com a instalação de um sistema fotovoltaico, você pode gerar sua própria energia e ainda contribuir para a preservação do meio ambiente.</p>
-        <p class="text-gray-600 mb-4">Além disso, oferecemos suporte completo, desde o projeto até a manutenção, para garantir que seu sistema funcione perfeitamente por muitos anos.</p>
+        <h2 class="text-4xl font-bold text-[var(--primary-blue)]">Energia Solar para Todos</h2>
+        <p class="text-gray-600 text-lg leading-relaxed mt-4">A energia solar é a solução ideal para reduzir custos com energia elétrica e promover um futuro sustentável. Na Nort Elétrica, oferecemos sistemas fotovoltaicos de alta qualidade, projetados para residências e empresas.</p>
+        <p class="text-gray-600 mt-4">Com painéis solares, inversores e componentes de última geração, garantimos eficiência e durabilidade. Gere sua própria energia e contribua para o meio ambiente com nosso suporte completo, do projeto à manutenção.</p>
       </div>
-      <div>
-        <img src="/assets/solar-panels.webp" alt="Painéis Solares" class="rounded-lg shadow-lg w-full">
+      <div class="flex items-center">
+        <img src="/assets/solar-panels.webp" alt="Painéis Solares" class="rounded-lg shadow-lg w-full transition-all duration-300 hover:scale-105" loading="lazy">
       </div>
     </div>
   </section>
 
   <!-- Benefícios da Energia Solar -->
-  <section class="container mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold text-[var(--primary-blue)] text-center mb-8">Benefícios da Energia Solar</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="service-card">
-        <i class="fas fa-money-bill-wave text-3xl text-[var(--solar-green)] mb-4"></i>
-        <h3 class="text-xl font-bold text-[var(--primary-blue)] mb-4">Economia na Conta de Luz</h3>
-        <p class="text-gray-600">Reduza sua conta de luz em até 95% com a instalação de um sistema fotovoltaico.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-leaf text-3xl text-[var(--solar-green)] mb-4"></i>
-        <h3 class="text-xl font-bold text-[var(--primary-blue)] mb-4">Sustentabilidade</h3>
-        <p class="text-gray-600">Contribua para a preservação do meio ambiente utilizando uma fonte de energia limpa e renovável.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-home text-3xl text-[var(--solar-green)] mb-4"></i>
-        <h3 class="text-xl font-bold text-[var(--primary-blue)] mb-4">Valorização do Imóvel</h3>
-        <p class="text-gray-600">Imóveis com sistemas fotovoltaicos têm maior valor de mercado e são mais atraentes para compradores.</p>
+  <section>
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Benefícios da Energia Solar</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <div class="service-card text-center">
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Economia na Conta</h3>
+          <p class="text-gray-600 mt-2">Reduza sua conta de luz em até 95%.</p>
+        </div>
+        <div class="service-card text-center">
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Sustentabilidade</h3>
+          <p class="text-gray-600 mt-2">Energia limpa para um futuro melhor.</p>
+        </div>
+        <div class="service-card text-center">
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Valorização do Imóvel</h3>
+          <p class="text-gray-600 mt-2">Aumente o valor do seu patrimônio.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Kits Solares -->
-  <section id="kits" class="bg-[var(--light-bg)] py-16">
+  <section id="kits">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-[var(--primary-blue)] text-center mb-8">Nossos Kits Solares</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Kit 300 kWh/mês -->
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Nossos Kits Solares</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
         <div class="service-card">
-          <i class="fas fa-solar-panel text-3xl text-[var(--solar-green)] mb-4"></i>
-          <h3 class="text-xl font-bold text-[var(--primary-blue)] mb-4">Kit 300 kWh/mês</h3>
-          <p class="text-gray-600 mb-4">Ideal para residências com consumo médio de 300 kWh por mês.</p>
+          <img src="/assets/kit-300kwh.webp" alt="Kit 300 kWh/mês" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Kit 300 kWh/mês</h3>
+          <p class="text-gray-600 mb-4">Ideal para residências com consumo médio de 300 kWh/mês.</p>
           <ul class="text-gray-600 mb-4 list-disc list-inside">
             <li>6 Painéis Solares</li>
             <li>Inversor 2.5 kW</li>
@@ -184,15 +300,13 @@
             <li>Instalação Inclusa</li>
           </ul>
           <p class="text-xl font-bold text-[var(--primary-blue)]">R$ 15.000,00</p>
-          <p class="text-sm text-gray-500">ou 10x de R$ 1.500,00 sem juros</p>
-          <a href="index.html#contact" class="btn-modern mt-4">Solicitar Orçamento</a>
+          <p class="text-sm text-gray-500">ou 10x de R$ 1.500,00</p>
+          <a href="#contact" class="btn-modern mt-4">Solicitar Orçamento</a>
         </div>
-
-        <!-- Kit 500 kWh/mês -->
         <div class="service-card">
-          <i class="fas fa-solar-panel text-3xl text-[var(--solar-green)] mb-4"></i>
-          <h3 class="text-xl font-bold text-[var(--primary-blue)] mb-4">Kit 500 kWh/mês</h3>
-          <p class="text-gray-600 mb-4">Perfeito para residências ou pequenas empresas com consumo médio de 500 kWh por mês.</p>
+          <img src="/assets/kit-500kwh.webp" alt="Kit 500 kWh/mês" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Kit 500 kWh/mês</h3>
+          <p class="text-gray-600 mb-4">Perfeito para residências ou pequenas empresas com consumo de 500 kWh/mês.</p>
           <ul class="text-gray-600 mb-4 list-disc list-inside">
             <li>10 Painéis Solares</li>
             <li>Inversor 5 kW</li>
@@ -200,15 +314,13 @@
             <li>Instalação Inclusa</li>
           </ul>
           <p class="text-xl font-bold text-[var(--primary-blue)]">R$ 25.000,00</p>
-          <p class="text-sm text-gray-500">ou 10x de R$ 2.500,00 sem juros</p>
-          <a href="index.html#contact" class="btn-modern mt-4">Solicitar Orçamento</a>
+          <p class="text-sm text-gray-500">ou 10x de R$ 2.500,00</p>
+          <a href="#contact" class="btn-modern mt-4">Solicitar Orçamento</a>
         </div>
-
-        <!-- Kit 700 kWh/mês -->
         <div class="service-card">
-          <i class="fas fa-solar-panel text-3xl text-[var(--solar-green)] mb-4"></i>
-          <h3 class="text-xl font-bold text-[var(--primary-blue)] mb-4">Kit 700 kWh/mês</h3>
-          <p class="text-gray-600 mb-4">Recomendado para empresas ou residências com consumo médio de 700 kWh por mês.</p>
+          <img src="/assets/kit-700kwh.webp" alt="Kit 700 kWh/mês" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Kit 700 kWh/mês</h3>
+          <p class="text-gray-600 mb-4">Recomendado para empresas ou residências com consumo de 700 kWh/mês.</p>
           <ul class="text-gray-600 mb-4 list-disc list-inside">
             <li>14 Painéis Solares</li>
             <li>Inversor 7 kW</li>
@@ -216,224 +328,328 @@
             <li>Instalação Inclusa</li>
           </ul>
           <p class="text-xl font-bold text-[var(--primary-blue)]">R$ 35.000,00</p>
-          <p class="text-sm text-gray-500">ou 10x de R$ 3.500,00 sem juros</p>
-          <a href="index.html#contact" class="btn-modern mt-4">Solicitar Orçamento</a>
+          <p class="text-sm text-gray-500">ou 10x de R$ 3.500,00</p>
+          <a href="#contact" class="btn-modern mt-4">Solicitar Orçamento</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Monte Seu Kit Personalizado -->
-  <section id="custom-kit" class="container mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold text-[var(--primary-blue)] text-center mb-8">Monte Seu Kit Personalizado</h2>
-    <div class="custom-kit-form">
-      <form class="space-y-6">
-        <div>
-          <label for="consumption" class="block text-gray-700 font-semibold">Consumo Mensal (kWh)</label>
-          <input type="number" id="consumption" placeholder="Ex.: 300" class="border border-gray-300 p-3 w-full rounded-lg" required>
-        </div>
-        <div>
-          <label for="panel-type" class="block text-gray-700 font-semibold">Tipo de Painel Solar</label>
-          <select id="panel-type" class="border border-gray-300 p-3 w-full rounded-lg">
-            <option value="monocristalino">Monocristalino</option>
-            <option value="policristalino">Policristalino</option>
-            <option value="thin-film">Thin-Film</option>
-          </select>
-        </div>
-        <div>
-          <label for="inverter-type" class="block text-gray-700 font-semibold">Tipo de Inversor</label>
-          <select id="inverter-type" class="border border-gray-300 p-3 w-full rounded-lg">
-            <option value="string">String Inverter</option>
-            <option value="microinversor">Microinversor</option>
-            <option value="hibrido">Inversor Híbrido</option>
-          </select>
-        </div>
-        <div>
-          <label for="battery" class="block text-gray-700 font-semibold">Adicionar Bateria?</label>
-          <select id="battery" class="border border-gray-300 p-3 w-full rounded-lg">
-            <option value="sim">Sim</option>
-            <option value="nao">Não</option>
-          </select>
-        </div>
-        <button type="submit" class="btn-modern w-full">Solicitar Orçamento Personalizado</button>
-      </form>
-      <div id="success-message" class="hidden text-green-600 mt-4">Orçamento solicitado com sucesso!</div>
+  <section id="custom-kit">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Monte Seu Kit Personalizado</h2>
+      <div class="custom-kit-form max-w-lg mx-auto mt-8">
+        <form id="custom-kit-form" class="space-y-6">
+          <div>
+            <label for="consumption" class="block text-gray-700 font-semibold">Consumo Mensal (kWh)</label>
+            <input type="number" id="consumption" placeholder="Ex.: 300" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+          </div>
+          <div>
+            <label for="panel-type" class="block text-gray-700 font-semibold">Tipo de Painel Solar</label>
+            <select id="panel-type" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]">
+              <option value="monocristalino">Monocristalino</option>
+              <option value="policristalino">Policristalino</option>
+              <option value="thin-film">Thin-Film</option>
+            </select>
+          </div>
+          <div>
+            <label for="inverter-type" class="block text-gray-700 font-semibold">Tipo de Inversor</label>
+            <select id="inverter-type" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]">
+              <option value="string">String Inverter</option>
+              <option value="microinversor">Microinversor</option>
+              <option value="hibrido">Inversor Híbrido</option>
+            </select>
+          </div>
+          <div>
+            <label for="battery" class="block text-gray-700 font-semibold">Adicionar Bateria?</label>
+            <select id="battery" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]">
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-modern w-full">Solicitar Orçamento Personalizado</button>
+        </form>
+        <div id="success-message" class="hidden text-green-600 text-center mt-4">Orçamento solicitado com sucesso!</div>
+      </div>
     </div>
   </section>
 
   <!-- Calculadora de Economia -->
-<section class="container mx-auto px-4 py-16">
-  <h2 class="text-3xl font-bold text-[var(--primary-blue)] text-center mb-8">Calculadora de Economia</h2>
-  <div class="custom-kit-form">
-    <form id="calculadora-economia" class="space-y-6">
-      <div>
-        <label for="consumo" class="block text-gray-700 font-semibold">Consumo Mensal (kWh)</label>
-        <input type="number" id="consumo" placeholder="Ex.: 300" class="border border-gray-300 p-3 w-full rounded-lg" required>
+  <section>
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Calculadora de Economia</h2>
+      <div class="custom-kit-form max-w-lg mx-auto mt-8">
+        <form id="calculadora-economia" class="space-y-6">
+          <div>
+            <label for="consumo" class="block text-gray-700 font-semibold">Consumo Mensal (kWh)</label>
+            <input type="number" id="consumo" placeholder="Ex.: 300" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+          </div>
+          <div>
+            <label for="tarifa" class="block text-gray-700 font-semibold">Tarifa de Energia (R$/kWh)</label>
+            <input type="number" id="tarifa" placeholder="Ex.: 0.75" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" step="0.01" required>
+          </div>
+          <button type="submit" class="btn-modern w-full">Calcular Economia</button>
+        </form>
+        <div id="resultado-economia" class="hidden text-center text-green-600 mt-4">
+          <p>Você pode economizar até <span id="economia"></span> por ano!</p>
+        </div>
       </div>
-      <div>
-        <label for="tarifa" class="block text-gray-700 font-semibold">Tarifa de Energia (R$/kWh)</label>
-        <input type="number" id="tarifa" placeholder="Ex.: 0.75" class="border border-gray-300 p-3 w-full rounded-lg" step="0.01" required>
-      </div>
-      <button type="submit" class="btn-modern w-full">Calcular Economia</button>
-    </form>
-    <div id="resultado-economia" class="hidden text-center text-green-600 mt-4">
-      <p>Você pode economizar até <span id="economia"></span> por ano!</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<script>
-  // Função para calcular a economia anual
-  document.getElementById('calculadora-economia').addEventListener('submit', function(e) {
-    e.preventDefault(); // Impede o envio do formulário
-
-    // Captura os valores dos campos
-    const consumo = parseFloat(document.getElementById('consumo').value);
-    const tarifa = parseFloat(document.getElementById('tarifa').value);
-
-    // Verifica se os valores são válidos
-    if (isNaN(consumo) || isNaN(tarifa)) {
-      alert("Por favor, insira valores válidos.");
-      return;
-    }
-
-    // Cálculo da economia anual (95% de economia)
-    const economiaAnual = (consumo * tarifa * 12 * 0.95).toFixed(2);
-
-    // Exibe o resultado
-    document.getElementById('economia').textContent = `R$ ${economiaAnual}`;
-    document.getElementById('resultado-economia').classList.remove('hidden');
-  });
-</script>
-
-  <!-- Perguntas Frequentes (FAQ) -->
-  <section class="container mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold text-[var(--primary-blue)] text-center mb-8">Perguntas Frequentes</h2>
-    <div class="space-y-6">
-      <div class="service-card">
-        <h3 class="text-xl font-bold text-[var(--primary-blue)] mb-4">Quanto tempo dura a instalação?</h3>
-        <p class="text-gray-600">A instalação de um sistema fotovoltaico geralmente leva de 1 a 3 dias, dependendo do tamanho do sistema e da complexidade do projeto.</p>
-      </div>
-      <div class="service-card">
-        <h3 class="text-xl font-bold text-[var(--primary-blue)] mb-4">Qual é a vida útil dos painéis solares?</h3>
-        <p class="text-gray-600">Os painéis solares têm uma vida útil média de 25 a 30 anos, com manutenção mínima necessária.</p>
-      </div>
-      <div class="service-card">
-        <h3 class="text-xl font-bold text-[var(--primary-blue)] mb-4">Posso instalar energia solar em um apartamento?</h3>
-        <p class="text-gray-600">Sim, é possível instalar energia solar em apartamentos, desde que haja espaço adequado no telhado ou área comum para os painéis solares.</p>
+  <!-- Perguntas Frequentes -->
+  <section>
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Perguntas Frequentes</h2>
+      <div class="space-y-6 mt-8">
+        <div>
+          <div class="faq-question" onclick="toggleFAQ(1)">Quanto tempo dura a instalação? <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+          <div class="faq-answer" id="faq-answer-1">A instalação geralmente leva de 1 a 3 dias, dependendo do tamanho e da complexidade do projeto.</div>
+        </div>
+        <div>
+          <div class="faq-question" onclick="toggleFAQ(2)">Qual é a vida útil dos painéis solares? <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+          <div class="faq-answer" id="faq-answer-2">Os painéis solares têm uma vida útil média de 25 a 30 anos, com manutenção mínima.</div>
+        </div>
+        <div>
+          <div class="faq-question" onclick="toggleFAQ(3)">Posso instalar energia solar em um apartamento? <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+          <div class="faq-answer" id="faq-answer-3">Sim, desde que haja espaço adequado no telhado ou área comum.</div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Contato -->
-  <section id="contact" class="container mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold text-[var(--primary-blue)] text-center mb-8">Entre em Contato</h2>
-    <div class="grid md:grid-cols-2 gap-12">
-      <form class="space-y-6">
-        <div>
-          <label for="name" class="block text-gray-700 font-semibold">Nome Completo</label>
-          <input type="text" id="name" placeholder="Seu Nome Completo" class="border border-gray-300 p-3 w-full rounded-lg" required>
-        </div>
-        <div>
-          <label for="email" class="block text-gray-700 font-semibold">E-mail</label>
-          <input type="email" id="email" placeholder="exemplo@email.com" class="border border-gray-300 p-3 w-full rounded-lg" required>
-        </div>
-        <div>
-          <label for="phone" class="block text-gray-700 font-semibold">Telefone</label>
-          <input type="tel" id="phone" placeholder="(53) 99999-9999" class="border border-gray-300 p-3 w-full rounded-lg" required>
-        </div>
-        <div>
-          <label for="tipo-imovel" class="block text-gray-700 font-semibold">Tipo de Imóvel</label>
-          <select id="tipo-imovel" class="border border-gray-300 p-3 w-full rounded-lg">
-            <option value="residencial">Residencial</option>
-            <option value="comercial">Comercial</option>
-          </select>
-        </div>
-        <div>
-          <label for="tamanho-telhado" class="block text-gray-700 font-semibold">Tamanho do Telhado (m²)</label>
-          <input type="number" id="tamanho-telhado" placeholder="Ex.: 50" class="border border-gray-300 p-3 w-full rounded-lg">
-        </div>
-        <div>
-          <label for="message" class="block text-gray-700 font-semibold">Mensagem</label>
-          <textarea id="message" placeholder="Escreva sua mensagem aqui" class="border border-gray-300 p-3 w-full rounded-lg" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="btn-modern w-full">Enviar Mensagem</button>
-      </form>
-      <div class="space-y-6">
-        <p class="text-gray-600">Estamos prontos para atender você com rapidez e profissionalismo.</p>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Contato</h3>
-          <p class="text-gray-600"><i class="fas fa-envelope mr-2 text-[var(--primary-blue)]"></i> E-mail: <a href="mailto:contato@norteletrica.com.br" class="text-[var(--primary-blue)] hover:underline">contato@norteletrica.com.br</a></p>
-          <p class="text-gray-600 mt-2"><i class="fab fa-whatsapp mr-2 text-[var(--primary-blue)]"></i> WhatsApp: <a href="https://wa.me/5533981087746" class="text-[var(--primary-blue)] hover:underline">+55 53 98108-7746</a></p>
+  <section id="contact">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Entre em Contato</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
+        <form id="contact-form" class="space-y-6">
+          <div>
+            <label for="name" class="block text-gray-700 font-semibold">Nome Completo</label>
+            <input type="text" id="name" placeholder="Seu Nome" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+          </div>
+          <div>
+            <label for="email" class="block text-gray-700 font-semibold">E-mail</label>
+            <input type="email" id="email" placeholder="Seu E-mail" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+          </div>
+          <div>
+            <label for="phone" class="block text-gray-700 font-semibold">Telefone</label>
+            <input type="tel" id="phone" placeholder="Seu Telefone" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+          </div>
+          <div>
+            <label for="objetivo" class="block text-gray-700 font-semibold">Objetivo do Contato</label>
+            <select id="objetivo" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+              <option value="" disabled selected>Selecione uma opção</option>
+              <option value="orcamento">Solicitar Orçamento</option>
+              <option value="duvidas">Tirar Dúvidas</option>
+              <option value="suporte">Suporte Técnico</option>
+              <option value="outros">Outros</option>
+            </select>
+          </div>
+          <div>
+            <label for="cidade" class="block text-gray-700 font-semibold">Cidade</label>
+            <input type="text" id="cidade" placeholder="Ex.: São José do Norte" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+          </div>
+          <div>
+            <label for="consumo" class="block text-gray-700 font-semibold">Consumo Médio Mensal (kWh)</label>
+            <input type="number" id="consumo" placeholder="Ex.: 300" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]">
+          </div>
+          <div>
+            <label for="tipo-imovel" class="block text-gray-700 font-semibold">Tipo de Imóvel</label>
+            <select id="tipo-imovel" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]">
+              <option value="residencial">Residencial</option>
+              <option value="comercial">Comercial</option>
+            </select>
+          </div>
+          <div>
+            <label for="tamanho-telhado" class="block text-gray-700 font-semibold">Tamanho do Telhado (m²)</label>
+            <input type="number" id="tamanho-telhado" placeholder="Ex.: 50" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]">
+          </div>
+          <div>
+            <label for="message" class="block text-gray-700 font-semibold">Mensagem</label>
+            <textarea id="message" placeholder="Sua Mensagem" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" rows="5" required></textarea>
+          </div>
+          <div>
+            <label class="flex items-center text-gray-700">
+              <input type="checkbox" id="termos" class="mr-2 rounded border-gray-300 focus:ring-[var(--primary-blue)]" required>
+              <span>Li e aceito a <a href="/politica-privacidade.html" target="_blank" class="text-[var(--primary-blue)] hover:underline">Política de Privacidade</a> e os <a href="/termos-de-uso.html" target="_blank" class="text-[var(--primary-blue)] hover:underline">Termos de Uso</a></span>
+            </label>
+          </div>
+          <button type="submit" class="btn-modern w-full">Enviar Mensagem</button>
+        </form>
+        <div class="space-y-6">
+          <p class="text-gray-600 text-lg">Estamos prontos para atender você com rapidez e profissionalismo.</p>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Contato</h3>
+            <p class="text-gray-600"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> E-mail: <a href="mailto:contato@norteletrica.com.br" class="text-[var(--primary-blue)] hover:underline">contato@norteletrica.com.br</a></p>
+            <p class="text-gray-600 mt-2"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l4-4h-.586A1.994 1.994 0 019 14.414" /></svg> WhatsApp: <a href="https://wa.me/5533981087746" class="text-[var(--primary-blue)] hover:underline">+55 53 98108-7746</a></p>
+          </div>
         </div>
       </div>
+      <div id="success-contact" class="hidden text-green-600 text-center mt-4">Mensagem enviada com sucesso!</div>
     </div>
-    <div id="success-message" class="hidden text-center text-green-600 mt-4">Mensagem enviada com sucesso!</div>
   </section>
 
-  <!-- Botão de WhatsApp -->
-  <a href="https://wa.me/5533981087746" class="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all">
-    <i class="fab fa-whatsapp text-2xl"></i>
-  </a>
-
   <!-- Footer -->
-  <footer class="py-12">
+  <footer class="text-white py-12">
     <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <h3 class="text-xl font-semibold mb-4">Nort Elétrica</h3>
           <p class="text-blue-100">Energia Inteligente para Todos</p>
           <p class="text-blue-100 mt-2">São José do Norte/RS - Rua Exemplo, 123</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="https://www.instagram.com/norteletrica" target="_blank" class="text-white hover:text-[var(--solar-yellow)]"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2m14-1v4M5 20v-4m0-10h4m10 10h-4M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg></a>
+            <a href="https://www.facebook.com/norteletrica" target="_blank" class="text-white hover:text-[var(--solar-yellow)]"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg></a>
+          </div>
         </div>
         <div>
           <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
           <ul class="space-y-2 text-blue-100">
-            <li><a href="index.html" class="hover:text-[var(--solar-green)]">Início</a></li>
-            <li><a href="#kits" class="hover:text-[var(--solar-green)]">Kits Solares</a></li>
-            <li><a href="#custom-kit" class="hover:text-[var(--solar-green)]">Monte Seu Kit</a></li>
-            <li><a href="#contact" class="hover:text-[var(--solar-green)]">Contato</a></li>
+            <li><a href="index.html" class="hover:text-[var(--solar-yellow)]">Início</a></li>
+            <li><a href="#kits" class="hover:text-[var(--solar-yellow)]">Kits Solares</a></li>
+            <li><a href="#custom-kit" class="hover:text-[var(--solar-yellow)]">Monte Seu Kit</a></li>
+            <li><a href="#contact" class="hover:text-[var(--solar-yellow)]">Contato</a></li>
           </ul>
         </div>
         <div>
-          <h3 class="text-xl font-semibold mb-4">Informações</h3>
-          <ul class="space-y-2 text-blue-100">
-            <li><a href="/politica-privacidade.html" class="hover:text-[var(--solar-green)]">Política de Privacidade</a></li>
-            <li><a href="/termos-de-servico.html" class="hover:text-[var(--solar-green)]">Termos de Serviço</a></li>
-            <li><a href="/trabalhe-conosco.html" class="hover:text-[var(--solar-green)]">Trabalhe Conosco</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-4">Redes Sociais</h3>
-          <div class="flex space-x-4">
-            <a href="https://www.instagram.com/norteletrica" target="_blank" class="text-white hover:text-[var(--solar-green)]"><i class="fab fa-instagram text-2xl"></i></a>
-            <a href="https://www.facebook.com/norteletrica" target="_blank" class="text-white hover:text-[var(--solar-green)]"><i class="fab fa-facebook text-2xl"></i></a>
+          <h3 class="text-xl font-semibold mb-4">Formas de Pagamento</h3>
+          <div class="flex flex-wrap gap-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="h-8" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="h-8" loading="lazy">
+            <img src="/assets/pix.webp" alt="PIX" class="h-8" loading="lazy">
           </div>
+          <p class="text-blue-100 mt-2 text-sm">Parcelamento em até 12x</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Links Úteis</h3>
+          <ul class="space-y-2 text-blue-100">
+            <li><a href="/politica-privacidade.html" class="hover:text-[var(--solar-yellow)]">Política de Privacidade</a></li>
+            <li><a href="/termos-de-uso.html" class="hover:text-[var(--solar-yellow)]">Termos de Uso</a></li>
+            <li><a href="/area-do-cliente.html" class="hover:text-[var(--solar-yellow)]">Área do Cliente</a></li>
+          </ul>
         </div>
       </div>
       <div class="mt-8 text-center border-t border-blue-700 pt-4">
-        <p class="text-blue-100">© 2025 Nort Elétrica. Todos os direitos reservados.</p>
+        <p id="footer-year" class="text-blue-100 text-sm">© 2025 Nort Elétrica. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" defer></script>
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
+    // Menu Mobile
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      document.querySelector('.menu-open').classList.toggle('hidden');
+      document.querySelector('.menu-close').classList.toggle('hidden');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      document.querySelector('.menu-open').classList.remove('hidden');
+      document.querySelector('.menu-close').classList.add('hidden');
+    });
+
+    // Navegação suave
+    document.querySelectorAll('nav a, #mobile-menu a').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const href = anchor.getAttribute('href');
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+          mobileMenu.classList.remove('open');
+          document.querySelector('.menu-open').classList.remove('hidden');
+          document.querySelector('.menu-close').classList.add('hidden');
+        }
+      });
+    });
+
+    // Controle do cabeçalho ao rolar
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+      header.classList.toggle('scrolled', scrollTop > 50);
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+
+    // Função para voltar ao topo
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     // Calculadora de Economia
-    document.querySelector('form').addEventListener('submit', function(e) {
+    document.getElementById('calculadora-economia').addEventListener('submit', (e) => {
       e.preventDefault();
       const consumo = parseFloat(document.getElementById('consumo').value);
       const tarifa = parseFloat(document.getElementById('tarifa').value);
-      const economiaAnual = (consumo * tarifa * 12 * 0.95).toFixed(2); // 95% de economia
+      if (isNaN(consumo) || isNaN(tarifa)) {
+        alert("Por favor, insira valores válidos.");
+        return;
+      }
+      const economiaAnual = (consumo * tarifa * 12 * 0.95).toFixed(2);
       document.getElementById('economia').textContent = `R$ ${economiaAnual}`;
-      document.getElementById('resultado').classList.remove('hidden');
+      document.getElementById('resultado-economia').classList.remove('hidden');
     });
+
+    // Formulário de Kit Personalizado
+    document.getElementById('custom-kit-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const consumption = document.getElementById('consumption').value;
+      const panelType = document.getElementById('panel-type').value;
+      const inverterType = document.getElementById('inverter-type').value;
+      const battery = document.getElementById('battery').value;
+      const whatsappMessage = `Olá, quero um kit personalizado. Consumo: ${consumption} kWh/mês, Painel: ${panelType}, Inversor: ${inverterType}, Bateria: ${battery}.`;
+      window.open(`https://wa.me/5533981087746?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+      document.getElementById('success-message').classList.remove('hidden');
+      document.getElementById('custom-kit-form').reset();
+    });
+
+    // Formulário de Contato
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const objetivo = document.getElementById('objetivo').value;
+      const cidade = document.getElementById('cidade').value;
+      const consumo = document.getElementById('consumo').value || 'Não informado';
+      const tipoImovel = document.getElementById('tipo-imovel').value;
+      const tamanhoTelhado = document.getElementById('tamanho-telhado').value || 'Não informado';
+      const message = document.getElementById('message').value;
+      const termos = document.getElementById('termos').checked;
+
+      if (!termos) {
+        alert("Por favor, aceite os Termos de Uso e a Política de Privacidade.");
+        return;
+      }
+
+      const whatsappMessage = `Olá, sou ${name}. E-mail: ${email}, Telefone: ${phone}. Objetivo: ${objetivo}, Cidade: ${cidade}, Consumo: ${consumo} kWh/mês, Tipo de imóvel: ${tipoImovel}, Tamanho do telhado: ${tamanhoTelhado} m². Mensagem: ${message}`;
+      window.open(`https://wa.me/5533981087746?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+      document.getElementById('success-contact').classList.remove('hidden');
+      document.getElementById('contact-form').reset();
+    });
+
+    // FAQ Toggle
+    function toggleFAQ(index) {
+      const answer = document.getElementById(`faq-answer-${index}`);
+      answer.classList.toggle('open');
+    }
+
+    // Atualizar ano no footer
+    document.getElementById('footer-year').textContent = `© ${new Date().getFullYear()} Nort Elétrica. Todos os direitos reservados.`;
   </script>
 </body>
 </html>
