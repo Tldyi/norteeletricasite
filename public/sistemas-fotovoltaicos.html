@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistemas Fotovoltaicos - Nort Elétrica</title>
+  <meta name="description" content="Sistemas fotovoltaicos modernos e eficientes para residências e empresas em São José do Norte/RS. Conheça nossos kits solares e monte seu kit personalizado!">
+  <meta name="keywords" content="energia solar, sistemas fotovoltaicos, kits solares, energia solar residencial, energia solar empresarial">
+  <meta name="author" content="Nort Elétrica">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+  <style>
+    :root {
+      --primary-blue: #1e3a8a; /* Azul escuro */
+      --dark-blue: #1e293b; /* Azul mais escuro */
+      --solar-green: #22c55e; /* Verde para energia solar */
+      --light-bg: #f9fafb; /* Fundo claro */
+      --text-dark: #1f2937; /* Texto escuro */
+      --text-light: #ffffff; /* Texto claro */
+    }
+    body {
+      background: var(--light-bg);
+      color: var(--text-dark);
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+    }
+    .btn-modern {
+      background: linear-gradient(135deg, var(--solar-green), #16a34a);
+      color: var(--text-light);
+      padding: 12px 24px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .btn-modern:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(135deg, #16a34a, var(--solar-green));
+    }
+    .service-card {
+      background: var(--text-light);
+      border-radius: 12px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e5e7eb;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    .custom-kit-form {
+      background: var(--text-light);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+      color: var(--text-light);
+    }
+    footer {
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+      color: var(--text-light);
+    }
+  </style>
+</head>
+<body class="pt-20">
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-2xl font-bold">Nort Elétrica</h1>
+        <p class="text-sm">Energia Inteligente para Todos</p>
+      </div>
+      <nav class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:text-blue-200">Início</a>
+        <a href="#kits" class="hover:text-blue-200">Kits Solares</a>
+        <a href="#custom-kit" class="hover:text-blue-200">Monte Seu Kit</a>
+        <a href="#contact" class="hover:text-blue-200">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-cover bg-center py-20" style="background-image: linear-gradient(to right, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), url('/assets/solar-hero.webp');">
+    <div class="container mx-auto px-4 text-center text-white">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Sistemas Fotovoltaicos</h1>
+      <p class="text-lg md:text-xl mb-8">Energia solar moderna e eficiente para sua casa ou empresa em São José do Norte/RS.</p>
+      <a href="#kits" class="btn-modern">Conheça Nossos Kits</a>
+    </div>
+  </section>
+
+  <!-- Conteúdo -->
+  <section class="container mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-3xl font-bold text-[var(--primary-blue)] mb-6">Energia Solar para Todos</h2>
+        <p class="text-gray-600 mb-4">A energia solar é a solução ideal para quem busca reduzir custos com energia elétrica e contribuir para um futuro mais sustentável. Na Nort Elétrica, oferecemos sistemas fotovoltaicos de alta qualidade, projetados para atender às necessidades de residências e empresas.</p>
+        <p class="text-gray-600 mb-4">Nossos sistemas são compostos por painéis solares, inversores e outros componentes de última geração, garantindo eficiência e durabilidade. Com a instalação de um sistema fotovoltaico, você pode gerar sua própria energia e ainda contribuir para a preservação do meio ambiente.</p>
+        <p class="text-gray-600 mb-4">Além disso, oferecemos suporte completo, desde o projeto até a manutenção, para garantir que seu sistema funcione perfeitamente por muitos anos.</p>
+      </div>
+      <div>
+        <img src="/assets/solar-panels.webp" alt="Painéis Solares" class="rounded-lg shadow-lg w-full">
+      </div>
+    </div>
+  </section>
+
+  <!-- Kits Solares -->
+  <section id="kits" class="bg-[var(--light-bg)] py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-[var(--primary-blue)] text-center mb-8">Nossos Kits Solares</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Kit 300 kWh/mês -->
+        <div class="service-card">
+          <h3 class="text-xl font-bold text-[var(--primary-blue)] mb-4">Kit 300 kWh/mês</h3>
+          <p class="text-gray-600 mb-4">Ideal para residências com consumo médio de 300 kWh por mês.</p>
+          <ul class="text-gray-600 mb-4 list-disc list-inside">
+            <li>6 Painéis Solares</li>
+            <li>Inversor 2.5 kW</li>
+            <li>Estrutura de Fixação</li>
+            <li>Instalação Inclusa</li>
+          </ul>
+          <p class="text-xl font-bold text-[var(--primary-blue)]">R$ 15.000,00</p>
+          <a href="index.html#contact" class="btn-modern mt-4">Solicitar Orçamento</a>
+        </div>
+
+        <!-- Kit 500 kWh/mês -->
+        <div class="service-card">
+          <h3 class="text-xl font-bold text-[var(--primary-blue)] mb-4">Kit 500 kWh/mês</h3>
+          <p class="text-gray-600 mb-4">Perfeito para residências ou pequenas empresas com consumo médio de 500 kWh por mês.</p>
+          <ul class="text-gray-600 mb-4 list-disc list-inside">
+            <li>10 Painéis Solares</li>
+            <li>Inversor 5 kW</li>
+            <li>Estrutura de Fixação</li>
+            <li>Instalação Inclusa</li>
+          </ul>
+          <p class="text-xl font-bold text-[var(--primary-blue)]">R$ 25.000,00</p>
+          <a href="index.html#contact" class="btn-modern mt-4">Solicitar Orçamento</a>
+        </div>
+
+        <!-- Kit 700 kWh/mês -->
+        <div class="service-card">
+          <h3 class="text-xl font-bold text-[var(--primary-blue)] mb-4">Kit 700 kWh/mês</h3>
+          <p class="text-gray-600 mb-4">Recomendado para empresas ou residências com consumo médio de 700 kWh por mês.</p>
+          <ul class="text-gray-600 mb-4 list-disc list-inside">
+            <li>14 Painéis Solares</li>
+            <li>Inversor 7 kW</li>
+            <li>Estrutura de Fixação</li>
+            <li>Instalação Inclusa</li>
+          </ul>
+          <p class="text-xl font-bold text-[var(--primary-blue)]">R$ 35.000,00</p>
+          <a href="index.html#contact" class="btn-modern mt-4">Solicitar Orçamento</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Monte Seu Kit Personalizado -->
+  <section id="custom-kit" class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-[var(--primary-blue)] text-center mb-8">Monte Seu Kit Personalizado</h2>
+    <div class="custom-kit-form">
+      <form class="space-y-6">
+        <div>
+          <label for="consumption" class="block text-gray-700 font-semibold">Consumo Mensal (kWh)</label>
+          <input type="number" id="consumption" placeholder="Ex.: 300" class="border border-gray-300 p-3 w-full rounded-lg" required>
+        </div>
+        <div>
+          <label for="panel-type" class="block text-gray-700 font-semibold">Tipo de Painel Solar</label>
+          <select id="panel-type" class="border border-gray-300 p-3 w-full rounded-lg">
+            <option value="monocristalino">Monocristalino</option>
+            <option value="policristalino">Policristalino</option>
+            <option value="thin-film">Thin-Film</option>
+          </select>
+        </div>
+        <div>
+          <label for="inverter-type" class="block text-gray-700 font-semibold">Tipo de Inversor</label>
+          <select id="inverter-type" class="border border-gray-300 p-3 w-full rounded-lg">
+            <option value="string">String Inverter</option>
+            <option value="microinversor">Microinversor</option>
+            <option value="hibrido">Inversor Híbrido</option>
+          </select>
+        </div>
+        <div>
+          <label for="battery" class="block text-gray-700 font-semibold">Adicionar Bateria?</label>
+          <select id="battery" class="border border-gray-300 p-3 w-full rounded-lg">
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-modern w-full">Solicitar Orçamento Personalizado</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contact" class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-[var(--primary-blue)] text-center mb-8">Entre em Contato</h2>
+    <div class="grid md:grid-cols-2 gap-12">
+      <form class="space-y-6">
+        <div>
+          <label for="name" class="block text-gray-700 font-semibold">Nome Completo</label>
+          <input type="text" id="name" placeholder="Seu Nome" class="border border-gray-300 p-3 w-full rounded-lg">
+        </div>
+        <div>
+          <label for="email" class="block text-gray-700 font-semibold">E-mail</label>
+          <input type="email" id="email" placeholder="Seu E-mail" class="border border-gray-300 p-3 w-full rounded-lg">
+        </div>
+        <div>
+          <label for="phone" class="block text-gray-700 font-semibold">Telefone</label>
+          <input type="tel" id="phone" placeholder="Seu Telefone" class="border border-gray-300 p-3 w-full rounded-lg">
+        </div>
+        <div>
+          <label for="message" class="block text-gray-700 font-semibold">Mensagem</label>
+          <textarea id="message" placeholder="Sua Mensagem" class="border border-gray-300 p-3 w-full rounded-lg" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn-modern w-full">Enviar Mensagem</button>
+      </form>
+      <div class="space-y-6">
+        <p class="text-gray-600">Estamos prontos para atender você com rapidez e profissionalismo.</p>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Contato</h3>
+          <p class="text-gray-600"><i class="fas fa-envelope mr-2 text-[var(--primary-blue)]"></i> E-mail: <a href="mailto:contato@norteletrica.com.br" class="text-[var(--primary-blue)] hover:underline">contato@norteletrica.com.br</a></p>
+          <p class="text-gray-600 mt-2"><i class="fab fa-whatsapp mr-2 text-[var(--primary-blue)]"></i> WhatsApp: <a href="https://wa.me/5533981087746" class="text-[var(--primary-blue)] hover:underline">+55 53 98108-7746</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Nort Elétrica</h3>
+          <p class="text-blue-100">Energia Inteligente para Todos</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
+          <ul class="space-y-2 text-blue-100">
+            <li><a href="index.html" class="hover:text-blue-200">Início</a></li>
+            <li><a href="#kits" class="hover:text-blue-200">Kits Solares</a></li>
+            <li><a href="#custom-kit" class="hover:text-blue-200">Monte Seu Kit</a></li>
+            <li><a href="#contact" class="hover:text-blue-200">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Redes Sociais</h3>
+          <div class="flex space-x-4">
+            <a href="https://www.instagram.com/norteletrica" target="_blank" class="text-white hover:text-blue-200"><i class="fab fa-instagram text-2xl"></i></a>
+            <a href="https://www.facebook.com/norteletrica" target="_blank" class="text-white hover:text-blue-200"><i class="fab fa-facebook text-2xl"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 text-center border-t border-blue-700 pt-4">
+        <p class="text-blue-100">© 2025 Nort Elétrica. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+</html>
