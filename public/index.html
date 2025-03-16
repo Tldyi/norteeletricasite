@@ -257,7 +257,7 @@
     footer { background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue)); }
     #solar-calculator input[type="number"]::-webkit-inner-spin-button { opacity: 1; }
     #solar-result { transition: opacity 0.3s ease; opacity: 0; }
-    #solar-result:not(.hidden) { opacity: 1; }
+    #solar-result.visible { opacity: 1; }
     #mobile-menu.open { transform: translateX(0); }
     .header-container {
       display: flex;
@@ -522,18 +522,18 @@
           <div>
             <label for="consumption" class="block text-gray-700 font-semibold">Consumo Mensal (kWh)</label>
             <input type="number" id="consumption" placeholder="Ex.: 300" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" min="0" required aria-describedby="consumption-error">
-            <p id="consumption-error" class="text-red-500 text-sm hidden">Insira um valor válido.</p>
+            <p id="consumption-error" class="text-red-500 text-sm hidden">Insira um valor válido maior que 0.</p>
           </div>
           <div>
             <label for="sun-hours" class="block text-gray-700 font-semibold">Horas de Sol por Dia (média em SJN/RS: 4.5h)</label>
             <input type="number" id="sun-hours" value="4.5" step="0.1" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" min="1" max="12" required>
           </div>
           <div>
-            <label for="area" class="block text-gray-700 font-semibold">Área Disponível (m²)</label>
+            <label for="area" class="block text-gray-700 font-semibold">Área Disponível (m², opcional)</label>
             <input type="number" id="area" placeholder="Ex.: 50" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" min="0">
           </div>
           <button id="calculate-solar" class="btn-modern w-full" aria-label="Calcular sistema solar">Calcule seu Sistema</button>
-          <div id="solar-result" class="hidden mt-4 text-center">
+          <div id="solar-result" class="mt-4 text-center hidden">
             <p class="text-gray-700">Tamanho estimado: <span id="system-size" class="font-bold text-[var(--primary-blue)]"></span> kWp</p>
             <p class="text-gray-700">Custo estimado: R$ <span id="system-cost" class="font-bold text-[var(--primary-blue)]"></span></p>
             <p class="text-gray-600 text-sm mt-2">Entre em contato para um orçamento detalhado!</p>
@@ -651,30 +651,6 @@
             <div class="stars">★★★★★</div>
           </div>
         </div>
-        <div class="service-card flex items-center space-x-4">
-          <img src="https://via.placeholder.com/50x50" alt="Ana Paula" class="rounded-full w-12 h-12" loading="lazy">
-          <div>
-            <p class="text-gray-600 italic">"Automação residencial mudou minha rotina!"</p>
-            <p class="text-gray-900 font-semibold mt-2">- Ana Paula</p>
-            <div class="stars">★★★★★</div>
-          </div>
-        </div>
-        <div class="service-card flex items-center space-x-4">
-          <img src="https://via.placeholder.com/50x50" alt="Roberto Santos" class="rounded-full w-12 h-12" loading="lazy">
-          <div>
-            <p class="text-gray-600 italic">"Cabeamento estruturado perfeito para meu escritório."</p>
-            <p class="text-gray-900 font-semibold mt-2">- Roberto Santos</p>
-            <div class="stars">★★★★★</div>
-          </div>
-        </div>
-        <div class="service-card flex items-center space-x-4">
-          <img src="https://via.placeholder.com/50x50" alt="Fernanda Lima" class="rounded-full w-12 h-12" loading="lazy">
-          <div>
-            <p class="text-gray-600 italic">"CFTV trouxe segurança total para minha casa."</p>
-            <p class="text-gray-900 font-semibold mt-2">- Fernanda Lima</p>
-            <div class="stars">★★★★★</div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -701,24 +677,6 @@
           <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Elétrica Industrial: O que Você Precisa Saber</h3>
           <p class="text-gray-600">Soluções para otimizar sua produção.</p>
           <a href="blog/eletrica-industrial.html" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
-        </div>
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop" alt="Automação Residencial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
-          <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Automação Residencial: O Futuro Hoje</h3>
-          <p class="text-gray-600">Transforme sua casa com tecnologia inteligente.</p>
-          <a href="blog/automacao-residencial.html" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
-        </div>
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1623601515359-d9b460b1e5?q=80&w=300&auto=format&fit=crop" alt="Cabeamento Estruturado" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
-          <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Cabeamento Estruturado Simplificado</h3>
-          <p class="text-gray-600">Conexões rápidas e eficientes para sua rede.</p>
-          <a href="blog/cabeamento-estruturado.html" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
-        </div>
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1552858036-2b686cminor6e?q=80&w=300&auto=format&fit=crop" alt="CFTV e Monitoramento" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
-          <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">CFTV: Segurança Moderna</h3>
-          <p class="text-gray-600">Como proteger sua casa ou empresa 24/7.</p>
-          <a href="blog/cftv-monitoramento.html" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
         </div>
       </div>
     </div>
@@ -931,28 +889,71 @@
       const consumption = parseFloat(document.getElementById('consumption').value);
       const sunHours = parseFloat(document.getElementById('sun-hours').value);
       const area = parseFloat(document.getElementById('area').value) || 0;
+      const errorElement = document.getElementById('consumption-error');
+      const resultElement = document.getElementById('solar-result');
 
-      if (!consumption || consumption <= 0) {
-        document.getElementById('consumption-error').classList.remove('hidden');
+      // Validação
+      if (isNaN(consumption) || consumption <= 0) {
+        errorElement.textContent = "Insira um valor válido maior que 0.";
+        errorElement.classList.remove('hidden');
+        resultElement.classList.add('hidden');
         return;
       }
-      document.getElementById('consumption-error').classList.add('hidden');
 
-      const systemSize = (consumption / (sunHours * 30)).toFixed(2);
-      const costPerKWp = 5000; // Valor estimado em R$/kWp
-      const totalCost = (systemSize * costPerKWp).toFixed(2);
+      if (isNaN(sunHours) || sunHours < 1 || sunHours > 12) {
+        errorElement.textContent = "Insira um valor válido para horas de sol (1-12).";
+        errorElement.classList.remove('hidden');
+        resultElement.classList.add('hidden');
+        return;
+      }
 
+      errorElement.classList.add('hidden');
+
+      // Cálculo do tamanho do sistema (kWp)
+      const systemSize = (consumption / (sunHours * 30)).toFixed(2); // Consumo mensal / (horas de sol * dias no mês)
+      const panelArea = systemSize * 7; // Aproximadamente 7m² por kWp
+      const costPerKWp = 5000; // Custo estimado em R$/kWp
+      const totalCost = (systemSize * costPerKWp).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+      // Exibir resultados
       document.getElementById('system-size').textContent = systemSize;
-      document.getElementById('system-cost').textContent = totalCost.replace('.', ',');
-      document.getElementById('solar-result').classList.remove('hidden');
+      document.getElementById('system-cost').textContent = totalCost;
+      resultElement.classList.remove('hidden');
+
+      // Verificar área disponível
+      if (area > 0 && area < panelArea) {
+        resultElement.innerHTML += `<p class="text-red-500 text-sm mt-2">A área disponível (${area} m²) é insuficiente para ${systemSize} kWp (necessita ~${panelArea} m²).</p>`;
+      }
     });
 
-    // Enviar resultado da calculadora
+    // Enviar resultado da calculadora via WhatsApp
     document.getElementById('send-result').addEventListener('click', () => {
       const systemSize = document.getElementById('system-size').textContent;
       const systemCost = document.getElementById('system-cost').textContent;
       const whatsappMessage = `Olá, calculei um sistema solar de ${systemSize} kWp com custo estimado de R$ ${systemCost}. Gostaria de mais detalhes!`;
       window.open(`https://wa.me/5533981087746?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+    });
+
+    // Pop-up de Oferta
+    const popup = document.getElementById('popup');
+    const closePopup = document.getElementById('close-popup');
+    let popupShown = sessionStorage.getItem('popupShown');
+
+    if (!popupShown) {
+      setTimeout(() => {
+        popup.classList.remove('hidden');
+        sessionStorage.setItem('popupShown', 'true');
+      }, 5000); // Aparece após 5 segundos
+    }
+
+    closePopup.addEventListener('click', () => {
+      popup.classList.add('hidden');
+    });
+
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        popup.classList.add('hidden');
+      }
     });
 
     // Filtro da Galeria
@@ -978,41 +979,63 @@
     // Formulário de Contato
     document.getElementById('contact-form').addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
       const service = document.getElementById('service').value;
-      const message = document.getElementById('message').value;
+      const message = document.getElementById('message').value.trim();
 
-      if (!name || !email || !service || !message) {
-        if (!name) document.getElementById('name-error').classList.remove('hidden');
-        if (!email) document.getElementById('email-error').classList.remove('hidden');
-        if (!service) document.getElementById('service-error').classList.remove('hidden');
-        if (!message) document.getElementById('message-error').classList.remove('hidden');
-        return;
+      // Validação
+      let valid = true;
+      if (!name) {
+        document.getElementById('name-error').classList.remove('hidden');
+        valid = false;
+      } else {
+        document.getElementById('name-error').classList.add('hidden');
       }
 
-      const whatsappMessage = `Olá, sou ${name}. Gostaria de um orçamento para ${service}. E-mail: ${email}. Mensagem: ${message}`;
-      window.open(`https://wa.me/5533981087746?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
-      document.getElementById('success-message').classList.remove('hidden');
-      document.getElementById('contact-form').reset();
-    });
+      if (!email || !/\S+@\S+\.\S+/.test(email)) {
+        document.getElementById('email-error').classList.remove('hidden');
+        valid = false;
+      } else {
+        document.getElementById('email-error').classList.add('hidden');
+      }
 
-    // Pop-up Exit-Intent
-    document.addEventListener('mouseleave', (e) => {
-      if (e.clientY < 0) {
-        document.getElementById('popup').classList.remove('hidden');
+      if (!service) {
+        document.getElementById('service-error').classList.remove('hidden');
+        valid = false;
+      } else {
+        document.getElementById('service-error').classList.add('hidden');
+      }
+
+      if (!message) {
+        document.getElementById('message-error').classList.remove('hidden');
+        valid = false;
+      } else {
+        document.getElementById('message-error').classList.add('hidden');
+      }
+
+      if (valid) {
+        const whatsappMessage = `Olá, meu nome é ${name}. E-mail: ${email}. Telefone: ${phone || 'Não informado'}. Serviço: ${service}. Mensagem: ${message}`;
+        window.open(`https://wa.me/5533981087746?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+        document.getElementById('success-message').classList.remove('hidden');
+        document.getElementById('contact-form').reset();
+        setTimeout(() => {
+          document.getElementById('success-message').classList.add('hidden');
+        }, 3000);
       }
     });
 
-    document.getElementById('close-popup').addEventListener('click', () => {
-      document.getElementById('popup').classList.add('hidden');
-    });
-
-    // Newsletter (simulação)
+    // Formulário de Newsletter
     document.getElementById('newsletter-form').addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('Inscrição realizada com sucesso!');
-      document.getElementById('newsletter-form').reset();
+      const email = document.getElementById('newsletter-email').value.trim();
+      if (email && /\S+@\S+\.\S+/.test(email)) {
+        alert('Inscrição realizada com sucesso!');
+        document.getElementById('newsletter-form').reset();
+      } else {
+        alert('Por favor, insira um e-mail válido.');
+      }
     });
 
     // Atualizar ano no footer
