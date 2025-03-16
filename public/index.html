@@ -25,7 +25,8 @@
   <meta http-equiv="Cache-Control" content="max-age=3600">
   <!-- Preload -->
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@400;500&display=swap" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="/assets/logo.webp" as="image">
   <!-- Stylesheets -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
@@ -34,9 +35,10 @@
       --primary-blue: #1e3a8a;
       --dark-blue: #1e293b;
       --solar-green: #22c55e;
+      --solar-yellow: #fbbf24;
       --light-bg: #f9fafb;
-      --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.1);
+      --shadow-sm: 0 4px 10px rgba(34, 197, 94, 0.1);
+      --shadow-md: 0 10px 30px rgba(34, 197, 94, 0.2);
     }
     html, body { 
       margin: 0; 
@@ -44,7 +46,7 @@
       width: 100%;
       overflow-x: hidden;
       box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
     body { 
       background: var(--light-bg); 
@@ -52,14 +54,22 @@
       color: #1f2937;
       line-height: 1.6;
     }
-    *, *:before, *:after {
-      box-sizing: inherit;
+    *, *:before, *:after { box-sizing: inherit; }
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; }
+    h2 { font-size: 4rem; letter-spacing: 0.025em; margin-bottom: 2.5rem; }
+    p { font-size: 1.1rem; }
+    @media (max-width: 768px) { 
+      h2 { font-size: 2.5rem; } 
+      p { font-size: 1rem; }
     }
-    h1, h2, h3 { font-family: 'Inter', sans-serif; font-weight: 700; }
-    h2 { font-size: 2.5rem; letter-spacing: 0.025em; margin-bottom: 2rem; }
-    @media (min-width: 768px) { h2 { font-size: 3.5rem; } }
-    @media (max-width: 768px) { h2 { font-size: 2rem; } }
-    section { scroll-margin-top: 80px; padding: 5rem 0; }
+    section { 
+      scroll-margin-top: 80px; 
+      padding: 6rem 0; 
+      opacity: 0; 
+      transform: translateY(20px); 
+      animation: fadeInSection 0.8s ease forwards; 
+    }
+    @keyframes fadeInSection { to { opacity: 1; transform: translateY(0); } }
     header { 
       background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); 
       box-shadow: var(--shadow-sm); 
@@ -68,14 +78,13 @@
       top: 0; 
       width: 100%; 
       z-index: 50; 
-      transition: background 0.3s ease;
+      transition: transform 0.4s ease, background 0.3s ease;
     }
+    header.hidden { transform: translateY(-100%); }
     header.scrolled { background: rgba(30, 58, 138, 0.95); }
-    @media (max-width: 768px) { 
-      header { height: 60px; } 
-    }
-    a:focus, button:focus { outline: 2px solid var(--primary-blue); outline-offset: 2px; }
-    .whatsapp-button, .cta-float, .back-to-top { 
+    @media (max-width: 768px) { header { height: 60px; } }
+    a:focus, button:focus { outline: 3px solid var(--solar-yellow); outline-offset: 2px; }
+    .whatsapp-button, .cta-float { 
       position: fixed; 
       color: white; 
       border-radius: 50px; 
@@ -88,7 +97,9 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      animation: pulse 2s infinite;
     }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
     .whatsapp-button { 
       bottom: 100px; 
       right: 20px; 
@@ -98,61 +109,21 @@
     .cta-float { 
       bottom: 20px; 
       left: 20px; 
-      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); 
+      background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); 
       z-index: 1002;
     }
-    .back-to-top { 
-      bottom: 20px; 
-      right: 20px; 
-      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); 
-      padding: 12px; 
-      border-radius: 50%; 
-      display: none; 
-      z-index: 1000; 
-    }
-    .whatsapp-button:hover, .cta-float:hover, .back-to-top:hover { 
+    .whatsapp-button:hover, .cta-float:hover { 
       transform: translateY(-3px); 
       box-shadow: var(--shadow-md); 
     }
-    .whatsapp-button span, .cta-float span { 
-      transition: transform 0.3s ease; 
-    }
-    .whatsapp-button:hover span, .cta-float:hover span { 
-      transform: translateX(5px); 
-    }
-    .whatsapp-button img { 
-      width: 28px; 
-      height: 28px; 
-      margin-right: 10px; 
-    }
-    .back-to-top:hover { 
-      transform: scale(1.1); 
-    }
-    .back-to-top.show { 
-      display: block; 
-    }
+    .whatsapp-button span, .cta-float span { transition: transform 0.3s ease; }
+    .whatsapp-button:hover span, .cta-float:hover span { transform: translateX(5px); }
+    .whatsapp-button img { width: 28px; height: 28px; margin-right: 10px; }
     @media (max-width: 768px) {
-      .whatsapp-button, .cta-float { 
-        padding: 8px 16px; 
-        font-size: 0.9rem; 
-      }
-      .whatsapp-button { 
-        bottom: 80px; 
-        right: 15px; 
-      }
-      .cta-float { 
-        bottom: 15px; 
-        left: 15px; 
-      }
-      .back-to-top { 
-        bottom: 15px; 
-        right: 15px; 
-        padding: 10px; 
-      }
-      .whatsapp-button img { 
-        width: 20px; 
-        height: 20px; 
-      }
+      .whatsapp-button, .cta-float { padding: 8px 16px; font-size: 0.9rem; }
+      .whatsapp-button { bottom: 80px; right: 15px; }
+      .cta-float { bottom: 15px; left: 15px; }
+      .whatsapp-button img { width: 20px; height: 20px; }
     }
     .map-container { 
       position: relative; 
@@ -193,7 +164,7 @@
       transition: color 0.3s ease; 
       font-weight: 500;
     }
-    nav a:hover { color: #93c5fd; }
+    nav a:hover { color: var(--solar-yellow); }
     .service-card, .highlight-card { 
       background: white; 
       border-radius: 12px; 
@@ -218,9 +189,12 @@
       width: 100%; 
       height: 16rem; 
       object-fit: cover; 
-      transition: transform 0.4s ease; 
+      transition: transform 0.4s ease, filter 0.3s ease; 
     }
-    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-item:hover img { 
+      transform: scale(1.05); 
+      filter: brightness(1.1); 
+    }
     .caption { text-align: center; margin-top: 0.5rem; color: #374151; font-weight: 600; font-size: 1rem; }
     #gallery { background: linear-gradient(to bottom, #f9fafb, #e5e7eb); }
     #gallery-carousel {
@@ -231,12 +205,11 @@
     }
     @media (max-width: 768px) {
       #gallery-carousel {
-        grid-template-columns: 1fr;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
       }
-      .gallery-item img {
-        height: auto;
-        max-height: 300px;
-      }
+      .gallery-item { flex: 0 0 300px; scroll-snap-align: start; }
     }
     .faq-question { 
       cursor: pointer; 
@@ -264,7 +237,7 @@
     }
     .faq-answer.open { max-height: 200px; padding: 15px; }
     .btn-modern { 
-      background: linear-gradient(135deg, var(--solar-green), #16a34a); 
+      background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); 
       color: white; 
       padding: 12px 24px; 
       border-radius: 8px; 
@@ -279,7 +252,7 @@
     .btn-modern:hover { 
       transform: translateY(-2px); 
       box-shadow: var(--shadow-md); 
-      background: linear-gradient(135deg, #16a34a, var(--solar-green)); 
+      background: linear-gradient(135deg, var(--solar-yellow), var(--solar-green)); 
     }
     footer { background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue)); }
     #solar-calculator input[type="number"]::-webkit-inner-spin-button { opacity: 1; }
@@ -295,6 +268,12 @@
       margin: 0 auto;
       padding: 0 15px;
     }
+    .cta-fixed {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 50;
+    }
     @media (min-width: 768px) {
       nav { 
         display: flex; 
@@ -306,45 +285,25 @@
         padding: 0; 
       }
       nav.flex, nav.hidden { transform: none; }
-      nav a { 
-        padding: 0 12px; 
-        font-size: 0.95rem; 
-      }
-      .btn-modern { 
-        padding: 8px 16px; 
-      }
+      nav a { padding: 0 12px; font-size: 0.95rem; }
+      .btn-modern { padding: 8px 16px; }
     }
-    /* Ajuste para modo desktop em smartphones ou telas menores */
     @media (max-width: 1024px) and (min-width: 768px) {
-      .header-container {
-        padding: 0 10px;
-      }
-      .header-branding h1 {
-        font-size: 1.3rem;
-      }
-      .header-branding p {
-        font-size: 0.85rem;
-      }
-      nav a {
-        padding: 0 8px;
-        font-size: 0.9rem;
-      }
-      .btn-modern {
-        padding: 6px 12px;
-        font-size: 0.85rem;
-      }
+      .header-container { padding: 0 10px; }
+      .header-branding h1 { font-size: 1.3rem; }
+      .header-branding p { font-size: 0.85rem; }
+      nav a { padding: 0 8px; font-size: 0.9rem; }
+      .btn-modern { padding: 6px 12px; font-size: 0.85rem; }
     }
-    /* Garantir que o menu hambúrguer apareça em telas muito pequenas, mesmo no modo desktop */
     @media (max-width: 900px) {
       nav { display: none; }
       #menu-toggle { display: block; }
       .header-container { justify-content: space-between; }
+      .cta-fixed { display: none; }
     }
-    @media (min-width: 901px) {
-      #menu-toggle { display: none; }
-    }
+    @media (min-width: 901px) { #menu-toggle { display: none; } }
     footer a { transition: color 0.3s ease; }
-    footer a:hover { color: #93c5fd; }
+    footer a:hover { color: var(--solar-yellow); }
     .certification-card img { width: 80px; height: 80px; margin: 0 auto; }
     .header-branding h1 {
       font-size: 1.5rem;
@@ -358,49 +317,24 @@
       margin: 0;
     }
     @media (max-width: 768px) {
-      .header-branding h1 {
-        font-size: 1.2rem;
-      }
-      .header-branding p {
-        font-size: 0.8rem;
-      }
+      .header-branding h1 { font-size: 1.2rem; }
+      .header-branding p { font-size: 0.8rem; }
       #mobile-menu {
         background: #1e293b;
         width: 100%;
         max-width: 100vw;
         transform: translateX(100%);
       }
-      #mobile-menu.open {
-        transform: translateX(0);
-      }
-      #mobile-menu a {
-        color: #ffffff;
-        font-size: 1.2rem;
-      }
-      #mobile-menu a:hover {
-        color: #93c5fd;
-      }
-      #mobile-menu .btn-modern {
-        background: linear-gradient(135deg, var(--solar-green), #16a34a);
-        color: #ffffff;
-      }
-      .container {
-        max-width: 100%;
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-      section, footer {
-        width: 100%;
-        overflow-x: hidden;
-      }
-      .grid {
-        width: 100%;
-      }
-      img {
-        max-width: 100%;
-        height: auto;
-      }
+      #mobile-menu.open { transform: translateX(0); }
+      #mobile-menu a { color: #ffffff; font-size: 1.2rem; }
+      #mobile-menu a:hover { color: var(--solar-yellow); }
+      #mobile-menu .btn-modern { background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); color: #ffffff; }
+      .container { max-width: 100%; padding-left: 15px; padding-right: 15px; }
+      section, footer { width: 100%; overflow-x: hidden; }
+      .grid { width: 100%; }
+      img { max-width: 100%; height: auto; }
     }
+    .stars { color: #fbbf24; }
   </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
@@ -421,18 +355,20 @@
 
   <!-- CTA Flutuante -->
   <a href="#contact" class="cta-float">
-    <span>Solicite um Orçamento</span>
+    <span>Economize Agora!</span>
   </a>
 
-  <!-- Back to Top -->
-  <a href="#" class="back-to-top" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></a>
+  <!-- CTA Fixo no Desktop -->
+  <div class="cta-fixed hidden md:block">
+    <a href="#contact" class="btn-modern text-sm px-4 py-2">Orçamento Grátis Hoje</a>
+  </div>
 
   <!-- Pop-up de Oferta -->
   <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
     <div class="bg-white p-6 rounded-lg shadow-lg max-w-md text-center">
-      <h2 class="text-2xl font-bold text-[var(--primary-blue)] mb-4">Oferta Especial!</h2>
-      <p class="text-gray-700 mb-6">Solicite um orçamento agora e ganhe 10% de desconto!</p>
-      <a href="#contact" class="btn-modern">Aproveitar</a>
+      <h2 class="text-2xl font-bold text-[var(--primary-blue)] mb-4">Oferta Exclusiva!</h2>
+      <p class="text-gray-700 mb-6">10% OFF no seu primeiro projeto. Não perca!</p>
+      <a href="#contact" class="btn-modern">Aproveite Agora</a>
       <button id="close-popup" class="ml-4 text-gray-500 hover:text-gray-700">Fechar</button>
     </div>
   </div>
@@ -441,91 +377,92 @@
   <header class="text-white">
     <div class="header-container">
       <div class="header-branding">
-        <h1>Nort Elétrica</h1>
+        <h1 onclick="scrollToTop()" class="cursor-pointer hover:text-[var(--solar-yellow)] transition-colors">Nort Elétrica</h1>
         <p>Energia Inteligente para Todos</p>
       </div>
       <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">
-        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        <svg class="w-8 h-8 text-white transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" class="menu-open"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" class="menu-close hidden"></path>
         </svg>
       </button>
       <nav id="menu" class="hidden md:flex items-center space-x-4">
-        <a href="#about" class="hover:text-blue-200 transition-colors">Sobre</a>
-        <a href="#services" class="hover:text-blue-200 transition-colors">Serviços</a>
-        <a href="#solar-calculator" class="hover:text-blue-200 transition-colors">Calculadora Solar</a>
-        <a href="#gallery" class="hover:text-blue-200 transition-colors">Galeria</a>
-        <a href="#comments" class="hover:text-blue-200 transition-colors">Comentários</a>
-        <a href="#blog" class="hover:text-blue-200 transition-colors">Blog</a>
-        <a href="#contact" class="hover:text-blue-200 transition-colors">Contato</a>
+        <a href="#about" class="hover:text-[var(--solar-yellow)] transition-colors">Sobre</a>
+        <a href="#services" class="hover:text-[var(--solar-yellow)] transition-colors">Serviços</a>
+        <a href="#solar-calculator" class="hover:text-[var(--solar-yellow)] transition-colors">Calculadora Solar</a>
+        <a href="#gallery" class="hover:text-[var(--solar-yellow)] transition-colors">Galeria</a>
+        <a href="#comments" class="hover:text-[var(--solar-yellow)] transition-colors">Comentários</a>
+        <a href="#blog" class="hover:text-[var(--solar-yellow)] transition-colors">Blog</a>
+        <a href="#contact" class="hover:text-[var(--solar-yellow)] transition-colors">Contato</a>
         <a href="javascript:void(0)" onclick="window.location.href='area-cliente.html'" class="btn-modern text-sm px-4 py-2">Área do Cliente</a>
       </nav>
     </div>
     <div id="mobile-menu" class="md:hidden fixed top-16 right-0 w-full max-w-xs text-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
       <button id="close-menu" class="text-white p-4"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
       <div class="flex flex-col p-4 space-y-4">
-        <a href="#about" class="hover:text-blue-200 transition-colors">Sobre</a>
-        <a href="#services" class="hover:text-blue-200 transition-colors">Serviços</a>
-        <a href="#solar-calculator" class="hover:text-blue-200 transition-colors">Calculadora Solar</a>
-        <a href="#gallery" class="hover:text-blue-200 transition-colors">Galeria</a>
-        <a href="#comments" class="hover:text-blue-200 transition-colors">Comentários</a>
-        <a href="#blog" class="hover:text-blue-200 transition-colors">Blog</a>
-        <a href="#contact" class="hover:text-blue-200 transition-colors">Contato</a>
+        <a href="#about" class="hover:text-[var(--solar-yellow)] transition-colors">Sobre</a>
+        <a href="#services" class="hover:text-[var(--solar-yellow)] transition-colors">Serviços</a>
+        <a href="#solar-calculator" class="hover:text-[var(--solar-yellow)] transition-colors">Calculadora Solar</a>
+        <a href="#gallery" class="hover:text-[var(--solar-yellow)] transition-colors">Galeria</a>
+        <a href="#comments" class="hover:text-[var(--solar-yellow)] transition-colors">Comentários</a>
+        <a href="#blog" class="hover:text-[var(--solar-yellow)] transition-colors">Blog</a>
+        <a href="#contact" class="hover:text-[var(--solar-yellow)] transition-colors">Contato</a>
         <a href="javascript:void(0)" onclick="window.location.href='area-cliente.html'" class="btn-modern text-sm px-4 py-2 text-center">Área do Cliente</a>
       </div>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="text-white py-28 bg-cover bg-center mt-16" style="background-image: linear-gradient(to right, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), url('/assets/header.webp');">
+  <section class="text-white py-28 bg-cover bg-center mt-16 relative" style="background-image: linear-gradient(to right, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), url('/assets/header.webp');">
     <div class="container mx-auto text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Soluções Elétricas do Futuro</h1>
+      <h1 class="text-4xl md:text-5xl font-bold mb-6"><span id="typed"></span></h1>
       <p class="mb-8 text-lg md:text-xl text-blue-100 max-w-2xl mx-auto">Projetos modernos e sustentáveis em São José do Norte/RS para residências e empresas.</p>
-      <a href="#contact" class="btn-modern text-lg">Fale com um Especialista</a>
+      <a href="#contact" class="btn-modern text-lg">Peça seu Orçamento Grátis Hoje!</a>
     </div>
   </section>
 
   <!-- Sobre Nós -->
-<section id="about">
-  <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12">
-    <div>
-      <h2 class="text-4xl font-bold text-[var(--primary-blue)]">Quem Somos</h2>
-      <p class="text-gray-600 text-lg leading-relaxed mt-4">Na Nort Elétrica, transformamos energia em soluções inovadoras para residências e empresas em São José do Norte/RS. Com tecnologia de ponta, oferecemos projetos elétricos que unem eficiência, segurança e sustentabilidade.</p>
-      <h3 class="text-xl font-semibold mt-6 text-[var(--primary-blue)]">Nossa Missão</h3>
-      <p class="text-gray-600">Proporcionar energia inteligente, segura e acessível no sul do RS, promovendo um futuro sustentável.</p>
-      <h3 class="text-xl font-semibold mt-6 text-[var(--primary-blue)]">Nossos Valores</h3>
-      <ul class="text-gray-600 list-disc list-inside mt-2">
-        <li>Inovação contínua</li>
-        <li>Segurança em cada detalhe</li>
-        <li>Compromisso com o meio ambiente</li>
-      </ul>
-      <h3 class="text-xl font-semibold mt-6 text-[var(--primary-blue)]">Nossa Equipe</h3>
-      <p class="text-gray-600">Contamos com profissionais qualificados e apaixonados por tecnologia, prontos para entregar soluções personalizadas com excelência e dedicação.</p>
-    </div>
-    <div class="flex items-center">
-      <img src="/assets/logo.webp" alt="Equipe da Nort Elétrica" class="rounded-lg shadow-lg w-1/2 transition-all duration-300 hover:scale-105" loading="lazy">
-    </div>
-  </div>
-  <div class="container mx-auto px-4 mt-12">
-    <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Por que Escolher a Nort Elétrica?</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-      <div class="text-center p-6 rounded-lg shadow-md bg-white">
-        <i class="fas fa-lightbulb text-4xl mb-4 text-[var(--primary-blue)]"></i>
-        <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Inovação</h3>
-        <p class="text-gray-600 mt-2">Tecnologia de ponta em cada projeto.</p>
+  <section id="about">
+    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-4xl font-bold text-[var(--primary-blue)]">Quem Somos</h2>
+        <p class="text-gray-600 text-lg leading-relaxed mt-4">Na Nort Elétrica, transformamos energia em soluções inovadoras para residências e empresas em São José do Norte/RS. Com tecnologia de ponta, oferecemos projetos elétricos que unem eficiência, segurança e sustentabilidade.</p>
+        <h3 class="text-xl font-semibold mt-6 text-[var(--primary-blue)]">Nossa Missão</h3>
+        <p class="text-gray-600">Proporcionar energia inteligente, segura e acessível no sul do RS, promovendo um futuro sustentável.</p>
+        <h3 class="text-xl font-semibold mt-6 text-[var(--primary-blue)]">Nossos Valores</h3>
+        <ul class="text-gray-600 list-disc list-inside mt-2">
+          <li>Inovação contínua</li>
+          <li>Segurança em cada detalhe</li>
+          <li>Compromisso com o meio ambiente</li>
+        </ul>
+        <h3 class="text-xl font-semibold mt-6 text-[var(--primary-blue)]">Nossa Equipe</h3>
+        <p class="text-gray-600">Contamos com profissionais qualificados e apaixonados por tecnologia, prontos para entregar soluções personalizadas com excelência e dedicação.</p>
       </div>
-      <div class="text-center p-6 rounded-lg shadow-md bg-white">
-        <i class="fas fa-shield-alt text-4xl mb-4 text-[var(--primary-blue)]"></i>
-        <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Segurança</h3>
-        <p class="text-gray-600 mt-2">Normas rigorosas em todos os serviços.</p>
-      </div>
-      <div class="text-center p-6 rounded-lg shadow-md bg-white">
-        <i class="fas fa-leaf text-4xl mb-4 text-[var(--primary-blue)]"></i>
-        <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Sustentabilidade</h3>
-        <p class="text-gray-600 mt-2">Energia limpa para um futuro melhor.</p>
+      <div class="flex items-center">
+        <img src="/assets/logo.webp" alt="Equipe da Nort Elétrica" class="rounded-lg shadow-lg w-1/2 transition-all duration-300 hover:scale-105" loading="lazy">
       </div>
     </div>
-  </div>
-</section>
+    <div class="container mx-auto px-4 mt-12">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Por que Escolher a Nort Elétrica?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <div class="text-center p-6 rounded-lg shadow-md bg-white">
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Inovação</h3>
+          <p class="text-gray-600 mt-2">Tecnologia de ponta em cada projeto.</p>
+        </div>
+        <div class="text-center p-6 rounded-lg shadow-md bg-white">
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Segurança</h3>
+          <p class="text-gray-600 mt-2">Normas rigorosas em todos os serviços.</p>
+        </div>
+        <div class="text-center p-6 rounded-lg shadow-md bg-white">
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Sustentabilidade</h3>
+          <p class="text-gray-600 mt-2">Energia limpa para um futuro melhor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Serviços -->
   <section id="services">
@@ -570,7 +507,7 @@
         </div>
       </div>
       <div class="text-center mt-12">
-        <a href="#contact" class="btn-modern text-lg">Solicite um Orçamento Agora</a>
+        <a href="#contact" class="btn-modern text-lg">Solicite seu Orçamento Agora</a>
       </div>
     </div>
   </section>
@@ -691,45 +628,51 @@
       <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">O que Nossos Clientes Dizem</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
         <div class="service-card flex items-center space-x-4">
-          <img src="https://via.placeholder.com/50x50" alt="João Silva" class="rounded-full" loading="lazy">
+          <img src="https://via.placeholder.com/50x50" alt="João Silva" class="rounded-full w-12 h-12" loading="lazy">
           <div>
             <p class="text-gray-600 italic">"A instalação solar superou minhas expectativas!"</p>
             <p class="text-gray-900 font-semibold mt-2">- João Silva</p>
+            <div class="stars">★★★★★</div>
           </div>
         </div>
         <div class="service-card flex items-center space-x-4">
-          <img src="https://via.placeholder.com/50x50" alt="Maria Souza" class="rounded-full" loading="lazy">
+          <img src="https://via.placeholder.com/50x50" alt="Maria Souza" class="rounded-full w-12 h-12" loading="lazy">
           <div>
             <p class="text-gray-600 italic">"Minha casa agora é mais segura com a elétrica predial."</p>
             <p class="text-gray-900 font-semibold mt-2">- Maria Souza</p>
+            <div class="stars">★★★★★</div>
           </div>
         </div>
         <div class="service-card flex items-center space-x-4">
-          <img src="https://via.placeholder.com/50x50" alt="Carlos Oliveira" class="rounded-full" loading="lazy">
+          <img src="https://via.placeholder.com/50x50" alt="Carlos Oliveira" class="rounded-full w-12 h-12" loading="lazy">
           <div>
             <p class="text-gray-600 italic">"Solução industrial eficiente e confiável."</p>
             <p class="text-gray-900 font-semibold mt-2">- Carlos Oliveira</p>
+            <div class="stars">★★★★★</div>
           </div>
         </div>
         <div class="service-card flex items-center space-x-4">
-          <img src="https://via.placeholder.com/50x50" alt="Ana Paula" class="rounded-full" loading="lazy">
+          <img src="https://via.placeholder.com/50x50" alt="Ana Paula" class="rounded-full w-12 h-12" loading="lazy">
           <div>
             <p class="text-gray-600 italic">"Automação residencial mudou minha rotina!"</p>
             <p class="text-gray-900 font-semibold mt-2">- Ana Paula</p>
+            <div class="stars">★★★★★</div>
           </div>
         </div>
         <div class="service-card flex items-center space-x-4">
-          <img src="https://via.placeholder.com/50x50" alt="Roberto Santos" class="rounded-full" loading="lazy">
+          <img src="https://via.placeholder.com/50x50" alt="Roberto Santos" class="rounded-full w-12 h-12" loading="lazy">
           <div>
             <p class="text-gray-600 italic">"Cabeamento estruturado perfeito para meu escritório."</p>
             <p class="text-gray-900 font-semibold mt-2">- Roberto Santos</p>
+            <div class="stars">★★★★★</div>
           </div>
         </div>
         <div class="service-card flex items-center space-x-4">
-          <img src="https://via.placeholder.com/50x50" alt="Fernanda Lima" class="rounded-full" loading="lazy">
+          <img src="https://via.placeholder.com/50x50" alt="Fernanda Lima" class="rounded-full w-12 h-12" loading="lazy">
           <div>
             <p class="text-gray-600 italic">"CFTV trouxe segurança total para minha casa."</p>
             <p class="text-gray-900 font-semibold mt-2">- Fernanda Lima</p>
+            <div class="stars">★★★★★</div>
           </div>
         </div>
       </div>
@@ -815,18 +758,8 @@
             <p id="service-error" class="text-red-500 text-sm hidden">Selecione um serviço.</p>
           </div>
           <div>
-            <label for="urgency" class="block text-gray-700 font-semibold">Nível de Urgência</label>
-            <select id="urgency" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required aria-describedby="urgency-error">
-              <option value="">Selecione o nível de urgência</option>
-              <option value="Baixa">Baixa (Planejamento)</option>
-              <option value="Média">Média (1-2 semanas)</option>
-              <option value="Alta">Alta (Imediato)</option>
-            </select>
-            <p id="urgency-error" class="text-red-500 text-sm hidden">Selecione o nível de urgência.</p>
-          </div>
-          <div>
             <label for="message" class="block text-gray-700 font-semibold">Mensagem</label>
-            <textarea id="message" placeholder="Sua Mensagem (ex.: tamanho do projeto, localização)" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" rows="5" required aria-describedby="message-error"></textarea>
+            <textarea id="message" placeholder="Sua Mensagem" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" rows="5" required aria-describedby="message-error"></textarea>
             <p id="message-error" class="text-red-500 text-sm hidden">Insira sua mensagem.</p>
           </div>
           <button type="submit" class="btn-modern w-full">Enviar Mensagem</button>
@@ -836,8 +769,8 @@
           <p class="text-gray-600 text-lg">Estamos prontos para atender você com rapidez e profissionalismo.</p>
           <div class="bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Contato</h3>
-            <p class="text-gray-600"><i class="fas fa-envelope mr-2 text-[var(--primary-blue)]"></i> E-mail: <a href="/cdn-cgi/l/email-protection#91f2fefbf1e4f1fed1fffee3f5e4fde4f5f3f8f2f0bff2fefcbff3e3" class="text-[var(--primary-blue)] hover:underline"><span class="__cf_email__" data-cfemail="1a7975746e7b6e755a7479687e6f766f7e78737e7c34797476347969">[email protected]</span></a></p>
-            <p class="text-gray-600 mt-2"><i class="fab fa-whatsapp mr-2 text-[var(--primary-blue)]"></i> WhatsApp: <a href="https://wa.me/5533981087746" class="text-[var(--primary-blue)] hover:underline">+55 53 98108-7746</a></p>
+            <p class="text-gray-600"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> E-mail: <a href="mailto:contato@norteletrica.com.br" class="text-[var(--primary-blue)] hover:underline">contato@norteletrica.com.br</a></p>
+            <p class="text-gray-600 mt-2"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l4-4h-.586A1.994 1.994 0 019 14.414" /></svg> WhatsApp: <a href="https://wa.me/5533981087746" class="text-[var(--primary-blue)] hover:underline">+55 53 98108-7746</a></p>
           </div>
           <div class="bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Horários de Atendimento</h3>
@@ -855,56 +788,16 @@
         <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Perguntas Frequentes</h2>
         <div class="space-y-6 mt-8">
           <div>
-            <div class="faq-question" onclick="toggleFAQ(1)">Como solicitar um orçamento? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-question" onclick="toggleFAQ(1)">Como solicitar um orçamento? <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
             <div class="faq-answer" id="faq-answer-1">Entre em contato via WhatsApp, e-mail ou use o formulário acima. Respondemos em até 24 horas!</div>
           </div>
           <div>
-            <div class="faq-question" onclick="toggleFAQ(2)">Quais métodos de pagamento vocês aceitam? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-question" onclick="toggleFAQ(2)">Quais métodos de pagamento vocês aceitam? <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
             <div class="faq-answer" id="faq-answer-2">Aceitamos PIX, cartão de crédito/débito, boleto e transferência bancária.</div>
           </div>
           <div>
-            <div class="faq-question" onclick="toggleFAQ(3)">Vocês oferecem garantia nos serviços? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-question" onclick="toggleFAQ(3)">Vocês oferecem garantia nos serviços? <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
             <div class="faq-answer" id="faq-answer-3">Sim, oferecemos 12 meses de garantia contra defeitos de instalação ou equipamentos.</div>
-          </div>
-        </div>
-      </div>
-      <!-- Certificações e Parceiros -->
-      <div class="mt-16">
-        <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Certificações e Parceiros</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
-          <div>
-            <h3 class="text-2xl font-semibold text-center mb-6 text-[var(--primary-blue)]">Certificações</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
-                <img src="/assets/crea-rs.webp" alt="Certificado CREA-RS" loading="lazy">
-                <p class="text-gray-700 mt-2">CREA-RS</p>
-              </div>
-              <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
-                <img src="/assets/nr-10.webp" alt="Certificado NR-10" loading="lazy">
-                <p class="text-gray-700 mt-2">NR-10</p>
-              </div>
-              <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
-                <img src="/assets/nr-35.webp" alt="Certificado NR-35" loading="lazy">
-                <p class="text-gray-700 mt-2">NR-35</p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h3 class="text-2xl font-semibold text-center mb-6 text-[var(--primary-blue)]">Parceiros</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
-                <img src="/assets/weg.webp" alt="WEG" loading="lazy">
-                <p class="text-gray-700 mt-2">WEG</p>
-              </div>
-              <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
-                <img src="/assets/fronius.webp" alt="Fronius" loading="lazy">
-                <p class="text-gray-700 mt-2">Fronius</p>
-              </div>
-              <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
-                <img src="/assets/schneider-electric.webp" alt="Schneider Electric" loading="lazy">
-                <p class="text-gray-700 mt-2">Schneider Electric</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -919,8 +812,8 @@
           <h3 class="text-xl font-semibold mb-4">Nort Elétrica</h3>
           <p class="text-blue-100">Energia Inteligente para Todos</p>
           <div class="flex space-x-4 mt-4">
-            <a href="https://www.instagram.com/norteletrica" target="_blank" class="text-white hover:text-blue-200 transition-all"><i class="fab fa-instagram text-2xl"></i></a>
-            <a href="https://www.facebook.com/norteletrica" target="_blank" class="text-white hover:text-blue-200 transition-all"><i class="fab fa-facebook text-2xl"></i></a>
+            <a href="https://www.instagram.com/norteletrica" target="_blank" class="text-white hover:text-[var(--solar-yellow)] transition-all"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2m14-1v4M5 20v-4m0-10h4m10 10h-4M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg></a>
+            <a href="https://www.facebook.com/norteletrica" target="_blank" class="text-white hover:text-[var(--solar-yellow)] transition-all"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg></a>
           </div>
         </div>
         <div>
@@ -957,32 +850,38 @@
   </footer>
 
   <!-- Scripts -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" defer></script>
   <script>
+    // Menu Mobile
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const closeMenu = document.getElementById('close-menu');
-    let lastSystemKWp = '';
 
     menuToggle.addEventListener('click', () => {
       mobileMenu.classList.toggle('open');
       menuToggle.setAttribute('aria-expanded', mobileMenu.classList.contains('open'));
+      document.querySelector('.menu-open').classList.toggle('hidden');
+      document.querySelector('.menu-close').classList.toggle('hidden');
     });
 
     closeMenu.addEventListener('click', () => {
       mobileMenu.classList.remove('open');
       menuToggle.setAttribute('aria-expanded', 'false');
+      document.querySelector('.menu-open').classList.remove('hidden');
+      document.querySelector('.menu-close').classList.add('hidden');
     });
 
     document.addEventListener('click', (e) => {
       if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
         mobileMenu.classList.remove('open');
         menuToggle.setAttribute('aria-expanded', 'false');
+        document.querySelector('.menu-open').classList.remove('hidden');
+        document.querySelector('.menu-close').classList.add('hidden');
       }
     });
 
+    // Navegação suave
     document.querySelectorAll('nav a, #mobile-menu a').forEach(anchor => {
       anchor.addEventListener('click', (e) => {
         const href = anchor.getAttribute('href');
@@ -992,108 +891,132 @@
           if (window.innerWidth < 768) { 
             mobileMenu.classList.remove('open');
             menuToggle.setAttribute('aria-expanded', 'false');
+            document.querySelector('.menu-open').classList.remove('hidden');
+            document.querySelector('.menu-close').classList.add('hidden');
           }
-        } else if (href === 'area-cliente.html') {
-          window.location.href = href;
         }
       });
     });
 
-    const backToTopButton = document.querySelector('.back-to-top');
+    // Controle do cabeçalho ao rolar
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+
     window.addEventListener('scroll', () => {
-      backToTopButton.classList.toggle('show', window.scrollY > 100);
-      const header = document.querySelector('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        header.classList.add('hidden');
       } else {
-        header.classList.remove('scrolled');
+        header.classList.remove('hidden');
       }
+      header.classList.toggle('scrolled', scrollTop > 50);
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
 
-    backToTopButton.addEventListener('click', (e) => {
-      e.preventDefault();
+    // Função para voltar ao topo
+    function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      let isValid = true;
-      ['name', 'email', 'service', 'urgency', 'message'].forEach(id => {
-        const input = document.getElementById(id);
-        const error = document.getElementById(`${id}-error`);
-        if (id === 'email') {
-          isValid &= /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
-          error.classList.toggle('hidden', isValid);
-        } else if (input.required) {
-          isValid &= !!input.value;
-          error.classList.toggle('hidden', !!input.value);
-        }
-      });
-      if (isValid) {
-        document.getElementById('success-message').classList.remove('hidden');
-        setTimeout(() => document.getElementById('success-message').classList.add('hidden'), 5000);
-        this.reset();
-      }
-    });
-
-    function toggleFAQ(id) {
-      document.getElementById(`faq-answer-${id}`).classList.toggle('open');
     }
 
+    // Typed.js para Hero
+    new Typed('#typed', {
+      strings: ['Soluções Elétricas do Futuro', 'Energia Solar Sustentável', 'Automação Inteligente'],
+      typeSpeed: 50,
+      backSpeed: 30,
+      loop: true
+    });
+
+    // Calculadora Solar
     document.getElementById('calculate-solar').addEventListener('click', () => {
       const consumption = parseFloat(document.getElementById('consumption').value);
       const sunHours = parseFloat(document.getElementById('sun-hours').value);
       const area = parseFloat(document.getElementById('area').value) || 0;
-      const error = document.getElementById('consumption-error');
-      const result = document.getElementById('solar-result');
-      const systemSize = document.getElementById('system-size');
-      const systemCost = document.getElementById('system-cost');
 
       if (!consumption || consumption <= 0) {
-        error.classList.remove('hidden');
-        result.classList.add('hidden');
+        document.getElementById('consumption-error').classList.remove('hidden');
         return;
       }
-      error.classList.add('hidden');
+      document.getElementById('consumption-error').classList.add('hidden');
 
-      const systemKWp = (consumption / (sunHours * 30)).toFixed(2);
-      const costPerKWp = 5000;
-      const totalCost = (systemKWp * costPerKWp).toFixed(2);
-      systemSize.textContent = systemKWp;
-      systemCost.textContent = totalCost;
-      lastSystemKWp = systemKWp;
-      result.classList.remove('hidden');
+      const systemSize = (consumption / (sunHours * 30)).toFixed(2);
+      const costPerKWp = 5000; // Valor estimado em R$/kWp
+      const totalCost = (systemSize * costPerKWp).toFixed(2);
 
-      document.getElementById('message').value = `Quero um orçamento para um sistema solar de ${systemKWp} kWp.`;
-      document.getElementById('whatsapp-button').href = `https://wa.me/5533981087746?text=Olá, quero um orçamento para um sistema solar de ${systemKWp} kWp!`;
-      document.getElementById('whatsapp-button').querySelector('span').textContent = "Fale sobre seu sistema solar";
+      document.getElementById('system-size').textContent = systemSize;
+      document.getElementById('system-cost').textContent = totalCost.replace('.', ',');
+      document.getElementById('solar-result').classList.remove('hidden');
     });
 
+    // Enviar resultado da calculadora
     document.getElementById('send-result').addEventListener('click', () => {
-      document.querySelector('#contact-form').scrollIntoView({ behavior: 'smooth' });
+      const systemSize = document.getElementById('system-size').textContent;
+      const systemCost = document.getElementById('system-cost').textContent;
+      const whatsappMessage = `Olá, calculei um sistema solar de ${systemSize} kWp com custo estimado de R$ ${systemCost}. Gostaria de mais detalhes!`;
+      window.open(`https://wa.me/5533981087746?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
     });
 
-    document.getElementById('newsletter-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Inscrição realizada com sucesso!');
-      this.reset();
-    });
-
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.getAttribute('data-filter');
+    // Filtro da Galeria
+    document.querySelectorAll('.filter-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
         document.querySelectorAll('.gallery-item').forEach(item => {
-          item.style.display = filter === 'all' || item.getAttribute('data-category') === filter ? 'block' : 'none';
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
         });
       });
     });
 
-    setTimeout(() => document.getElementById('popup').classList.remove('hidden'), 30000);
-    document.getElementById('close-popup').addEventListener('click', () => document.getElementById('popup').classList.add('hidden'));
+    // FAQ Toggle
+    function toggleFAQ(index) {
+      const answer = document.getElementById(`faq-answer-${index}`);
+      answer.classList.toggle('open');
+    }
 
-    document.querySelectorAll('img').forEach(img => img.setAttribute('loading', 'lazy'));
+    // Formulário de Contato
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value;
 
-    document.getElementById('footer-year').innerHTML = `© ${new Date().getFullYear()} Nort Elétrica. Todos os direitos reservados.`;
+      if (!name || !email || !service || !message) {
+        if (!name) document.getElementById('name-error').classList.remove('hidden');
+        if (!email) document.getElementById('email-error').classList.remove('hidden');
+        if (!service) document.getElementById('service-error').classList.remove('hidden');
+        if (!message) document.getElementById('message-error').classList.remove('hidden');
+        return;
+      }
+
+      const whatsappMessage = `Olá, sou ${name}. Gostaria de um orçamento para ${service}. E-mail: ${email}. Mensagem: ${message}`;
+      window.open(`https://wa.me/5533981087746?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+      document.getElementById('success-message').classList.remove('hidden');
+      document.getElementById('contact-form').reset();
+    });
+
+    // Pop-up Exit-Intent
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY < 0) {
+        document.getElementById('popup').classList.remove('hidden');
+      }
+    });
+
+    document.getElementById('close-popup').addEventListener('click', () => {
+      document.getElementById('popup').classList.add('hidden');
+    });
+
+    // Newsletter (simulação)
+    document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Inscrição realizada com sucesso!');
+      document.getElementById('newsletter-form').reset();
+    });
+
+    // Atualizar ano no footer
+    document.getElementById('footer-year').textContent = `© ${new Date().getFullYear()} Nort Elétrica. Todos os direitos reservados.`;
   </script>
 </body>
 </html>
