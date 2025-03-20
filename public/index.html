@@ -1,688 +1,985 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Nort Elétrica - Soluções em energia solar, automação residencial e elétrica no sul de Minas Gerais.">
-  <meta name="keywords" content="energia solar, automação residencial, elétrica, sul de minas">
+  <title>Nort Elétrica - Energia Solar e Soluções Elétricas em São José do Norte</title>
+  <meta name="description" content="Energia solar e soluções elétricas inovadoras em São José do Norte/RS. Projetos sustentáveis para residências e empresas. Solicite seu orçamento hoje!">
+  <meta name="keywords" content="elétrica São José do Norte, energia solar RS, automação residencial sul, instalação elétrica, manutenção elétrica, CFTV">
   <meta name="author" content="Nort Elétrica">
-  <meta name="robots" content="index, follow">
-  <title>Nort Elétrica - Energia Solar, Automação e Elétrica</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nort Elétrica - Energia Inteligente para Todos">
+  <meta property="og:description" content="Soluções elétricas modernas e sustentáveis em São José do Norte/RS. Entre em contato para transformar sua energia!">
+  <meta property="og:image" content="https://www.norteletrica.com.br/Logo-Marca.png">
+  <meta property="og:url" content="https://www.norteletrica.com.br">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nort Elétrica">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nort Elétrica - Energia Inteligente para Todos">
+  <meta name="twitter:description" content="Soluções elétricas modernas e sustentáveis em São José do Norte/RS.">
+  <meta name="twitter:image" content="https://www.norteletrica.com.br/Logo-Marca.png">
+  <link rel="canonical" href="https://www.norteletrica.com.br">
+  <link rel="icon" href="https://www.norteletrica.com.br/favicon.ico" type="image/x-icon">
+  <!-- Cache -->
+  <meta http-equiv="Cache-Control" content="max-age=3600">
+  <!-- Preload -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="/assets/logo.webp" as="image">
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
   <style>
     :root {
-      --primary-blue: #0055A4;
-      --secondary-blue: #007BFF;
-      --solar-yellow: #FFD700;
-      --dark-gray: #333333;
-      --light-gray: #F5F5F5;
-      --white: #FFFFFF;
+      --primary-blue: #1e3a8a;
+      --dark-blue: #1e293b;
+      --solar-green: #22c55e;
+      --solar-yellow: #fbbf24;
+      --light-bg: #f9fafb;
+      --shadow-sm: 0 4px 10px rgba(34, 197, 94, 0.1);
+      --shadow-md: 0 10px 30px rgba(34, 197, 94, 0.2);
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--dark-gray);
-      background-color: var(--light-gray);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    header {
-      background-color: var(--white);
-      position: fixed;
+    html, body { 
+      margin: 0; 
+      padding: 0; 
       width: 100%;
-      top: 0;
+      overflow-x: hidden;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body { 
+      background: var(--light-bg); 
+      padding-top: 80px; 
+      color: #1f2937;
+      line-height: 1.6;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; }
+    h2 { font-size: 4rem; letter-spacing: 0.025em; margin-bottom: 2.5rem; }
+    p { font-size: 1.1rem; }
+    @media (max-width: 768px) { 
+      h2 { font-size: 2.5rem; } 
+      p { font-size: 1rem; }
+    }
+    section { 
+      scroll-margin-top: 80px; 
+      padding: 6rem 0; 
+      opacity: 0; 
+      transform: translateY(20px); 
+      animation: fadeInSection 0.8s ease forwards; 
+    }
+    @keyframes fadeInSection { to { opacity: 1; transform: translateY(0); } }
+    header { 
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); 
+      box-shadow: var(--shadow-sm); 
+      height: 80px; 
+      position: fixed; 
+      top: 0; 
+      width: 100%; 
+      z-index: 50; 
+      transition: transform 0.4s ease, background 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+    header.hidden { transform: translateY(-100%); }
+    header.scrolled { background: rgba(30, 58, 138, 0.95); }
+    @media (max-width: 768px) { 
+      header { 
+        height: 60px; 
+      } 
+    }
+    a:focus, button:focus { outline: 3px solid var(--solar-yellow); outline-offset: 2px; }
+    .whatsapp-button, .cta-float, .scroll-top-button { 
+      position: fixed; 
+      color: white; 
+      border-radius: 50px; 
+      padding: 12px 24px; 
+      display: flex; 
+      align-items: center; 
+      box-shadow: var(--shadow-md); 
+      transition: all 0.3s ease; 
+      z-index: 1000; 
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    .whatsapp-button { 
+      bottom: 100px; 
+      right: 20px; 
+      background: linear-gradient(135deg, #25D366, #128C7E); 
+      z-index: 1001; 
+    }
+    .scroll-top-button {
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
       z-index: 1000;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-
-    header.hidden {
-      transform: translateY(-100%);
+    .cta-float { 
+      bottom: 20px; 
+      left: 20px; 
+      background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); 
+      z-index: 1002;
     }
-
-    header.scrolled {
-      background-color: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    .whatsapp-button:hover, .cta-float:hover, .scroll-top-button:hover { 
+      transform: translateY(-3px); 
+      box-shadow: var(--shadow-md); 
     }
-
-    nav {
+    .whatsapp-button span, .cta-float span, .scroll-top-button span { transition: transform 0.3s ease; }
+    .whatsapp-button:hover span, .cta-float:hover span, .scroll-top-button:hover span { transform: translateX(5px); }
+    .whatsapp-button img { width: 28px; height: 28px; margin-right: 10px; }
+    @media (max-width: 768px) {
+      .whatsapp-button, .cta-float, .scroll-top-button {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+      }
+      .whatsapp-button { bottom: 80px; right: 15px; }
+      .scroll-top-button { bottom: 15px; right: 15px; }
+      .cta-float { bottom: 15px; left: 15px; }
+      .whatsapp-button img {
+        width: 16px;
+        height: 16px;
+      }
+    }
+    .map-container { 
+      position: relative; 
+      padding-top: 56.25%; 
+      overflow: hidden; 
+      border-radius: 12px; 
+      box-shadow: var(--shadow-sm); 
+      width: 100%;
+    }
+    .map-container iframe { 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      border: 0; 
+    }
+    nav { display: none; }
+    nav.flex { 
+      display: flex; 
+      flex-direction: column; 
+      position: fixed; 
+      top: 0; 
+      right: 0; 
+      width: 100%; 
+      height: 100%; 
+      background: rgba(0, 0, 0, 0.95); 
+      padding: 20px; 
+      transform: translateX(0); 
+      transition: transform 0.3s ease; 
+    }
+    nav.hidden { transform: translateX(100%); }
+    nav a { 
+      color: white; 
+      padding: 12px; 
+      text-decoration: none; 
+      font-size: 1rem; 
+      transition: color 0.3s ease; 
+      font-weight: 500;
+    }
+    nav a:hover { color: var(--solar-yellow); }
+    .service-card, .highlight-card { 
+      background: white; 
+      border-radius: 12px; 
+      padding: 20px; 
+      transition: transform 0.3s ease, box-shadow 0.3s ease; 
+      box-shadow: var(--shadow-sm); 
+      border: 1px solid #e5e7eb;
+      width: 100%;
+    }
+    .service-card:hover, .highlight-card:hover { 
+      transform: translateY(-5px); 
+      box-shadow: var(--shadow-md); 
+    }
+    .gallery-item { 
+      position: relative; 
+      border-radius: 12px; 
+      overflow: hidden; 
+      box-shadow: var(--shadow-sm); 
+      width: 100%;
+    }
+    .gallery-item img { 
+      width: 100%; 
+      height: 16rem; 
+      object-fit: cover; 
+      transition: transform 0.4s ease, filter 0.3s ease; 
+    }
+    .gallery-item:hover img { 
+      transform: scale(1.05); 
+      filter: brightness(1.1); 
+    }
+    .caption { text-align: center; margin-top: 0.5rem; color: #374151; font-weight: 600; font-size: 1rem; }
+    #gallery { background: linear-gradient(to bottom, #f9fafb, #e5e7eb); }
+    #gallery-carousel {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+    }
+    @media (max-width: 768px) {
+      #gallery-carousel {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+      }
+      .gallery-item { flex: 0 0 300px; scroll-snap-align: start; }
+    }
+    .faq-question { 
+      cursor: pointer; 
+      padding: 15px; 
+      background: white; 
+      border-radius: 12px; 
+      box-shadow: var(--shadow-sm); 
+      transition: all 0.3s ease; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center;
+      width: 100%;
+      font-weight: 600;
+    }
+    .faq-question:hover { background: #f3f4f6; }
+    .faq-answer { 
+      max-height: 0; 
+      overflow: hidden; 
+      transition: max-height 0.3s ease; 
+      padding: 0 15px; 
+      background: white; 
+      border-radius: 12px; 
+      box-shadow: var(--shadow-sm); 
+      width: 100%;
+    }
+    .faq-answer.open { max-height: 200px; padding: 15px; }
+    .btn-modern { 
+      background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); 
+      color: white; 
+      padding: 12px 24px; 
+      border-radius: 8px; 
+      transition: all 0.3s ease; 
+      font-weight: 600; 
+      display: inline-flex; 
+      align-items: center; 
+      box-shadow: var(--shadow-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .btn-modern:hover { 
+      transform: translateY(-2px); 
+      box-shadow: var(--shadow-md); 
+      background: linear-gradient(135deg, var(--solar-yellow), var(--solar-green)); 
+    }
+    footer { background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue)); }
+    #solar-calculator input[type="number"]::-webkit-inner-spin-button { opacity: 1; }
+    #solar-result { transition: opacity 0.3s ease; opacity: 0; }
+    #solar-result.visible { opacity: 1; }
+    #mobile-menu.open { transform: translateX(0); }
+    .header-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
+      width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-    }
-
-    .logo img {
-      height: 40px;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-
-    nav ul li a {
-      color: var(--dark-gray);
-      text-decoration: none;
-      font-weight: 700;
-      transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: var(--secondary-blue);
-    }
-
-    #menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .menu-close {
-      display: none;
-    }
-
-    #mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0;
-      right: -100%;
+      padding: 0 15px;
       height: 100%;
-      width: 250px;
-      background-color: var(--white);
-      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-      transition: right 0.3s ease;
-      z-index: 1001;
-      padding: 1rem;
     }
-
-    #mobile-menu.open {
-      right: 0;
-      display: block;
+    .cta-fixed {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 50;
     }
-
-    #mobile-menu ul {
+    @media (min-width: 768px) {
+      nav { 
+        display: flex; 
+        flex-direction: row; 
+        position: static; 
+        width: auto; 
+        height: auto; 
+        background: none; 
+        padding: 0; 
+      }
+      nav.flex, nav.hidden { transform: none; }
+      nav a { padding: 0 12px; font-size: 0.95rem; }
+      .btn-modern { padding: 8px 16px; }
+    }
+    @media (max-width: 1024px) and (min-width: 768px) {
+      .header-container { padding: 0 10px; }
+      nav a { padding: 0 8px; font-size: 0.9rem; }
+      .btn-modern { padding: 6px 12px; font-size: 0.85rem; }
+    }
+    @media (max-width: 900px) {
+      nav { display: none; }
+      #menu-toggle { display: block; }
+      .header-container { justify-content: space-between; }
+      .cta-fixed { display: none; }
+    }
+    @media (min-width: 901px) { #menu-toggle { display: none; } }
+    footer a { transition: color 0.3s ease; }
+    footer a:hover { color: var(--solar-yellow); }
+    .certification-card img { width: 80px; height: 80px; margin: 0 auto; }
+    .header-branding {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      max-width: 300px; /* Limita a largura para evitar expansão excessiva */
+    }
+    .header-branding img {
+      width: 2rem;
+      height: 2rem;
+      transition: transform 0.3s ease;
+      flex-shrink: 0; /* Impede que o ícone encolha */
+    }
+    .header-branding img:hover {
+      transform: scale(1.1);
+    }
+    .header-branding .branding-text {
+      display: flex;
       flex-direction: column;
-      padding: 2rem 1rem;
+      overflow: hidden; /* Evita que o texto ultrapasse os limites */
     }
-
-    #mobile-menu ul li {
-      margin: 1rem 0;
+    .header-branding h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem; /* Reduzido para caber melhor */
+      color: white;
+      margin: 0;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+      overflow: hidden;
+      text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
     }
-
-    #mobile-menu ul li a {
-      font-size: 1.2rem;
-      color: var(--dark-gray);
+    .header-branding p {
+      font-size: 0.7rem; /* Reduzido para caber melhor */
+      color: #93c5fd;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-
-    #close-menu {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      cursor: pointer;
+    @media (max-width: 768px) {
+      .header-branding {
+        max-width: 200px; /* Reduz a largura no mobile */
+      }
+      .header-branding h1 { 
+        font-size: 1rem; /* Menor no mobile */
+      }
+      .header-branding p { 
+        font-size: 0.6rem; 
+      }
+      .header-branding img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+      #mobile-menu {
+        background: #1e293b;
+        width: 100%;
+        max-width: 100vw;
+        transform: translateX(100%);
+      }
+      #mobile-menu.open { transform: translateX(0); }
+      #mobile-menu a { color: #ffffff; font-size: 1.2rem; }
+      #mobile-menu a:hover { color: var(--solar-yellow); }
+      #mobile-menu .btn-modern { background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); color: #ffffff; }
+      .container { max-width: 100%; padding-left: 15px; padding-right: 15px; }
+      section, footer { width: 100%; overflow-x: hidden; }
+      .grid { width: 100%; }
+      img { max-width: 100%; height: auto; }
     }
-
-    section {
-      padding: 5rem 2rem;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+    .stars { color: #fbbf24; }
+    /* Estabilizar o texto animado na Hero Section */
+    #typed {
+      display: inline-block;
+      min-height: 3rem;
+      line-height: 1.2;
+      vertical-align: middle;
     }
-
+    /* Garantir que a Hero Section não "pule" no mobile */
     section[style*="background-image"] {
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 50vh;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: var(--white);
-      text-align: center;
-      position: relative;
     }
-
-    section[style*="background-image"]::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1;
-    }
-
-    section[style*="background-image"] > * {
-      position: relative;
-      z-index: 2;
-    }
-
-    #typed-container {
-      display: inline-block;
-      min-height: 6rem; /* Altura fixa para o pior caso (texto quebrado em várias linhas) */
-      width: 100%;
-      text-align: center;
-    }
-
-    #typed {
-      display: inline;
-      width: 100%;
-      white-space: normal; /* Permitir quebras de linha */
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-    }
-
-    h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: var(--primary-blue);
-      text-align: center;
-    }
-
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background-color: var(--secondary-blue);
-      color: var(--white);
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: 700;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: var(--primary-blue);
-    }
-
-    .btn-solar {
-      background-color: var(--solar-yellow);
-      color: var(--dark-gray);
-    }
-
-    .btn-solar:hover {
-      background-color: #FFC107;
-    }
-
-    .services-grid, .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .service-card, .gallery-item {
-      background-color: var(--white);
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    .service-card:hover, .gallery-item:hover {
-      transform: translateY(-5px);
-    }
-
-    .service-card img, .gallery-item img {
-      max-width: 100%;
-      border-radius: 5px;
-      margin-bottom: 1rem;
-    }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .gallery-item img {
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.05);
-    }
-
-    .filter-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .filter-btn {
-      padding: 0.5rem 1rem;
-      background-color: var(--light-gray);
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .filter-btn:hover {
-      background-color: var(--solar-yellow);
-    }
-
-    .faq-item {
-      background-color: var(--white);
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 5px;
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-    }
-
-    .faq-answer {
-      display: none;
-      padding-top: 1rem;
-    }
-
-    .faq-answer.open {
-      display: block;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    input, select, textarea {
-      padding: 0.75rem;
-      border: 1px solid var(--dark-gray);
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 150px;
-    }
-
-    .error-message {
-      color: red;
-      font-size: 0.9rem;
-      display: none;
-    }
-
-    .success-message {
-      color: green;
-      font-size: 1.1rem;
-      text-align: center;
-      display: none;
-    }
-
-    #solar-result {
-      display: none;
-      margin-top: 2rem;
-      padding: 1rem;
-      background-color: var(--white);
-      border-radius: 5px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    #solar-result.visible {
-      display: block;
-    }
-
-    #scroll-top-button {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background-color: var(--secondary-blue);
-      color: var(--white);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s ease;
-    }
-
-    #scroll-top-button:hover {
-      background-color: var(--primary-blue);
-    }
-
-    #popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 1002;
-    }
-
-    #popup-content {
-      background-color: var(--white);
-      padding: 2rem;
-      border-radius: 10px;
-      text-align: center;
-      position: relative;
-      max-width: 90%;
-      width: 400px;
-    }
-
-    #close-popup {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    footer {
-      background-color: var(--dark-gray);
-      color: var(--white);
-      padding: 2rem;
-      text-align: center;
-    }
-
-    footer a {
-      color: var(--solar-yellow);
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    .fade-in {
-      animation: fadeIn 0.5s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
     @media (max-width: 768px) {
-      nav ul {
-        display: none;
+      #typed {
+        min-height: 2.5rem;
       }
-
-      #menu-toggle {
-        display: block;
-      }
-
       section[style*="background-image"] {
         min-height: 60vh;
       }
-
-      h1 {
-        font-size: 2.5rem;
-      }
-
-      h2 {
-        font-size: 2rem;
-      }
-
-      #typed-container {
-        min-height: 8rem; /* Ajuste para mobile, considerando que o texto pode ocupar mais linhas */
-      }
-
-      #typed {
-        font-size: 2rem; /* Garantir que o tamanho da fonte seja consistente */
-        line-height: 1.2;
-      }
     }
   </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'YOUR-GA-ID');
+  </script>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <nav>
-      <div class="logo">
-        <img src="logo.png" alt="Nort Elétrica Logo">
-      </div>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Serviços</a></li>
-        <li><a href="#gallery">Galeria</a></li>
-        <li><a href="#calculator">Calculadora Solar</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Contato</a></li>
-      </ul>
-      <button id="menu-toggle" aria-expanded="false" aria-label="Abrir menu">
-        <span class="menu-open">☰</span>
-        <span class="menu-close hidden">✖</span>
-      </button>
-    </nav>
-  </header>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu">
-    <button id="close-menu" aria-label="Fechar menu">✖</button>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#services">Serviços</a></li>
-      <li><a href="#gallery">Galeria</a></li>
-      <li><a href="#calculator">Calculadora Solar</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contact">Contato</a></li>
-    </ul>
-  </div>
-
-  <!-- Hero Section -->
-  <section id="home" style="background-image: url('hero-bg.jpg');">
-    <div>
-      <h1 class="text-4xl md:text-5xl font-bold mb-6"><span id="typed-container"><span id="typed"></span></span></h1>
-      <a href="#contact" class="btn btn-solar">Solicite um Orçamento</a>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services">
-    <div class="container">
-      <h2>Nossos Serviços</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <img src="solar.jpg" alt="Energia Solar" loading="lazy">
-          <h3>Energia Solar</h3>
-          <p>Instalação de sistemas fotovoltaicos para residências e empresas.</p>
-        </div>
-        <div class="service-card">
-          <img src="automation.jpg" alt="Automação Residencial" loading="lazy">
-          <h3>Automação Residencial</h3>
-          <p>Soluções inteligentes para sua casa, com controle total.</p>
-        </div>
-        <div class="service-card">
-          <img src="electrical.jpg" alt="Elétrica" loading="lazy">
-          <h3>Elétrica</h3>
-          <p>Projetos e manutenções elétricas com segurança e qualidade.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery Section -->
-  <section id="gallery">
-    <div class="container">
-      <h2>Galeria de Projetos</h2>
-      <div class="filter-buttons">
-        <button class="filter-btn bg-[var(--solar-yellow)]" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="solar">Solar</button>
-        <button class="filter-btn" data-filter="automation">Automação</button>
-        <button class="filter-btn" data-filter="electrical">Elétrica</button>
-      </div>
-      <div class="gallery-grid">
-        <div class="gallery-item" data-category="solar">
-          <a href="solar-project1.jpg" data-lightbox="gallery" data-title="Projeto Solar 1">
-            <img src="solar-project1.jpg" alt="Projeto Solar 1" loading="lazy">
-          </a>
-        </div>
-        <div class="gallery-item" data-category="automation">
-          <a href="automation-project1.jpg" data-lightbox="gallery" data-title="Projeto Automação 1">
-            <img src="automation-project1.jpg" alt="Projeto Automação 1" loading="lazy">
-          </a>
-        </div>
-        <div class="gallery-item" data-category="electrical">
-          <a href="electrical-project1.jpg" data-lightbox="gallery" data-title="Projeto Elétrica 1">
-            <img src="electrical-project1.jpg" alt="Projeto Elétrica 1" loading="lazy">
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Calculator Section -->
-  <section id="calculator">
-    <div class="container">
-      <h2>Calculadora de Energia Solar</h2>
-      <form>
-        <label for="consumption">Consumo Mensal (kWh):</label>
-        <input type="number" id="consumption" required>
-        <div id="consumption-error" class="error-message">Por favor, insira um valor válido para o consumo.</div>
-
-        <label for="sun-hours">Horas de Sol por Dia:</label>
-        <input type="number" id="sun-hours" value="5" step="0.1" required>
-
-        <label for="area">Área Disponível (m², opcional):</label>
-        <input type="number" id="area" step="0.1">
-
-        <button type="button" id="calculate-solar" class="btn btn-solar">Calcular</button>
-      </form>
-      <div id="solar-result">
-        <p>Tamanho do Sistema: <span id="system-size"></span> kWp</p>
-        <p>Custo Estimado: R$ <span id="system-cost"></span></p>
-        <div id="area-warning" class="error-message"></div>
-        <button id="send-result" class="btn btn-solar mt-4">Enviar Resultado</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section id="faq">
-    <div class="container">
-      <h2>Perguntas Frequentes</h2>
-      <div class="faq-item" onclick="toggleFAQ(1)">
-        <h3>Quanto tempo leva para instalar um sistema solar?</h3>
-        <div id="faq-answer-1" class="faq-answer">
-          <p>Depende do tamanho do projeto, mas geralmente leva de 2 a 5 dias úteis.</p>
-        </div>
-      </div>
-      <div class="faq-item" onclick="toggleFAQ(2)">
-        <h3>Quais são os benefícios da automação residencial?</h3>
-        <div id="faq-answer-2" class="faq-answer">
-          <p>Conforto, economia de energia e maior segurança para sua casa.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="container">
-      <h2>Entre em Contato</h2>
-      <form id="contact-form">
-        <label for="name">Nome:</label>
-        <input type="text" id="name" required>
-        <div id="name-error" class="error-message">Por favor, insira seu nome.</div>
-
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" required>
-        <div id="email-error" class="error-message">Por favor, insira um e-mail válido.</div>
-
-        <label for="phone">Telefone (opcional):</label>
-        <input type="tel" id="phone">
-
-        <label for="service">Serviço:</label>
-        <select id="service" required>
-          <option value="">Selecione um serviço</option>
-          <option value="Energia Solar">Energia Solar</option>
-          <option value="Automação Residencial">Automação Residencial</option>
-          <option value="Elétrica">Elétrica</option>
-        </select>
-        <div id="service-error" class="error-message">Por favor, selecione um serviço.</div>
-
-        <label for="message">Mensagem:</label>
-        <textarea id="message" required></textarea>
-        <div id="message-error" class="error-message">Por favor, insira sua mensagem.</div>
-
-        <button type="submit" class="btn">Enviar</button>
-      </form>
-      <div id="success-message" class="success-message">Mensagem enviada com sucesso!</div>
-    </div>
-  </section>
-
-  <!-- Newsletter Section -->
-  <section id="newsletter">
-    <div class="container">
-      <h2>Inscreva-se na Nossa Newsletter</h2>
-      <form id="newsletter-form">
-        <label for="newsletter-email">E-mail:</label>
-        <input type="email" id="newsletter-email" required>
-        <button type="submit" class="btn">Inscrever-se</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Pop-up -->
-  <div id="popup" class="hidden">
-    <div id="popup-content">
-      <button id="close-popup" aria-label="Fechar pop-up">✖</button>
-      <h3>Oferta Especial!</h3>
-      <p>Desconto de 10% em seu primeiro projeto de energia solar! Entre em contato agora.</p>
-      <a href="#contact" class="btn btn-solar">Aproveitar Oferta</a>
-    </div>
-  </div>
+  <!-- WhatsApp Button -->
+  <a id="whatsapp-button" href="https://wa.me/5533981087746?text=Olá, gostaria de falar com um especialista!" target="_blank" class="whatsapp-button">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+    <span>Fale Conosco</span>
+  </a>
 
   <!-- Scroll to Top Button -->
-  <div id="scroll-top-button" onclick="scrollToTop()" aria-label="Voltar ao topo">
-    ↑
+  <a href="#" id="scroll-top-button" class="scroll-top-button" onclick="scrollToTop()">
+    <span>Voltar ao Topo</span>
+  </a>
+
+  <!-- CTA Flutuante -->
+  <a href="#contact" class="cta-float">
+    <span>Economize Agora!</span>
+  </a>
+
+  <!-- CTA Fixo no Desktop -->
+  <div class="cta-fixed hidden md:block">
+    <a href="#contact" class="btn-modern text-sm px-4 py-2">Orçamento Grátis Hoje</a>
   </div>
 
+  <!-- Pop-up de Oferta -->
+  <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-md text-center">
+      <h2 class="text-2xl font-bold text-[var(--primary-blue)] mb-4">Oferta Exclusiva!</h2>
+      <p class="text-gray-700 mb-6">10% OFF no seu primeiro projeto. Não perca!</p>
+      <a href="#contact" class="btn-modern">Aproveite Agora</a>
+      <button id="close-popup" class="ml-4 text-gray-500 hover:text-gray-700">Fechar</button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="text-white">
+    <div class="header-container">
+      <div class="header-branding">
+        <img src="/assets/icone-nort-eletrica.webp" alt="Ícone da Nort Elétrica" class="w-8 h-8 md:w-10 md:h-10" loading="lazy">
+        <div class="branding-text">
+          <h1 onclick="scrollToTop()" class="cursor-pointer hover:text-[var(--solar-yellow)] transition-colors">Nort Elétrica</h1>
+          <p>Energia Inteligente para Todos</p>
+        </div>
+      </div>
+      <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">
+        <svg class="w-8 h-8 text-white transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" class="menu-open"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" class="menu-close hidden"></path>
+        </svg>
+      </button>
+      <nav id="menu" class="hidden md:flex items-center space-x-4">
+        <a href="#about" class="hover:text-[var(--solar-yellow)] transition-colors">Sobre</a>
+        <a href="#services" class="hover:text-[var(--solar-yellow)] transition-colors">Serviços</a>
+        <a href="#solar-calculator" class="hover:text-[var(--solar-yellow)] transition-colors">Calculadora Solar</a>
+        <a href="#gallery" class="hover:text-[var(--solar-yellow)] transition-colors">Galeria</a>
+        <a href="#comments" class="hover:text-[var(--solar-yellow)] transition-colors">Comentários</a>
+        <a href="#blog" class="hover:text-[var(--solar-yellow)] transition-colors">Blog</a>
+        <a href="#contact" class="hover:text-[var(--solar-yellow)] transition-colors">Contato</a>
+        <a href="javascript:void(0)" onclick="window.location.href='area-cliente.html'" class="btn-modern text-sm px-4 py-2">Área do Cliente</a>
+      </nav>
+    </div>
+    <div id="mobile-menu" class="md:hidden fixed top-16 right-0 w-full max-w-xs text-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
+      <button id="close-menu" class="text-white p-4"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+      <div class="flex flex-col p-4 space-y-4">
+        <a href="#about" class="hover:text-[var(--solar-yellow)] transition-colors">Sobre</a>
+        <a href="#services" class="hover:text-[var(--solar-yellow)] transition-colors">Serviços</a>
+        <a href="#solar-calculator" class="hover:text-[var(--solar-yellow)] transition-colors">Calculadora Solar</a>
+        <a href="#gallery" class="hover:text-[var(--solar-yellow)] transition-colors">Galeria</a>
+        <a href="#comments" class="hover:text-[var(--solar-yellow)] transition-colors">Comentários</a>
+        <a href="#blog" class="hover:text-[var(--solar-yellow)] transition-colors">Blog</a>
+        <a href="#contact" class="hover:text-[var(--solar-yellow)] transition-colors">Contato</a>
+        <a href="javascript:void(0)" onclick="window.location.href='area-cliente.html'" class="btn-modern text-sm px-4 py-2 text-center">Área do Cliente</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-white py-28 bg-cover bg-center mt-16 relative" style="background-image: linear-gradient(to right, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), url('/assets/header.webp');">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6"><span id="typed"></span></h1>
+      <p class="mb-8 text-lg md:text-xl text-blue-100 max-w-2xl mx-auto">Projetos modernos e sustentáveis em São José do Norte/RS para residências e empresas.</p>
+      <a href="#contact" class="btn-modern text-lg">Peça seu Orçamento Grátis Hoje!</a>
+    </div>
+  </section>
+
+  <!-- Sobre Nós -->
+  <section id="about">
+    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-4xl font-bold text-[var(--primary-blue)]">Quem Somos</h2>
+        <p class="text-gray-600 text-lg leading-relaxed mt-4">Na Nort Elétrica, transformamos energia em soluções inovadoras para residências e empresas em São José do Norte/RS. Com tecnologia de ponta, oferecemos projetos elétricos que unem eficiência, segurança e sustentabilidade.</p>
+        <h3 class="text-xl font-semibold mt-6 text-[var(--primary-blue)]">Nossa Missão</h3>
+        <p class="text-gray-600">Proporcionar energia inteligente, segura e acessível no sul do RS, promovendo um futuro sustentável.</p>
+        <h3 class="text-xl font-semibold mt-6 text-[var(--primary-blue)]">Nossos Valores</h3>
+        <ul class="text-gray-600 list-disc list-inside mt-2">
+          <li>Inovação contínua</li>
+          <li>Segurança em cada detalhe</li>
+          <li>Compromisso com o meio ambiente</li>
+        </ul>
+        <h3 class="text-xl font-semibold mt-6 text-[var(--primary-blue)]">Nossa Equipe</h3>
+        <p class="text-gray-600">Contamos com profissionais qualificados e apaixonados por tecnologia, prontos para entregar soluções personalizadas com excelência e dedicação.</p>
+      </div>
+      <div class="flex items-center">
+        <img src="/assets/logo.webp" alt="Equipe da Nort Elétrica" class="rounded-lg shadow-lg w-1/2 transition-all duration-300 hover:scale-105" loading="lazy">
+      </div>
+    </div>
+    <div class="container mx-auto px-4 mt-12">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Por que Escolher a Nort Elétrica?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <div class="text-center p-6 rounded-lg shadow-md bg-white">
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Inovação</h3>
+          <p class="text-gray-600 mt-2">Tecnologia de ponta em cada projeto.</p>
+        </div>
+        <div class="text-center p-6 rounded-lg shadow-md bg-white">
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Segurança</h3>
+          <p class="text-gray-600 mt-2">Normas rigorosas em todos os serviços.</p>
+        </div>
+        <div class="text-center p-6 rounded-lg shadow-md bg-white">
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Sustentabilidade</h3>
+          <p class="text-gray-600 mt-2">Energia limpa para um futuro melhor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="services">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Nossos Serviços</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <div class="service-card">
+          <img src="/assets/sistemas-fotovoltaicos.webp" alt="Sistemas Fotovoltaicos" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Sistemas Fotovoltaicos</h3>
+          <p class="text-gray-600">Energia solar moderna e eficiente para sua casa ou empresa.</p>
+          <a href="sistemas-fotovoltaicos.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+        </div>
+        <div class="service-card">
+          <img src="/assets/eletrica-predial.webp" alt="Elétrica Predial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Elétrica Predial</h3>
+          <p class="text-gray-600">Instalações elétricas seguras para residências.</p>
+          <a href="servicos/eletrica-predial.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+        </div>
+        <div class="service-card">
+          <img src="/assets/eletrica-industrial.webp" alt="Elétrica Industrial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Elétrica Industrial</h3>
+          <p class="text-gray-600">Soluções robustas para indústrias de todos os portes.</p>
+          <a href="servicos/eletrica-industrial.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+        </div>
+        <div class="service-card">
+          <img src="/assets/automacao-residencial.webp" alt="Automação Residencial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Automação Residencial</h3>
+          <p class="text-gray-600">Casas inteligentes ao seu alcance.</p>
+          <a href="servicos/automacao-residencial.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+        </div>
+        <div class="service-card">
+          <img src="/assets/cabeamento-estruturado.webp" alt="Cabeamento Estruturado" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Cabeamento Estruturado</h3>
+          <p class="text-gray-600">Conectividade eficiente para redes corporativas.</p>
+          <a href="servicos/cabeamento-estruturado.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+        </div>
+        <div class="service-card">
+          <img src="/assets/cftv.webp" alt="CFTV e Monitoramento" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">CFTV e Monitoramento</h3>
+          <p class="text-gray-600">Segurança 24/7 com tecnologia de ponta.</p>
+          <a href="servicos/cftv-monitoramento.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <a href="#contact" class="btn-modern text-lg">Solicite seu Orçamento Agora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculadora de Energia Solar -->
+  <section id="solar-calculator">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Calculadora de Energia Solar</h2>
+      <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md mt-8">
+        <p class="text-gray-600 mb-6">Estime o tamanho e custo do sistema solar necessário para sua casa ou empresa em São José do Norte/RS.</p>
+        <div class="space-y-4">
+          <div>
+            <label for="consumption" class="block text-gray-700 font-semibold">Consumo Mensal (kWh)</label>
+            <input type="number" id="consumption" placeholder="Ex.: 300" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" min="0" required aria-describedby="consumption-error">
+            <p id="consumption-error" class="text-red-500 text-sm hidden">Insira um valor válido maior que 0.</p>
+          </div>
+          <div>
+            <label for="sun-hours" class="block text-gray-700 font-semibold">Horas de Sol por Dia (média em SJN/RS: 4.5h)</label>
+            <input type="number" id="sun-hours" value="4.5" step="0.1" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" min="1" max="12" required>
+          </div>
+          <div>
+            <label for="area" class="block text-gray-700 font-semibold">Área Disponível (m², opcional)</label>
+            <input type="number" id="area" placeholder="Ex.: 50" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" min="0">
+          </div>
+          <button id="calculate-solar" class="btn-modern w-full" aria-label="Calcular sistema solar">Calcule seu Sistema</button>
+          <div id="solar-result" class="mt-4 text-center hidden">
+            <p class="text-gray-700">Tamanho estimado: <span id="system-size" class="font-bold text-[var(--primary-blue)]"></span> kWp</p>
+            <p class="text-gray-700">Custo estimado: R$ <span id="system-cost" class="font-bold text-[var(--primary-blue)]"></span></p>
+            <p id="area-warning" class="text-red-500 text-sm mt-2 hidden"></p>
+            <p class="text-gray-600 text-sm mt-2">Entre em contato para um orçamento detalhado!</p>
+            <button id="send-result" class="btn-modern mt-4">Enviar Resultado</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projetos em Destaque -->
+  <section id="highlights">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Projetos em Destaque</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <div class="highlight-card">
+          <img src="/assets/projeto-5kva.webp" alt="Projeto Solar Residencial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Residência Solar</h3>
+          <p class="text-gray-600">Sistema de 5 kWp em São José do Norte.</p>
+          <a href="highlights.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+        </div>
+        <div class="highlight-card">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=300&auto=format&fit=crop" alt="Automação Residencial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Casa Inteligente</h3>
+          <p class="text-gray-600">Automação completa em Pelotas.</p>
+          <a href="highlights.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+        </div>
+        <div class="highlight-card">
+          <img src="/assets/projeto-fabrica.webp" alt="Elétrica Industrial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Fábrica Sustentável</h3>
+          <p class="text-gray-600">Instalação elétrica em Rio Grande.</p>
+          <a href="highlights.html" class="text-[var(--primary-blue)] hover:underline mt-2 inline-block">Saiba Mais →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeria -->
+  <section id="gallery">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Galeria de Serviços</h2>
+      <div class="flex justify-center mb-6 space-x-4 mt-4">
+        <button class="filter-btn btn-modern" data-filter="all">Todos</button>
+        <button class="filter-btn btn-modern" data-filter="solar">Solar</button>
+        <button class="filter-btn btn-modern" data-filter="automacao">Automação</button>
+        <button class="filter-btn btn-modern" data-filter="eletrica">Elétrica</button>
+      </div>
+      <div id="gallery-carousel" class="grid gap-6">
+        <div class="gallery-item" data-category="solar">
+          <a href="/assets/galeria-sistema-fotovoltaico.webp" data-lightbox="gallery" data-title="Sistemas Fotovoltaicos">
+            <img src="/assets/galeria-sistema-fotovoltaico.webp" alt="Sistemas Fotovoltaicos" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
+          </a>
+          <div class="caption text-center mt-2 text-gray-700 font-semibold">Sistemas Fotovoltaicos</div>
+        </div>
+        <div class="gallery-item" data-category="eletrica">
+          <a href="/assets/galeria-eletrica-predial.webp" data-lightbox="gallery" data-title="Elétrica Predial">
+            <img src="/assets/galeria-eletrica-predial.webp" alt="Elétrica Predial" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
+          </a>
+          <div class="caption text-center mt-2 text-gray-700 font-semibold">Elétrica Predial</div>
+        </div>
+        <div class="gallery-item" data-category="eletrica">
+          <a href="/assets/galeria-eletrica-industrial.webp" data-lightbox="gallery" data-title="Elétrica Industrial">
+            <img src="/assets/galeria-eletrica-industrial.webp" alt="Elétrica Industrial" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
+          </a>
+          <div class="caption text-center mt-2 text-gray-700 font-semibold">Elétrica Industrial</div>
+        </div>
+        <div class="gallery-item" data-category="automacao">
+          <a href="/assets/galeria-automacao-residencial.webp" data-lightbox="gallery" data-title="Automação Residencial">
+            <img src="/assets/galeria-automacao-residencial.webp" alt="Automação Residencial" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
+          </a>
+          <div class="caption text-center mt-2 text-gray-700 font-semibold">Automação Residencial</div>
+        </div>
+        <div class="gallery-item" data-category="eletrica">
+          <a href="/assets/galeria-cabeamento-estruturado.webp" data-lightbox="gallery" data-title="Cabeamento Estruturado">
+            <img src="/assets/galeria-cabeamento-estruturado.webp" alt="Cabeamento Estruturado" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
+          </a>
+          <div class="caption text-center mt-2 text-gray-700 font-semibold">Cabeamento Estruturado</div>
+        </div>
+        <div class="gallery-item" data-category="eletrica">
+          <a href="/assets/galeria-cftv.webp" data-lightbox="gallery" data-title="CFTV e Monitoramento">
+            <img src="/assets/galeria-cftv.webp" alt="CFTV e Monitoramento" class="rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full object-cover" loading="lazy">
+          </a>
+          <div class="caption text-center mt-2 text-gray-700 font-semibold">CFTV e Monitoramento</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comentários -->
+  <section id="comments">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">O que Nossos Clientes Dizem</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <div class="service-card flex items-center space-x-4">
+          <img src="/assets/comentario-joao-silva.webp" alt="João Silva" class="rounded-full w-12 h-12" loading="lazy">
+          <div>
+            <p class="text-gray-600 italic">"A instalação solar superou minhas expectativas!"</p>
+            <p class="text-gray-900 font-semibold mt-2">- João Silva</p>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="service-card flex items-center space-x-4">
+          <img src="/assets/comentario-maria-souza.webp" alt="Maria Souza" class="rounded-full w-12 h-12" loading="lazy">
+          <div>
+            <p class="text-gray-600 italic">"Minha casa agora é mais segura com a elétrica predial."</p>
+            <p class="text-gray-900 font-semibold mt-2">- Maria Souza</p>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="service-card flex items-center space-x-4">
+          <img src="/assets/comentario-carlos-oliveira.webp" alt="Carlos Oliveira" class="rounded-full w-12 h-12" loading="lazy">
+          <div>
+            <p class="text-gray-600 italic">"Solução industrial eficiente e confiável."</p>
+            <p class="text-gray-900 font-semibold mt-2">- Carlos Oliveira</p>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="service-card flex items-center space-x-4">
+          <img src="/assets/comentario-ana-paula.webp" alt="Ana Paula" class="rounded-full w-12 h-12" loading="lazy">
+          <div>
+            <p class="text-gray-600 italic">"Automação residencial mudou minha rotina!"</p>
+            <p class="text-gray-900 font-semibold mt-2">- Ana Paula</p>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="service-card flex items-center space-x-4">
+          <img src="/assets/comentario-roberto-santos.webp" alt="Roberto Santos" class="rounded-full w-12 h-12" loading="lazy">
+          <div>
+            <p class="text-gray-600 italic">"Cabeamento estruturado perfeito para meu escritório."</p>
+            <p class="text-gray-900 font-semibold mt-2">- Roberto Santos</p>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="service-card flex items-center space-x-4">
+          <img src="/assets/comentario-fernanda-lima.webp" alt="Fernanda Lima" class="rounded-full w-12 h-12" loading="lazy">
+          <div>
+            <p class="text-gray-600 italic">"CFTV trouxe segurança total para minha casa."</p>
+            <p class="text-gray-900 font-semibold mt-2">- Fernanda Lima</p>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Nosso Blog</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <div class="service-card">
+          <img src="/assets/blog-sistemas-fotovolaticos.webp" alt="Sistemas Fotovoltaicos" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Tudo Sobre Sistemas Fotovoltaicos</h3>
+          <p class="text-gray-600">Como a energia solar pode transformar sua casa.</p>
+          <a href="blog/sistemas-fotovoltaicos.html" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
+        </div>
+        <div class="service-card">
+          <img src="/assets/blog-eletrica-predial.webp" alt="Elétrica Predial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Guia de Elétrica Predial</h3>
+          <p class="text-gray-600">Dicas para manter sua instalação segura.</p>
+          <a href="blog/eletrica-predial.html" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
+        </div>
+        <div class="service-card">
+          <img src="/assets/blog-eletrica-industrial.webp" alt="Elétrica Industrial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Elétrica Industrial: O que Você Precisa Saber</h3>
+          <p class="text-gray-600">Soluções para otimizar sua produção.</p>
+          <a href="blog/eletrica-industrial.html" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
+        </div>
+        <div class="service-card">
+          <img src="/assets/blog-automacao-residencial.webp" alt="Automação Residencial" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Automação Residencial: O Futuro Hoje</h3>
+          <p class="text-gray-600">Transforme sua casa com tecnologia inteligente.</p>
+          <a href="blog/automacao-residencial.html" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
+        </div>
+        <div class="service-card">
+          <img src="/assets/blog-cabeamento-estruturado.webp" alt="Cabeamento Estruturado" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Cabeamento Estruturado Simplificado</h3>
+          <p class="text-gray-600">Conexões rápidas e eficientes para sua rede.</p>
+          <a href="blog/cabeamento-estruturado.html" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
+        </div>
+        <div class="service-card">
+          <img src="/assets/blog-cftv-e-monitoramento.webp" alt="CFTV e Monitoramento" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">CFTV: Segurança Moderna</h3>
+          <p class="text-gray-600">Como proteger sua casa ou empresa 24/7.</p>
+          <a href="blog/cftv-monitoramento.html" class="btn-modern inline-block mt-2 px-4 py-2">Leia mais</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contact">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Entre em Contato</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
+        <form id="contact-form" class="space-y-6">
+          <div>
+            <label for="name" class="block text-gray-700 font-semibold">Nome Completo</label>
+            <input type="text" id="name" placeholder="Seu Nome" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required aria-describedby="name-error">
+            <p id="name-error" class="text-red-500 text-sm hidden">Insira seu nome.</p>
+          </div>
+          <div>
+            <label for="email" class="block text-gray-700 font-semibold">E-mail</label>
+            <input type="email" id="email" placeholder="Seu E-mail" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required aria-describedby="email-error">
+            <p id="email-error" class="text-red-500 text-sm hidden">Insira um e-mail válido.</p>
+          </div>
+          <div>
+            <label for="phone" class="block text-gray-700 font-semibold">Telefone (Opcional)</label>
+            <input type="tel" id="phone" placeholder="Seu Telefone" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]">
+          </div>
+          <div>
+            <label for="service" class="block text-gray-700 font-semibold">Serviço Desejado</label>
+            <select id="service" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required aria-describedby="service-error">
+              <option value="">Selecione o serviço</option>
+              <option value="Sistemas Fotovoltaicos">Sistemas Fotovoltaicos</option>
+              <option value="Elétrica Predial">Elétrica Predial</option>
+              <option value="Elétrica Industrial">Elétrica Industrial</option>
+              <option value="Automação Residencial">Automação Residencial</option>
+              <option value="Cabeamento Estruturado">Cabeamento Estruturado</option>
+              <option value="CFTV e Monitoramento">CFTV e Monitoramento</option>
+            </select>
+            <p id="service-error" class="text-red-500 text-sm hidden">Selecione um serviço.</p>
+          </div>
+          <div>
+            <label for="message" class="block text-gray-700 font-semibold">Mensagem</label>
+            <textarea id="message" placeholder="Sua Mensagem" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" rows="5" required aria-describedby="message-error"></textarea>
+            <p id="message-error" class="text-red-500 text-sm hidden">Insira sua mensagem.</p>
+          </div>
+          <button type="submit" class="btn-modern w-full">Enviar Mensagem</button>
+          <div id="success-message" class="hidden text-green-600 text-center mt-4">Mensagem enviada com sucesso!</div>
+        </form>
+        <div class="space-y-6">
+          <p class="text-gray-600 text-lg">Estamos prontos para atender você com rapidez e profissionalismo.</p>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Contato</h3>
+            <p class="text-gray-600"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> E-mail: <a href="/cdn-cgi/l/email-protection#d5b6babba1b4a1ba95bbbaa7a1b0b9b0a1a7bcb6b4fbb6bab8fbb7a7" class="text-[var(--primary-blue)] hover:underline"><span class="__cf_email__" data-cfemail="fbd8d4d5cfdacfd4fbd5d4c9cfded7decfc9d2d8da95d8d4d695d9c9">[email protected]</span></a></p>
+            <p class="text-gray-600 mt-2"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l4-4h-.586A1.994 1.994 0 019 14.414" /></svg> WhatsApp: <a href="https://wa.me/5533981087746" class="text-[var(--primary-blue)] hover:underline">+55 53 98108-7746</a></p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Horários de Atendimento</h3>
+            <p class="text-gray-600">Seg-Sex: 07:30 - 18:30</p>
+            <p class="text-gray-600">Sáb: 07:30 - 12:00</p>
+            <p class="text-gray-600 font-bold mt-2">Plantão 24/7 para emergências</p>
+          </div>
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d437.61062334604554!2d-52.04019900969715!3d-32.001868421325625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1spt-PT!2sbr!4v1739642420954!5m2!1spt-PT!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+      <!-- FAQ -->
+      <div class="mt-16">
+        <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Perguntas Frequentes</h2>
+        <div class="space-y-6 mt-8">
+          <div>
+            <div class="faq-question" onclick="toggleFAQ(1)">Como solicitar um orçamento? <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+            <div class="faq-answer" id="faq-answer-1">Entre em contato via WhatsApp, e-mail ou use o formulário acima. Respondemos em até 24 horas!</div>
+          </div>
+          <div>
+            <div class="faq-question" onclick="toggleFAQ(2)">Quais métodos de pagamento vocês aceitam? <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+            <div class="faq-answer" id="faq-answer-2">Aceitamos PIX, cartão de crédito/débito, boleto e transferência bancária.</div>
+          </div>
+          <div>
+            <div class="faq-question" onclick="toggleFAQ(3)">Vocês oferecem garantia nos serviços? <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+            <div class="faq-answer" id="faq-answer-3">Sim, oferecemos 12 meses de garantia contra defeitos de instalação ou equipamentos.</div>
+          </div>
+        </div>
+      </div>
+      <!-- Certificações e Parceiros -->
+      <div class="mt-16">
+        <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Certificações e Parceiros</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
+          <div>
+            <h3 class="text-2xl font-semibold text-center mb-6 text-[var(--primary-blue)]">Certificações</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
+                <img src="/assets/crea-rs.webp" alt="Certificado CREA-RS" loading="lazy">
+                <p class="text-gray-700 mt-2">CFT-RS</p>
+              </div>
+              <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
+                <img src="/assets/nr-10.webp" alt="Certificado NR-10" loading="lazy">
+                <p class="text-gray-700 mt-2">NR-10</p>
+              </div>
+              <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
+                <img src="/assets/nr-35.webp" alt="Certificado NR-35" loading="lazy">
+                <p class="text-gray-700 mt-2">NR-35</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-center mb-6 text-[var(--primary-blue)]">Parceiros</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
+                <img src="/assets/weg.webp" alt="WEG" loading="lazy">
+                <p class="text-gray-700 mt-2">WEG</p>
+              </div>
+              <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
+                <img src="/assets/fronius.webp" alt="Fronius" loading="lazy">
+                <p class="text-gray-700 mt-2">Fronius</p>
+              </div>
+              <div class="certification-card bg-white rounded-lg p-4 shadow-lg text-center hover:scale-105 transition-all">
+                <img src="/assets/schneider-electric.webp" alt="Schneider Electric" loading="lazy">
+                <p class="text-gray-700 mt-2">Schneider Electric</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
-  <footer>
-    <p id="footer-year">© 2025 Nort Elétrica. Todos os direitos reservados.</p>
-    <p><a href="tel:+5533981087746">+55 (33) 98108-7746</a> | <a href="mailto:contato@norteletrica.com.br">contato@norteletrica.com.br</a></p>
+  <footer class="text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Nort Elétrica</h3>
+          <p class="text-blue-100">Energia Inteligente para Todos</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="https://www.instagram.com/norteletrica" target="_blank" class="text-white hover:text-[var(--solar-yellow)] transition-all"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2m14-1v4M5 20v-4m0-10h4m10 10h-4M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg></a>
+            <a href="https://www.facebook.com/norteletrica" target="_blank" class="text-white hover:text-[var(--solar-yellow)] transition-all"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
+          <ul class="space-y-2 text-blue-100">
+            <li><a href="#about" class="hover:underline">Sobre</a></li>
+            <li><a href="#services" class="hover:underline">Serviços</a></li>
+            <li><a href="#blog" class="hover:underline">Blog</a></li>
+            <li><a href="#contact" class="hover:underline">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Formas de Pagamento</h3>
+          <div class="flex flex-wrap gap-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="h-8" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="h-8" loading="lazy">
+            <img src="/assets/pix.webp" alt="PIX" class="h-8" loading="lazy">
+          </div>
+          <p class="text-blue-100 mt-2 text-sm">Parcelamento em até 12x</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Newsletter</h3>
+          <form id="newsletter-form" class="space-y-4">
+            <input type="email" id="newsletter-email" placeholder="Seu E-mail" class="border border-gray-300 p-2 w-full rounded-lg text-gray-700" required>
+            <button type="submit" class="btn-modern w-full">Inscreva-se</button>
+          </form>
+        </div>
+      </div>
+      <div class="mt-8 text-center border-t border-blue-700 pt-4">
+        <p id="footer-year" class="text-blue-100 text-sm">© 2025 Nort Elétrica. Todos os direitos reservados.</p>
+        <p class="mt-2 text-sm"><a href="politica-de-privacidade.html" class="text-blue-200 hover:underline">Política de Privacidade</a> | <a href="termos-de-uso.html" class="text-blue-200 hover:underline">Termos de Uso</a> | <a href="area-cliente.html" class="text-blue-200 hover:underline">Área do Cliente</a></p>
+      </div>
+    </div>
   </footer>
 
-  <!-- Scripts -->
+        <!-- Scripts -->
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" defer></script>
@@ -735,7 +1032,50 @@
         });
       });
 
-      // Typed.js para a Hero Section
+      // Função para calcular a altura máxima do elemento #typed
+      const calculateTypedHeight = () => {
+        const typedElement = document.getElementById('typed');
+        const strings = [
+          'Energia Solar para Todos',
+          'Soluções Elétricas Modernas',
+          'Automação Residencial no Sul'
+        ];
+
+        // Criar um elemento temporário para medir a altura de cada string
+        const tempElement = document.createElement('span');
+        tempElement.style.visibility = 'hidden';
+        tempElement.style.position = 'absolute';
+        tempElement.style.whiteSpace = 'normal'; // Permitir quebra de linha como no layout real
+        tempElement.style.width = typedElement.parentElement.offsetWidth + 'px'; // Usar a largura do contêiner pai
+        tempElement.style.fontSize = window.getComputedStyle(typedElement).fontSize;
+        tempElement.style.fontFamily = window.getComputedStyle(typedElement).fontFamily;
+        tempElement.style.lineHeight = window.getComputedStyle(typedElement).lineHeight;
+        document.body.appendChild(tempElement);
+
+        let maxHeight = 0;
+        strings.forEach(string => {
+          tempElement.textContent = string;
+          const height = tempElement.offsetHeight;
+          if (height > maxHeight) maxHeight = height;
+        });
+
+        document.body.removeChild(tempElement);
+        return maxHeight;
+      };
+
+      // Typed.js para a Hero Section com ajuste para evitar "salto" no mobile
+      const typedElement = document.getElementById('typed');
+      const setTypedHeight = () => {
+        const maxHeight = calculateTypedHeight();
+        typedElement.style.height = `${maxHeight}px`;
+      };
+
+      // Definir a altura inicial
+      setTypedHeight();
+
+      // Recalcular a altura ao redimensionar a tela (ex.: rotação do dispositivo)
+      window.addEventListener('resize', setTypedHeight);
+
       const typed = new Typed('#typed', {
         strings: [
           'Energia Solar para Todos',

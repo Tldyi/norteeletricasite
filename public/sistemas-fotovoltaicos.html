@@ -80,7 +80,7 @@
     header.hidden { transform: translateY(-100%); }
     header.scrolled { background: rgba(30, 58, 138, 0.95); }
     @media (max-width: 768px) { header { height: 60px; } }
-    .whatsapp-button, .cta-float { 
+    .whatsapp-button, .cta-float, .back-to-top-button { 
       position: fixed; 
       color: white; 
       border-radius: 50px; 
@@ -108,15 +108,22 @@
       background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); 
       z-index: 1002;
     }
-    .whatsapp-button:hover, .cta-float:hover { 
+    .back-to-top-button {
+      bottom: 160px;
+      right: 20px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+      z-index: 1003;
+    }
+    .whatsapp-button:hover, .cta-float:hover, .back-to-top-button:hover { 
       transform: translateY(-3px); 
       box-shadow: var(--shadow-md); 
     }
     .whatsapp-button img { width: 28px; height: 28px; margin-right: 10px; }
     @media (max-width: 768px) {
-      .whatsapp-button, .cta-float { padding: 8px 16px; font-size: 0.9rem; }
+      .whatsapp-button, .cta-float, .back-to-top-button { padding: 8px 16px; font-size: 0.9rem; }
       .whatsapp-button { bottom: 80px; right: 15px; }
       .cta-float { bottom: 15px; left: 15px; }
+      .back-to-top-button { bottom: 140px; right: 15px; }
       .whatsapp-button img { width: 20px; height: 20px; }
     }
     .service-card { 
@@ -196,6 +203,11 @@
   <a id="whatsapp-button" href="https://wa.me/5533981087746?text=Olá, gostaria de falar com um especialista sobre sistemas fotovoltaicos!" target="_blank" class="whatsapp-button">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
     <span>Fale Conosco</span>
+  </a>
+
+  <!-- Botão Voltar ao Topo -->
+  <a id="back-to-top" href="#" class="back-to-top-button">
+    <span>Voltar ao Topo</span>
   </a>
 
   <!-- CTA Flutuante -->
@@ -419,6 +431,68 @@
     </div>
   </section>
 
+  <!-- Depoimentos de Clientes -->
+  <section>
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">O que nossos clientes dizem</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <div class="service-card text-center">
+          <p class="text-gray-600">"Economizei 90% na minha conta de luz! Recomendo a Nort Elétrica."</p>
+          <p class="text-gray-800 font-semibold mt-4">- João Silva</p>
+        </div>
+        <div class="service-card text-center">
+          <p class="text-gray-600">"Atendimento excelente e instalação rápida. Estou muito satisfeito!"</p>
+          <p class="text-gray-800 font-semibold mt-4">- Maria Souza</p>
+        </div>
+        <div class="service-card text-center">
+          <p class="text-gray-600">"Profissionais qualificados e preço justo. Valeu a pena!"</p>
+          <p class="text-gray-800 font-semibold mt-4">- Carlos Oliveira</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Por que Escolher a Nort Elétrica -->
+  <section>
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Por que escolher a Nort Elétrica?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <div class="service-card text-center">
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Instalação Rápida</h3>
+          <p class="text-gray-600 mt-2">Instalação em até 3 dias úteis.</p>
+        </div>
+        <div class="service-card text-center">
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Suporte 24/7</h3>
+          <p class="text-gray-600 mt-2">Atendimento técnico disponível a qualquer momento.</p>
+        </div>
+        <div class="service-card text-center">
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Garantia Estendida</h3>
+          <p class="text-gray-600 mt-2">Garantia de 25 anos nos painéis solares.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Financiamento -->
+  <section>
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Financiamento</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        <div class="service-card">
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Parcelamento em até 12x</h3>
+          <p class="text-gray-600 mt-2">Facilite o pagamento do seu sistema fotovoltaico com parcelas que cabem no seu bolso.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Condições Especiais</h3>
+          <p class="text-gray-600 mt-2">Consulte nossas condições especiais para empresas e grandes projetos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Contato -->
   <section id="contact">
     <div class="container mx-auto px-4">
@@ -487,7 +561,7 @@
           </div>
           <div class="bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Nossa Localização</h3>
-            <p class="text-gray-600"><svg class="h-5 w-5 text-[ BRAZILprimary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg> Rua 3, Canastreiro, 177, São José do Norte, RS, 96225-000</p>
+            <p class="text-gray-600"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg> Rua 3, Canastreiro, 177, São José do Norte, RS, 96225-000</p>
             <iframe class="mt-4 w-full h-48 rounded-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.6273461483926!2d-52.03201168488194!3d-32.00166498120907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951885f5e5b5f5e5%3A0x5e5e5e5e5e5e5e5e!2sAv.%20Rio%20Grande%2C%20413%2C%20São%20José%20do%20Norte%2C%20RS%2C%2096225-000%2C%20Brasil!5e0!3m2!1spt-BR!2sbr!4v1698765432109!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
           </div>
           <div class="bg-white p-6 rounded-lg shadow-md">
@@ -602,6 +676,22 @@
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // Botão Voltar ao Topo
+    const backToTopButton = document.getElementById('back-to-top');
+
+    backToTopButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.style.display = 'flex';
+      } else {
+        backToTopButton.style.display = 'none';
+      }
+    });
 
     // Calculadora de Economia
     document.getElementById('calculadora-economia').addEventListener('submit', (e) => {
