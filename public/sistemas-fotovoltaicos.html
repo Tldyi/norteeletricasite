@@ -28,6 +28,61 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
   <style>
+    .header-branding {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 300px;
+}
+.header-branding img {
+  width: 2rem;
+  height: 2rem;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+.header-branding img:hover {
+  transform: scale(1.1);
+}
+.header-branding .branding-text {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.header-branding h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: white;
+  margin: 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.header-branding p {
+  font-size: 0.7rem;
+  color: #93c5fd;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 768px) {
+  .header-branding {
+    max-width: 200px;
+  }
+  .header-branding h1 {
+    font-size: 1rem;
+  }
+  .header-branding p {
+    font-size: 0.6rem;
+  }
+  .header-branding img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
     :root {
       --primary-blue: #1e3a8a;
       --dark-blue: #1e293b;
@@ -216,35 +271,38 @@
   </a>
 
   <!-- Header -->
-  <header class="text-white">
-    <div class="header-container">
-      <div class="header-branding">
+<header class="text-white">
+  <div class="header-container">
+    <div class="header-branding">
+      <img src="/assets/icone-nort-eletrica.webp" alt="Ícone da Nort Elétrica" class="w-8 h-8 md:w-10 md:h-10" loading="lazy">
+      <div class="branding-text">
         <h1 onclick="scrollToTop()" class="cursor-pointer hover:text-[var(--solar-yellow)] transition-colors">Nort Elétrica</h1>
         <p>Energia Inteligente para Todos</p>
       </div>
-      <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menu">
-        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" class="menu-open"></path>
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" class="menu-close hidden"></path>
-        </svg>
-      </button>
-      <nav id="menu" class="hidden md:flex items-center space-x-4">
-        <a href="index.html" class="hover:text-[var(--solar-yellow)] transition-colors">Início</a>
-        <a href="#kits" class="hover:text-[var(--solar-yellow)] transition-colors">Kits Solares</a>
-        <a href="#custom-kit" class="hover:text-[var(--solar-yellow)] transition-colors">Monte Seu Kit</a>
-        <a href="#contact" class="hover:text-[var(--solar-yellow)] transition-colors">Contato</a>
-      </nav>
     </div>
-    <div id="mobile-menu" class="md:hidden fixed top-16 right-0 w-full max-w-xs text-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
-      <button id="close-menu" class="text-white p-4"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
-      <div class="flex flex-col p-4 space-y-4">
-        <a href="index.html" class="hover:text-[var(--solar-yellow)] transition-colors">Início</a>
-        <a href="#kits" class="hover:text-[var(--solar-yellow)] transition-colors">Kits Solares</a>
-        <a href="#custom-kit" class="hover:text-[var(--solar-yellow)] transition-colors">Monte Seu Kit</a>
-        <a href="#contact" class="hover:text-[var(--solar-yellow)] transition-colors">Contato</a>
-      </div>
+    <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">
+      <svg class="w-8 h-8 text-white transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" class="menu-open"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" class="menu-close hidden"></path>
+      </svg>
+    </button>
+    <nav id="menu" class="hidden md:flex items-center space-x-4">
+      <a href="index.html" class="hover:text-[var(--solar-yellow)] transition-colors">Início</a>
+      <a href="#kits" class="hover:text-[var(--solar-yellow)] transition-colors">Kits Solares</a>
+      <a href="#custom-kit" class="hover:text-[var(--solar-yellow)] transition-colors">Monte Seu Kit</a>
+      <a href="#contact" class="hover:text-[var(--solar-yellow)] transition-colors">Contato</a>
+    </nav>
+  </div>
+  <div id="mobile-menu" class="md:hidden fixed top-16 right-0 w-full max-w-xs text-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
+    <button id="close-menu" class="text-white p-4"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+    <div class="flex flex-col p-4 space-y-4">
+      <a href="index.html" class="hover:text-[var(--solar-yellow)] transition-colors">Início</a>
+      <a href="#kits" class="hover:text-[var(--solar-yellow)] transition-colors">Kits Solares</a>
+      <a href="#custom-kit" class="hover:text-[var(--solar-yellow)] transition-colors">Monte Seu Kit</a>
+      <a href="#contact" class="hover:text-[var(--solar-yellow)] transition-colors">Contato</a>
     </div>
-  </header>
+  </div>
+</header>
 
   <!-- Hero Section -->
   <section class="text-white py-28 bg-cover bg-center mt-16 relative" style="background-image: linear-gradient(to right, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), url('/assets/solar-hero.webp');">

@@ -333,11 +333,13 @@
     .header-branding img {
       width: 2rem;
       height: 2rem;
-      transition: transform 0.3s ease;
-      flex-shrink: 0; /* Impede que o ícone encolha */
+      transition: transform 0.3s ease, filter 0.3s ease;
+      flex-shrink: 0;
+      filter: drop-shadow(0 4px 8px rgba(34, 197, 94, 0.3)); /* Sombra verde suave */
     }
     .header-branding img:hover {
       transform: scale(1.1);
+      filter: drop-shadow(0 6px 12px rgba(34, 197, 94, 0.5)); /* Sombra mais intensa no hover */
     }
     .header-branding .branding-text {
       display: flex;
@@ -377,6 +379,7 @@
       .header-branding img {
         width: 1.5rem;
         height: 1.5rem;
+        filter: drop-shadow(0 3px 6px rgba(34, 197, 94, 0.3)); /* Sombra ajustada para mobile */
       }
       #mobile-menu {
         background: #1e293b;
@@ -396,26 +399,48 @@
     .stars { color: #fbbf24; }
     /* Estabilizar o texto animado na Hero Section */
     #typed {
-      display: inline-block;
-      min-height: 3rem;
-      line-height: 1.2;
-      vertical-align: middle;
-    }
-    /* Garantir que a Hero Section não "pule" no mobile */
-    section[style*="background-image"] {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50vh;
-    }
-    @media (max-width: 768px) {
-      #typed {
-        min-height: 2.5rem;
-      }
-      section[style*="background-image"] {
-        min-height: 60vh;
-      }
-    }
+  display: inline-block;
+  width: 100%;
+  min-height: 3rem;
+  line-height: 1.5;
+  white-space: normal;
+  position: relative;
+}
+
+.typed-cursor {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  animation: blink 0.7s infinite;
+  margin-left: 2px;
+}
+
+section[style*="background-image"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  padding: 2rem 0;
+  position: relative;
+  overflow: visible;
+}
+
+@media (max-width: 768px) {
+  #typed {
+    min-height: 4rem;
+  }
+  section[style*="background-image"] {
+    min-height: 60vh;
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
   </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
@@ -979,7 +1004,7 @@
     </div>
   </footer>
 
-        <!-- Scripts -->
+  <!-- Scripts -->
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" defer></script>
@@ -1032,328 +1057,219 @@
         });
       });
 
-      // Função para calcular a altura máxima do elemento #typed
-      const calculateTypedHeight = () => {
-        const typedElement = document.getElementById('typed');
-        const strings = [
-          'Energia Solar para Todos',
-          'Soluções Elétricas Modernas',
-          'Automação Residencial no Sul'
-        ];
+      // Typed.js para a Hero Section
+const typedElement = document.getElementById('typed');
+const strings = [
+  'Energia Solar para Todos',
+  'Soluções Elétricas Modernas',
+  'Automação Residencial no Sul'
+];
 
-        // Criar um elemento temporário para medir a altura de cada string
-        const tempElement = document.createElement('span');
-        tempElement.style.visibility = 'hidden';
-        tempElement.style.position = 'absolute';
-        tempElement.style.whiteSpace = 'normal'; // Permitir quebra de linha como no layout real
-        tempElement.style.width = typedElement.parentElement.offsetWidth + 'px'; // Usar a largura do contêiner pai
-        tempElement.style.fontSize = window.getComputedStyle(typedElement).fontSize;
-        tempElement.style.fontFamily = window.getComputedStyle(typedElement).fontFamily;
-        tempElement.style.lineHeight = window.getComputedStyle(typedElement).lineHeight;
-        document.body.appendChild(tempElement);
+// Definir altura mínima baseada no maior texto
+const tempElement = document.createElement('span');
+tempElement.style.visibility = 'hidden';
+tempElement.style.position = 'absolute';
+tempElement.style.width = typedElement.parentElement.offsetWidth + 'px';
+tempElement.style.fontSize = window.getComputedStyle(typedElement).fontSize;
+tempElement.style.fontFamily = window.getComputedStyle(typedElement).fontFamily;
+tempElement.style.lineHeight = window.getComputedStyle(typedElement).lineHeight;
+tempElement.style.padding = window.getComputedStyle(typedElement).padding;
+tempElement.style.whiteSpace = 'normal';
+document.body.appendChild(tempElement);
 
-        let maxHeight = 0;
-        strings.forEach(string => {
-          tempElement.textContent = string;
-          const height = tempElement.offsetHeight;
-          if (height > maxHeight) maxHeight = height;
-        });
+let maxHeight = 0;
+strings.forEach(string => {
+  tempElement.textContent = string;
+  const height = tempElement.offsetHeight;
+  if (height > maxHeight) maxHeight = height;
+});
 
-        document.body.removeChild(tempElement);
-        return maxHeight;
-      };
+// Adicionar margem de segurança
+maxHeight = maxHeight * 1.2;
+document.body.removeChild(tempElement);
 
-      // Typed.js para a Hero Section com ajuste para evitar "salto" no mobile
-      const typedElement = document.getElementById('typed');
-      const setTypedHeight = () => {
-        const maxHeight = calculateTypedHeight();
-        typedElement.style.height = `${maxHeight}px`;
-      };
+// Aplicar altura mínima
+typedElement.style.minHeight = `${maxHeight}px`;
 
-      // Definir a altura inicial
-      setTypedHeight();
+// Iniciar Typed.js
+const typed = new Typed('#typed', {
+  strings: strings,
+  typeSpeed: 50,
+  backSpeed: 30,
+  backDelay: 2000,
+  loop: true,
+  showCursor: true,
+  cursorChar: '|',
+  onType: (string, self) => {
+    // Atualiza a posição do cursor a cada caractere digitado
+    repositionCursor();
+  },
+  onBack: (string, self) => {
+    // Atualiza a posição do cursor a cada caractere apagado
+    repositionCursor();
+  },
+  onStringTyped: (arrayPos, self) => {
+    const currentHeight = typedElement.offsetHeight;
+    if (currentHeight > maxHeight) {
+      typedElement.style.minHeight = `${currentHeight}px`;
+      maxHeight = currentHeight;
+    }
+    repositionCursor();
+  },
+  onComplete: () => {
+    repositionCursor();
+  }
+});
 
-      // Recalcular a altura ao redimensionar a tela (ex.: rotação do dispositivo)
-      window.addEventListener('resize', setTypedHeight);
+// Função para reposicionar o cursor
+function repositionCursor() {
+  const cursor = typedElement.querySelector('.typed-cursor');
+  if (cursor) {
+    // Criar um span temporário para medir a largura do texto atual
+    const textContent = typedElement.childNodes[0]?.textContent || '';
+    tempElement.textContent = textContent;
+    document.body.appendChild(tempElement);
+    const textWidth = tempElement.offsetWidth;
+    document.body.removeChild(tempElement);
 
-      const typed = new Typed('#typed', {
-        strings: [
-          'Energia Solar para Todos',
-          'Soluções Elétricas Modernas',
-          'Automação Residencial no Sul'
-        ],
-        typeSpeed: 50,
-        backSpeed: 30,
-        backDelay: 2000,
-        loop: true
-      });
+    // Posicionar o cursor após o texto
+    cursor.style.left = `${textWidth}px`;
+    cursor.style.top = '0'; // Mantém alinhado ao topo
 
-      // Scroll para o topo
-      window.scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      };
+    // Ajustar a posição vertical em caso de quebra de linha
+    const lines = textContent.split('\n').length;
+    if (lines > 1) {
+      const lineHeight = parseFloat(window.getComputedStyle(typedElement).lineHeight);
+      cursor.style.top = `${(lines - 1) * lineHeight}px`;
+    }
+  }
+}
 
-      // Mostrar/esconder botão de voltar ao topo
-      const scrollTopButton = document.getElementById('scroll-top-button');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-          scrollTopButton.style.display = 'flex';
-        } else {
-          scrollTopButton.style.display = 'none';
-        }
-      });
+// Recalcular ao redimensionar a janela
+window.addEventListener('resize', () => {
+  tempElement.style.width = typedElement.parentElement.offsetWidth + 'px';
+  let newMaxHeight = 0;
+  strings.forEach(string => {
+    tempElement.textContent = string;
+    const height = tempElement.offsetHeight;
+    if (height > newMaxHeight) newMaxHeight = height;
+  });
+  newMaxHeight = newMaxHeight * 1.2;
+  typedElement.style.minHeight = `${newMaxHeight}px`;
+  repositionCursor();
+});
+      // Calculadora Solar
+      document.getElementById('calculate-solar').addEventListener('click', () => {
+        const consumption = parseFloat(document.getElementById('consumption').value);
+        const sunHours = parseFloat(document.getElementById('sun-hours').value);
+        const area = parseFloat(document.getElementById('area').value) || 0;
+        const errorMessage = document.getElementById('consumption-error');
+        const resultDiv = document.getElementById('solar-result');
 
-      // Header fixo com comportamento de scroll
-      let lastScrollTop = 0;
-      const header = document.querySelector('header');
-      window.addEventListener('scroll', () => {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollTop > lastScrollTop && scrollTop > 80) {
-          header.classList.add('hidden');
-        } else {
-          header.classList.remove('hidden');
-          header.classList.toggle('scrolled', scrollTop > 80);
-        }
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-      });
-
-      // Pop-up de oferta com controle de sessão (aparece após 30 segundos e apenas uma vez por sessão)
-      const popup = document.getElementById('popup');
-      const closePopup = document.getElementById('close-popup');
-
-      // Verificar se o pop-up já foi exibido nesta sessão
-      if (!sessionStorage.getItem('popupShown')) {
-        setTimeout(() => {
-          popup.classList.remove('hidden');
-          popup.classList.add('flex');
-          // Marcar como exibido na sessão
-          sessionStorage.setItem('popupShown', 'true');
-        }, 30000); // 30 segundos
-      }
-
-      closePopup.addEventListener('click', () => {
-        popup.classList.add('hidden');
-        popup.classList.remove('flex');
-      });
-
-      popup.addEventListener('click', (e) => {
-        if (e.target === popup) {
-          popup.classList.add('hidden');
-          popup.classList.remove('flex');
-        }
-      });
-
-      // Calculadora de Energia Solar
-      const calculateSolarButton = document.getElementById('calculate-solar');
-      const consumptionInput = document.getElementById('consumption');
-      const sunHoursInput = document.getElementById('sun-hours');
-      const areaInput = document.getElementById('area');
-      const solarResult = document.getElementById('solar-result');
-      const systemSizeSpan = document.getElementById('system-size');
-      const systemCostSpan = document.getElementById('system-cost');
-      const areaWarning = document.getElementById('area-warning');
-      const consumptionError = document.getElementById('consumption-error');
-      const sendResultButton = document.getElementById('send-result');
-
-      calculateSolarButton.addEventListener('click', () => {
-        const consumption = parseFloat(consumptionInput.value);
-        const sunHours = parseFloat(sunHoursInput.value);
-        const area = parseFloat(areaInput.value) || 0;
-
-        // Validação do consumo
         if (!consumption || consumption <= 0) {
-          consumptionError.classList.remove('hidden');
+          errorMessage.classList.remove('hidden');
+          resultDiv.classList.add('hidden');
           return;
-        } else {
-          consumptionError.classList.add('hidden');
         }
+        errorMessage.classList.add('hidden');
 
-        // Cálculo do sistema solar
-        const systemSize = (consumption / (sunHours * 30)).toFixed(2); // kWp necessário
-        const panelArea = systemSize * 7; // Estimativa de 7 m² por kWp
-        const costPerKWp = 5000; // R$ 5.000 por kWp (estimativa)
+        const systemSize = (consumption / (sunHours * 30)).toFixed(2);
+        const costPerKWp = 4500;
         const totalCost = (systemSize * costPerKWp).toFixed(2);
+        const areaNeeded = (systemSize * 7).toFixed(2);
 
-        systemSizeSpan.textContent = systemSize;
-        systemCostSpan.textContent = totalCost.toString().replace('.', ',');
-
-        // Verificação de área disponível
-        if (area > 0 && area < panelArea) {
+        document.getElementById('system-size').textContent = systemSize;
+        document.getElementById('system-cost').textContent = totalCost.replace('.', ',');
+        const areaWarning = document.getElementById('area-warning');
+        if (area > 0 && area < areaNeeded) {
+          areaWarning.textContent = `A área disponível (${area} m²) é menor que o necessário (${areaNeeded} m²).`;
           areaWarning.classList.remove('hidden');
-          areaWarning.textContent = `A área disponível (${area} m²) é menor que a necessária (${panelArea.toFixed(2)} m²).`;
         } else {
           areaWarning.classList.add('hidden');
         }
 
-        solarResult.classList.remove('hidden');
-        solarResult.classList.add('visible');
+        resultDiv.classList.remove('hidden');
+        resultDiv.classList.add('visible');
       });
 
-      // Enviar resultado da calculadora via WhatsApp
-      sendResultButton.addEventListener('click', () => {
-        const systemSize = systemSizeSpan.textContent;
-        const systemCost = systemCostSpan.textContent;
-        const message = `Olá, fiz um cálculo na calculadora solar da Nort Elétrica! Meu sistema estimado é de ${systemSize} kWp, com custo de R$ ${systemCost}. Gostaria de mais detalhes!`;
-        const whatsappUrl = `https://wa.me/5533981087746?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
+      document.getElementById('send-result').addEventListener('click', () => {
+        const systemSize = document.getElementById('system-size').textContent;
+        const systemCost = document.getElementById('system-cost').textContent;
+        const message = `Olá, calculei meu sistema solar: ${systemSize} kWp, custo estimado R$ ${systemCost}. Quero mais detalhes!`;
+        window.open(`https://wa.me/5533981087746?text=${encodeURIComponent(message)}`, '_blank');
       });
 
-      // Filtro da Galeria
-      const filterButtons = document.querySelectorAll('.filter-btn');
-      const galleryItems = document.querySelectorAll('.gallery-item');
+      // Formulário de Contato
+      document.getElementById('contact-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const service = document.getElementById('service').value;
+        const message = document.getElementById('message').value;
 
-      filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const filter = button.getAttribute('data-filter');
+        const errors = [
+          { id: 'name-error', condition: !name, message: 'Insira seu nome.' },
+          { id: 'email-error', condition: !email || !email.includes('@'), message: 'Insira um e-mail válido.' },
+          { id: 'service-error', condition: !service, message: 'Selecione um serviço.' },
+          { id: 'message-error', condition: !message, message: 'Insira sua mensagem.' }
+        ];
 
-          filterButtons.forEach(btn => btn.classList.remove('bg-[var(--solar-yellow)]'));
-          button.classList.add('bg-[var(--solar-yellow)]');
-
-          galleryItems.forEach(item => {
-            const category = item.getAttribute('data-category');
-            if (filter === 'all' || category === filter) {
-              item.style.display = 'block';
-              item.classList.add('fade-in');
-            } else {
-              item.style.display = 'none';
-            }
-          });
+        let hasError = false;
+        errors.forEach(error => {
+          const errorElement = document.getElementById(error.id);
+          errorElement.classList.toggle('hidden', !error.condition);
+          if (error.condition) hasError = true;
         });
+
+        if (!hasError) {
+          const whatsappMessage = `Nome: ${name}\nE-mail: ${email}\nTelefone: ${phone || 'Não informado'}\nServiço: ${service}\nMensagem: ${message}`;
+          window.open(`https://wa.me/5533981087746?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+          document.getElementById('success-message').classList.remove('hidden');
+          document.getElementById('contact-form').reset();
+          setTimeout(() => document.getElementById('success-message').classList.add('hidden'), 5000);
+        }
+      });
+
+      // Newsletter
+      document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('newsletter-email').value;
+        if (email) {
+          alert('Inscrição realizada com sucesso!');
+          document.getElementById('newsletter-form').reset();
+        }
       });
 
       // FAQ Toggle
       window.toggleFAQ = (index) => {
         const answer = document.getElementById(`faq-answer-${index}`);
-        const isOpen = answer.classList.contains('open');
-        document.querySelectorAll('.faq-answer').forEach(ans => {
-          ans.classList.remove('open');
-        });
-        if (!isOpen) {
-          answer.classList.add('open');
-        }
+        answer.classList.toggle('open');
       };
 
-      // Validação do Formulário de Contato
-      const contactForm = document.getElementById('contact-form');
-      const nameInput = document.getElementById('name');
-      const emailInput = document.getElementById('email');
-      const serviceInput = document.getElementById('service');
-      const messageInput = document.getElementById('message');
-      const successMessage = document.getElementById('success-message');
-      const nameError = document.getElementById('name-error');
-      const emailError = document.getElementById('email-error');
-      const serviceError = document.getElementById('service-error');
-      const messageError = document.getElementById('message-error');
-
-      contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        let hasError = false;
-
-        // Validação do nome
-        if (!nameInput.value.trim()) {
-          nameError.classList.remove('hidden');
-          hasError = true;
-        } else {
-          nameError.classList.add('hidden');
-        }
-
-        // Validação do e-mail
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(emailInput.value.trim())) {
-          emailError.classList.remove('hidden');
-          hasError = true;
-        } else {
-          emailError.classList.add('hidden');
-        }
-
-        // Validação do serviço
-        if (!serviceInput.value) {
-          serviceError.classList.remove('hidden');
-          hasError = true;
-        } else {
-          serviceError.classList.add('hidden');
-        }
-
-        // Validação da mensagem
-        if (!messageInput.value.trim()) {
-          messageError.classList.remove('hidden');
-          hasError = true;
-        } else {
-          messageError.classList.add('hidden');
-        }
-
-        if (!hasError) {
-          // Simulação de envio (substitua por integração real com backend)
-          const formData = {
-            name: nameInput.value.trim(),
-            email: emailInput.value.trim(),
-            phone: document.getElementById('phone').value.trim(),
-            service: serviceInput.value,
-            message: messageInput.value.trim()
-          };
-          console.log('Formulário enviado:', formData);
-
-          // Enviar mensagem para o WhatsApp
-          const whatsappMessage = `Olá, meu nome é ${formData.name}. Gostaria de um orçamento para ${formData.service}. Mensagem: ${formData.message}. Contato: ${formData.email}${formData.phone ? `, ${formData.phone}` : ''}`;
-          const whatsappUrl = `https://wa.me/5533981087746?text=${encodeURIComponent(whatsappMessage)}`;
-          window.open(whatsappUrl, '_blank');
-
-          // Mostrar mensagem de sucesso e limpar formulário
-          successMessage.classList.remove('hidden');
-          contactForm.reset();
-          setTimeout(() => {
-            successMessage.classList.add('hidden');
-          }, 5000);
-        }
+      // Filtro da Galeria
+      document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const filter = button.getAttribute('data-filter');
+          document.querySelectorAll('.gallery-item').forEach(item => {
+            item.style.display = (filter === 'all' || item.getAttribute('data-category') === filter) ? 'block' : 'none';
+          });
+        });
       });
 
-      // Newsletter Form
-      const newsletterForm = document.getElementById('newsletter-form');
-      const newsletterEmail = document.getElementById('newsletter-email');
-
-      newsletterForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (emailPattern.test(newsletterEmail.value.trim())) {
-          console.log('Newsletter inscrita:', newsletterEmail.value.trim());
-          alert('Inscrição realizada com sucesso!');
-          newsletterForm.reset();
-        } else {
-          alert('Por favor, insira um e-mail válido.');
-        }
+      // Pop-up
+      setTimeout(() => document.getElementById('popup').classList.remove('hidden'), 5000);
+      document.getElementById('close-popup').addEventListener('click', () => {
+        document.getElementById('popup').classList.add('hidden');
       });
 
       // Atualizar ano no footer
-      const footerYear = document.getElementById('footer-year');
-      const currentYear = new Date().getFullYear();
-      footerYear.textContent = `© ${currentYear} Nort Elétrica. Todos os direitos reservados.`;
-
-      // Lazy loading para imagens
-      const images = document.querySelectorAll('img[loading="lazy"]');
-      const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            img.src = img.src; // Forçar carregamento
-            observer.unobserve(img);
-          }
-        });
-      });
-      images.forEach(img => imageObserver.observe(img));
-
-      // Animação de seções ao rolar
-      const sections = document.querySelectorAll('section');
-      const sectionObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      sections.forEach(section => sectionObserver.observe(section));
+      document.getElementById('footer-year').textContent = `© ${new Date().getFullYear()} Nort Elétrica. Todos os direitos reservados.`;
     });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   </script>
 </body>
 </html>
