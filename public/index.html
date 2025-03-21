@@ -26,6 +26,7 @@
   <!-- Preload -->
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" as="style" onload="this.rel='stylesheet'">
   <link rel="preload" href="/assets/logo.webp" as="image">
   <!-- Stylesheets -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -79,10 +80,16 @@
       width: 100%; 
       z-index: 50; 
       transition: transform 0.4s ease, background 0.3s ease;
+      display: flex;
+      align-items: center;
     }
     header.hidden { transform: translateY(-100%); }
     header.scrolled { background: rgba(30, 58, 138, 0.95); }
-    @media (max-width: 768px) { header { height: 60px; } }
+    @media (max-width: 768px) { 
+      header { 
+        height: 60px; 
+      } 
+    }
     a:focus, button:focus { outline: 3px solid var(--solar-yellow); outline-offset: 2px; }
     .whatsapp-button, .cta-float, .scroll-top-button { 
       position: fixed; 
@@ -126,11 +133,17 @@
     .whatsapp-button:hover span, .cta-float:hover span, .scroll-top-button:hover span { transform: translateX(5px); }
     .whatsapp-button img { width: 28px; height: 28px; margin-right: 10px; }
     @media (max-width: 768px) {
-      .whatsapp-button, .cta-float, .scroll-top-button { padding: 8px 16px; font-size: 0.9rem; }
+      .whatsapp-button, .cta-float, .scroll-top-button {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+      }
       .whatsapp-button { bottom: 80px; right: 15px; }
       .scroll-top-button { bottom: 15px; right: 15px; }
       .cta-float { bottom: 15px; left: 15px; }
-      .whatsapp-button img { width: 20px; height: 20px; }
+      .whatsapp-button img {
+        width: 16px;
+        height: 16px;
+      }
     }
     .map-container { 
       position: relative; 
@@ -274,6 +287,7 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 15px;
+      height: 100%;
     }
     .cta-fixed {
       position: fixed;
@@ -297,8 +311,6 @@
     }
     @media (max-width: 1024px) and (min-width: 768px) {
       .header-container { padding: 0 10px; }
-      .header-branding h1 { font-size: 1.3rem; }
-      .header-branding p { font-size: 0.85rem; }
       nav a { padding: 0 8px; font-size: 0.9rem; }
       .btn-modern { padding: 6px 12px; font-size: 0.85rem; }
     }
@@ -312,20 +324,60 @@
     footer a { transition: color 0.3s ease; }
     footer a:hover { color: var(--solar-yellow); }
     .certification-card img { width: 80px; height: 80px; margin: 0 auto; }
+    .header-branding {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      max-width: 300px;
+    }
+    .header-branding img {
+      width: 2rem;
+      height: 2rem;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .header-branding img:hover {
+      transform: scale(1.1);
+    }
+    .header-branding .branding-text {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
     .header-branding h1 {
-      font-size: 1.5rem;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 700;
+      font-size: 1.2rem;
       color: white;
       margin: 0;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .header-branding p {
-      font-size: 0.9rem;
+      font-size: 0.7rem;
       color: #93c5fd;
       margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     @media (max-width: 768px) {
-      .header-branding h1 { font-size: 1.2rem; }
-      .header-branding p { font-size: 0.8rem; }
+      .header-branding {
+        max-width: 200px;
+      }
+      .header-branding h1 { 
+        font-size: 1rem;
+      }
+      .header-branding p { 
+        font-size: 0.6rem;
+      }
+      .header-branding img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
       #mobile-menu {
         background: #1e293b;
         width: 100%;
@@ -342,6 +394,30 @@
       img { max-width: 100%; height: auto; }
     }
     .stars { color: #fbbf24; }
+    /* Estabilizar o texto animado na Hero Section */
+    #typed {
+      display: block;
+      width: 100%;
+      min-height: 4rem; /* Altura fixa mínima para evitar salto */
+      line-height: 1.2;
+      white-space: normal;
+      overflow: hidden;
+    }
+    /* Garantir que a Hero Section não "pule" */
+    section[style*="background-image"] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50vh;
+    }
+    @media (max-width: 768px) {
+      #typed {
+        min-height: 5rem; /* Ajuste para mobile */
+      }
+      section[style*="background-image"] {
+        min-height: 60vh;
+      }
+    }
   </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
@@ -389,8 +465,11 @@
   <header class="text-white">
     <div class="header-container">
       <div class="header-branding">
-        <h1 onclick="scrollToTop()" class="cursor-pointer hover:text-[var(--solar-yellow)] transition-colors">Nort Elétrica</h1>
-        <p>Energia Inteligente para Todos</p>
+        <img src="/assets/icone-nort-eletrica.webp" alt="Ícone da Nort Elétrica" class="w-8 h-8 md:w-10 md:h-10" loading="lazy">
+        <div class="branding-text">
+          <h1 onclick="scrollToTop()" class="cursor-pointer hover:text-[var(--solar-yellow)] transition-colors">Nort Elétrica</h1>
+          <p>Energia Inteligente para Todos</p>
+        </div>
       </div>
       <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">
         <svg class="w-8 h-8 text-white transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -782,7 +861,7 @@
           <p class="text-gray-600 text-lg">Estamos prontos para atender você com rapidez e profissionalismo.</p>
           <div class="bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Contato</h3>
-            <p class="text-gray-600"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> E-mail: <a href="/cdn-cgi/l/email-protection#d5b6babba1b4a1ba95bbbaa7a1b0b9b0a1a7bcb6b4fbb6bab8fbb7a7" class="text-[var(--primary-blue)] hover:underline"><span class="__cf_email__" data-cfemail="fbd8d4d5cfdacfd4fbd5d4c9cfded7decfc9d2d8da95d8d4d695d9c9">[email&#160;protected]</span></a></p>
+            <p class="text-gray-600"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> E-mail: <a href="/cdn-cgi/l/email-protection#d5b6babba1b4a1ba95bbbaa7a1b0b9b0a1a7bcb6b4fbb6bab8fbb7a7" class="text-[var(--primary-blue)] hover:underline"><span class="__cf_email__" data-cfemail="fbd8d4d5cfdacfd4fbd5d4c9cfded7decfc9d2d8da95d8d4d695d9c9">[email protected]</span></a></p>
             <p class="text-gray-600 mt-2"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l4-4h-.586A1.994 1.994 0 019 14.414" /></svg> WhatsApp: <a href="https://wa.me/5533981087746" class="text-[var(--primary-blue)] hover:underline">+55 53 98108-7746</a></p>
           </div>
           <div class="bg-white p-6 rounded-lg shadow-md">
@@ -909,7 +988,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       console.log('DOM completamente carregado');
-      
+
       // Menu Mobile
       const menuToggle = document.getElementById('menu-toggle');
       const mobileMenu = document.getElementById('mobile-menu');
@@ -945,7 +1024,7 @@
           if (href.startsWith('#')) {
             e.preventDefault();
             document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
-            if (window.innerWidth < 768) { 
+            if (window.innerWidth < 768) {
               mobileMenu.classList.remove('open');
               menuToggle.setAttribute('aria-expanded', 'false');
               document.querySelector('.menu-open').classList.remove('hidden');
@@ -955,88 +1034,134 @@
         });
       });
 
-      // Controle do cabeçalho ao rolar
-      let lastScrollTop = 0;
-      const header = document.querySelector('header');
-
-      window.addEventListener('scroll', () => {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollTop > lastScrollTop) {
-          header.classList.add('hidden');
-        } else {
-          header.classList.remove('hidden');
-        }
-        header.classList.toggle('scrolled', scrollTop > 50);
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-      });
-
-      // Função para voltar ao topo
-      function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
-      // Typed.js para Hero
-      new Typed('#typed', {
-        strings: ['Soluções Elétricas do Futuro', 'Energia Solar Sustentável', 'Automação Inteligente'],
+      // Typed.js simplificado
+      const typed = new Typed('#typed', {
+        strings: [
+          'Energia Solar para Todos',
+          'Soluções Elétricas Modernas',
+          'Automação Residencial no Sul'
+        ],
         typeSpeed: 50,
         backSpeed: 30,
+        backDelay: 2000,
         loop: true
       });
 
-      // Calculadora Solar
-      const calculateButton = document.getElementById('calculate-solar');
-      if (calculateButton) {
-        calculateButton.addEventListener('click', (event) => {
-          event.preventDefault();
-          console.log('Botão Calcule seu Sistema clicado');
+      // Scroll para o topo
+      window.scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
 
-          const consumption = parseFloat(document.getElementById('consumption').value);
-          const sunHours = parseFloat(document.getElementById('sun-hours').value);          const area = parseFloat(document.getElementById('area').value) || 0;
-          const consumptionError = document.getElementById('consumption-error');
+      // Mostrar/esconder botão de voltar ao topo
+      const scrollTopButton = document.getElementById('scroll-top-button');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          scrollTopButton.style.display = 'flex';
+        } else {
+          scrollTopButton.style.display = 'none';
+        }
+      });
 
-          if (!consumption || consumption <= 0) {
-            consumptionError.classList.remove('hidden');
-            return;
-          } else {
-            consumptionError.classList.add('hidden');
-          }
+          // Header fixo com comportamento de scroll
+          let lastScrollTop = 0;
+      const header = document.querySelector('header');
+      window.addEventListener('scroll', () => {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          header.classList.add('hidden');
+        } else if (scrollTop < lastScrollTop || scrollTop <= 100) {
+          header.classList.remove('hidden');
+          header.classList.toggle('scrolled', scrollTop > 0);
+        }
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      });
 
-          const systemSize = (consumption / (sunHours * 30)).toFixed(2); // kWp
-          const costPerKWp = 5000; // R$ por kWp (valor estimado)
-          const totalCost = (systemSize * costPerKWp).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-          const areaRequired = systemSize * 6; // 6m² por kWp
+      // Pop-up de oferta
+      const popup = document.getElementById('popup');
+      const closePopup = document.getElementById('close-popup');
+      setTimeout(() => {
+        popup.classList.remove('hidden');
+      }, 5000);
+      closePopup.addEventListener('click', () => {
+        popup.classList.add('hidden');
+      });
+      popup.addEventListener('click', (e) => {
+        if (e.target === popup) popup.classList.add('hidden');
+      });
 
-          document.getElementById('system-size').textContent = systemSize;
-          document.getElementById('system-cost').textContent = totalCost;
-          const solarResult = document.getElementById('solar-result');
-          solarResult.classList.remove('hidden');
-          solarResult.classList.add('visible');
+      // Formulário de Contato
+      const contactForm = document.getElementById('contact-form');
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
 
-          const areaWarning = document.getElementById('area-warning');
-          if (area > 0 && area < areaRequired) {
-            areaWarning.textContent = `A área disponível (${area} m²) é menor que a necessária (${areaRequired.toFixed(2)} m²).`;
-            areaWarning.classList.remove('hidden');
-          } else {
-            areaWarning.classList.add('hidden');
-          }
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const service = document.getElementById('service');
+        const message = document.getElementById('message');
 
-          document.getElementById('send-result').addEventListener('click', () => {
-            const message = `Olá, calculei um sistema solar: Consumo: ${consumption} kWh, Sistema: ${systemSize} kWp, Custo: R$ ${totalCost}.`;
-            window.open(`https://wa.me/5533981087746?text=${encodeURIComponent(message)}`, '_blank');
-          });
-        });
-      }
+        // Validação
+        if (!name.value.trim()) {
+          document.getElementById('name-error').classList.remove('hidden');
+          isValid = false;
+        } else {
+          document.getElementById('name-error').classList.add('hidden');
+        }
 
-      // Filtro da Galeria
+        if (!email.value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
+          document.getElementById('email-error').classList.remove('hidden');
+          isValid = false;
+        } else {
+          document.getElementById('email-error').classList.add('hidden');
+        }
+
+        if (!service.value) {
+          document.getElementById('service-error').classList.remove('hidden');
+          isValid = false;
+        } else {
+          document.getElementById('service-error').classList.add('hidden');
+        }
+
+        if (!message.value.trim()) {
+          document.getElementById('message-error').classList.remove('hidden');
+          isValid = false;
+        } else {
+          document.getElementById('message-error').classList.add('hidden');
+        }
+
+        if (isValid) {
+          // Simulação de envio (substitua por integração real)
+          console.log('Formulário enviado:', { name: name.value, email: email.value, phone: document.getElementById('phone').value, service: service.value, message: message.value });
+          document.getElementById('success-message').classList.remove('hidden');
+          contactForm.reset();
+          setTimeout(() => {
+            document.getElementById('success-message').classList.add('hidden');
+          }, 3000);
+        }
+      });
+
+      // Formulário de Newsletter
+      const newsletterForm = document.getElementById('newsletter-form');
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('newsletter-email');
+        if (email.value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
+          console.log('Newsletter inscrita:', email.value);
+          alert('Inscrição realizada com sucesso!');
+          newsletterForm.reset();
+        } else {
+          alert('Por favor, insira um e-mail válido.');
+        }
+      });
+
+      // Filtros da Galeria
       const filterButtons = document.querySelectorAll('.filter-btn');
       const galleryItems = document.querySelectorAll('.gallery-item');
-
       filterButtons.forEach(button => {
         button.addEventListener('click', () => {
           const filter = button.getAttribute('data-filter');
           galleryItems.forEach(item => {
-            const category = item.getAttribute('data-category');
-            if (filter === 'all' || category === filter) {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
               item.style.display = 'block';
             } else {
               item.style.display = 'none';
@@ -1045,100 +1170,56 @@
         });
       });
 
-      // Formulário de Contato
-      const contactForm = document.getElementById('contact-form');
-      if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-          e.preventDefault();
+      // Calculadora Solar
+      const calculateSolar = document.getElementById('calculate-solar');
+      calculateSolar.addEventListener('click', () => {
+        const consumption = parseFloat(document.getElementById('consumption').value);
+        const sunHours = parseFloat(document.getElementById('sun-hours').value);
+        const area = parseFloat(document.getElementById('area').value) || 0;
 
-          const name = document.getElementById('name').value.trim();
-          const email = document.getElementById('email').value.trim();
-          const phone = document.getElementById('phone').value.trim();
-          const service = document.getElementById('service').value;
-          const message = document.getElementById('message').value.trim();
+        if (consumption <= 0 || isNaN(consumption)) {
+          document.getElementById('consumption-error').classList.remove('hidden');
+          return;
+        }
+        document.getElementById('consumption-error').classList.add('hidden');
 
-          let isValid = true;
+        const systemSize = (consumption / (sunHours * 30)).toFixed(2); // kWp
+        const costPerKWp = 5000; // R$ por kWp (estimativa)
+        const totalCost = (systemSize * costPerKWp).toFixed(2);
+        const areaNeeded = (systemSize * 7).toFixed(2); // 7m² por kWp (estimativa)
 
-          if (!name) {
-            document.getElementById('name-error').classList.remove('hidden');
-            isValid = false;
-          } else {
-            document.getElementById('name-error').classList.add('hidden');
-          }
+        document.getElementById('system-size').textContent = systemSize;
+        document.getElementById('system-cost').textContent = totalCost.replace('.', ',');
+        const solarResult = document.getElementById('solar-result');
+        solarResult.classList.remove('hidden');
+        solarResult.classList.add('visible');
 
-          if (!email || !/\S+@\S+\.\S+/.test(email)) {
-            document.getElementById('email-error').classList.remove('hidden');
-            isValid = false;
-          } else {
-            document.getElementById('email-error').classList.add('hidden');
-          }
+        const areaWarning = document.getElementById('area-warning');
+        if (area > 0 && area < areaNeeded) {
+          areaWarning.textContent = `Área insuficiente! São necessários ${areaNeeded} m².`;
+          areaWarning.classList.remove('hidden');
+        } else {
+          areaWarning.classList.add('hidden');
+        }
+      });
 
-          if (!service) {
-            document.getElementById('service-error').classList.remove('hidden');
-            isValid = false;
-          } else {
-            document.getElementById('service-error').classList.add('hidden');
-          }
-
-          if (!message) {
-            document.getElementById('message-error').classList.remove('hidden');
-            isValid = false;
-          } else {
-            document.getElementById('message-error').classList.add('hidden');
-          }
-
-          if (isValid) {
-            const whatsappMessage = `Nome: ${name}\nE-mail: ${email}\nTelefone: ${phone || 'Não informado'}\nServiço: ${service}\nMensagem: ${message}`;
-            window.open(`https://wa.me/5533981087746?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
-            document.getElementById('success-message').classList.remove('hidden');
-            contactForm.reset();
-            setTimeout(() => {
-              document.getElementById('success-message').classList.add('hidden');
-            }, 5000);
-          }
-        });
-      }
+      // Enviar Resultado da Calculadora
+      document.getElementById('send-result').addEventListener('click', () => {
+        const systemSize = document.getElementById('system-size').textContent;
+        const systemCost = document.getElementById('system-cost').textContent;
+        const message = `Olá, calculei meu sistema solar: ${systemSize} kWp, custo estimado R$ ${systemCost}. Gostaria de mais detalhes!`;
+        window.open(`https://wa.me/5533981087746?text=${encodeURIComponent(message)}`, '_blank');
+      });
 
       // FAQ Toggle
-      window.toggleFAQ = function(index) {
-        const answer = document.getElementById(`faq-answer-${index}`);
+      window.toggleFAQ = (id) => {
+        const answer = document.getElementById(`faq-answer-${id}`);
         answer.classList.toggle('open');
       };
 
-      // Newsletter Form
-      const newsletterForm = document.getElementById('newsletter-form');
-      if (newsletterForm) {
-        newsletterForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          const email = document.getElementById('newsletter-email').value.trim();
-          if (email && /\S+@\S+\.\S+/.test(email)) {
-            alert('Inscrição realizada com sucesso!');
-            newsletterForm.reset();
-          } else {
-            alert('Por favor, insira um e-mail válido.');
-          }
-        });
-      }
-
-      // Popup de Oferta
-      const popup = document.getElementById('popup');
-      const closePopup = document.getElementById('close-popup');
-      setTimeout(() => {
-        popup.classList.remove('hidden');
-      }, 30000);
-
-      closePopup.addEventListener('click', () => {
-        popup.classList.add('hidden');
-      });
-
-      // Atualizar ano no footer
+      // Ano dinâmico no footer
       document.getElementById('footer-year').textContent = `© ${new Date().getFullYear()} Nort Elétrica. Todos os direitos reservados.`;
     });
-
-    // Função para voltar ao topo
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
   </script>
 </body>
 </html>
