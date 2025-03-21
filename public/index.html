@@ -395,29 +395,7 @@
     }
     .stars { color: #fbbf24; }
     /* Estabilizar o texto animado na Hero Section */
-    #typed {
-      display: block;
-      width: 100%;
-      min-height: 4rem; /* Altura fixa mínima para evitar salto */
-      line-height: 1.2;
-      white-space: normal;
-      overflow: hidden;
-    }
-    /* Garantir que a Hero Section não "pule" */
-    section[style*="background-image"] {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50vh;
-    }
-    @media (max-width: 768px) {
-      #typed {
-        min-height: 5rem; /* Ajuste para mobile */
-      }
-      section[style*="background-image"] {
-        min-height: 60vh;
-      }
-    }
+    
   </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
@@ -1034,18 +1012,14 @@
         });
       });
 
-      // Typed.js simplificado
-      const typed = new Typed('#typed', {
-        strings: [
-          'Energia Solar para Todos',
-          'Soluções Elétricas Modernas',
-          'Automação Residencial no Sul'
-        ],
+       // Typed.js para Hero
+       new Typed('#typed', {
+        strings: ['Soluções Elétricas do Futuro', 'Energia Solar Sustentável', 'Automação Inteligente'],
         typeSpeed: 50,
         backSpeed: 30,
-        backDelay: 2000,
         loop: true
       });
+
 
       // Scroll para o topo
       window.scrollToTop = () => {
@@ -1081,7 +1055,7 @@
       const closePopup = document.getElementById('close-popup');
       setTimeout(() => {
         popup.classList.remove('hidden');
-      }, 5000);
+      }, 30000);
       closePopup.addEventListener('click', () => {
         popup.classList.add('hidden');
       });
