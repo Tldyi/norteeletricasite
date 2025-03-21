@@ -328,38 +328,36 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      max-width: 300px; /* Limita a largura para evitar expansão excessiva */
+      max-width: 300px;
     }
     .header-branding img {
       width: 2rem;
       height: 2rem;
-      transition: transform 0.3s ease, filter 0.3s ease;
+      transition: transform 0.3s ease;
       flex-shrink: 0;
-      filter: drop-shadow(0 4px 8px rgba(34, 197, 94, 0.3)); /* Sombra verde suave */
     }
     .header-branding img:hover {
       transform: scale(1.1);
-      filter: drop-shadow(0 6px 12px rgba(34, 197, 94, 0.5)); /* Sombra mais intensa no hover */
     }
     .header-branding .branding-text {
       display: flex;
       flex-direction: column;
-      overflow: hidden; /* Evita que o texto ultrapasse os limites */
+      overflow: hidden;
     }
     .header-branding h1 {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      font-size: 1.2rem; /* Reduzido para caber melhor */
+      font-size: 1.2rem;
       color: white;
       margin: 0;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+      white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
+      text-overflow: ellipsis;
     }
     .header-branding p {
-      font-size: 0.7rem; /* Reduzido para caber melhor */
+      font-size: 0.7rem;
       color: #93c5fd;
       margin: 0;
       white-space: nowrap;
@@ -368,18 +366,17 @@
     }
     @media (max-width: 768px) {
       .header-branding {
-        max-width: 200px; /* Reduz a largura no mobile */
+        max-width: 200px;
       }
       .header-branding h1 { 
-        font-size: 1rem; /* Menor no mobile */
+        font-size: 1rem;
       }
       .header-branding p { 
-        font-size: 0.6rem; 
+        font-size: 0.6rem;
       }
       .header-branding img {
         width: 1.5rem;
         height: 1.5rem;
-        filter: drop-shadow(0 3px 6px rgba(34, 197, 94, 0.3)); /* Sombra ajustada para mobile */
       }
       #mobile-menu {
         background: #1e293b;
@@ -399,48 +396,28 @@
     .stars { color: #fbbf24; }
     /* Estabilizar o texto animado na Hero Section */
     #typed {
-  display: inline-block;
-  width: 100%;
-  min-height: 3rem;
-  line-height: 1.5;
-  white-space: normal;
-  position: relative;
-}
-
-.typed-cursor {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  font-size: inherit;
-  line-height: inherit;
-  color: inherit;
-  animation: blink 0.7s infinite;
-  margin-left: 2px;
-}
-
-section[style*="background-image"] {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 50vh;
-  padding: 2rem 0;
-  position: relative;
-  overflow: visible;
-}
-
-@media (max-width: 768px) {
-  #typed {
-    min-height: 4rem;
-  }
-  section[style*="background-image"] {
-    min-height: 60vh;
-  }
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
+      display: block;
+      width: 100%;
+      min-height: 4rem; /* Altura fixa mínima para evitar salto */
+      line-height: 1.2;
+      white-space: normal;
+      overflow: hidden;
+    }
+    /* Garantir que a Hero Section não "pule" */
+    section[style*="background-image"] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50vh;
+    }
+    @media (max-width: 768px) {
+      #typed {
+        min-height: 5rem; /* Ajuste para mobile */
+      }
+      section[style*="background-image"] {
+        min-height: 60vh;
+      }
+    }
   </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
@@ -1057,219 +1034,192 @@ section[style*="background-image"] {
         });
       });
 
-      // Typed.js para a Hero Section
-const typedElement = document.getElementById('typed');
-const strings = [
-  'Energia Solar para Todos',
-  'Soluções Elétricas Modernas',
-  'Automação Residencial no Sul'
-];
-
-// Definir altura mínima baseada no maior texto
-const tempElement = document.createElement('span');
-tempElement.style.visibility = 'hidden';
-tempElement.style.position = 'absolute';
-tempElement.style.width = typedElement.parentElement.offsetWidth + 'px';
-tempElement.style.fontSize = window.getComputedStyle(typedElement).fontSize;
-tempElement.style.fontFamily = window.getComputedStyle(typedElement).fontFamily;
-tempElement.style.lineHeight = window.getComputedStyle(typedElement).lineHeight;
-tempElement.style.padding = window.getComputedStyle(typedElement).padding;
-tempElement.style.whiteSpace = 'normal';
-document.body.appendChild(tempElement);
-
-let maxHeight = 0;
-strings.forEach(string => {
-  tempElement.textContent = string;
-  const height = tempElement.offsetHeight;
-  if (height > maxHeight) maxHeight = height;
-});
-
-// Adicionar margem de segurança
-maxHeight = maxHeight * 1.2;
-document.body.removeChild(tempElement);
-
-// Aplicar altura mínima
-typedElement.style.minHeight = `${maxHeight}px`;
-
-// Iniciar Typed.js
-const typed = new Typed('#typed', {
-  strings: strings,
-  typeSpeed: 50,
-  backSpeed: 30,
-  backDelay: 2000,
-  loop: true,
-  showCursor: true,
-  cursorChar: '|',
-  onType: (string, self) => {
-    // Atualiza a posição do cursor a cada caractere digitado
-    repositionCursor();
-  },
-  onBack: (string, self) => {
-    // Atualiza a posição do cursor a cada caractere apagado
-    repositionCursor();
-  },
-  onStringTyped: (arrayPos, self) => {
-    const currentHeight = typedElement.offsetHeight;
-    if (currentHeight > maxHeight) {
-      typedElement.style.minHeight = `${currentHeight}px`;
-      maxHeight = currentHeight;
-    }
-    repositionCursor();
-  },
-  onComplete: () => {
-    repositionCursor();
-  }
-});
-
-// Função para reposicionar o cursor
-function repositionCursor() {
-  const cursor = typedElement.querySelector('.typed-cursor');
-  if (cursor) {
-    // Criar um span temporário para medir a largura do texto atual
-    const textContent = typedElement.childNodes[0]?.textContent || '';
-    tempElement.textContent = textContent;
-    document.body.appendChild(tempElement);
-    const textWidth = tempElement.offsetWidth;
-    document.body.removeChild(tempElement);
-
-    // Posicionar o cursor após o texto
-    cursor.style.left = `${textWidth}px`;
-    cursor.style.top = '0'; // Mantém alinhado ao topo
-
-    // Ajustar a posição vertical em caso de quebra de linha
-    const lines = textContent.split('\n').length;
-    if (lines > 1) {
-      const lineHeight = parseFloat(window.getComputedStyle(typedElement).lineHeight);
-      cursor.style.top = `${(lines - 1) * lineHeight}px`;
-    }
-  }
-}
-
-// Recalcular ao redimensionar a janela
-window.addEventListener('resize', () => {
-  tempElement.style.width = typedElement.parentElement.offsetWidth + 'px';
-  let newMaxHeight = 0;
-  strings.forEach(string => {
-    tempElement.textContent = string;
-    const height = tempElement.offsetHeight;
-    if (height > newMaxHeight) newMaxHeight = height;
-  });
-  newMaxHeight = newMaxHeight * 1.2;
-  typedElement.style.minHeight = `${newMaxHeight}px`;
-  repositionCursor();
-});
-      // Calculadora Solar
-      document.getElementById('calculate-solar').addEventListener('click', () => {
-        const consumption = parseFloat(document.getElementById('consumption').value);
-        const sunHours = parseFloat(document.getElementById('sun-hours').value);
-        const area = parseFloat(document.getElementById('area').value) || 0;
-        const errorMessage = document.getElementById('consumption-error');
-        const resultDiv = document.getElementById('solar-result');
-
-        if (!consumption || consumption <= 0) {
-          errorMessage.classList.remove('hidden');
-          resultDiv.classList.add('hidden');
-          return;
-        }
-        errorMessage.classList.add('hidden');
-
-        const systemSize = (consumption / (sunHours * 30)).toFixed(2);
-        const costPerKWp = 4500;
-        const totalCost = (systemSize * costPerKWp).toFixed(2);
-        const areaNeeded = (systemSize * 7).toFixed(2);
-
-        document.getElementById('system-size').textContent = systemSize;
-        document.getElementById('system-cost').textContent = totalCost.replace('.', ',');
-        const areaWarning = document.getElementById('area-warning');
-        if (area > 0 && area < areaNeeded) {
-          areaWarning.textContent = `A área disponível (${area} m²) é menor que o necessário (${areaNeeded} m²).`;
-          areaWarning.classList.remove('hidden');
-        } else {
-          areaWarning.classList.add('hidden');
-        }
-
-        resultDiv.classList.remove('hidden');
-        resultDiv.classList.add('visible');
+      // Typed.js simplificado
+      const typed = new Typed('#typed', {
+        strings: [
+          'Energia Solar para Todos',
+          'Soluções Elétricas Modernas',
+          'Automação Residencial no Sul'
+        ],
+        typeSpeed: 50,
+        backSpeed: 30,
+        backDelay: 2000,
+        loop: true
       });
 
-      document.getElementById('send-result').addEventListener('click', () => {
-        const systemSize = document.getElementById('system-size').textContent;
-        const systemCost = document.getElementById('system-cost').textContent;
-        const message = `Olá, calculei meu sistema solar: ${systemSize} kWp, custo estimado R$ ${systemCost}. Quero mais detalhes!`;
-        window.open(`https://wa.me/5533981087746?text=${encodeURIComponent(message)}`, '_blank');
+      // Scroll para o topo
+      window.scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      // Mostrar/esconder botão de voltar ao topo
+      const scrollTopButton = document.getElementById('scroll-top-button');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          scrollTopButton.style.display = 'flex';
+        } else {
+          scrollTopButton.style.display = 'none';
+        }
+      });
+
+          // Header fixo com comportamento de scroll
+          let lastScrollTop = 0;
+      const header = document.querySelector('header');
+      window.addEventListener('scroll', () => {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          header.classList.add('hidden');
+        } else if (scrollTop < lastScrollTop || scrollTop <= 100) {
+          header.classList.remove('hidden');
+          header.classList.toggle('scrolled', scrollTop > 0);
+        }
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      });
+
+      // Pop-up de oferta
+      const popup = document.getElementById('popup');
+      const closePopup = document.getElementById('close-popup');
+      setTimeout(() => {
+        popup.classList.remove('hidden');
+      }, 5000);
+      closePopup.addEventListener('click', () => {
+        popup.classList.add('hidden');
+      });
+      popup.addEventListener('click', (e) => {
+        if (e.target === popup) popup.classList.add('hidden');
       });
 
       // Formulário de Contato
-      document.getElementById('contact-form').addEventListener('submit', (e) => {
+      const contactForm = document.getElementById('contact-form');
+      contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const service = document.getElementById('service').value;
-        const message = document.getElementById('message').value;
+        let isValid = true;
 
-        const errors = [
-          { id: 'name-error', condition: !name, message: 'Insira seu nome.' },
-          { id: 'email-error', condition: !email || !email.includes('@'), message: 'Insira um e-mail válido.' },
-          { id: 'service-error', condition: !service, message: 'Selecione um serviço.' },
-          { id: 'message-error', condition: !message, message: 'Insira sua mensagem.' }
-        ];
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const service = document.getElementById('service');
+        const message = document.getElementById('message');
 
-        let hasError = false;
-        errors.forEach(error => {
-          const errorElement = document.getElementById(error.id);
-          errorElement.classList.toggle('hidden', !error.condition);
-          if (error.condition) hasError = true;
-        });
+        // Validação
+        if (!name.value.trim()) {
+          document.getElementById('name-error').classList.remove('hidden');
+          isValid = false;
+        } else {
+          document.getElementById('name-error').classList.add('hidden');
+        }
 
-        if (!hasError) {
-          const whatsappMessage = `Nome: ${name}\nE-mail: ${email}\nTelefone: ${phone || 'Não informado'}\nServiço: ${service}\nMensagem: ${message}`;
-          window.open(`https://wa.me/5533981087746?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+        if (!email.value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
+          document.getElementById('email-error').classList.remove('hidden');
+          isValid = false;
+        } else {
+          document.getElementById('email-error').classList.add('hidden');
+        }
+
+        if (!service.value) {
+          document.getElementById('service-error').classList.remove('hidden');
+          isValid = false;
+        } else {
+          document.getElementById('service-error').classList.add('hidden');
+        }
+
+        if (!message.value.trim()) {
+          document.getElementById('message-error').classList.remove('hidden');
+          isValid = false;
+        } else {
+          document.getElementById('message-error').classList.add('hidden');
+        }
+
+        if (isValid) {
+          // Simulação de envio (substitua por integração real)
+          console.log('Formulário enviado:', { name: name.value, email: email.value, phone: document.getElementById('phone').value, service: service.value, message: message.value });
           document.getElementById('success-message').classList.remove('hidden');
-          document.getElementById('contact-form').reset();
-          setTimeout(() => document.getElementById('success-message').classList.add('hidden'), 5000);
+          contactForm.reset();
+          setTimeout(() => {
+            document.getElementById('success-message').classList.add('hidden');
+          }, 3000);
         }
       });
 
-      // Newsletter
-      document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+      // Formulário de Newsletter
+      const newsletterForm = document.getElementById('newsletter-form');
+      newsletterForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const email = document.getElementById('newsletter-email').value;
-        if (email) {
+        const email = document.getElementById('newsletter-email');
+        if (email.value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
+          console.log('Newsletter inscrita:', email.value);
           alert('Inscrição realizada com sucesso!');
-          document.getElementById('newsletter-form').reset();
+          newsletterForm.reset();
+        } else {
+          alert('Por favor, insira um e-mail válido.');
         }
       });
 
-      // FAQ Toggle
-      window.toggleFAQ = (index) => {
-        const answer = document.getElementById(`faq-answer-${index}`);
-        answer.classList.toggle('open');
-      };
-
-      // Filtro da Galeria
-      document.querySelectorAll('.filter-btn').forEach(button => {
+      // Filtros da Galeria
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      filterButtons.forEach(button => {
         button.addEventListener('click', () => {
           const filter = button.getAttribute('data-filter');
-          document.querySelectorAll('.gallery-item').forEach(item => {
-            item.style.display = (filter === 'all' || item.getAttribute('data-category') === filter) ? 'block' : 'none';
+          galleryItems.forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
           });
         });
       });
 
-      // Pop-up
-      setTimeout(() => document.getElementById('popup').classList.remove('hidden'), 5000);
-      document.getElementById('close-popup').addEventListener('click', () => {
-        document.getElementById('popup').classList.add('hidden');
+      // Calculadora Solar
+      const calculateSolar = document.getElementById('calculate-solar');
+      calculateSolar.addEventListener('click', () => {
+        const consumption = parseFloat(document.getElementById('consumption').value);
+        const sunHours = parseFloat(document.getElementById('sun-hours').value);
+        const area = parseFloat(document.getElementById('area').value) || 0;
+
+        if (consumption <= 0 || isNaN(consumption)) {
+          document.getElementById('consumption-error').classList.remove('hidden');
+          return;
+        }
+        document.getElementById('consumption-error').classList.add('hidden');
+
+        const systemSize = (consumption / (sunHours * 30)).toFixed(2); // kWp
+        const costPerKWp = 5000; // R$ por kWp (estimativa)
+        const totalCost = (systemSize * costPerKWp).toFixed(2);
+        const areaNeeded = (systemSize * 7).toFixed(2); // 7m² por kWp (estimativa)
+
+        document.getElementById('system-size').textContent = systemSize;
+        document.getElementById('system-cost').textContent = totalCost.replace('.', ',');
+        const solarResult = document.getElementById('solar-result');
+        solarResult.classList.remove('hidden');
+        solarResult.classList.add('visible');
+
+        const areaWarning = document.getElementById('area-warning');
+        if (area > 0 && area < areaNeeded) {
+          areaWarning.textContent = `Área insuficiente! São necessários ${areaNeeded} m².`;
+          areaWarning.classList.remove('hidden');
+        } else {
+          areaWarning.classList.add('hidden');
+        }
       });
 
-      // Atualizar ano no footer
+      // Enviar Resultado da Calculadora
+      document.getElementById('send-result').addEventListener('click', () => {
+        const systemSize = document.getElementById('system-size').textContent;
+        const systemCost = document.getElementById('system-cost').textContent;
+        const message = `Olá, calculei meu sistema solar: ${systemSize} kWp, custo estimado R$ ${systemCost}. Gostaria de mais detalhes!`;
+        window.open(`https://wa.me/5533981087746?text=${encodeURIComponent(message)}`, '_blank');
+      });
+
+      // FAQ Toggle
+      window.toggleFAQ = (id) => {
+        const answer = document.getElementById(`faq-answer-${id}`);
+        answer.classList.toggle('open');
+      };
+
+      // Ano dinâmico no footer
       document.getElementById('footer-year').textContent = `© ${new Date().getFullYear()} Nort Elétrica. Todos os direitos reservados.`;
     });
-
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
   </script>
 </body>
 </html>
