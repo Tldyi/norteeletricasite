@@ -250,6 +250,65 @@
       }
       #mobile-menu.open { transform: translateX(0); }
     }
+    /* Adicionando sombra moderna na foto do ícone da empresa para mobile e desktop */
+  .header-branding img {
+    box-shadow: 0 0 15px #39ff14;
+    border-radius: 50%;
+  }
+
+  @media (max-width: 768px) {
+    /* Aumentando um pouco os botões flutuantes no mobile */
+    .whatsapp-button, .cta-float, .back-to-top-button {
+      padding: 6px 14px;
+      font-size: 0.85rem;
+    }
+    .whatsapp-button img {
+      width: 22px;
+      height: 22px;
+    }
+    
+    /* Ajustando botões "Conheça Nossos Kits" e "Fale com um Especialista" no mobile para um visual mais clean */
+    .hero-section .cta-button, .btn-modern {
+      font-size: 1rem;
+      padding: 8px 16px;
+      border-radius: 8px;
+    }
+    
+    /* Ajustando espaçamento entre os botões na hero section para um layout mais limpo */
+    .hero-section .space-x-4 {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+    
+    /* Reposicionando botão de voltar ao topo abaixo do botão do WhatsApp */
+    .back-to-top-button {
+      bottom: 50px;
+      right: 20px;
+    }
+    .whatsapp-button {
+      bottom: 120px;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    /* Ajustando espaçamento e organização dos botões na hero section */
+    .hero-section .space-x-4 {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+    
+    /* Ajustando posição do botão de voltar ao topo abaixo do botão do WhatsApp no desktop */
+    .back-to-top-button {
+      bottom: 50px;
+      right: 20px;
+    }
+    .whatsapp-button {
+      bottom: 120px;
+    }
+  }
   </style>
 </head>
 <body>
