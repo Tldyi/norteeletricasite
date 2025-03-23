@@ -230,7 +230,7 @@
       background: linear-gradient(135deg, var(--neon-cyan), var(--futuristic-purple)); 
     }
     .scroll-top-button { 
-      bottom: 90px; 
+      bottom: 140px; /* Ajustado para ficar acima do WhatsApp no desktop */
       right: 20px; 
       background: linear-gradient(135deg, var(--primary-blue), var(--futuristic-purple)); 
       display: flex; 
@@ -375,6 +375,11 @@
         margin-top: 1rem; 
       } 
     }
+    @media (max-width: 768px) {
+  #dark-mode-toggle {
+    display: none !important;
+  }
+}
   </style>
 </head>
 <body>
