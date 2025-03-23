@@ -194,6 +194,24 @@
       .header-branding p { font-size: 0.7rem; }
       .header-branding img { width: 1.5rem; height: 1.5rem; }
     }
+    /* Animações nos ícones */
+    .icon-hover:hover {
+      animation: bounce 0.5s ease infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    /* Estilo do simulador de custo */
+    #cost-estimate {
+      background: #e6f3ff;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+      color: var(--primary-blue);
+      transition: opacity 0.3s ease;
+    }
   </style>
 </head>
 <body>
@@ -249,7 +267,7 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="text-white py-24 bg-cover bg-center mt-16 relative" style="background-image: linear-gradient(to right, rgba(30, 58, 138, 0.8), rgba(75, 94, 170, 0.8)), url('/assets/cftv-hero.webp');">
+  <section class="text-white py-24 bg-cover bg-center mt-16 relative" style="background-image: linear-gradient(to right, rgba(30, 58, 138, 0.9), rgba(75, 94, 170, 0.9)), url('/assets/cftv-hero.webp');">
     <div class="container mx-auto px-4 text-center">
       <h1 class="text-4xl md:text-5xl font-bold mb-6">CFTV e Monitoramento</h1>
       <p class="mb-8 text-lg md:text-xl text-blue-100 max-w-2xl mx-auto">Soluções completas de segurança eletrônica para residências e empresas em São José do Norte/RS.</p>
@@ -280,17 +298,17 @@
       <h2 class="text-3xl md:text-4xl font-bold text-center text-[var(--primary-blue)]">Benefícios do CFTV e Monitoramento</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
         <div class="service-card text-center">
-          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4 icon-hover" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
           <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Monitoramento 24/7</h3>
           <p class="text-gray-600 mt-2">Acompanhe tudo em tempo real.</p>
         </div>
         <div class="service-card text-center">
-          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4 icon-hover" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Alta Definição</h3>
           <p class="text-gray-600 mt-2">Imagens nítidas para identificação.</p>
         </div>
         <div class="service-card text-center">
-          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4 icon-hover" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
           <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Acesso Remoto</h3>
           <p class="text-gray-600 mt-2">Veja tudo pelo celular ou computador.</p>
         </div>
@@ -346,7 +364,7 @@
     </div>
   </section>
 
-  <!-- Projeto Personalizado -->
+  <!-- Projeto Personalizado com Simulador -->
   <section id="custom-project">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl md:text-4xl font-bold text-center text-[var(--primary-blue)]">Projeto Personalizado</h2>
@@ -354,7 +372,7 @@
         <form id="custom-project-form" class="space-y-6">
           <div>
             <label for="area" class="block text-gray-700 font-semibold">Tamanho da Área (m²)</label>
-            <input type="number" id="area" placeholder="Ex.: 100" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+            <input type="number" id="area" placeholder="Ex.: 100" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" min="1" required>
           </div>
           <div>
             <label for="camera-type" class="block text-gray-700 font-semibold">Tipo de Câmera</label>
@@ -366,7 +384,7 @@
           </div>
           <div>
             <label for="cameras" class="block text-gray-700 font-semibold">Quantidade de Câmeras</label>
-            <input type="number" id="cameras" placeholder="Ex.: 8" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+            <input type="number" id="cameras" placeholder="Ex.: 8" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" min="1" required>
           </div>
           <div>
             <label for="monitoring" class="block text-gray-700 font-semibold">Monitoramento Remoto?</label>
@@ -375,6 +393,7 @@
               <option value="nao">Não</option>
             </select>
           </div>
+          <div id="cost-estimate" class="hidden">Estimativa: R$ 0,00</div>
           <button type="submit" class="btn-modern w-full">Solicitar Orçamento</button>
         </form>
         <div id="success-message" class="hidden text-green-600 text-center mt-4">Orçamento solicitado com sucesso!</div>
@@ -430,17 +449,17 @@
       <h2 class="text-3xl md:text-4xl font-bold text-center text-[var(--primary-blue)]">Por que escolher a Nort Elétrica?</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
         <div class="service-card text-center">
-          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4 icon-hover" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
           <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Tecnologia Moderna</h3>
           <p class="text-gray-600 mt-2">Câmeras e sistemas de última geração.</p>
         </div>
         <div class="service-card text-center">
-          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4 icon-hover" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Suporte 24/7</h3>
           <p class="text-gray-600 mt-2">Atendimento técnico a qualquer hora.</p>
         </div>
         <div class="service-card text-center">
-          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 1.857h10M12 3a9 9 0 100 18" /></svg>
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4 icon-hover" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 1.857h10M12 3a9 9 0 100 18" /></svg>
           <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Equipe Qualificada</h3>
           <p class="text-gray-600 mt-2">Especialistas em segurança eletrônica.</p>
         </div>
@@ -591,7 +610,7 @@
     window.addEventListener('scroll', () => {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       header.classList.toggle('hidden', scrollTop > lastScrollTop && scrollTop > 80);
-      header.classList.toggle('scrolled', scrollTop > 50);
+      header.classList.toggle('shadow-md', scrollTop > 50);
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
 
@@ -605,17 +624,53 @@
       scrollTopButton.style.display = window.scrollY > 300 ? 'flex' : 'none';
     });
 
-    // Formulário de Projeto Personalizado
-    document.getElementById('custom-project-form').addEventListener('submit', (e) => {
+    // Simulador de Custo Interativo
+    const form = document.getElementById('custom-project-form');
+    const areaInput = document.getElementById('area');
+    const cameraTypeInput = document.getElementById('camera-type');
+    const camerasInput = document.getElementById('cameras');
+    const monitoringInput = document.getElementById('monitoring');
+    const costEstimate = document.getElementById('cost-estimate');
+
+    function calculateCost() {
+      const area = parseFloat(areaInput.value) || 0;
+      const cameras = parseInt(camerasInput.value) || 0;
+      const cameraType = cameraTypeInput.value;
+      const monitoring = monitoringInput.value;
+
+      // Custos base por câmera
+      const cameraCosts = {
+        'hd': 400,      // R$ 400 por câmera HD
+        'full-hd': 600, // R$ 600 por câmera Full HD
+        '4k': 1000      // R$ 1000 por câmera 4K
+      };
+
+      // Custo base: câmeras + área
+      let totalCost = cameras * cameraCosts[cameraType] + area * 20; // R$ 20 por m²
+      if (monitoring === 'sim') totalCost += 500; // Taxa extra para monitoramento remoto
+
+      // Garantir custo mínimo
+      totalCost = Math.max(totalCost, 1000); // Mínimo de R$ 1000
+
+      costEstimate.textContent = `Estimativa: R$ ${totalCost.toFixed(2).replace('.', ',')}`;
+      costEstimate.classList.remove('hidden');
+    }
+
+    [areaInput, cameraTypeInput, camerasInput, monitoringInput].forEach(input => {
+      input.addEventListener('input', calculateCost);
+    });
+
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const area = document.getElementById('area').value;
-      const cameraType = document.getElementById('camera-type').value;
-      const cameras = document.getElementById('cameras').value;
-      const monitoring = document.getElementById('monitoring').value;
+      const area = areaInput.value;
+      const cameraType = cameraTypeInput.value;
+      const cameras = camerasInput.value;
+      const monitoring = monitoringInput.value;
       const whatsappMessage = `Olá, quero um projeto personalizado de CFTV. Área: ${area} m², Tipo de Câmera: ${cameraType}, Câmeras: ${cameras}, Monitoramento Remoto: ${monitoring}.`;
       window.open(`https://wa.me/5553981087746?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
       document.getElementById('success-message').classList.remove('hidden');
-      document.getElementById('custom-project-form').reset();
+      form.reset();
+      costEstimate.classList.add('hidden');
     });
 
     // Formulário de Contato
