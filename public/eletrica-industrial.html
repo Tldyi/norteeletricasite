@@ -37,7 +37,7 @@
       --energy-orange: #F97316;
       --light-bg: #e5e7eb;
       --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.1);
-      --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.15);
+      --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.12); /* Sombra mais suave */
     }
     html, body { 
       margin: 0; 
@@ -49,7 +49,7 @@
     }
     body { 
       background: var(--light-bg); 
-      padding-top: 80px; 
+      padding-top: 60px; /* Reduzido no mobile */
       color: #1f2937;
       line-height: 1.6;
     }
@@ -57,13 +57,9 @@
     h1, h2, h3 { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; }
     h2 { font-size: 4rem; letter-spacing: 0.05em; margin-bottom: 2.5rem; color: var(--primary-blue); }
     p { font-size: 1.1rem; }
-    @media (max-width: 768px) { 
-      h2 { font-size: 2.5rem; } 
-      p { font-size: 1rem; }
-    }
     section { 
-      scroll-margin-top: 80px; 
-      padding: 6rem 0; 
+      scroll-margin-top: 60px; 
+      padding: 4rem 0; /* Reduzido no mobile */
       opacity: 0; 
       transform: translateY(20px); 
       animation: fadeInSection 0.8s ease forwards; 
@@ -85,16 +81,15 @@
       background: rgba(30, 58, 138, 0.95); 
       border-bottom: 2px solid var(--energy-orange); 
     }
-    @media (max-width: 768px) { header { height: 60px; } }
     .whatsapp-button, .cta-float, .back-to-top-button { 
       position: fixed; 
       color: white; 
-      border-radius: 8px; 
+      border-radius: 50px; /* Mais arredondado */
       padding: 12px 24px; 
       display: flex; 
       align-items: center; 
       box-shadow: var(--shadow-md); 
-      transition: all 0.4s ease; 
+      transition: all 0.3s ease; 
       z-index: 1000; 
       font-weight: 700;
       text-transform: uppercase;
@@ -104,7 +99,7 @@
     }
     @keyframes glow { 
       0%, 100% { box-shadow: var(--shadow-md); } 
-      50% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); } 
+      50% { box-shadow: 0 0 12px rgba(255, 255, 255, 0.4); } /* Sombra mais suave */
     }
     .whatsapp-button { 
       bottom: 90px; 
@@ -126,51 +121,60 @@
     }
     .whatsapp-button:hover, .cta-float:hover, .back-to-top-button:hover { 
       transform: translateY(-5px); 
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); 
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Sombra mais suave */
     }
     .whatsapp-button img { width: 28px; height: 28px; margin-right: 10px; }
     @media (max-width: 768px) {
+      body { padding-top: 60px; }
+      header { height: 60px; }
+      section { padding: 3rem 0; scroll-margin-top: 60px; }
+      h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+      p { font-size: 0.95rem; }
       .whatsapp-button, .cta-float { 
-        padding: 6px 12px; /* Menor no mobile */
-        font-size: 0.75rem; /* Texto menor */
+        padding: 8px 16px; /* Ajustado para melhor proporção */
+        font-size: 0.8rem; /* Texto um pouco maior para legibilidade */
+        border-radius: 50px; /* Mais arredondado */
       }
       .whatsapp-button { 
-        bottom: 15px; /* Alinhado com o CTA */
-        right: 15px; 
+        bottom: 20px; /* Alinhado com o CTA */
+        right: 20px; 
       }
       .cta-float { 
-        bottom: 15px; /* Mesmo nível do WhatsApp */
-        left: 15px; 
+        bottom: 20px; 
+        left: 20px; 
       }
       .back-to-top-button { 
-        display: none; /* Removido no mobile */
+        display: none !important; /* Forçado para garantir que não apareça */
       }
       .whatsapp-button img { 
-        width: 16px; /* Ícone menor no mobile */
-        height: 16px; 
+        width: 18px; /* Ícone ajustado */
+        height: 18px; 
       }
-    }
-    @media (max-width: 360px) { /* Para telas muito pequenas */
-      .whatsapp-button, .cta-float {
-        padding: 5px 10px;
-        font-size: 0.65rem;
-      }
-      .whatsapp-button img {
-        width: 14px;
-        height: 14px;
+      /* Ajustes para telas muito pequenas */
+      @media (max-width: 360px) {
+        .whatsapp-button, .cta-float {
+          padding: 6px 12px;
+          font-size: 0.7rem;
+        }
+        .whatsapp-button { right: 15px; }
+        .cta-float { left: 15px; }
+        .whatsapp-button img {
+          width: 16px;
+          height: 16px;
+        }
       }
     }
     .service-card { 
       background: white; 
       border-radius: 12px; 
-      padding: 25px; 
+      padding: 20px; /* Reduzido no mobile */
       transition: all 0.4s ease; 
       box-shadow: var(--shadow-sm); 
       border: 1px solid #d1d5db;
       width: 100%;
     }
     .service-card:hover { 
-      transform: translateY(-10px); 
+      transform: translateY(-8px); /* Efeito mais suave */
       box-shadow: var(--shadow-md); 
     }
     .service-card h3 {
@@ -184,7 +188,7 @@
       color: white; 
       padding: 12px 24px; 
       border-radius: 8px; 
-      transition: all 0.4s ease; 
+      transition: all 0.3s ease; 
       font-weight: 700; 
       display: inline-flex; 
       align-items: center; 
@@ -195,18 +199,22 @@
     }
     .btn-modern:hover { 
       transform: translateY(-3px); 
-      box-shadow: 0 0 20px rgba(249, 115, 22, 0.5); 
+      box-shadow: 0 0 15px rgba(249, 115, 22, 0.4); /* Sombra mais suave */
       background: linear-gradient(135deg, var(--solar-yellow), var(--energy-orange)); 
     }
     /* Ajustes para a seção "Nossos Serviços" */
     #servicos .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste dinâmico */
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem; /* Reduzido no mobile */
     }
-    @media (max-width: 1024px) and (min-width: 769px) { /* Tablets e modo desktop simulado */
+    @media (max-width: 768px) {
       #servicos .grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas médias */
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .service-card {
+        padding: 15px;
       }
       .service-card h3 {
         font-size: 1.1rem;
@@ -214,15 +222,15 @@
       .service-card p, .service-card ul {
         font-size: 0.9rem;
       }
+      .service-card img {
+        max-height: 200px; /* Reduzido para melhor proporção */
+      }
       .btn-modern {
         padding: 8px 16px;
         font-size: 0.9rem;
       }
     }
-    @media (max-width: 768px) { /* Mobile */
-      #servicos .grid {
-        grid-template-columns: 1fr; /* 1 coluna no mobile */
-      }
+    @media (max-width: 360px) {
       .service-card h3 {
         font-size: 1rem;
       }
@@ -234,25 +242,40 @@
         font-size: 0.85rem;
       }
     }
-    @media (max-width: 360px) { /* Telas muito pequenas */
-      .service-card h3 {
-        font-size: 0.9rem;
-      }
-      .service-card p, .service-card ul {
-        font-size: 0.75rem;
-      }
-      .btn-modern {
-        padding: 5px 10px;
-        font-size: 0.75rem;
-      }
-    }
     .custom-kit-form {
       background: white;
       border-radius: 12px;
-      padding: 25px;
+      padding: 20px; /* Reduzido no mobile */
       box-shadow: var(--shadow-md);
     }
+    @media (max-width: 768px) {
+      .custom-kit-form {
+        padding: 15px;
+      }
+      .custom-kit-form input,
+      .custom-kit-form select,
+      .custom-kit-form textarea {
+        padding: 10px; /* Ajustado para toque */
+        font-size: 0.9rem;
+      }
+      .custom-kit-form button {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+    }
     footer { background: linear-gradient(135deg, var(--dark-blue), var(--industrial-gray)); }
+    @media (max-width: 768px) {
+      footer .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      footer h3 {
+        font-size: 1.1rem;
+      }
+      footer p, footer ul li {
+        font-size: 0.9rem;
+      }
+    }
     .header-container {
       display: flex;
       justify-content: space-between;
@@ -309,8 +332,21 @@
       .header-branding h1 { font-size: 1rem; }
       .header-branding p { font-size: 0.6rem; }
       .header-branding img { width: 1.5rem; height: 1.5rem; }
-      #mobile-menu { background: var(--industrial-gray); width: 100%; max-width: 100vw; transform: translateX(100%); }
+      #mobile-menu { 
+        background: var(--industrial-gray); 
+        width: 100%; 
+        max-width: 100vw; 
+        transform: translateX(100%); 
+        top: 60px; /* Ajustado para o novo header */
+      }
       #mobile-menu.open { transform: translateX(0); }
+      #mobile-menu .flex {
+        padding: 1rem;
+        gap: 1rem;
+      }
+      #mobile-menu a {
+        font-size: 1rem;
+      }
     }
     .service-card img {
       width: 100%;
@@ -373,23 +409,23 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="text-white py-28 bg-cover bg-center mt-16 relative" style="background-image: linear-gradient(to right, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), url('/assets/eletrica-industrial-hero.webp');">
-    <div class="container mx-auto text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Elétrica Industrial com Eficiência e Segurança</h1>
-      <p class="mb-8 text-lg md:text-xl text-blue-100 max-w-2xl mx-auto">Soluções especializadas em instalações e manutenções elétricas para indústrias, galpões e fábricas em São José do Norte/RS.</p>
-      <div class="space-x-4">
-        <a href="#servicos" class="btn-modern text-lg">Conheça Nossos Serviços</a>
-        <a href="#contact" class="btn-modern text-lg">Fale com um Especialista</a>
+  <section class="text-white py-20 bg-cover bg-center mt-16 relative" style="background-image: linear-gradient(to right, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), url('/assets/eletrica-industrial-hero.webp');">
+    <div class="container mx-auto text-center px-4">
+      <h1 class="text-3xl md:text-5xl font-bold mb-4">Elétrica Industrial com Eficiência e Segurança</h1>
+      <p class="mb-6 text-base md:text-xl text-blue-100 max-w-2xl mx-auto">Soluções especializadas em instalações e manutenções elétricas para indústrias, galpões e fábricas em São José do Norte/RS.</p>
+      <div class="space-x-2">
+        <a href="#servicos" class="btn-modern text-base">Conheça Nossos Serviços</a>
+        <a href="#contact" class="btn-modern text-base">Fale com um Especialista</a>
       </div>
     </div>
   </section>
 
   <!-- Sobre Elétrica Industrial -->
   <section>
-    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12">
+    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8">
       <div>
-        <h2 class="text-4xl font-bold text-[var(--primary-blue)]">Soluções Elétricas para Sua Indústria</h2>
-        <p class="text-gray-600 text-lg leading-relaxed mt-4">A Nort Elétrica oferece serviços de elétrica industrial de alta performance, garantindo segurança, eficiência energética e continuidade operacional para fábricas, galpões e indústrias. Desde projetos robustos até manutenção de sistemas complexos, atendemos às suas demandas com precisão.</p>
+        <h2 class="text-3xl font-bold text-[var(--primary-blue)]">Soluções Elétricas para Sua Indústria</h2>
+        <p class="text-gray-600 text-base leading-relaxed mt-4">A Nort Elétrica oferece serviços de elétrica industrial de alta performance, garantindo segurança, eficiência energética e continuidade operacional para fábricas, galpões e indústrias. Desde projetos robustos até manutenção de sistemas complexos, atendemos às suas demandas com precisão.</p>
         <p class="text-gray-600 mt-4">Utilizamos tecnologias avançadas e seguimos normas rigorosas (NBR 5410 e NBR 14039), assegurando instalações confiáveis para ambientes industriais.</p>
       </div>
       <div class="flex items-center">
@@ -401,21 +437,21 @@
   <!-- Benefícios da Elétrica Industrial -->
   <section>
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Por que Investir em uma Elétrica Industrial Profissional?</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+      <h2 class="text-3xl font-bold text-center text-[var(--primary-blue)]">Por que Investir em uma Elétrica Industrial Profissional?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
         <div class="service-card text-center">
-          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Segurança Operacional</h3>
+          <svg class="h-8 w-8 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <h3 class="text-lg font-semibold text-[var(--primary-blue)]">Segurança Operacional</h3>
           <p class="text-gray-600 mt-2">Prevenção de falhas elétricas que podem interromper a produção.</p>
         </div>
         <div class="service-card text-center">
-          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Eficiência Energética</h3>
+          <svg class="h-8 w-8 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <h3 class="text-lg font-semibold text-[var(--primary-blue)]">Eficiência Energética</h3>
           <p class="text-gray-600 mt-2">Otimização do consumo para reduzir custos operacionais.</p>
         </div>
         <div class="service-card text-center">
-          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Conformidade com Normas</h3>
+          <svg class="h-8 w-8 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+          <h3 class="text-lg font-semibold text-[var(--primary-blue)]">Conformidade com Normas</h3>
           <p class="text-gray-600 mt-2">Projetos alinhados às NBR 5410 e NBR 14039.</p>
         </div>
       </div>
@@ -425,54 +461,54 @@
   <!-- Nossos Serviços -->
   <section id="servicos">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Nossos Serviços de Elétrica Industrial</h2>
-      <div class="grid mt-8">
+      <h2 class="text-3xl font-bold text-center text-[var(--primary-blue)]">Nossos Serviços de Elétrica Industrial</h2>
+      <div class="grid mt-6">
         <div class="service-card">
           <img src="/assets/instalacao-industrial.webp" alt="Instalações Elétricas Industriais" class="rounded-lg mb-4 w-full object-contain" loading="lazy">
-          <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Instalações Elétricas Industriais</h3>
+          <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Instalações Elétricas Industriais</h3>
           <p class="text-gray-600 mb-4">Projetos completos para novas instalações ou expansões industriais.</p>
           <ul class="text-gray-600 mb-4 list-disc list-inside">
             <li>Sistemas de média e baixa tensão</li>
             <li>Painéis de controle</li>
             <li>Automação elétrica</li>
           </ul>
-          <p class="text-xl font-bold text-[var(--primary-blue)]">A partir de R$ 5.000,00</p>
+          <p class="text-lg font-bold text-[var(--primary-blue)]">A partir de R$ 5.000,00</p>
           <a href="#contact" class="btn-modern mt-4">Solicitar Orçamento</a>
         </div>
         <div class="service-card">
           <img src="/assets/manutencao-industrial-preventiva.webp" alt="Manutenção Preventiva" class="rounded-lg mb-4 w-full object-contain" loading="lazy">
-          <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Manutenção Preventiva</h3>
+          <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Manutenção Preventiva</h3>
           <p class="text-gray-600 mb-4">Inspeções regulares para garantir a continuidade da produção.</p>
           <ul class="text-gray-600 mb-4 list-disc list-inside">
             <li>Testes de equipamentos</li>
             <li>Termografia</li>
             <li>Revisão de sistemas</li>
           </ul>
-          <p class="text-xl font-bold text-[var(--primary-blue)]">A partir de R$ 1.000,00</p>
+          <p class="text-lg font-bold text-[var(--primary-blue)]">A partir de R$ 1.000,00</p>
           <a href="#contact" class="btn-modern mt-4">Solicitar Orçamento</a>
         </div>
         <div class="service-card">
           <img src="/assets/manutencao-industrial-corretiva.webp" alt="Manutenção Corretiva" class="rounded-lg mb-4 w-full object-contain" loading="lazy">
-          <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Manutenção Corretiva</h3>
+          <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Manutenção Corretiva</h3>
           <p class="text-gray-600 mb-4">Reparos rápidos para minimizar paradas de produção.</p>
           <ul class="text-gray-600 mb-4 list-disc list-inside">
             <li>Diagnóstico de falhas</li>
             <li>Substituição de componentes</li>
             <li>Restauração de energia</li>
           </ul>
-          <p class="text-xl font-bold text-[var(--primary-blue)]">A partir de R$ 1.500,00</p>
+          <p class="text-lg font-bold text-[var(--primary-blue)]">A partir de R$ 1.500,00</p>
           <a href="#contact" class="btn-modern mt-4">Solicitar Orçamento</a>
         </div>
         <div class="service-card">
           <img src="/assets/adequacao-industrial.webp" alt="Adequação de Normas" class="rounded-lg mb-4 w-full object-contain" loading="lazy">
-          <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Adequação de Normas</h3>
+          <h3 class="text-lg font-semibold mb-2 text-[var(--primary-blue)]">Adequação de Normas</h3>
           <p class="text-gray-600 mb-4">Atualização de sistemas antigos para atender às normas industriais.</p>
           <ul class="text-gray-600 mb-4 list-disc list-inside">
             <li>Laudos técnicos (SPDA e aterramento)</li>
             <li>Conformidade NBR 14039</li>
             <li>Certificação elétrica</li>
           </ul>
-          <p class="text-xl font-bold text-[var(--primary-blue)]">A partir de R$ 2.000,00</p>
+          <p class="text-lg font-bold text-[var(--primary-blue)]">A partir de R$ 2.000,00</p>
           <a href="#contact" class="btn-modern mt-4">Solicitar Orçamento</a>
         </div>
       </div>
@@ -482,9 +518,9 @@
   <!-- Monte Seu Projeto Personalizado -->
   <section id="custom-project">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Monte Seu Projeto Elétrico Industrial</h2>
-      <div class="custom-kit-form max-w-lg mx-auto mt-8">
-        <form id="custom-project-form" class="space-y-6">
+      <h2 class="text-3xl font-bold text-center text-[var(--primary-blue)]">Monte Seu Projeto Elétrico Industrial</h2>
+      <div class="custom-kit-form max-w-lg mx-auto mt-6">
+        <form id="custom-project-form" class="space-y-4">
           <div>
             <label for="demand" class="block text-gray-700 font-semibold">Demanda Estimada (kW)</label>
             <input type="number" id="demand" placeholder="Ex.: 50" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" required>
@@ -520,9 +556,9 @@
   <!-- Calculadora de Custos -->
   <section>
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Calculadora de Custos Elétricos Industriais</h2>
-      <div class="custom-kit-form max-w-lg mx-auto mt-8">
-        <form id="calculadora-economia" class="space-y-6">
+      <h2 class="text-3xl font-bold text-center text-[var(--primary-blue)]">Calculadora de Custos Elétricos Industriais</h2>
+      <div class="custom-kit-form max-w-lg mx-auto mt-6">
+        <form id="calculadora-economia" class="space-y-4">
           <div>
             <label for="consumo" class="block text-gray-700 font-semibold">Consumo Mensal (kWh)</label>
             <input type="number" id="consumo" placeholder="Ex.: 5000" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" required>
@@ -543,8 +579,8 @@
   <!-- Perguntas Frequentes -->
   <section>
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Perguntas Frequentes</h2>
-      <div class="space-y-6 mt-8">
+      <h2 class="text-3xl font-bold text-center text-[var(--primary-blue)]">Perguntas Frequentes</h2>
+      <div class="space-y-4 mt-6">
         <div>
           <div class="faq-question" onclick="toggleFAQ(1)">Quanto tempo leva uma instalação elétrica industrial? <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
           <div class="faq-answer" id="faq-answer-1">Depende da complexidade, mas geralmente de 7 a 15 dias.</div>
@@ -564,8 +600,8 @@
   <!-- Depoimentos de Clientes -->
   <section>
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">O que nossos clientes dizem</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+      <h2 class="text-3xl font-bold text-center text-[var(--primary-blue)]">O que nossos clientes dizem</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
         <div class="service-card text-center">
           <p class="text-gray-600">"A Nort Elétrica otimizou o sistema elétrico da nossa fábrica. Produção sem interrupções!"</p>
           <p class="text-gray-800 font-semibold mt-4">- João Silva, Gerente Industrial</p>
@@ -585,21 +621,21 @@
   <!-- Por que Escolher a Nort Elétrica -->
   <section>
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Por que escolher a Nort Elétrica?</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+      <h2 class="text-3xl font-bold text-center text-[var(--primary-blue)]">Por que escolher a Nort Elétrica?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
         <div class="service-card text-center">
-          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Profissionais Qualificados</h3>
+          <svg class="h-8 w-8 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+          <h3 class="text-lg font-semibold text-[var(--primary-blue)]">Profissionais Qualificados</h3>
           <p class="text-gray-600 mt-2">Equipe especializada em elétrica industrial.</p>
         </div>
         <div class="service-card text-center">
-          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Atendimento Rápido</h3>
+          <svg class="h-8 w-8 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <h3 class="text-lg font-semibold text-[var(--primary-blue)]">Atendimento Rápido</h3>
           <p class="text-gray-600 mt-2">Resposta em até 24h para emergências industriais.</p>
         </div>
         <div class="service-card text-center">
-          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Garantia de Qualidade</h3>
+          <svg class="h-8 w-8 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <h3 class="text-lg font-semibold text-[var(--primary-blue)]">Garantia de Qualidade</h3>
           <p class="text-gray-600 mt-2">2 anos de garantia em instalações industriais.</p>
         </div>
       </div>
@@ -609,14 +645,14 @@
   <!-- Financiamento -->
   <section>
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Facilidade no Pagamento</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+      <h2 class="text-3xl font-bold text-center text-[var(--primary-blue)]">Facilidade no Pagamento</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         <div class="service-card">
-          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Parcelamento em até 12x</h3>
+          <h3 class="text-lg font-semibold text-[var(--primary-blue)]">Parcelamento em até 12x</h3>
           <p class="text-gray-600 mt-2">Facilite o pagamento do seu projeto elétrico com parcelas acessíveis.</p>
         </div>
         <div class="service-card">
-          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Descontos à Vista</h3>
+          <h3 class="text-lg font-semibold text-[var(--primary-blue)]">Descontos à Vista</h3>
           <p class="text-gray-600 mt-2">Ganhe descontos especiais para pagamentos à vista.</p>
         </div>
       </div>
@@ -626,24 +662,24 @@
   <!-- Contato -->
   <section id="contact">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Entre em Contato</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
-        <form id="contact-form" class="space-y-6">
+      <h2 class="text-3xl font-bold text-center text-[var(--primary-blue)]">Entre em Contato</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+        <form id="contact-form" class="space-y-4">
           <div>
             <label for="name" class="block text-gray-700 font-semibold">Nome Completo</label>
-            <input type="text" id="name" placeholder="Seu Nome" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+            <input type="text" id="name" placeholder="Seu Nome" class="border border-gray-300 p-3 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
           </div>
           <div>
             <label for="email" class="block text-gray-700 font-semibold">E-mail</label>
-            <input type="email" id="email" placeholder="Seu E-mail" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+            <input type="email" id="email" placeholder="Seu E-mail" class="border border-gray-300 p-3 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
           </div>
           <div>
             <label for="phone" class="block text-gray-700 font-semibold">Telefone</label>
-            <input type="tel" id="phone" placeholder="Seu Telefone" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+            <input type="tel" id="phone" placeholder="Seu Telefone" class="border border-gray-300 p-3 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
           </div>
           <div>
             <label for="objetivo" class="block text-gray-700 font-semibold">Objetivo do Contato</label>
-            <select id="objetivo" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+            <select id="objetivo" class="border border-gray-300 p-3 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
               <option value="" disabled selected>Selecione uma opção</option>
               <option value="orcamento-industrial">Solicitar Orçamento Elétrico Industrial</option>
               <option value="manutencao-industrial">Manutenção Industrial</option>
@@ -653,11 +689,11 @@
           </div>
           <div>
             <label for="cidade" class="block text-gray-700 font-semibold">Cidade</label>
-            <input type="text" id="cidade" placeholder="Ex.: São José do Norte" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+            <input type="text" id="cidade" placeholder="Ex.: São José do Norte" class="border border-gray-300 p-3 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
           </div>
           <div>
             <label for="message" class="block text-gray-700 font-semibold">Mensagem</label>
-            <textarea id="message" placeholder="Sua Mensagem" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" rows="5" required></textarea>
+            <textarea id="message" placeholder="Sua Mensagem" class="border border-gray-300 p-3 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" rows="4" required></textarea>
           </div>
           <div>
             <label class="flex items-center text-gray-700">
@@ -667,17 +703,17 @@
           </div>
           <button type="submit" class="btn-modern w-full">Enviar Mensagem</button>
         </form>
-        <div class="space-y-6">
-          <p class="text-gray-600 text-lg">Estamos prontos para atender você com rapidez e profissionalismo.</p>
-          <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Contato</h3>
+        <div class="space-y-4">
+          <p class="text-gray-600 text-base">Estamos prontos para atender você com rapidez e profissionalismo.</p>
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <h3 class="text-lg font-semibold mb-4 text-[var(--primary-blue)]">Contato</h3>
             <p class="text-gray-600"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> E-mail: <a href="/cdn-cgi/l/email-protection#37545859435643587759584543525b5243455e54561954585a195545" class="text-[var(--primary-blue)] hover:underline"><span class="__cf_email__" data-cfemail="c2a1adacb6a3b6ad82acadb0b6a7aea7b6b0aba1a3eca1adafeca0b0">[email protected]</span></a></p>
             <p class="text-gray-600 mt-2"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l4-4h-.586A1.994 1.994 0 019 14.414" /></svg> WhatsApp: <a href="https://wa.me/5533981087746" class="text-[var(--primary-blue)] hover:underline">+55 53 98108-7746</a></p>
           </div>
-          <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Nossa Localização</h3>
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <h3 class="text-lg font-semibold mb-4 text-[var(--primary-blue)]">Nossa Localização</h3>
             <p class="text-gray-600"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg> Rua 3, Canastreiro, 177, São José do Norte, RS, 96225-000</p>
-            <iframe class="mt-4 w-full h-48 rounded-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.6273461483926!2d-52.03201168488194!3d-32.00166498120907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951885f5e5b5f5e5%3A0x5e5e5e5e5e5e5e5e!2sAv.%20Rio%20Grande%2C%20413%2C%20São%20José%20do%20Norte%2C%20RS%2C%2096225-000%2C%20Brasil!5e0!3m2!1spt-BR!2sbr!4v1698765432109!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+            <iframe class="mt-4 w-full h-40 rounded-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.6273461483926!2d-52.03201168488194!3d-32.00166498120907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951885f5e5b5f5e5%3A0x5e5e5e5e5e5e5e5e!2sAv.%20Rio%20Grande%2C%20413%2C%20São%20José%20do%20Norte%2C%20RS%2C%2096225-000%2C%20Brasil!5e0!3m2!1spt-BR!2sbr!4v1698765432109!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
           </div>
         </div>
       </div>
@@ -686,11 +722,11 @@
   </section>
 
   <!-- Footer -->
-  <footer class="text-white py-12">
+  <footer class="text-white py-8">
     <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div>
-          <h3 class="text-xl font-semibold mb-4">Nort Elétrica</h3>
+          <h3 class="text-lg font-semibold mb-4">Nort Elétrica</h3>
           <p class="text-blue-100">Energia Inteligente para Todos</p>
           <p class="text-blue-100 mt-2">Rua: 3, Canastreiro, 177, São José do Norte/RS</p>
           <div class="flex space-x-4 mt-4">
@@ -699,7 +735,7 @@
           </div>
         </div>
         <div>
-          <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
+          <h3 class="text-lg font-semibold mb-4">Links Rápidos</h3>
           <ul class="space-y-2 text-blue-100">
             <li><a href="index.html" class="hover:text-[var(--energy-orange)]">Início</a></li>
             <li><a href="#servicos" class="hover:text-[var(--energy-orange)]">Serviços</a></li>
@@ -708,16 +744,16 @@
           </ul>
         </div>
         <div>
-          <h3 class="text-xl font-semibold mb-4">Formas de Pagamento</h3>
+          <h3 class="text-lg font-semibold mb-4">Formas de Pagamento</h3>
           <div class="flex flex-wrap gap-4">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="h-8" loading="lazy">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="h-8" loading="lazy">
-            <img src="/assets/pix.webp" alt="PIX" class="h-8" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="h-6" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="h-6" loading="lazy">
+            <img src="/assets/pix.webp" alt="PIX" class="h-6" loading="lazy">
           </div>
           <p class="text-blue-100 mt-2 text-sm">Parcelamento em até 12x</p>
         </div>
         <div>
-          <h3 class="text-xl font-semibold mb-4">Links Úteis</h3>
+          <h3 class="text-lg font-semibold mb-4">Links Úteis</h3>
           <ul class="space-y-2 text-blue-100">
             <li><a href="/politica-de-privacidade.html" class="hover:text-[var(--energy-orange)]">Política de Privacidade</a></li>
             <li><a href="/termos-de-uso.html" class="hover:text-[var(--energy-orange)]">Termos de Uso</a></li>
@@ -725,7 +761,7 @@
           </ul>
         </div>
       </div>
-      <div class="mt-8 text-center border-t border-blue-700 pt-4">
+      <div class="mt-6 text-center border-t border-blue-700 pt-4">
         <p id="footer-year" class="text-blue-100 text-sm">© 2025 Nort Elétrica - Soluções em Elétrica Industrial. Todos os direitos reservados.</p>
       </div>
     </div>
@@ -785,15 +821,18 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    // Mostrar/esconder botão de voltar ao topo
+    // Mostrar/esconder botão de voltar ao topo (apenas no desktop)
     const scrollTopButton = document.getElementById('scroll-top-button');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        scrollTopButton.style.display = 'flex';
-      } else {
-        scrollTopButton.style.display = 'none';
-      }
-    });
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    if (!isMobile) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          scrollTopButton.style.display = 'flex';
+        } else {
+          scrollTopButton.style.display = 'none';
+        }
+      });
+    }
 
     // Calculadora de Economia
     document.getElementById('calculadora-economia').addEventListener('submit', (e) => {
