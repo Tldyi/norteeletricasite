@@ -3,193 +3,413 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Residência Solar - Nort Elétrica</title>
-  <meta name="description" content="Projeto de sistema solar residencial de 5 kWp em São José do Norte/RS.">
-  <meta name="keywords" content="energia solar, sistema fotovoltaico, residência solar, São José do Norte">
+  <title>Projeto Residência Solar 5 kWp - Nort Elétrica, São José do Norte/RS</title>
+  <meta name="description" content="Conheça o projeto de sistema solar residencial de 5 kWp instalado em São José do Norte/RS pela Nort Elétrica. Economia e sustentabilidade em destaque!">
+  <meta name="keywords" content="energia solar, sistema fotovoltaico, residência solar, São José do Norte, Nort Elétrica">
   <meta name="author" content="Nort Elétrica">
   <!-- Open Graph -->
-  <meta property="og:title" content="Residência Solar - Nort Elétrica">
-  <meta property="og:description" content="Projeto de sistema solar residencial de 5 kWp em São José do Norte/RS.">
+  <meta property="og:title" content="Projeto Residência Solar 5 kWp - Nort Elétrica">
+  <meta property="og:description" content="Sistema fotovoltaico de 5 kWp instalado em São José do Norte/RS. Veja os detalhes e solicite seu orçamento!">
   <meta property="og:image" content="https://www.norteletrica.com.br/assets/projeto-5kva.webp">
   <meta property="og:url" content="https://www.norteletrica.com.br/projeto-residencia-solar.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Nort Elétrica">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Residência Solar - Nort Elétrica">
-  <meta name="twitter:description" content="Projeto de sistema solar residencial de 5 kWp em São José do Norte/RS.">
+  <meta name="twitter:title" content="Projeto Residência Solar 5 kWp - Nort Elétrica">
+  <meta name="twitter:description" content="Sistema fotovoltaico de 5 kWp instalado em São José do Norte/RS. Veja os detalhes e solicite seu orçamento!">
   <meta name="twitter:image" content="https://www.norteletrica.com.br/assets/projeto-5kva.webp">
   <!-- Stylesheets -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <style>
     :root {
       --primary-blue: #1e3a8a;
       --dark-blue: #1e293b;
       --solar-green: #22c55e;
+      --solar-yellow: #fbbf24;
       --light-bg: #f9fafb;
+      --shadow-sm: 0 4px 10px rgba(34, 197, 94, 0.1);
+      --shadow-md: 0 10px 30px rgba(34, 197, 94, 0.2);
     }
-    body {
-      background: var(--light-bg);
+    html, body { 
+      margin: 0; 
+      padding: 0; 
+      width: 100%;
+      overflow-x: hidden;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body { 
+      background: var(--light-bg); 
+      padding-top: 80px; 
       color: #1f2937;
-      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
     }
-    h1, h2, h3 {
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
+    *, *:before, *:after { box-sizing: inherit; }
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; }
+    header { 
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); 
+      box-shadow: var(--shadow-sm); 
+      height: 80px; 
+      position: fixed; 
+      top: 0; 
+      width: 100%; 
+      z-index: 50; 
+      transition: transform 0.4s ease, background 0.3s ease;
     }
-    .btn-modern {
-      background: linear-gradient(135deg, var(--solar-green), #16a34a);
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      font-weight: 600;
-      display: inline-flex;
+    header.hidden { transform: translateY(-100%); }
+    header.scrolled { background: rgba(30, 58, 138, 0.95); }
+    .header-branding {
+      display: flex;
       align-items: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      gap: 0.5rem;
+      max-width: 300px;
+    }
+    .header-branding img {
+      width: 2rem;
+      height: 2rem;
+      box-shadow: 0 0 15px #39ff14;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+    .header-branding img:hover { transform: scale(1.1); }
+    .header-branding h1 { font-size: 1.5rem; color: white; margin: 0; }
+    .header-branding p { font-size: 0.9rem; color: #93c5fd; margin: 0; }
+    .btn-modern { 
+      background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); 
+      color: white; 
+      padding: 12px 24px; 
+      border-radius: 8px; 
+      transition: all 0.3s ease; 
+      font-weight: 600; 
+      box-shadow: var(--shadow-sm);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    .btn-modern:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      background: linear-gradient(135deg, #16a34a, var(--solar-green));
+    .btn-modern:hover { 
+      transform: translateY(-2px); 
+      box-shadow: var(--shadow-md); 
+      background: linear-gradient(135deg, var(--solar-yellow), var(--solar-green)); 
     }
-    header {
+    .whatsapp-button, .scroll-top-button { 
+      position: fixed; 
+      color: white; 
+      border-radius: 50px; 
+      padding: 12px 24px; 
+      display: flex; 
+      align-items: center; 
+      box-shadow: var(--shadow-md); 
+      transition: all 0.3s ease; 
+      z-index: 1000; 
+      font-weight: 600;
+      text-transform: uppercase;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    .whatsapp-button { 
+      bottom: 100px; 
+      right: 20px; 
+      background: linear-gradient(135deg, #25D366, #128C7E); 
+    }
+    .scroll-top-button { 
+      bottom: 20px; 
+      right: 20px; 
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); 
+      display: none;
+    }
+    .whatsapp-button:hover, .scroll-top-button:hover { 
+      transform: translateY(-3px); 
+      box-shadow: var(--shadow-md); 
+    }
+    .whatsapp-button img { width: 28px; height: 28px; margin-right: 10px; }
+    footer { background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue)); }
+    /* Estilo do Menu Mobile */
+    #mobile-menu {
       background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      height: 80px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 50;
+      transform: translateX(100%);
     }
-    footer {
-      background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
-      color: white;
+    #mobile-menu.open {
+      transform: translateX(0);
     }
-    .footer-link {
-      color: #93c5fd;
-      transition: color 0.3s ease;
-    }
-    .footer-link:hover {
-      color: white;
+    @media (max-width: 768px) {
+      header { height: 60px; }
+      .header-branding { max-width: 180px; }
+      .header-branding h1 { font-size: 1.1rem; }
+      .header-branding p { font-size: 0.7rem; }
+      .whatsapp-button, .scroll-top-button { 
+        padding: 6px 12px;
+        font-size: 0.8rem;
+      }
+      .whatsapp-button { bottom: 80px; right: 15px; }
+      .scroll-top-button { bottom: 15px; right: 15px; }
+      .whatsapp-button img { width: 18px; height: 18px; }
+      /* Hero Section no Mobile */
+      .hero-section { 
+        padding-top: 16px; 
+        padding-bottom: 16px; 
+        margin-top: 60px; 
+      }
+      .hero-section h1 { font-size: 1.5rem; }
+      .hero-section p { font-size: 0.9rem; }
+      .btn-modern { padding: 8px 16px; font-size: 0.8rem; }
+      /* Detalhes do Projeto no Mobile */
+      .details-section h2 { font-size: 1.5rem; }
+      .details-section p, .details-section ul li, .details-section .grid div { font-size: 0.9rem; }
+      .details-section h3 { font-size: 1.25rem; }
+      .details-section img { height: 200px; }
+      /* Galeria no Mobile */
+      .gallery-section h2 { font-size: 1.5rem; }
+      .gallery-section p { font-size: 0.9rem; }
+      .swiper-slide img { height: 200px; }
+      /* Depoimento no Mobile */
+      .testimonial-section h2 { font-size: 1.5rem; }
+      .testimonial-section p { font-size: 0.9rem; }
+      /* Call to Action no Mobile */
+      .cta-section h2 { font-size: 1.5rem; }
+      .cta-section p { font-size: 0.9rem; }
+      /* Footer no Mobile */
+      footer h3 { font-size: 1rem; }
+      footer p, footer ul li { font-size: 0.8rem; }
     }
   </style>
 </head>
 <body>
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/5553981087746?text=Olá, gostaria de falar sobre o projeto de residência solar!" target="_blank" class="whatsapp-button">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+    <span>Fale Conosco</span>
+  </a>
+
+  <!-- Scroll to Top Button -->
+  <a href="#" class="scroll-top-button" onclick="scrollToTop()">
+    <span>Voltar ao Topo</span>
+  </a>
+
   <!-- Header -->
   <header class="text-white">
     <div class="container mx-auto px-4 flex justify-between items-center h-full">
       <div class="header-branding">
-        <h1 class="text-2xl font-bold">Nort Elétrica</h1>
-        <p class="text-sm text-blue-100">Energia Inteligente para Todos</p>
+        <img src="/assets/icone-nort-eletrica.webp" alt="Ícone da Nort Elétrica" loading="lazy">
+        <div>
+          <h1 onclick="scrollToTop()" class="cursor-pointer hover:text-[var(--solar-yellow)] transition-colors">Nort Elétrica</h1>
+          <p>Energia Inteligente para Todos</p>
+        </div>
       </div>
-      <nav class="hidden md:flex space-x-4">
-        <a href="index.html" class="hover:text-blue-200">Home</a>
-        <a href="index.html#services" class="hover:text-blue-200">Serviços</a>
-        <a href="index.html#contact" class="hover:text-blue-200">Contato</a>
+      <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menu">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" class="menu-open"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" class="menu-close hidden"></path>
+        </svg>
+      </button>
+      <nav id="menu" class="hidden md:flex space-x-4">
+        <a href="index.html" class="hover:text-[var(--solar-yellow)] transition-colors">Início</a>
+        <a href="sistemas-fotovoltaicos.html" class="hover:text-[var(--solar-yellow)] transition-colors">Kits Solares</a>
+        <a href="index.html#contact" class="hover:text-[var(--solar-yellow)] transition-colors">Contato</a>
       </nav>
+      <div id="mobile-menu" class="md:hidden fixed top-[60px] right-0 w-full max-w-xs text-white shadow-lg transition-transform duration-300 ease-in-out">
+        <button id="close-menu" class="text-white p-4"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+        <div class="flex flex-col p-4 space-y-4">
+          <a href="index.html" class="hover:text-[var(--solar-yellow)] transition-colors">Início</a>
+          <a href="sistemas-fotovoltaicos.html" class="hover:text-[var(--solar-yellow)] transition-colors">Kits Solares</a>
+          <a href="index.html#contact" class="hover:text-[var(--solar-yellow)] transition-colors">Contato</a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- Espaço em branco entre o header e a hero section -->
-  <div class="h-20"></div>
-
   <!-- Hero Section -->
-  <section class="text-white py-32 bg-cover bg-center" style="background-image: linear-gradient(to right, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), url('/assets/projeto-5kva.webp');">
+  <section class="hero-section text-white py-28 bg-cover bg-center mt-16 relative" style="background-image: linear-gradient(to right, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), url('/assets/projeto-5kva.webp');">
     <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Residência Solar</h1>
-      <p class="mb-8 text-lg md:text-xl text-blue-100 max-w-2xl mx-auto">Sistema fotovoltaico de 5 kWp instalado em São José do Norte/RS.</p>
-      <a href="#contact" class="btn-modern text-lg">Solicite um Orçamento</a>
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Residência Solar 5 kWp</h1>
+      <p class="mb-8 text-lg md:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">Sistema fotovoltaico instalado em São José do Norte/RS. Economize e viva de forma sustentável com a Nort Elétrica!</p>
+      <div class="space-x-4">
+        <a href="index.html#contact" class="btn-modern text-lg">Quero Meu Projeto</a>
+        <a href="https://wa.me/5553981087746?text=Olá, quero saber mais sobre o projeto de residência solar!" target="_blank" class="btn-modern text-lg">Fale pelo WhatsApp</a>
+      </div>
     </div>
   </section>
 
   <!-- Detalhes do Projeto -->
-  <section class="container mx-auto px-4 py-16">
+  <section class="details-section container mx-auto px-4 py-16">
     <h2 class="text-4xl font-bold text-[var(--primary-blue)] mb-8 text-center">Detalhes do Projeto</h2>
     <div class="grid md:grid-cols-2 gap-12">
       <div>
-        <p class="text-gray-600 text-lg leading-relaxed">Este projeto consistiu na instalação de um sistema fotovoltaico de 5 kWp em uma residência em São José do Norte/RS. O sistema foi projetado para atender toda a demanda energética da casa, proporcionando economia e sustentabilidade.</p>
-        <h3 class="text-2xl font-semibold mt-8 text-[var(--primary-blue)]">Benefícios</h3>
-        <ul class="text-gray-600 list-disc list-inside mt-4">
+        <p class="text-gray-600 text-lg leading-relaxed">Este projeto consistiu na instalação de um sistema fotovoltaico de 5 kWp em uma residência em São José do Norte/RS. Desenvolvido para suprir toda a demanda energética da casa, o sistema oferece economia significativa e um passo em direção à sustentabilidade.</p>
+        <h3 class="text-2xl font-semibold mt-8 text-[var(--primary-blue)]">Benefícios Alcançados</h3>
+        <ul class="text-gray-600 text-lg list-disc list-inside mt-4">
           <li>Redução de até 95% na conta de energia</li>
           <li>Energia limpa e renovável</li>
-          <li>Retorno do investimento em 4 anos</li>
+          <li>Retorno do investimento em apenas 4 anos</li>
           <li>Garantia de 25 anos nos painéis solares</li>
         </ul>
+        <div class="mt-8">
+          <h3 class="text-2xl font-semibold text-[var(--primary-blue)] mb-4">Especificações Técnicas</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-6 rounded-lg shadow-md text-gray-600 text-lg">
+            <div><strong>Painéis Solares:</strong> 12 unidades de 410W</div>
+            <div><strong>Inversor:</strong> 5 kW, eficiência 98%</div>
+            <div><strong>Produção Mensal:</strong> ~600 kWh</div>
+            <div><strong>Área Instalada:</strong> 24 m²</div>
+          </div>
+        </div>
+        <div class="bg-[var(--solar-green)] text-white p-6 rounded-lg text-center mt-8">
+          <p class="text-xl font-bold">Economia Anual: R$ 4.500</p>
+          <p class="text-lg">Retorno em Apenas 4 Anos!</p>
+        </div>
       </div>
       <div>
-        <img src="/assets/projeto-5kva.webp" alt="Projeto Solar Residencial" class="rounded-lg shadow-lg w-full object-cover h-96" loading="lazy">
+        <img src="/assets/projeto-5kva.webp" alt="Projeto Solar Residencial" class="rounded-lg shadow-lg w-full object-cover h-96 transition-all duration-300 hover:scale-105" loading="lazy">
       </div>
     </div>
   </section>
 
-  <!-- Galeria de Fotos -->
-  <section class="bg-[var(--light-bg)] py-16">
+  <!-- Galeria de Fotos (Carrossel) -->
+  <section class="gallery-section bg-[var(--light-bg)] py-16">
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-[var(--primary-blue)] text-center mb-8">Galeria de Fotos</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <a href="/assets/projeto-5kva-1.webp" data-lightbox="gallery" data-title="Instalação dos Painéis">
-          <img src="/assets/projeto-5kva-1.webp" alt="Instalação dos Painéis" class="rounded-lg shadow-lg w-full object-cover h-64" loading="lazy">
-        </a>
-        <a href="/assets/projeto-5kva-2.webp" data-lightbox="gallery" data-title="Inversor Solar">
-          <img src="/assets/projeto-5kva-2.webp" alt="Inversor Solar" class="rounded-lg shadow-lg w-full object-cover h-64" loading="lazy">
-        </a>
-        <a href="/assets/projeto-5kva-3.webp" data-lightbox="gallery" data-title="Sistema em Funcionamento">
-          <img src="/assets/projeto-5kva-3.webp" alt="Sistema em Funcionamento" class="rounded-lg shadow-lg w-full object-cover h-64" loading="lazy">
-        </a>
+      <h2 class="text-4xl font-bold text-[var(--primary-blue)] text-center mb-8">Galeria do Projeto</h2>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="/assets/projeto-5kva-1.webp" alt="Instalação dos Painéis" class="rounded-lg shadow-lg w-full object-cover h-64">
+            <p class="text-center text-gray-600 mt-2 text-lg">Instalação dos Painéis</p>
+          </div>
+          <div class="swiper-slide">
+            <img src="/assets/projeto-5kva-2.webp" alt="Inversor Solar" class="rounded-lg shadow-lg w-full object-cover h-64">
+            <p class="text-center text-gray-600 mt-2 text-lg">Inversor Solar</p>
+          </div>
+          <div class="swiper-slide">
+            <img src="/assets/projeto-5kva-3.webp" alt="Sistema em Funcionamento" class="rounded-lg shadow-lg w-full object-cover h-64">
+            <p class="text-center text-gray-600 mt-2 text-lg">Sistema em Funcionamento</p>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimento -->
+  <section class="testimonial-section py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-[var(--primary-blue)] text-center mb-8">O que o Cliente Disse</h2>
+      <div class="bg-white p-6 rounded-lg shadow-md text-center max-w-lg mx-auto">
+        <p class="text-gray-600 text-lg leading-relaxed">"A Nort Elétrica transformou minha casa com esse sistema solar. Economizo muito e o atendimento foi impecável!"</p>
+        <p class="text-gray-800 font-semibold mt-4 text-lg">- Ana Paula, São José do Norte/RS</p>
       </div>
     </div>
   </section>
 
   <!-- Call to Action -->
-  <section class="bg-[var(--primary-blue)] text-white py-16">
+  <section class="cta-section bg-[var(--light-bg)] py-16">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-6">Quer um Projeto Personalizado?</h2>
-      <p class="mb-8 text-lg">Entre em contato conosco e solicite um orçamento sem compromisso.</p>
-      <a href="index.html#contact" class="btn-modern text-lg">Solicitar Orçamento</a>
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Quer um Sistema Igual na Sua Casa?</h2>
+      <p class="mb-8 text-lg md:text-xl leading-relaxed text-gray-900">Economize até 95% na conta de luz com um projeto personalizado como este!</p>
+      <div class="space-x-4">
+        <a href="index.html#contact" class="btn-modern text-lg">Quero Meu Projeto</a>
+        <a href="https://wa.me/5553981087746?text=Olá, quero um sistema solar como o de 5 kWp!" target="_blank" class="btn-modern text-lg">Fale Agora pelo WhatsApp</a>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-12">
+  <footer class="text-white py-12">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <h3 class="text-xl font-semibold mb-4">Nort Elétrica</h3>
-          <p class="text-blue-100">Energia Inteligente para Todos</p>
+          <p class="text-blue-100 text-lg">Energia Inteligente para Todos</p>
+          <p class="text-blue-100 mt-2 text-lg">Rua: 3, Canastreiro, 177, São José do Norte/RS</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="https://www.instagram.com/norteletrica" target="_blank" class="text-white hover:text-[var(--solar-yellow)]"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2m14-1v4M5 20v-4m0-10h4m10 10h-4M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg></a>
+            <a href="https://www.facebook.com/norteletrica" target="_blank" class="text-white hover:text-[var(--solar-yellow)]"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg></a>
+          </div>
         </div>
         <div>
           <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
-          <ul class="space-y-2">
-            <li><a href="index.html" class="footer-link">Home</a></li>
-            <li><a href="index.html#services" class="footer-link">Serviços</a></li>
-            <li><a href="index.html#contact" class="footer-link">Contato</a></li>
+          <ul class="space-y-2 text-blue-100 text-lg">
+            <li><a href="index.html" class="hover:text-[var(--solar-yellow)]">Início</a></li>
+            <li><a href="sistemas-fotovoltaicos.html" class="hover:text-[var(--solar-yellow)]">Kits Solares</a></li>
+            <li><a href="index.html#contact" class="hover:text-[var(--solar-yellow)]">Contato</a></li>
           </ul>
         </div>
         <div>
-          <h3 class="text-xl font-semibold mb-4">Contato</h3>
-          <p class="text-blue-100"><i class="fas fa-envelope mr-2"></i> contato@norteletrica.com.br</p>
-          <p class="text-blue-100 mt-2"><i class="fab fa-whatsapp mr-2"></i> +55 53 98108-7746</p>
+          <h3 class="text-xl font-semibold mb-4">Formas de Pagamento</h3>
+          <div class="flex flex-wrap gap-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="h-8" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="h-8" loading="lazy">
+            <img src="/assets/pix.webp" alt="PIX" class="h-8" loading="lazy">
+          </div>
+          <p class="text-blue-100 mt-2 text-lg">Parcelamento em até 12x</p>
         </div>
         <div>
-          <h3 class="text-xl font-semibold mb-4">Redes Sociais</h3>
-          <div class="flex space-x-4">
-            <a href="https://www.instagram.com/norteletrica" target="_blank" class="text-white hover:text-blue-200"><i class="fab fa-instagram text-2xl"></i></a>
-            <a href="https://www.facebook.com/norteletrica" target="_blank" class="text-white hover:text-blue-200"><i class="fab fa-facebook text-2xl"></i></a>
-          </div>
+          <h3 class="text-xl font-semibold mb-4">Links Úteis</h3>
+          <ul class="space-y-2 text-blue-100 text-lg">
+            <li><a href="/politica-de-privacidade.html" class="hover:text-[var(--solar-yellow)]">Política de Privacidade</a></li>
+            <li><a href="/termos-de-uso.html" class="hover:text-[var(--solar-yellow)]">Termos de Uso</a></li>
+            <li><a href="index.html#contact" class="hover:text-[var(--solar-yellow)]">Contato</a></li>
+          </ul>
         </div>
       </div>
       <div class="mt-8 text-center border-t border-blue-700 pt-4">
-        <p class="text-blue-100 text-sm">© 2025 Nort Elétrica. Todos os direitos reservados.</p>
+        <p id="footer-year" class="text-blue-100 text-lg">© 2025 Nort Elétrica. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" defer></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    // Menu Mobile
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      document.querySelector('.menu-open').classList.toggle('hidden');
+      document.querySelector('.menu-close').classList.toggle('hidden');
+    });
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      document.querySelector('.menu-open').classList.remove('hidden');
+      document.querySelector('.menu-close').classList.add('hidden');
+    });
+
+    // Controle do cabeçalho ao rolar
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+      header.classList.toggle('scrolled', scrollTop > 50);
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+
+    // Scroll para o topo
+    window.scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    const scrollTopButton = document.querySelector('.scroll-top-button');
+    window.addEventListener('scroll', () => {
+      scrollTopButton.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+
+    // Carrossel da Galeria
+    const swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      breakpoints: { 768: { slidesPerView: 3 } }
+    });
+
+    // Atualizar ano no footer
+    document.getElementById('footer-year').textContent = `© ${new Date().getFullYear()} Nort Elétrica. Todos os direitos reservados.`;
+  </script>
 </body>
 </html>
