@@ -28,61 +28,65 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
   <style>
-    /* Estilos originais mantidos com ajustes */
+    /* Estilos mantidos iguais ao original - Copie e cole o mesmo CSS da página de Sistemas Fotovoltaicos aqui */
     .header-branding {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      max-width: 300px;
-    }
-    .header-branding img {
-      width: 2rem;
-      height: 2rem;
-      transition: transform 0.3s ease;
-      flex-shrink: 0;
-      box-shadow: 0 0 15px #39ff14;
-      border-radius: 50%;
-    }
-    .header-branding img:hover {
-      transform: scale(1.1);
-    }
-    .header-branding .branding-text {
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    .header-branding h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: white;
-      margin: 0;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .header-branding p {
-      font-size: 0.7rem;
-      color: #93c5fd;
-      margin: 0;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    @media (max-width: 768px) {
-      .header-branding {
-        max-width: 200px;
-      }
-      .header-branding h1 { font-size: 1rem; }
-      .header-branding p { display: none; }
-      .header-branding img { width: 1.5rem; height: 1.5rem; }
-    }
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 300px;
+}
+.header-branding img {
+  width: 2rem;
+  height: 2rem;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+.header-branding img:hover {
+  transform: scale(1.1);
+}
+.header-branding .branding-text {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.header-branding h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: white;
+  margin: 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.header-branding p {
+  font-size: 0.7rem;
+  color: #93c5fd;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 768px) {
+  .header-branding {
+    max-width: 200px;
+  }
+  .header-branding h1 {
+    font-size: 1rem;
+  }
+  .header-branding p {
+    font-size: 0.6rem;
+  }
+  .header-branding img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
     :root {
-      --primary-blue: #1e40af;
+      --primary-blue: #1e3a8a;
       --dark-blue: #1e293b;
-      --electric-blue: #3b82f6;
       --solar-green: #22c55e;
       --solar-yellow: #fbbf24;
       --light-bg: #f9fafb;
@@ -105,15 +109,7 @@
     }
     *, *:before, *:after { box-sizing: inherit; }
     h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; }
-    h2 { 
-      font-size: 4rem; 
-      letter-spacing: 0.025em; 
-      margin-bottom: 2.5rem; 
-      color: var(--primary-blue);
-      background: linear-gradient(to right, var(--primary-blue), var(--electric-blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+    h2 { font-size: 4rem; letter-spacing: 0.025em; margin-bottom: 2.5rem; }
     p { font-size: 1.1rem; }
     @media (max-width: 768px) { 
       h2 { font-size: 2.5rem; } 
@@ -140,7 +136,7 @@
     header.hidden { transform: translateY(-100%); }
     header.scrolled { background: rgba(30, 58, 138, 0.95); }
     @media (max-width: 768px) { header { height: 60px; } }
-    .whatsapp-button, .cta-float, .scroll-top-button { 
+    .whatsapp-button, .cta-float, .back-to-top-button { 
       position: fixed; 
       color: white; 
       border-radius: 50px; 
@@ -162,42 +158,28 @@
       background: linear-gradient(135deg, #25D366, #128C7E); 
       z-index: 1001; 
     }
-    .whatsapp-button::after {
-      content: "Fale agora!";
-      position: absolute;
-      right: 100%;
-      margin-right: 10px;
-      background: #25D366;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 0.8rem;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .whatsapp-button:hover::after { opacity: 1; }
     .cta-float { 
       bottom: 20px; 
       left: 20px; 
       background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); 
       z-index: 1002;
     }
-    .scroll-top-button {
-      bottom: 20px;
+    .back-to-top-button {
+      bottom: 160px;
       right: 20px;
       background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-      z-index: 1000;
+      z-index: 1003;
     }
-    .whatsapp-button:hover, .cta-float:hover, .scroll-top-button:hover { 
+    .whatsapp-button:hover, .cta-float:hover, .back-to-top-button:hover { 
       transform: translateY(-3px); 
       box-shadow: var(--shadow-md); 
     }
     .whatsapp-button img { width: 28px; height: 28px; margin-right: 10px; }
     @media (max-width: 768px) {
-      .whatsapp-button, .cta-float, .scroll-top-button { padding: 8px 16px; font-size: 0.9rem; }
+      .whatsapp-button, .cta-float, .back-to-top-button { padding: 8px 16px; font-size: 0.9rem; }
       .whatsapp-button { bottom: 80px; right: 15px; }
       .cta-float { bottom: 15px; left: 15px; }
-      .scroll-top-button { bottom: 15px; right: 15px; padding: 8px; font-size: 0; }
-      .scroll-top-button::before { content: "↑"; font-size: 1.2rem; }
+      .back-to-top-button { bottom: 140px; right: 15px; }
       .whatsapp-button img { width: 20px; height: 20px; }
     }
     .service-card { 
@@ -213,18 +195,6 @@
       transform: translateY(-5px); 
       box-shadow: var(--shadow-md); 
     }
-    .service-card img { width: 100%; height: auto; max-height: 300px; object-fit: contain; position: relative; }
-    .service-card .overlay {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(30, 64, 175, 0.8);
-      color: white;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 0.9rem;
-    }
-    .service-card .price { color: var(--solar-yellow); font-weight: 700; }
     .btn-modern { 
       background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); 
       color: white; 
@@ -259,7 +229,20 @@
       margin: 0 auto;
       padding: 0 15px;
     }
+    .header-branding h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      margin: 0;
+    }
+    .header-branding p {
+      font-size: 0.9rem;
+      color: #93c5fd;
+      margin: 0;
+    }
     @media (max-width: 768px) {
+      .header-branding h1 { font-size: 1.2rem; }
+      .header-branding p { font-size: 0.8rem; }
       #mobile-menu {
         background: #1e293b;
         width: 100%;
@@ -267,6 +250,115 @@
         transform: translateX(100%);
       }
       #mobile-menu.open { transform: translateX(0); }
+    }
+    /* Adicionando sombra moderna na foto do ícone da empresa para mobile e desktop */
+  .header-branding img {
+    box-shadow: 0 0 15px #39ff14;
+    border-radius: 50%;
+  }
+
+  /* Estilos dos botões flutuantes */
+.whatsapp-button, .cta-float, .scroll-top-button { 
+  position: fixed; 
+  color: white; 
+  border-radius: 50px; 
+  padding: 12px 24px; 
+  display: flex; 
+  align-items: center; 
+  box-shadow: var(--shadow-md); 
+  transition: all 0.3s ease; 
+  z-index: 1000; 
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse { 
+  0%, 100% { transform: scale(1); } 
+  50% { transform: scale(1.05); } 
+}
+
+.whatsapp-button { 
+  bottom: 100px; 
+  right: 20px; 
+  background: linear-gradient(135deg, #25D366, #128C7E); 
+  z-index: 1001; 
+}
+
+.scroll-top-button {
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+  z-index: 1000;
+}
+
+.cta-float { 
+  bottom: 20px; 
+  left: 20px; 
+  background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); 
+  z-index: 1002;
+}
+
+.whatsapp-button:hover, .cta-float:hover, .scroll-top-button:hover { 
+  transform: translateY(-3px); 
+  box-shadow: var(--shadow-md); 
+}
+
+.whatsapp-button span, .cta-float span, .scroll-top-button span { transition: transform 0.3s ease; }
+.whatsapp-button:hover span, .cta-float:hover span, .scroll-top-button:hover span { transform: translateX(5px); }
+
+.whatsapp-button img { width: 28px; height: 28px; margin-right: 10px; }
+
+@media (max-width: 768px) {
+  .whatsapp-button, .cta-float, .scroll-top-button {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+  .whatsapp-button { bottom: 80px; right: 15px; }
+  .scroll-top-button { bottom: 15px; right: 15px; }
+  .cta-float { bottom: 15px; left: 15px; }
+  .whatsapp-button img {
+    width: 16px;
+    height: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .header-branding {
+    max-width: 200px;
+  }
+  .header-branding h1 { 
+    font-size: 1rem;
+  }
+  .header-branding p { 
+    font-size: 0.6rem;
+  }
+  .header-branding img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+.service-card img {
+  width: 100%; /* Mantém a largura total */
+  height: auto; /* Altura ajustada automaticamente */
+  max-height: 300px; /* Limite máximo - ajuste conforme necessário */
+  object-fit: contain; /* Garante que a imagem não seja cortada */
+}
+    :root {
+      --primary-blue: #1e3a8a;
+      --dark-blue: #1e293b;
+      --solar-green: #22c55e;
+      --solar-yellow: #fbbf24;
+      --light-bg: #f9fafb;
+      --shadow-sm: 0 4px 10px rgba(34, 197, 94, 0.1);
+      --shadow-md: 0 10px 30px rgba(34, 197, 94, 0.2);
+    }
+    /* ... (mantenha todo o CSS original, apenas ajustando onde necessário) ... */
+    .service-card img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
     }
   </style>
 </head>
@@ -323,13 +415,13 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="text-white py-28 bg-cover bg-center mt-16 relative" style="background-image: linear-gradient(to right, rgba(31, 78, 235, 0.9), rgba(30, 64, 175, 0.9)), url('/assets/eletrica-predial-hero.webp');">
+  <section class="text-white py-28 bg-cover bg-center mt-16 relative" style="background-image: linear-gradient(to right, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), url('/assets/eletrica-predial-hero.webp');">
     <div class="container mx-auto text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Instalações Elétricas Prediais Seguras e Profissionais</h1>
-      <p class="mb-8 text-lg md:text-xl text-blue-100 max-w-2xl mx-auto">Projetos e manutenções completas para residências, condomínios e indústrias em São José do Norte/RS. Segurança garantida em até 48h!</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Elétrica Predial com Segurança e Qualidade</h1>
+      <p class="mb-8 text-lg md:text-xl text-blue-100 max-w-2xl mx-auto">Soluções completas em instalações elétricas para residências, comércios e indústrias em São José do Norte/RS.</p>
       <div class="space-x-4">
-        <a href="#servicos" class="btn-modern text-lg">Veja Nossos Serviços</a>
-        <a href="https://wa.me/5533981087746?text=Quero um orçamento grátis para elétrica predial!" target="_blank" class="btn-modern text-lg">Peça Orçamento Grátis Hoje!</a>
+        <a href="#servicos" class="btn-modern text-lg">Conheça Nossos Serviços</a>
+        <a href="#contact" class="btn-modern text-lg">Fale com um Especialista</a>
       </div>
     </div>
   </section>
@@ -339,8 +431,8 @@
     <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12">
       <div>
         <h2 class="text-4xl font-bold text-[var(--primary-blue)]">Soluções Elétricas para o Seu Prédio</h2>
-        <p class="text-gray-600 text-lg leading-relaxed mt-4">A Nort Elétrica oferece serviços de elétrica predial de alta qualidade, como instalações completas para condomínios de até 20 unidades ou reformas elétricas em comércios locais, garantindo segurança e eficiência.</p>
-        <p class="text-gray-600 mt-4">Utilizamos materiais certificados (ex.: cabos de cobre de primeira linha) e seguimos rigorosamente a NBR 5410 para entregar sistemas duráveis e confiáveis.</p>
+        <p class="text-gray-600 text-lg leading-relaxed mt-4">A Nort Elétrica oferece serviços de elétrica predial de alta qualidade, garantindo segurança e eficiência para residências, condomínios, comércios e indústrias. Desde projetos personalizados até manutenções preventivas e corretivas, nossa equipe está pronta para atender suas necessidades.</p>
+        <p class="text-gray-600 mt-4">Trabalhamos com materiais certificados e seguimos as normas técnicas (NBR 5410), assegurando instalações duráveis e confiáveis.</p>
       </div>
       <div class="flex items-center">
         <img src="/assets/instalacao-predial.webp" alt="Instalação Elétrica Predial" class="rounded-lg shadow-lg w-full transition-all duration-300 hover:scale-105" loading="lazy">
@@ -354,19 +446,19 @@
       <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Por que Investir em uma Elétrica Predial Profissional?</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
         <div class="service-card text-center">
-          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Segurança Garantida</h3>
-          <p class="text-gray-600 mt-2">Evite sobrecarga e incêndios com quadros elétricos projetados sob medida.</p>
+          <p class="text-gray-600 mt-2">Prevenção de curto-circuitos e incêndios elétricos.</p>
         </div>
         <div class="service-card text-center">
           <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Economia a Longo Prazo</h3>
-          <p class="text-gray-600 mt-2">Reduza até 15% na conta de luz com cabeamento eficiente.</p>
+          <p class="text-gray-600 mt-2">Reduza perdas de energia e custos com reparos.</p>
         </div>
         <div class="service-card text-center">
-          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <svg class="h-10 w-10 text-[var(--primary-blue)] mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
           <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Conformidade com Normas</h3>
-          <p class="text-gray-600 mt-2">Laudos aceitos por seguradoras e Bombeiros (NBR 5410).</p>
+          <p class="text-gray-600 mt-2">Projetos alinhados à NBR 5410.</p>
         </div>
       </div>
     </div>
@@ -378,67 +470,54 @@
       <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Nossos Serviços de Elétrica Predial</h2>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
         <div class="service-card">
-          <div class="relative">
-            <img src="/assets/instalacao-eletrica.webp" alt="Instalações Elétricas" class="rounded-lg mb-4 w-full object-contain" loading="lazy">
-            <div class="overlay">Projetos Completos</div>
-          </div>
+          <img src="/assets/instalacao-eletrica.webp" alt="Instalações Elétricas" class="rounded-lg mb-4 w-full object-contain" loading="lazy">
           <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Instalações Elétricas</h3>
-          <p class="text-gray-600 mb-4">Dimensionamos disjuntores e instalamos sistemas trifásicos para cargas altas.</p>
+          <p class="text-gray-600 mb-4">Projetos completos para novos prédios ou reformas.</p>
           <ul class="text-gray-600 mb-4 list-disc list-inside">
             <li>Quadros elétricos</li>
             <li>Fiação e tomadas</li>
             <li>Iluminação</li>
           </ul>
-          <p class="text-xl price">A partir de R$ 1.500,00*</p>
-          <a href="#contact" class="btn-modern mt-4">Peça Orçamento Grátis</a>
+          <p class="text-xl font-bold text-[var(--primary-blue)]">A partir de R$ 1.500,00</p>
+          <a href="#contact" class="btn-modern mt-4">Solicitar Orçamento</a>
         </div>
         <div class="service-card">
-          <div class="relative">
-            <img src="/assets/manutencao-eletrica.webp" alt="Manutenção Preventiva" class="rounded-lg mb-4 w-full object-contain" loading="lazy">
-            <div class="overlay">Revisões Técnicas</div>
-          </div>
+          <img src="/assets/manutencao-eletrica.webp" alt="Manutenção Preventiva" class="rounded-lg mb-4 w-full object-contain" loading="lazy">
           <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Manutenção Preventiva</h3>
-          <p class="text-gray-600 mb-4">Usamos termografia para detectar pontos quentes antes que virem falhas.</p>
+          <p class="text-gray-600 mb-4">Revisões para evitar falhas e garantir segurança.</p>
           <ul class="text-gray-600 mb-4 list-disc list-inside">
             <li>Inspeção de circuitos</li>
             <li>Troca de componentes</li>
             <li>Testes de funcionamento</li>
           </ul>
-          <p class="text-xl price">A partir de R$ 300,00*</p>
-          <a href="#contact" class="btn-modern mt-4">Peça Orçamento Grátis</a>
+          <p class="text-xl font-bold text-[var(--primary-blue)]">A partir de R$ 300,00</p>
+          <a href="#contact" class="btn-modern mt-4">Solicitar Orçamento</a>
         </div>
         <div class="service-card">
-          <div class="relative">
-            <img src="/assets/manutencao-corretiva.webp" alt="Manutenção Corretiva" class="rounded-lg mb-4 w-full object-contain" loading="lazy">
-            <div class="overlay">Reparos Rápidos</div>
-          </div>
+          <img src="/assets/manutencao-corretiva.webp" alt="Manutenção Corretiva" class="rounded-lg mb-4 w-full object-contain" loading="lazy">
           <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Manutenção Corretiva</h3>
-          <p class="text-gray-600 mb-4">Atendimento 24/7 para resolver falhas como quedas de energia.</p>
+          <p class="text-gray-600 mb-4">Atendimento rápido para falta de energia e falhas elétricas.</p>
           <ul class="text-gray-600 mb-4 list-disc list-inside">
             <li>Reparos emergenciais</li>
             <li>Diagnóstico de falhas</li>
             <li>Restauração de energia</li>
           </ul>
-          <p class="text-xl price">A partir de R$ 500,00*</p>
-          <a href="#contact" class="btn-modern mt-4">Peça Orçamento Grátis</a>
+          <p class="text-xl font-bold text-[var(--primary-blue)]">A partir de R$ 500,00</p>
+          <a href="#contact" class="btn-modern mt-4">Solicitar Orçamento</a>
         </div>
         <div class="service-card">
-          <div class="relative">
-            <img src="/assets/adequacao-normas.webp" alt="Adequação de Normas" class="rounded-lg mb-4 w-full object-contain" loading="lazy">
-            <div class="overlay">Regularização</div>
-          </div>
+          <img src="/assets/adequacao-normas.webp" alt="Adequação de Normas" class="rounded-lg mb-4 w-full object-contain" loading="lazy">
           <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Adequação de Normas</h3>
-          <p class="text-gray-600 mb-4">Atualizamos instalações antigas para atender à NBR 5410.</p>
+          <p class="text-gray-600 mb-4">Regularização de instalações antigas ou fora de norma.</p>
           <ul class="text-gray-600 mb-4 list-disc list-inside">
             <li>Laudos técnicos</li>
             <li>Ajustes NBR 5410</li>
             <li>Certificação</li>
           </ul>
-          <p class="text-xl price">A partir de R$ 800,00*</p>
-          <a href="#contact" class="btn-modern mt-4">Peça Orçamento Grátis</a>
+          <p class="text-xl font-bold text-[var(--primary-blue)]">A partir de R$ 800,00</p>
+          <a href="#contact" class="btn-modern mt-4">Solicitar Orçamento</a>
         </div>
       </div>
-      <p class="text-gray-600 text-sm text-center mt-4">*Preços variam conforme complexidade do projeto.</p>
     </div>
   </section>
 
@@ -483,25 +562,21 @@
   <!-- Calculadora de Custos -->
   <section>
     <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Estime o Custo da Sua Instalação Elétrica</h2>
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Calculadora de Custos Elétricos</h2>
       <div class="custom-kit-form max-w-lg mx-auto mt-8">
-        <form id="calculadora-custo" class="space-y-6">
+        <form id="calculadora-economia" class="space-y-6">
           <div>
-            <label for="tamanho" class="block text-gray-700 font-semibold">Tamanho do Prédio (m²)</label>
-            <input type="number" id="tamanho" placeholder="Ex.: 100" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+            <label for="consumo" class="block text-gray-700 font-semibold">Consumo Mensal (kWh)</label>
+            <input type="number" id="consumo" placeholder="Ex.: 300" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" required>
           </div>
           <div>
-            <label for="tipo" class="block text-gray-700 font-semibold">Tipo de Imóvel</label>
-            <select id="tipo" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]">
-              <option value="residencial">Residencial</option>
-              <option value="comercial">Comercial</option>
-              <option value="industrial">Industrial</option>
-            </select>
+            <label for="tarifa" class="block text-gray-700 font-semibold">Tarifa de Energia (R$/kWh)</label>
+            <input type="number" id="tarifa" placeholder="Ex.: 0.75" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" step="0.01" required>
           </div>
-          <button type="submit" class="btn-modern w-full">Calcular Custo</button>
+          <button type="submit" class="btn-modern w-full">Calcular Economia</button>
         </form>
-        <div id="resultado-custo" class="hidden text-center text-green-600 mt-4">
-          <p>Custo estimado: <span id="custo"></span> (valores aproximados).</p>
+        <div id="resultado-economia" class="hidden text-center text-green-600 mt-4">
+          <p>Você pode economizar até <span id="economia"></span> por ano com manutenção adequada!</p>
         </div>
       </div>
     </div>
@@ -514,15 +589,15 @@
       <div class="space-y-6 mt-8">
         <div>
           <div class="faq-question" onclick="toggleFAQ(1)">Quanto tempo leva uma instalação elétrica predial? <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-          <div class="faq-answer" id="faq-answer-1">Depende do tamanho, mas geralmente de 3 a 7 dias para prédios médios.</div>
+          <div class="faq-answer" id="faq-answer-1">Depende do tamanho, mas geralmente de 3 a 7 dias.</div>
         </div>
         <div>
-          <div class="faq-question" onclick="toggleFAQ(2)">O que fazer se meu prédio antigo não tem aterramento? <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-          <div class="faq-answer" id="faq-answer-2">Realizamos a instalação de aterramento conforme NBR 5410, entre em contato!</div>
+          <div class="faq-question" onclick="toggleFAQ(2)">Vocês atendem emergências como falta de energia? <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+          <div class="faq-answer" id="faq-answer-2">Sim, oferecemos manutenção corretiva 24/7 para resolver problemas como falta de energia.</div>
         </div>
         <div>
-          <div class="faq-question" onclick="toggleFAQ(3)">Quanto custa adequar um comércio às normas NBR 5410? <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
-          <div class="faq-answer" id="faq-answer-3">A partir de R$ 800,00, dependendo do tamanho e estado atual da instalação.</div>
+          <div class="faq-question" onclick="toggleFAQ(3)">Como sei se minha instalação precisa de manutenção? <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></div>
+          <div class="faq-answer" id="faq-answer-3">Sinais como disjuntores desligando ou aquecimento indicam necessidade de revisão.</div>
         </div>
       </div>
     </div>
@@ -638,7 +713,7 @@
           <p class="text-gray-600 text-lg">Estamos prontos para atender você com rapidez e profissionalismo.</p>
           <div class="bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Contato</h3>
-            <p class="text-gray-600"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> E-mail: <a href="/cdn-cgi/l/email-protection#0f6c60617b6e7b604f61607d7b6a636a7b7d666c6e216c6062216d7d" class="text-[var(--primary-blue)] hover:underline"><span class="__cf_email__" data-cfemail="9cfff3f2e8fde8f3dcf2f3eee8f9f0f9e8eef5fffdb2fff3f1b2feee">[email&#160;protected]</span></a></p>
+            <p class="text-gray-600"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> E-mail: <a href="mailto:contato@norteletrica.com.br" class="text-[var(--primary-blue)] hover:underline">contato@norteletrica.com.br</a></p>
             <p class="text-gray-600 mt-2"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l4-4h-.586A1.994 1.994 0 019 14.414" /></svg> WhatsApp: <a href="https://wa.me/5533981087746" class="text-[var(--primary-blue)] hover:underline">+55 53 98108-7746</a></p>
           </div>
           <div class="bg-white p-6 rounded-lg shadow-md">
@@ -699,7 +774,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" defer></script>
   <script>
     // Menu Mobile
@@ -762,21 +836,18 @@
       }
     });
 
-    // Calculadora de Custo
-    document.getElementById('calculadora-custo').addEventListener('submit', (e) => {
+    // Calculadora de Economia
+    document.getElementById('calculadora-economia').addEventListener('submit', (e) => {
       e.preventDefault();
-      const tamanho = parseFloat(document.getElementById('tamanho').value);
-      const tipo = document.getElementById('tipo').value;
-      if (isNaN(tamanho)) {
-        alert("Por favor, insira um tamanho válido.");
+      const consumo = parseFloat(document.getElementById('consumo').value);
+      const tarifa = parseFloat(document.getElementById('tarifa').value);
+      if (isNaN(consumo) || isNaN(tarifa)) {
+        alert("Por favor, insira valores válidos.");
         return;
       }
-      let basePrice = 15; // R$/m² base
-      if (tipo === 'comercial') basePrice = 20;
-      if (tipo === 'industrial') basePrice = 25;
-      const custo = (tamanho * basePrice).toFixed(2);
-      document.getElementById('custo').textContent = `R$ ${custo}`;
-      document.getElementById('resultado-custo').classList.remove('hidden');
+      const economiaAnual = (consumo * tarifa * 12 * 0.10).toFixed(2); // 10% de economia com manutenção
+      document.getElementById('economia').textContent = `R$ ${economiaAnual}`;
+      document.getElementById('resultado-economia').classList.remove('hidden');
     });
 
     // Formulário de Projeto Personalizado
