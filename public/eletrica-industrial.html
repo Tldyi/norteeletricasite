@@ -130,25 +130,34 @@
     }
     .whatsapp-button img { width: 28px; height: 28px; margin-right: 10px; }
     @media (max-width: 768px) {
-      .whatsapp-button, .cta-float, .back-to-top-button { 
+      .whatsapp-button, .cta-float { 
         padding: 6px 12px; /* Menor no mobile */
         font-size: 0.75rem; /* Texto menor */
       }
       .whatsapp-button { 
-        bottom: 115px; /* Ajustado para espaçamento uniforme */
+        bottom: 15px; /* Alinhado com o CTA */
         right: 15px; 
       }
       .cta-float { 
-        bottom: 15px; /* Mantido na base à esquerda */
+        bottom: 15px; /* Mesmo nível do WhatsApp */
         left: 15px; 
       }
       .back-to-top-button { 
-        bottom: 65px; /* Posicionado entre WhatsApp e base */
-        right: 15px; 
+        display: none; /* Removido no mobile */
       }
       .whatsapp-button img { 
         width: 16px; /* Ícone menor no mobile */
         height: 16px; 
+      }
+    }
+    @media (max-width: 360px) { /* Para telas muito pequenas */
+      .whatsapp-button, .cta-float {
+        padding: 5px 10px;
+        font-size: 0.65rem;
+      }
+      .whatsapp-button img {
+        width: 14px;
+        height: 14px;
       }
     }
     .service-card { 
@@ -164,6 +173,12 @@
       transform: translateY(-10px); 
       box-shadow: var(--shadow-md); 
     }
+    .service-card h3 {
+      font-size: 1.25rem;
+    }
+    .service-card p, .service-card ul {
+      font-size: 1rem;
+    }
     .btn-modern { 
       background: linear-gradient(135deg, var(--energy-orange), var(--solar-yellow)); 
       color: white; 
@@ -176,11 +191,60 @@
       box-shadow: var(--shadow-sm);
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      font-size: 1rem;
     }
     .btn-modern:hover { 
       transform: translateY(-3px); 
       box-shadow: 0 0 20px rgba(249, 115, 22, 0.5); 
       background: linear-gradient(135deg, var(--solar-yellow), var(--energy-orange)); 
+    }
+    /* Ajustes para a seção "Nossos Serviços" */
+    #servicos .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste dinâmico */
+      gap: 2rem;
+    }
+    @media (max-width: 1024px) and (min-width: 769px) { /* Tablets e modo desktop simulado */
+      #servicos .grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas médias */
+      }
+      .service-card h3 {
+        font-size: 1.1rem;
+      }
+      .service-card p, .service-card ul {
+        font-size: 0.9rem;
+      }
+      .btn-modern {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+    }
+    @media (max-width: 768px) { /* Mobile */
+      #servicos .grid {
+        grid-template-columns: 1fr; /* 1 coluna no mobile */
+      }
+      .service-card h3 {
+        font-size: 1rem;
+      }
+      .service-card p, .service-card ul {
+        font-size: 0.85rem;
+      }
+      .btn-modern {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+      }
+    }
+    @media (max-width: 360px) { /* Telas muito pequenas */
+      .service-card h3 {
+        font-size: 0.9rem;
+      }
+      .service-card p, .service-card ul {
+        font-size: 0.75rem;
+      }
+      .btn-modern {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+      }
     }
     .custom-kit-form {
       background: white;
@@ -362,7 +426,7 @@
   <section id="servicos">
     <div class="container mx-auto px-4">
       <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Nossos Serviços de Elétrica Industrial</h2>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
+      <div class="grid mt-8">
         <div class="service-card">
           <img src="/assets/instalacao-industrial.webp" alt="Instalações Elétricas Industriais" class="rounded-lg mb-4 w-full object-contain" loading="lazy">
           <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Instalações Elétricas Industriais</h3>
