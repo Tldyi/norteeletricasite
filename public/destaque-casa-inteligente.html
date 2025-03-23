@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Casa Inteligente - Nort Elétrica, São José do Norte/RS</title>
+  <meta name="description" content="Conheça o projeto de automação residencial realizado pela Nort Elétrica em São José do Norte/RS. Transforme sua casa com a melhor tecnologia inteligente no Rio Grande do Sul!">
+  <meta name="keywords" content="casa inteligente, automação residencial, tecnologia inteligente, São José do Norte, Nort Elétrica, Rio Grande do Sul">
+  <meta name="author" content="Nort Elétrica">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Projeto Casa Inteligente - Nort Elétrica">
+  <meta property="og:description" content="Automação residencial realizada em São José do Norte/RS. Controle sua casa com tecnologia inteligente!">
+  <meta property="og:image" content="https://www.norteletrica.com.br/assets/projeto-casa-inteligente.webp">
+  <meta property="og:url" content="https://www.norteletrica.com.br/projeto-casa-inteligente.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nort Elétrica">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Projeto Casa Inteligente - Nort Elétrica">
+  <meta name="twitter:description" content="Automação residencial realizada em São José do Norte/RS. Controle sua casa com tecnologia inteligente!">
+  <meta name="twitter:image" content="https://www.norteletrica.com.br/assets/projeto-casa-inteligente.webp">
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <style>
+    :root {
+      --primary-blue: #1e3a8a;
+      --dark-blue: #1e293b;
+      --solar-green: #22c55e;
+      --solar-yellow: #fbbf24;
+      --light-bg: #f9fafb;
+      --shadow-sm: 0 4px 10px rgba(34, 197, 94, 0.1);
+      --shadow-md: 0 10px 30px rgba(34, 197, 94, 0.2);
+    }
+    html, body { 
+      margin: 0; 
+      padding: 0; 
+      width: 100%;
+      overflow-x: hidden;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body { 
+      background: var(--light-bg); 
+      padding-top: 80px; 
+      color: #1f2937;
+      line-height: 1.6;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; }
+    header { 
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); 
+      box-shadow: var(--shadow-sm); 
+      height: 80px; 
+      position: fixed; 
+      top: 0; 
+      width: 100%; 
+      z-index: 50; 
+      transition: transform 0.4s ease, background 0.3s ease;
+    }
+    header.hidden { transform: translateY(-100%); }
+    header.scrolled { background: rgba(30, 58, 138, 0.95); }
+    .header-branding {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      max-width: 300px;
+    }
+    .header-branding img {
+      width: 2rem;
+      height: 2rem;
+      box-shadow: 0 0 15px #39ff14;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+    .header-branding img:hover { transform: scale(1.1); }
+    .header-branding h1 { font-size: 1.5rem; color: white; margin: 0; }
+    .header-branding p { font-size: 0.9rem; color: #93c5fd; margin: 0; }
+    .btn-modern { 
+      background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); 
+      color: white; 
+      padding: 12px 24px; 
+      border-radius: 8px; 
+      transition: all 0.3s ease; 
+      font-weight: 600; 
+      box-shadow: var(--shadow-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .btn-modern:hover { 
+      transform: translateY(-2px); 
+      box-shadow: var(--shadow-md); 
+      background: linear-gradient(135deg, var(--solar-yellow), var(--solar-green)); 
+    }
+    .whatsapp-button, .scroll-top-button { 
+      position: fixed; 
+      color: white; 
+      border-radius: 50px; 
+      padding: 12px 24px; 
+      display: flex; 
+      align-items: center; 
+      box-shadow: var(--shadow-md); 
+      transition: all 0.3s ease; 
+      z-index: 1000; 
+      font-weight: 600;
+      text-transform: uppercase;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    .whatsapp-button { 
+      bottom: 100px; 
+      right: 20px; 
+      background: linear-gradient(135deg, #25D366, #128C7E); 
+    }
+    .scroll-top-button { 
+      bottom: 20px; 
+      right: 20px; 
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); 
+      display: none;
+    }
+    .whatsapp-button:hover, .scroll-top-button:hover { 
+      transform: translateY(-3px); 
+      box-shadow: var(--shadow-md); 
+    }
+    .whatsapp-button img { width: 28px; height: 28px; margin-right: 10px; }
+    footer { background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue)); }
+    /* Estilo do Menu Mobile */
+    #mobile-menu {
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+      transform: translateX(100%);
+    }
+    #mobile-menu.open {
+      transform: translateX(0);
+    }
+    /* Modal para Imagens */
+    #image-modal img {
+      object-fit: contain;
+    }
+    /* Animações de Fade-In */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 768px) {
+      header { height: 60px; }
+      .header-branding { max-width: 180px; }
+      .header-branding h1 { font-size: 1.1rem; }
+      .header-branding p { font-size: 0.7rem; }
+      .whatsapp-button, .scroll-top-button { 
+        padding: 6px 12px;
+        font-size: 0.8rem;
+      }
+      .whatsapp-button { bottom: 80px; right: 15px; }
+      .scroll-top-button { bottom: 15px; right: 15px; }
+      .whatsapp-button img { width: 18px; height: 18px; }
+      /* Hero Section no Mobile */
+      .hero-section { 
+        padding-top: 16px; 
+        padding-bottom: 16px; 
+        margin-top: 60px; 
+      }
+      .hero-section h1 { font-size: 1.5rem; }
+      .hero-section p { font-size: 0.9rem; }
+      .btn-modern { padding: 8px 16px; font-size: 0.8rem; }
+      /* Detalhes do Projeto no Mobile */
+      .details-section h2 { font-size: 1.5rem; }
+      .details-section p, .details-section ul li, .details-section .grid div { font-size: 0.9rem; }
+      .details-section h3 { font-size: 1.25rem; }
+      .details-section img { height: 200px; }
+      /* Como Funciona no Mobile */
+      .how-it-works-section h2 { font-size: 1.5rem; }
+      .how-it-works-section h3 { font-size: 1rem; }
+      .how-it-works-section p { font-size: 0.9rem; }
+      /* Galeria no Mobile */
+      .gallery-section h2 { font-size: 1.5rem; }
+      .gallery-section p { font-size: 0.9rem; }
+      .swiper-slide img { height: 200px; }
+      /* Depoimento no Mobile */
+      .testimonial-section h2 { font-size: 1.5rem; }
+      .testimonial-section p { font-size: 0.9rem; }
+      /* FAQ no Mobile */
+      .faq-section h2 { font-size: 1.5rem; }
+      .faq-section summary { font-size: 0.9rem; }
+      .faq-section p { font-size: 0.9rem; }
+      /* Call to Action no Mobile */
+      .cta-section h2 { font-size: 1.5rem; }
+      .cta-section p { font-size: 0.9rem; }
+      /* Footer no Mobile */
+      footer h3 { font-size: 1rem; }
+      footer p, footer ul li { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/5553981087746?text=Olá, gostaria de falar sobre um projeto de casa inteligente!" target="_blank" class="whatsapp-button">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+    <span>Fale Conosco</span>
+  </a>
+
+  <!-- Scroll to Top Button -->
+  <a href="#" class="scroll-top-button" onclick="scrollToTop()">
+    <span>Voltar ao Topo</span>
+  </a>
+
+  <!-- Modal para Imagens -->
+  <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[1001] hidden">
+    <button id="close-modal" class="absolute top-4 right-4 text-white text-3xl">×</button>
+    <img id="modal-image" src="" alt="Imagem Ampliada" class="max-w-[90%] max-h-[90%]">
+  </div>
+
+  <!-- Header -->
+  <header class="text-white">
+    <div class="container mx-auto px-4 flex justify-between items-center h-full">
+      <div class="header-branding">
+        <img src="/assets/icone-nort-eletrica.webp" alt="Ícone da Nort Elétrica" loading="lazy">
+        <div>
+          <h1 onclick="scrollToTop()" class="cursor-pointer hover:text-[var(--solar-yellow)] transition-colors">Nort Elétrica</h1>
+          <p>Energia Inteligente para Todos</p>
+        </div>
+      </div>
+      <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menu">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" class="menu-open"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" class="menu-close hidden"></path>
+        </svg>
+      </button>
+      <nav id="menu" class="hidden md:flex space-x-4">
+        <a href="index.html" class="hover:text-[var(--solar-yellow)] transition-colors">Início</a>
+        <a href="sistemas-fotovoltaicos.html" class="hover:text-[var(--solar-yellow)] transition-colors">Kits Solares</a>
+        <a href="index.html#contact" class="hover:text-[var(--solar-yellow)] transition-colors">Contato</a>
+      </nav>
+      <div id="mobile-menu" class="md:hidden fixed top-[60px] right-0 w-full max-w-xs text-white shadow-lg transition-transform duration-300 ease-in-out">
+        <button id="close-menu" class="text-white p-4"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+        <div class="flex flex-col p-4 space-y-4">
+          <a href="index.html" class="hover:text-[var(--solar-yellow)] transition-colors">Início</a>
+          <a href="sistemas-fotovoltaicos.html" class="hover:text-[var(--solar-yellow)] transition-colors">Kits Solares</a>
+          <a href="index.html#contact" class="hover:text-[var(--solar-yellow)] transition-colors">Contato</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section fade-in text-white py-28 bg-cover bg-center mt-16 relative" style="background-image: linear-gradient(to right, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), url('/assets/projeto-casa-inteligente.webp');">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Casa Inteligente</h1>
+      <p class="mb-8 text-lg md:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">Automação residencial instalada em São José do Norte/RS. Transforme sua casa com a melhor tecnologia inteligente no Rio Grande do Sul!</p>
+      <div class="space-x-4">
+        <a href="index.html#contact" class="btn-modern text-lg">Quero Meu Projeto</a>
+        <a href="https://wa.me/5553981087746?text=Olá, quero saber mais sobre o projeto de casa inteligente!" target="_blank" class="btn-modern text-lg">Fale pelo WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detalhes do Projeto -->
+<section class="details-section fade-in container mx-auto px-4 py-16">
+    <h2 class="text-4xl font-bold text-[var(--primary-blue)] mb-8 text-center">Detalhes do Projeto</h2>
+    <div class="grid md:grid-cols-2 gap-12">
+      <div>
+        <p class="text-gray-600 text-lg leading-relaxed">Este projeto consistiu na implementação de um sistema de automação residencial em uma casa em São José do Norte/RS. A solução permite o controle remoto de iluminação, climatização e segurança, trazendo conforto e eficiência para os moradores.</p>
+        <h3 class="text-2xl font-semibold mt-8 text-[var(--primary-blue)]">Benefícios Alcançados</h3>
+        <ul class="text-gray-600 text-lg list-disc list-inside mt-4">
+          <li>Controle total da casa pelo celular</li>
+          <li>Economia de energia com automação de luzes</li>
+          <li>Maior segurança com câmeras e sensores</li>
+          <li>Conforto e praticidade no dia a dia</li>
+        </ul>
+        <div class="mt-8">
+          <h3 class="text-2xl font-semibold text-[var(--primary-blue)] mb-4">Especificações Técnicas</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-6 rounded-lg shadow-md text-gray-600 text-lg">
+            <div><strong>Iluminação:</strong> 10 pontos de luz inteligentes</div>
+            <div><strong>Segurança:</strong> 4 câmeras IP e sensores</div>
+            <div><strong>Climatização:</strong> 2 ACs com controle remoto</div>
+            <div><strong>Hub Central:</strong> 1 unidade Wi-Fi</div>
+          </div>
+        </div>
+        <div class="bg-[var(--solar-green)] text-gray-900 p-6 rounded-lg text-center mt-8">
+          <p class="text-xl font-bold">Economia de Energia: 30%</p>
+          <p class="text-lg">Mais Segurança e Conforto!</p>
+        </div>
+        <!-- Botões de Compartilhamento -->
+        <div class="flex justify-center space-x-4 mt-8">
+          <a href="https://wa.me/?text=Confira este projeto de Casa Inteligente da Nort Elétrica! https://www.norteletrica.com.br/projeto-casa-inteligente.html" target="_blank" class="text-[var(--primary-blue)] hover:text-[var(--solar-green)]">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.norteletrica.com.br/projeto-casa-inteligente.html" target="_blank" class="text-[var(--primary-blue)] hover:text-[var(--solar-green)]">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <img src="/assets/projeto-casa-inteligente.webp" alt="Projeto Casa Inteligente" class="rounded-lg shadow-lg w-full object-cover h-96 transition-all duration-300 hover:scale-105" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Como Funciona -->
+  <section class="how-it-works-section fade-in container mx-auto px-4 py-16">
+    <h2 class="text-4xl font-bold text-[var(--primary-blue)] mb-8 text-center">Como Funciona</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="text-center">
+        <img src="/assets/icon-consulta.webp" alt="Consulta Inicial" class="w-16 h-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-[var(--primary-blue)] mb-2">Consulta Inicial</h3>
+        <p class="text-gray-600">Entendemos suas necessidades e planejamos a melhor solução para sua casa.</p>
+      </div>
+      <div class="text-center">
+        <img src="/assets/icon-planejamento.webp" alt="Planejamento" class="w-16 h-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-[var(--primary-blue)] mb-2">Planejamento</h3>
+        <p class="text-gray-600">Desenvolvemos um projeto personalizado com tecnologia de ponta.</p>
+      </div>
+      <div class="text-center">
+        <img src="/assets/icon-instalacao.webp" alt="Instalação" class="w-16 h-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-[var(--primary-blue)] mb-2">Instalação</h3>
+        <p class="text-gray-600">Nossa equipe instala os dispositivos com segurança e eficiência.</p>
+      </div>
+      <div class="text-center">
+        <img src="/assets/icon-suporte.webp" alt="Suporte" class="w-16 h-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-[var(--primary-blue)] mb-2">Suporte</h3>
+        <p class="text-gray-600">Oferecemos suporte contínuo para garantir o funcionamento perfeito.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeria de Fotos (Carrossel) -->
+  <section class="gallery-section fade-in bg-[var(--light-bg)] py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-[var(--primary-blue)] text-center mb-8">Galeria do Projeto</h2>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="/assets/casa-inteligente-1.webp" alt="Painel de Controle" class="rounded-lg shadow-lg w-full object-cover h-64 cursor-pointer" onclick="openModal('/assets/casa-inteligente-1.webp')">
+            <p class="text-center text-gray-600 mt-2 text-lg">Painel de Controle</p>
+          </div>
+          <div class="swiper-slide">
+            <img src="/assets/casa-inteligente-2.webp" alt="Iluminação Inteligente" class="rounded-lg shadow-lg w-full object-cover h-64 cursor-pointer" onclick="openModal('/assets/casa-inteligente-2.webp')">
+            <p class="text-center text-gray-600 mt-2 text-lg">Iluminação Inteligente</p>
+          </div>
+          <div class="swiper-slide">
+            <img src="/assets/casa-inteligente-3.webp" alt="Câmeras de Segurança" class="rounded-lg shadow-lg w-full object-cover h-64 cursor-pointer" onclick="openModal('/assets/casa-inteligente-3.webp')">
+            <p class="text-center text-gray-600 mt-2 text-lg">Câmeras de Segurança</p>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimento -->
+  <section class="testimonial-section fade-in py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-[var(--primary-blue)] text-center mb-8">O que o Cliente Disse</h2>
+      <div class="bg-white p-6 rounded-lg shadow-md text-center max-w-lg mx-auto">
+        <p class="text-gray-600 text-lg leading-relaxed">"A Nort Elétrica transformou minha casa em um lar inteligente! Agora controlo tudo pelo celular, e me sinto muito mais seguro."</p>
+        <p class="text-gray-800 font-semibold mt-4 text-lg">- João Silva, São José do Norte/RS</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section fade-in container mx-auto px-4 py-16">
+    <h2 class="text-4xl font-bold text-[var(--primary-blue)] mb-8 text-center">Perguntas Frequentes</h2>
+    <div class="space-y-4 max-w-2xl mx-auto">
+      <details class="bg-white p-4 rounded-lg shadow-md">
+        <summary class="text-lg font-semibold text-[var(--primary-blue)] cursor-pointer">Quanto custa um projeto de casa inteligente?</summary>
+        <p class="text-gray-600 mt-2">O custo varia conforme o tamanho da casa e os dispositivos escolhidos, mas começa a partir de R$ 5.000. Entre em contato para um orçamento personalizado!</p>
+      </details>
+      <details class="bg-white p-4 rounded-lg shadow-md">
+        <summary class="text-lg font-semibold text-[var(--primary-blue)] cursor-pointer">Quais dispositivos são compatíveis?</summary>
+        <p class="text-gray-600 mt-2">Trabalhamos com dispositivos compatíveis com Google Home, Alexa e outros sistemas populares. Podemos integrar luzes, câmeras, termostatos e mais!</p>
+      </details>
+      <details class="bg-white p-4 rounded-lg shadow-md">
+        <summary class="text-lg font-semibold text-[var(--primary-blue)] cursor-pointer">Vocês oferecem suporte após a instalação?</summary>
+        <p class="text-gray-600 mt-2">Sim! Oferecemos suporte contínuo para garantir que tudo funcione perfeitamente e para ajudar com qualquer dúvida.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section fade-in bg-[var(--light-bg)] py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Quer uma Casa Inteligente?</h2>
+      <p class="mb-8 text-lg md:text-xl leading-relaxed text-gray-900">Transforme sua casa com automação personalizada e tecnologia de ponta!</p>
+      <div class="space-x-4">
+        <a href="index.html#contact" class="btn-modern text-lg">Quero Meu Projeto</a>
+        <a href="https://wa.me/5553981087746?text=Olá, quero um projeto de casa inteligente!" target="_blank" class="btn-modern text-lg">Fale Agora pelo WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Nort Elétrica</h3>
+          <p class="text-blue-100 text-lg">Energia Inteligente para Todos</p>
+          <p class="text-blue-100 mt-2 text-lg">Rua: 3, Canastreiro, 177, São José do Norte/RS</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="https://www.instagram.com/norteletrica" target="_blank" class="text-white hover:text-[var(--solar-yellow)]"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2m14-1v4M5 20v-4m0-10h4m10 10h-4M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg></a>
+            <a href="https://www.facebook.com/norteletrica" target="_blank" class="text-white hover:text-[var(--solar-yellow)]"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
+          <ul class="space-y-2 text-blue-100 text-lg">
+            <li><a href="index.html" class="hover:text-[var(--solar-yellow)]">Início</a></li>
+            <li><a href="sistemas-fotovoltaicos.html" class="hover:text-[var(--solar-yellow)]">Kits Solares</a></li>
+            <li><a href="index.html#contact" class="hover:text-[var(--solar-yellow)]">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Formas de Pagamento</h3>
+          <div class="flex flex-wrap gap-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="h-8" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="h-8" loading="lazy">
+            <img src="/assets/pix.webp" alt="PIX" class="h-8" loading="lazy">
+          </div>
+          <p class="text-blue-100 mt-2 text-lg">Parcelamento em até 12x</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Links Úteis</h3>
+          <ul class="space-y-2 text-blue-100 text-lg">
+            <li><a href="/politica-de-privacidade.html" class="hover:text-[var(--solar-yellow)]">Política de Privacidade</a></li>
+            <li><a href="/termos-de-uso.html" class="hover:text-[var(--solar-yellow)]">Termos de Uso</a></li>
+            <li><a href="index.html#contact" class="hover:text-[var(--solar-yellow)]">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-8 text-center border-t border-blue-700 pt-4">
+        <p id="footer-year" class="text-blue-100 text-lg">© 2025 Nort Elétrica. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    // Menu Mobile
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      document.querySelector('.menu-open').classList.toggle('hidden');
+      document.querySelector('.menu-close').classList.toggle('hidden');
+    });
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      document.querySelector('.menu-open').classList.remove('hidden');
+      document.querySelector('.menu-close').classList.add('hidden');
+    });
+
+    // Controle do cabeçalho ao rolar
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+      header.classList.toggle('scrolled', scrollTop > 50);
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+
+    // Scroll para o topo
+    window.scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    const scrollTopButton = document.querySelector('.scroll-top-button');
+    window.addEventListener('scroll', () => {
+      scrollTopButton.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+
+    // Carrossel da Galeria
+    const swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      breakpoints: { 768: { slidesPerView: 3 } }
+    });
+
+    // Modal para Imagens
+    function openModal(imageSrc) {
+      const modal = document.getElementById('image-modal');
+      const modalImage = document.getElementById('modal-image');
+      modalImage.src = imageSrc;
+      modal.classList.remove('hidden');
+    }
+    document.getElementById('close-modal').addEventListener('click', () => {
+      document.getElementById('image-modal').classList.add('hidden');
+    });
+
+    // Animações ao rolar
+    const fadeInElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeInElements.forEach(element => observer.observe(element));
+
+    // Atualizar ano no footer
+    document.getElementById('footer-year').textContent = `© ${new Date().getFullYear()} Nort Elétrica. Todos os direitos reservados.`;
+  </script>
+</body>
+</html>
