@@ -337,6 +337,12 @@
     height: 1.5rem;
   }
 }
+.service-card img {
+  width: 100%; /* Mantém a largura total */
+  height: auto; /* Altura ajustada automaticamente */
+  max-height: 300px; /* Limite máximo - ajuste conforme necessário */
+  object-fit: contain; /* Garante que a imagem não seja cortada */
+}
   </style>
 </head>
 <body>
@@ -447,7 +453,7 @@
       <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Nossos Kits Solares</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
         <div class="service-card">
-          <img src="/assets/kit-energia-solar.webp" alt="Kit 300 kWh/mês" class="rounded-lg mb-4 w-full object-cover h-48" loading="lazy">
+          <img src="/assets/kit-energia-solar.webp" alt="Kit 300 kWh/mês" class="rounded-lg mb-4 w-full object-contain" loading="lazy">
           <h3 class="text-xl font-semibold mb-2 text-[var(--primary-blue)]">Kit 300 kWh/mês</h3>
           <p class="text-gray-600 mb-4">Ideal para residências com consumo médio de 300 kWh/mês.</p>
           <ul class="text-gray-600 mb-4 list-disc list-inside">
