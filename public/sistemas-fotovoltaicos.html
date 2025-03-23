@@ -256,78 +256,106 @@
     border-radius: 50%;
   }
 
-  @media (max-width: 768px) {
-    /* Aumentando um pouco os botões flutuantes no mobile */
-    .whatsapp-button, .cta-float, .back-to-top-button {
-      padding: 6px 14px;
-      font-size: 0.85rem;
-    }
-    .whatsapp-button img {
-      width: 22px;
-      height: 22px;
-    }
-    
-    /* Ajustando botões "Conheça Nossos Kits" e "Fale com um Especialista" no mobile para um visual mais clean */
-    .hero-section .cta-button, .btn-modern {
-      font-size: 1rem;
-      padding: 8px 16px;
-      border-radius: 8px;
-    }
-    
-    /* Ajustando espaçamento entre os botões na hero section para um layout mais limpo */
-    .hero-section .space-x-4 {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      align-items: center;
-    }
-    
-    /* Reposicionando botão de voltar ao topo abaixo do botão do WhatsApp */
-    .back-to-top-button {
-      bottom: 50px;
-      right: 20px;
-    }
-    .whatsapp-button {
-      bottom: 120px;
-    }
+  /* Estilos dos botões flutuantes */
+.whatsapp-button, .cta-float, .scroll-top-button { 
+  position: fixed; 
+  color: white; 
+  border-radius: 50px; 
+  padding: 12px 24px; 
+  display: flex; 
+  align-items: center; 
+  box-shadow: var(--shadow-md); 
+  transition: all 0.3s ease; 
+  z-index: 1000; 
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse { 
+  0%, 100% { transform: scale(1); } 
+  50% { transform: scale(1.05); } 
+}
+
+.whatsapp-button { 
+  bottom: 100px; 
+  right: 20px; 
+  background: linear-gradient(135deg, #25D366, #128C7E); 
+  z-index: 1001; 
+}
+
+.scroll-top-button {
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+  z-index: 1000;
+}
+
+.cta-float { 
+  bottom: 20px; 
+  left: 20px; 
+  background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); 
+  z-index: 1002;
+}
+
+.whatsapp-button:hover, .cta-float:hover, .scroll-top-button:hover { 
+  transform: translateY(-3px); 
+  box-shadow: var(--shadow-md); 
+}
+
+.whatsapp-button span, .cta-float span, .scroll-top-button span { transition: transform 0.3s ease; }
+.whatsapp-button:hover span, .cta-float:hover span, .scroll-top-button:hover span { transform: translateX(5px); }
+
+.whatsapp-button img { width: 28px; height: 28px; margin-right: 10px; }
+
+@media (max-width: 768px) {
+  .whatsapp-button, .cta-float, .scroll-top-button {
+    padding: 6px 12px;
+    font-size: 0.75rem;
   }
-  
-  @media (min-width: 769px) {
-    /* Ajustando espaçamento e organização dos botões na hero section */
-    .hero-section .space-x-4 {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-    }
-    
-    /* Ajustando posição do botão de voltar ao topo abaixo do botão do WhatsApp no desktop */
-    .back-to-top-button {
-      bottom: 50px;
-      right: 20px;
-    }
-    .whatsapp-button {
-      bottom: 120px;
-    }
+  .whatsapp-button { bottom: 80px; right: 15px; }
+  .scroll-top-button { bottom: 15px; right: 15px; }
+  .cta-float { bottom: 15px; left: 15px; }
+  .whatsapp-button img {
+    width: 16px;
+    height: 16px;
   }
+}
+@media (max-width: 768px) {
+  .header-branding {
+    max-width: 200px;
+  }
+  .header-branding h1 { 
+    font-size: 1rem;
+  }
+  .header-branding p { 
+    font-size: 0.6rem;
+  }
+  .header-branding img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
   </style>
 </head>
 <body>
 
   <!-- WhatsApp Button -->
-  <a id="whatsapp-button" href="https://wa.me/5533981087746?text=Olá, gostaria de falar com um especialista sobre sistemas fotovoltaicos!" target="_blank" class="whatsapp-button">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
-    <span>Fale Conosco</span>
-  </a>
+<a id="whatsapp-button" href="https://wa.me/5533981087746?text=Olá, gostaria de falar com um especialista sobre sistemas fotovoltaicos!" target="_blank" class="whatsapp-button">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+  <span>Fale Conosco</span>
+</a>
 
-  <!-- Botão Voltar ao Topo -->
-  <a id="back-to-top" href="#" class="back-to-top-button">
-    <span>Voltar ao Topo</span>
-  </a>
+<!-- Botão Voltar ao Topo -->
+<a id="scroll-top-button" href="#" class="scroll-top-button" onclick="scrollToTop()">
+  <span>Voltar ao Topo</span>
+</a>
 
-  <!-- CTA Flutuante -->
-  <a href="#contact" class="cta-float">
-    <span>Economize Agora!</span>
-  </a>
+<!-- CTA Flutuante -->
+<a href="#contact" class="cta-float">
+  <span>Economize Agora!</span>
+</a>
 
   <!-- Header -->
 <header class="text-white">
@@ -789,27 +817,20 @@
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
 
-    // Função para voltar ao topo
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    // Scroll para o topo
+window.scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
-    // Botão Voltar ao Topo
-    const backToTopButton = document.getElementById('back-to-top');
-
-    backToTopButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        backToTopButton.style.display = 'flex';
-      } else {
-        backToTopButton.style.display = 'none';
-      }
-    });
-
+// Mostrar/esconder botão de voltar ao topo
+const scrollTopButton = document.getElementById('scroll-top-button');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    scrollTopButton.style.display = 'flex';
+  } else {
+    scrollTopButton.style.display = 'none';
+  }
+});
     // Calculadora de Economia
     document.getElementById('calculadora-economia').addEventListener('submit', (e) => {
       e.preventDefault();
