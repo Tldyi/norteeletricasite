@@ -212,6 +212,71 @@
       color: var(--primary-blue);
       transition: opacity 0.3s ease;
     }
+     /* Substituir as regras existentes por estas */
+
+/* Manter apenas o botão WhatsApp visível no mobile */
+@media (max-width: 768px) {
+    .cta-float, 
+    .scroll-top-button {
+        display: none !important; /* Oculta os outros botões no mobile */
+    }
+
+    /* Reposicionar o botão WhatsApp */
+    .whatsapp-button {
+        bottom: 20px; /* Mais próximo da borda inferior */
+        right: 15px;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        z-index: 1000;
+    }
+    
+    .whatsapp-button img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Ajustar o menu hambúrguer */
+#menu-toggle svg {
+    background: rgba(255, 255, 255, 0.9); /* Fundo branco com 90% de opacidade */
+    padding: 4px;
+    border-radius: 4px;
+}
+
+/* Garantir que o menu mobile tenha fundo sólido */
+#mobile-menu {
+    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+    opacity: 1; /* Remover qualquer transparência */
+}
+/* Ajustes no media query para mobile */
+@media (max-width: 768px) {
+    .whatsapp-button {
+        bottom: 20px;
+        right: 15px;
+        padding: 8px 12px; /* Reduzindo o padding para diminuir o tamanho */
+        font-size: 0.75rem; /* Reduzindo o tamanho da fonte */
+        z-index: 1000;
+    }
+    
+    .whatsapp-button img {
+        width: 16px; /* Reduzindo o tamanho do ícone */
+        height: 16px;
+    }
+
+    /* Ajustando o botão hambúrguer */
+    #menu-toggle svg {
+        background: rgba(30, 58, 138, 0.8); /* Usando uma variação do primary-blue com opacidade */
+        padding: 4px;
+        border-radius: 4px;
+        stroke: #ffffff; /* Garantindo que o ícone seja branco para contraste */
+    }
+}
+
+/* Garantir que o menu mobile tenha fundo sólido */
+#mobile-menu {
+    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+    opacity: 1;
+}
   </style>
 </head>
 <body>
