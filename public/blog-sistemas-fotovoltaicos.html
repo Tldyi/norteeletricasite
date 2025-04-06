@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como a Energia Solar Pode Transformar Sua Casa - Tudo Sobre Sistemas Fotovoltaicos</title>
+  <meta name="description" content="Aprenda como a energia solar pode transformar sua casa com nosso guia completo sobre sistemas fotovoltaicos. Economize e viva de forma sustentável!">
+  <meta name="keywords" content="energia solar, sistemas fotovoltaicos, energia solar residencial, sistemas on-grid, sistemas off-grid">
+  <meta name="author" content="Tudo Sobre Sistemas Fotovoltaicos">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Como a Energia Solar Pode Transformar Sua Casa">
+  <meta property="og:description" content="Descubra como gerar energia limpa e economizar com sistemas fotovoltaicos.">
+  <meta property="og:image" content="/assets/solar-house.webp">
+  <meta property="og:url" content="https://www.tudosobresistemasfotovoltaicos.com.br/como-energia-solar-transforma-sua-casa.html">
+  <meta property="og:type" content="article">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Como a Energia Solar Pode Transformar Sua Casa">
+  <meta name="twitter:description" content="Descubra como gerar energia limpa e economizar com sistemas fotovoltaicos.">
+  <meta name="twitter:image" content="/assets/solar-house.webp">
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  <!-- Preload -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #1e3a8a;
+      --dark-blue: #1e293b;
+      --solar-green: #4CAF50;
+      --solar-blue: #42A5F5;
+      --light-bg: #f9fafb;
+      --shadow-sm: 0 4px 10px rgba(66, 165, 245, 0.1);
+      --shadow-md: 0 10px 30px rgba(66, 165, 245, 0.2);
+    }
+    html, body { 
+      margin: 0; 
+      padding: 0; 
+      width: 100%;
+      overflow-x: hidden;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body { 
+      background: var(--light-bg); 
+      padding-top: 80px; 
+      color: #1f2937;
+      line-height: 1.6;
+    }
+    h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; }
+    h2 { font-size: 3rem; letter-spacing: 0.025em; margin-bottom: 2rem; }
+    h3 { font-size: 1.5rem; }
+    p { font-size: 1.1rem; }
+    @media (max-width: 768px) { 
+      h2 { font-size: 2rem; } 
+      h3 { font-size: 1.25rem; }
+      p { font-size: 1rem; }
+    }
+    section { 
+      scroll-margin-top: 80px; 
+      padding: 4rem 0; 
+      opacity: 0; 
+      transform: translateY(20px); 
+      animation: fadeInSection 0.8s ease forwards; 
+    }
+    @keyframes fadeInSection { to { opacity: 1; transform: translateY(0); } }
+    header { 
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); 
+      box-shadow: var(--shadow-sm); 
+      height: 80px; 
+      position: fixed; 
+      top: 0; 
+      width: 100%; 
+      z-index: 50; 
+      transition: transform 0.4s ease;
+    }
+    header.hidden { transform: translateY(-100%); }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    .whatsapp-button, .back-to-top-button { 
+      position: fixed; 
+      color: white; 
+      border-radius: 50px; 
+      padding: 12px 24px; 
+      display: flex; 
+      align-items: center; 
+      box-shadow: var(--shadow-md); 
+      transition: all 0.3s ease; 
+      z-index: 1000; 
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    .whatsapp-button { 
+      bottom: 100px; 
+      right: 20px; 
+      background: linear-gradient(135deg, #25D366, #128C7E); 
+    }
+    .back-to-top-button {
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+      display: none;
+    }
+    .whatsapp-button:hover, .back-to-top-button:hover { 
+      transform: translateY(-3px); 
+      box-shadow: var(--shadow-md); 
+    }
+    .whatsapp-button img { width: 28px; height: 28px; margin-right: 10px; }
+    @media (max-width: 768px) {
+      .whatsapp-button, .back-to-top-button { padding: 8px 16px; font-size: 0.9rem; }
+      .whatsapp-button { bottom: 80px; right: 15px; }
+      .back-to-top-button { bottom: 15px; right: 15px; }
+      .whatsapp-button img { width: 20px; height: 20px; }
+    }
+    .service-card { 
+      background: white; 
+      border-radius: 12px; 
+      padding: 20px; 
+      transition: transform 0.3s ease, box-shadow 0.3s ease; 
+      box-shadow: var(--shadow-sm); 
+      border: 1px solid #e5e7eb;
+    }
+    .service-card:hover { 
+      transform: translateY(-5px); 
+      box-shadow: var(--shadow-md); 
+    }
+    .btn-modern { 
+      background: linear-gradient(135deg, var(--solar-green), var(--solar-blue)); 
+      color: white; 
+      padding: 12px 24px; 
+      border-radius: 8px; 
+      transition: all 0.3s ease; 
+      font-weight: 600; 
+      display: inline-flex; 
+      align-items: center; 
+      box-shadow: var(--shadow-sm);
+      text-transform: uppercase;
+    }
+    .btn-modern:hover { 
+      transform: translateY(-2px); 
+      box-shadow: var(--shadow-md); 
+      background: linear-gradient(135deg, var(--solar-blue), var(--solar-green)); 
+    }
+    .custom-form {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    footer { background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue)); }
+    .faq-answer { display: none; }
+    .faq-answer.open { display: block; }
+  </style>
+</head>
+<body>
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/5553981087746?text=Olá, gostaria de saber mais sobre energia solar!" target="_blank" class="whatsapp-button">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+    <span>Fale Conosco</span>
+  </a>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top-button" onclick="scrollToTop()">
+    <span>Voltar ao Topo</span>
+  </a>
+
+  <!-- Header -->
+  <header class="text-white">
+    <div class="header-container">
+      <div class="header-branding">
+        <h1 class="text-lg font-bold">Tudo Sobre Sistemas Fotovoltaicos</h1>
+        <p class="text-sm text-blue-200">O Seu Guia Completo Sobre Energia Solar</p>
+      </div>
+      <nav class="hidden md:flex space-x-4">
+        <a href="index.html" class="hover:text-[var(--solar-blue)] transition-colors">Início</a>
+        <a href="#cursos" class="hover:text-[var(--solar-blue)] transition-colors">Cursos</a>
+        <a href="#blog" class="hover:text-[var(--solar-blue)] transition-colors">Blog</a>
+        <a href="#contato" class="hover:text-[var(--solar-blue)] transition-colors">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-white py-24 bg-cover bg-center mt-16 relative" style="background-image: linear-gradient(to right, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), url('/assets/solar-house.webp');">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Como a Energia Solar Pode Transformar Sua Casa</h1>
+      <p class="mb-8 text-lg md:text-xl text-blue-100 max-w-2xl mx-auto">Descubra como gerar energia limpa, economizar na conta de luz e transformar sua residência com sistemas fotovoltaicos.</p>
+      <a href="#cursos" class="btn-modern text-lg">Conheça Nosso Guia Completo</a>
+    </div>
+  </section>
+
+  <!-- Módulo 1: Entendendo a Energia Solar -->
+  <section id="cursos">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-[var(--primary-blue)]">Módulo 1: Entendendo a Energia Solar</h2>
+      <div class="grid md:grid-cols-2 gap-12 mt-8">
+        <div>
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Aula 1: O que é energia solar?</h3>
+          <p class="text-gray-600 mt-2">A energia solar é uma fonte de energia renovável que utiliza a luz do sol para gerar eletricidade. Isso é feito por meio de painéis fotovoltaicos, que contêm células solares capazes de converter a luz solar em energia elétrica através do efeito fotovoltaico. É uma alternativa limpa e sustentável aos combustíveis fósseis, reduzindo a emissão de gases de efeito estufa e ajudando a combater as mudanças climáticas.</p>
+
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)] mt-6">Aula 2: Panorama Solar – Mundo x Brasil x Goiás</h3>
+          <p class="text-gray-600 mt-2">Globalmente, a energia solar tem crescido exponencialmente, com países como China, Alemanha e Estados Unidos liderando a produção. No Brasil, a energia solar fotovoltaica tem se expandido rapidamente, especialmente após a Resolução Normativa 482/2012 da ANEEL, que regulamentou a geração distribuída. Em 2023, o Brasil ultrapassou 30 GW de capacidade instalada, sendo um dos líderes na América Latina. Em Goiás, a alta irradiação solar (média de 5,5 kWh/m² por dia) e incentivos fiscais, como a isenção de ICMS para sistemas on-grid, têm impulsionado a adoção em residências e fazendas.</p>
+
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)] mt-6">Aula 3: Vantagens x Desvantagens</h3>
+          <p class="text-gray-600 mt-2">A energia solar oferece diversas vantagens: economia de até 95% na conta de luz, baixa manutenção, longa vida útil dos painéis (25-30 anos) e impacto ambiental positivo. No entanto, há desvantagens, como o custo inicial elevado (embora compensado a longo prazo), a dependência de luz solar (menos eficiente em dias nublados) e a necessidade de espaço adequado para instalação dos painéis.</p>
+
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)] mt-6">Aula 4: Geração de Energia Elétrica Solar</h3>
+          <p class="text-gray-600 mt-2">O processo de geração de energia solar começa com os painéis fotovoltaicos, que captam a luz solar e geram corrente contínua (DC). Essa corrente é enviada a um inversor, que a converte em corrente alternada (AC), compatível com os eletrodomésticos. Em sistemas on-grid, o excedente de energia é injetado na rede elétrica, gerando créditos. Em sistemas off-grid, a energia é armazenada em baterias para uso posterior.</p>
+        </div>
+        <div class="flex items-center">
+          <img src="/assets/solar-panels.webp" alt="Painéis Solares" class="rounded-lg shadow-lg w-full">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Módulo 2: Sistemas Conectados à Rede -->
+  <section>
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-[var(--primary-blue)]">Módulo 2: Sistemas Conectados à Rede (On-Grid)</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        <div class="service-card">
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Aula 1: Quando utilizar o sistema on-grid?</h3>
+          <p class="text-gray-600 mt-2">Sistemas on-grid são ideais para residências e empresas em áreas urbanas com acesso à rede elétrica. Eles permitem que você gere sua própria energia durante o dia e, quando a produção exceder o consumo, o excedente é injetado na rede, gerando créditos que podem ser usados à noite ou em dias de baixa geração. É uma solução econômica para quem busca reduzir a conta de luz sem a necessidade de baterias.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Aula 2: Componentes – Inversor</h3>
+          <p class="text-gray-600 mt-2">O inversor é o coração do sistema on-grid. Ele converte a corrente contínua (DC) gerada pelos painéis solares em corrente alternada (AC), que é o tipo de energia usado pela maioria dos eletrodomésticos. Existem diferentes tipos de inversores, como os string inverters (mais comuns) e os microinversores, que otimizam a produção de cada painel individualmente.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Aula 3: Componentes – Medidor Bidirecional</h3>
+          <p class="text-gray-600 mt-2">O medidor bidirecional é instalado pela concessionária de energia e substitui o medidor convencional. Ele registra tanto a energia que você consome da rede quanto a energia que você injeta nela. Isso permite o sistema de compensação de créditos: se você gerar mais energia do que consome, os créditos podem ser usados em até 60 meses, dependendo da regulamentação local.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Aula 4: Exemplo de Aplicação On-Grid</h3>
+          <p class="text-gray-600 mt-2">Imagine uma casa em Goiânia com um consumo médio de 300 kWh/mês. Com um sistema on-grid de 4 painéis solares (1,5 kWp), a casa pode gerar cerca de 200 kWh/mês, reduzindo a conta de luz em 66%. O excedente gerado durante o dia é injetado na rede, e à noite a casa utiliza os créditos acumulados, economizando até R$ 1.800 por ano (considerando uma tarifa de R$ 0,75/kWh).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Módulo 3: Sistemas Isolados -->
+  <section>
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-[var(--primary-blue)]">Módulo 3: Sistemas Isolados (Off-Grid)</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        <div class="service-card">
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Aula 1: Quando utilizar um sistema off-grid?</h3>
+          <p class="text-gray-600 mt-2">Sistemas off-grid são perfeitos para locais remotos, como fazendas, sítios ou comunidades rurais sem acesso à rede elétrica. Eles proporcionam autonomia energética, permitindo que você gere, armazene e utilize energia solar independentemente da infraestrutura elétrica. São ideais para quem busca independência total, mas exigem um investimento maior devido à necessidade de baterias.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Aula 2: Componentes – Controlador de Carga</h3>
+          <p class="text-gray-600 mt-2">O controlador de carga regula o fluxo de energia entre os painéis solares e as baterias, evitando sobrecarga ou descarga excessiva. Ele protege as baterias, prolongando sua vida útil, e garante que a energia gerada seja armazenada de forma eficiente. Existem dois tipos principais: PWM (mais simples e barato) e MPPT (mais eficiente, mas mais caro).</p>
+        </div>
+        <div class="service-card">
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Aula 3: Componentes – Bateria</h3>
+          <p class="text-gray-600 mt-2">As baterias são essenciais em sistemas off-grid, pois armazenam a energia gerada durante o dia para uso à noite ou em dias nublados. As mais comuns são as baterias de chumbo-ácido (mais baratas, mas com vida útil menor) e as de íon-lítio (mais caras, mas com maior eficiência e durabilidade). A capacidade da bateria deve ser dimensionada com base no consumo diário da casa.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Aula 4: Componentes – Inversor</h3>
+          <p class="text-gray-600 mt-2">Em sistemas off-grid, o inversor converte a corrente contínua (DC) armazenada nas baterias em corrente alternada (AC) para uso em eletrodomésticos. Diferentemente dos sistemas on-grid, o inversor off-grid precisa ser mais robusto para lidar com picos de consumo e deve ser compatível com o controlador de carga e as baterias.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Aula 5: Exemplo de Aplicação Off-Grid</h3>
+          <p class="text-gray-600 mt-2">Uma fazenda em Goiás, sem acesso à rede elétrica, instala um sistema off-grid com 6 painéis solares (2 kWp), 4 baterias de íon-lítio e um inversor de 3 kW. O sistema gera 300 kWh/mês, suficiente para alimentar iluminação, uma geladeira e uma bomba d’água. A energia armazenada nas baterias garante o funcionamento durante a noite, proporcionando autonomia total.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Módulo 4: Passo a Passo para Instalação -->
+  <section>
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-[var(--primary-blue)]">Módulo 4: Passo a Passo para Transformar Sua Casa</h2>
+      <div class="space-y-6 mt-8">
+        <div class="service-card">
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Aula 1: Como é feita a instalação solar?</h3>
+          <p class="text-gray-600 mt-2">A instalação de um sistema solar começa com uma avaliação técnica do local, considerando a irradiação solar, a inclinação do telhado e a área disponível. Em seguida, os painéis são fixados com estruturas metálicas, o inversor é instalado e conectado ao quadro elétrico, e o sistema é ligado à rede (para on-grid) ou às baterias (para off-grid). Por fim, a concessionária de energia aprova o sistema (no caso de on-grid), e ele começa a operar. O processo geralmente leva de 1 a 3 dias.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Aula 2: Manutenção do Sistema</h3>
+          <p class="text-gray-600 mt-2">A manutenção de um sistema solar é simples e de baixo custo. Os painéis devem ser limpos a cada 6 meses com água e um pano macio para remover poeira ou detritos que possam reduzir a eficiência. Além disso, é recomendável verificar anualmente o funcionamento do inversor, das baterias (se houver) e das conexões elétricas para garantir a segurança e a eficiência do sistema.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Aula 3: Custos de Equipamentos</h3>
+          <p class="text-gray-600 mt-2">Os custos de um sistema solar variam de acordo com a capacidade e os componentes. Um sistema on-grid para uma casa com consumo de 300 kWh/mês (cerca de 1,5 kWp) custa entre R$ 7.000 e R$ 10.000, incluindo 4 painéis, inversor e instalação. Um sistema off-grid, com baterias, pode custar entre R$ 15.000 e R$ 25.000 para a mesma capacidade, devido ao custo adicional das baterias e do controlador de carga.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Aula 4: Legislação</h3>
+          <p class="text-gray-600 mt-2">No Brasil, a principal legislação para energia solar é a Resolução Normativa 482/2012 da ANEEL, que regula a geração distribuída e permite que consumidores conectados à rede (on-grid) compensem a energia injetada com créditos. Em 2022, a Lei 14.300 criou o Marco Legal da Geração Distribuída, trazendo mais segurança jurídica e definindo regras para tributação e compensação de energia até 2045.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="text-xl font-semibold text-[var(--primary-blue)]">Aula 5: Linhas de Financiamento</h3>
+          <p class="text-gray-600 mt-2">Diversas instituições oferecem financiamentos para energia solar, com taxas de juros reduzidas. O Banco do Brasil, por exemplo, tem o programa BB Agro Energia, com juros a partir de 0,5% ao mês e até 10 anos para pagar. A Caixa Econômica Federal oferece o Construcard, que pode ser usado para comprar equipamentos solares, com parcelas a partir de R$ 200. Além disso, algumas distribuidoras de energia, como a Enel, têm parcerias com bancos para facilitar o acesso ao crédito.</p>
+          <a href="#contato" class="btn-modern mt-4">Saiba Mais Sobre Financiamento</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculadora de Economia -->
+  <section>
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-[var(--primary-blue)]">Calcule Sua Economia com Energia Solar</h2>
+      <div class="custom-form max-w-lg mx-auto mt-8">
+        <form id="calculadora-economia" class="space-y-6">
+          <div>
+            <label for="consumo" class="block text-gray-700 font-semibold">Consumo Mensal (kWh)</label>
+            <input type="number" id="consumo" placeholder="Ex.: 300" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+          </div>
+          <div>
+            <label for="tarifa" class="block text-gray-700 font-semibold">Tarifa de Energia (R$/kWh)</label>
+            <input type="number" id="tarifa" placeholder="Ex.: 0.75" class="border border-gray-300 p-3 w-full rounded-lg focus:ring-2 focus:ring-[var(--primary-blue)]" step="0.01" required>
+          </div>
+          <button type="submit" class="btn-modern w-full">Calcular Economia</button>
+        </form>
+        <div id="resultado-economia" class="hidden text-center text-green-600 mt-4">
+          <p>Você pode economizar até <span id="economia"></span> por ano!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Perguntas Frequentes -->
+  <section>
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-[var(--primary-blue)]">Perguntas Frequentes Sobre Energia Solar</h2>
+      <div class="space-y-6 mt-8">
+        <div>
+          <div class="faq-question cursor-pointer flex justify-between items-center" onclick="toggleFAQ(1)">
+            <span>O que é um sistema on-grid e off-grid?</span>
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </div>
+          <div class="faq-answer" id="faq-answer-1">Um sistema on-grid está conectado à rede elétrica, permitindo que você use a energia da concessionária quando necessário e injete o excedente na rede. Um sistema off-grid é independente, utilizando baterias para armazenar energia e sendo ideal para locais sem acesso à rede.</div>
+        </div>
+        <div>
+          <div class="faq-question cursor-pointer flex justify-between items-center" onclick="toggleFAQ(2)">
+            <span>Quanto tempo leva para instalar um sistema solar?</span>
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </div>
+          <div class="faq-answer" id="faq-answer-2">A instalação geralmente leva de 1 a 3 dias, dependendo do tamanho do sistema e das condições do local, como acesso ao telhado e necessidade de ajustes estruturais.</div>
+        </div>
+        <div>
+          <div class="faq-question cursor-pointer flex justify-between items-center" onclick="toggleFAQ(3)">
+            <span>Quais são os custos iniciais de um sistema fotovoltaico?</span>
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </div>
+          <div class="faq-answer" id="faq-answer-3">Para uma casa com consumo de 300 kWh/mês, um sistema on-grid custa entre R$ 7.000 e R$ 10.000. Um sistema off-grid, com baterias, pode custar entre R$ 15.000 e R$ 25.000, dependendo dos componentes.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-[var(--primary-blue)]">Fale Conosco</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
+        <form id="contact-form" class="space-y-6">
+          <div>
+            <label for="name" class="block text-gray-700 font-semibold">Nome Completo</label>
+            <input type="text" id="name" placeholder="Seu Nome" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+          </div>
+          <div>
+            <label for="email" class="block text-gray-700 font-semibold">E-mail</label>
+            <input type="email" id="email" placeholder="Seu E-mail" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+          </div>
+          <div>
+            <label for="phone" class="block text-gray-700 font-semibold">Telefone</label>
+            <input type="tel" id="phone" placeholder="Seu Telefone" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" required>
+          </div>
+          <div>
+            <label for="message" class="block text-gray-700 font-semibold">Mensagem</label>
+            <textarea id="message" placeholder="Sua Mensagem" class="border border-gray-300 p-4 w-full rounded-lg shadow-sm focus:ring-2 focus:ring-[var(--primary-blue)]" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn-modern w-full">Enviar Mensagem</button>
+        </form>
+        <div class="space-y-6">
+          <p class="text-gray-600 text-lg">Entre em contato para tirar suas dúvidas sobre energia solar e sistemas fotovoltaicos!</p>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Contato</h3>
+            <p class="text-gray-600"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> E-mail: <a href="mailto:contato@tudosobresistemasfotovoltaicos.com.br" class="text-[var(--primary-blue)] hover:underline">contato@tudosobresistemasfotovoltaicos.com.br</a></p>
+            <p class="text-gray-600 mt-2"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l4-4h-.586A1.994 1.994 0 019 14.414" /></svg> WhatsApp: <a href="https://wa.me/5553981087746" class="text-[var(--primary-blue)] hover:underline">+55 53 98108-7746</a></p>
+          </div>
+        </div>
+      </div>
+      <div id="success-contact" class="hidden text-green-600 text-center mt-4">Mensagem enviada com sucesso!</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Tudo Sobre Sistemas Fotovoltaicos</h3>
+          <p class="text-blue-100">O Seu Guia Completo Sobre Energia Solar</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="https://www.instagram.com/tudosobresistemasfotovoltaicos" target="_blank" class="text-white hover:text-[var(--solar-blue)]"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2m14-1v4M5 20v-4m0-10h4m10 10h-4M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg></a>
+            <a href="https://www.facebook.com/tudosobresistemasfotovoltaicos" target="_blank" class="text-white hover:text-[var(--solar-blue)]"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
+          <ul class="space-y-2 text-blue-100">
+            <li><a href="index.html" class="hover:text-[var(--solar-blue)]">Início</a></li>
+            <li><a href="#cursos" class="hover:text-[var(--solar-blue)]">Cursos</a></li>
+            <li><a href="#blog" class="hover:text-[var(--solar-blue)]">Blog</a></li>
+            <li><a href="#contato" class="hover:text-[var(--solar-blue)]">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Links Úteis</h3>
+          <ul class="space-y-2 text-blue-100">
+            <li><a href="/politica-de-privacidade.html" class="hover:text-[var(--solar-blue)]">Política de Privacidade</a></li>
+            <li><a href="/termos-de-uso.html" class="hover:text-[var(--solar-blue)]">Termos de Uso</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-8 text-center border-t border-blue-700 pt-4">
+        <p id="footer-year" class="text-blue-100 text-sm">© 2025 Tudo Sobre Sistemas Fotovoltaicos. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Controle do cabeçalho ao rolar
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+
+    // Scroll para o topo
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Mostrar/esconder botão de voltar ao topo
+    const backToTopButton = document.querySelector('.back-to-top-button');
+    window.addEventListener('scroll', () => {
+      backToTopButton.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+
+    // Calculadora de Economia
+    document.getElementById('calculadora-economia').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const consumo = parseFloat(document.getElementById('consumo').value);
+      const tarifa = parseFloat(document.getElementById('tarifa').value);
+      if (isNaN(consumo) || isNaN(tarifa)) {
+        alert("Por favor, insira valores válidos.");
+        return;
+      }
+      const economiaAnual = (consumo * tarifa * 12 * 0.95).toFixed(2);
+      document.getElementById('economia').textContent = `R$ ${economiaAnual}`;
+      document.getElementById('resultado-economia').classList.remove('hidden');
+    });
+
+    // Formulário de Contato
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const message = document.getElementById('message').value;
+      const whatsappMessage = `Olá, sou ${name}. E-mail: ${email}, Telefone: ${phone}. Mensagem: ${message}`;
+      window.open(`https://wa.me/5553981087746?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+      document.getElementById('success-contact').classList.remove('hidden');
+      document.getElementById('contact-form').reset();
+    });
+
+    // FAQ Toggle
+    function toggleFAQ(index) {
+      const answer = document.getElementById(`faq-answer-${index}`);
+      answer.classList.toggle('open');
+    }
+
+    // Atualizar ano no footer
+    document.getElementById('footer-year').textContent = `© ${new Date().getFullYear()} Tudo Sobre Sistemas Fotovoltaicos. Todos os direitos reservados.`;
+  </script>
+</body>
+</html>
