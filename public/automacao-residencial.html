@@ -380,6 +380,136 @@
     display: none !important;
   }
 }
+/* Adicionar no seu <style> existente */
+
+/* 1. Posicionar o botão Voltar ao Topo abaixo do WhatsApp no desktop */
+.scroll-top-button {
+  bottom: 20px; /* Alinhado abaixo do WhatsApp que está em 80px */
+  right: 20px;
+}
+
+/* Ajustar posição do WhatsApp no desktop para dar espaço */
+.whatsapp-button {
+  bottom: 80px; /* Aumentado para dar espaço ao botão de voltar ao topo */
+  right: 20px;
+}
+
+/* 3. Diminuir o botão WhatsApp no mobile */
+@media (max-width: 768px) {
+  .whatsapp-button {
+    bottom: 15px; /* Ajustado para ficar mais próximo da borda */
+    right: 10px;
+    padding: 6px 12px; /* Reduzido o padding */
+    font-size: 0.75rem; /* Tamanho da fonte menor */
+  }
+  .whatsapp-button img {
+    width: 16px; /* Reduzir ícone do WhatsApp */
+    height: 16px;
+    margin-right: 6px;
+  }
+
+  /* 4. Remover o botão "Comece Sua Revolução" no mobile */
+  .cta-float {
+    display: none !important;
+  }
+
+  /* Garantir que o botão Voltar ao Topo não apareça no mobile */
+  .scroll-top-button {
+    display: none !important;
+  }
+}
+
+/* 2. Corrigir o menu hambúrguer no mobile */
+@media (max-width: 768px) {
+  #menu-toggle {
+    padding: 0; /* Remover padding extra */
+  }
+  #mobile-menu {
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(10px);
+    width: 100%; /* Ajustar para largura total */
+    max-width: none; /* Remover limite máximo */
+    height: auto; /* Ajustar altura automaticamente */
+    top: 50px; /* Alinhar logo abaixo do header */
+  }
+  #mobile-menu.open {
+    transform: translateX(0);
+  }
+  #mobile-menu .flex {
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+  #mobile-menu a {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+  }
+}
+/* Ajustar o menu hambúrguer no mobile */
+@media (max-width: 768px) {
+  #menu-toggle {
+    padding: 0; /* Remover padding extra */
+  }
+  #mobile-menu {
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(10px);
+    width: 100%; /* Largura total */
+    max-width: none; /* Remover limite máximo */
+    height: auto; /* Ajustar altura automaticamente */
+    top: 50px; /* Alinhar logo abaixo do header */
+    transform: translateX(100%); /* Inicia escondido */
+    transition: transform 0.3s ease;
+  }
+  #mobile-menu.open {
+    transform: translateX(0); /* Mostra o menu */
+  }
+  #mobile-menu .flex {
+    padding: 1rem;
+    gap: 0.5rem;
+    align-items: flex-end; /* Alinhar itens à direita */
+  }
+  #mobile-menu a {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    text-align: right; /* Alinhar texto à direita */
+  }
+}
+/* Ajustar o menu hambúrguer no mobile */
+@media (max-width: 768px) {
+  #menu-toggle {
+    padding: 0; /* Remover padding extra */
+  }
+  #mobile-menu {
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(10px);
+    width: 100%; /* Largura total */
+    max-width: none; /* Remover limite máximo */
+    height: auto; /* Ajustar altura automaticamente */
+    top: 50px; /* Alinhar logo abaixo do header */
+    transform: translateX(100%); /* Inicia escondido */
+    transition: transform 0.3s ease;
+  }
+  #mobile-menu.open {
+    transform: translateX(0); /* Mostra o menu */
+  }
+  #mobile-menu .flex {
+    padding: 1rem;
+    gap: 0.5rem;
+    align-items: flex-start; /* Alinhar itens à esquerda */
+  }
+  #mobile-menu a {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    text-align: left; /* Alinhar texto à esquerda */
+  }
+  /* Estilizar o botão de fechar dentro do menu */
+  #close-menu {
+    padding: 0;
+    transition: transform 0.3s ease;
+  }
+  #close-menu:hover {
+    transform: scale(1.1); /* Efeito de hover para o botão de fechar */
+  }
+}
   </style>
 </head>
 <body>
@@ -406,38 +536,37 @@
   </button>
 
   <!-- Header -->
-  <header class="text-white">
-    <div class="header-container">
-      <div class="header-branding">
-        <img src="/assets/icone-nort-eletrica.webp" alt="Ícone da Nort Elétrica" loading="lazy">
-        <div class="branding-text">
-          <h1 onclick="scrollToTop()" class="cursor-pointer">Nort Elétrica</h1>
-          <p>Energia Inteligente para Todos</p>
-        </div>
-      </div>
-      <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menu">
-        <svg class="text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" class="menu-open"></path>
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" class="menu-close hidden"></path>
-        </svg>
-      </button>
-      <nav id="menu" class="hidden md:flex items-center">
-        <a href="index.html">Início</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#custom-project">Monte Sua Casa Smart</a>
-        <a href="#contact">Contato</a>
-      </nav>
-    </div>
-    <div id="mobile-menu" class="md:hidden fixed right-0 text-white shadow-lg transform transition-transform duration-300">
-      <button id="close-menu" class="text-white p-4"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
-      <div class="flex flex-col p-4">
-        <a href="index.html">Início</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#custom-project">Monte Sua Casa Smart</a>
-        <a href="#contact">Contato</a>
+<header class="text-white">
+  <div class="header-container">
+    <div class="header-branding">
+      <img src="/assets/icone-nort-eletrica.webp" alt="Ícone da Nort Elétrica" loading="lazy">
+      <div class="branding-text">
+        <h1 onclick="scrollToTop()" class="cursor-pointer">Nort Elétrica</h1>
+        <p>Energia Inteligente para Todos</p>
       </div>
     </div>
-  </header>
+    <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menu">
+      <svg class="text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" class="menu-open"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" class="menu-close hidden"></path>
+      </svg>
+    </button>
+    <nav id="menu" class="hidden md:flex items-center">
+      <a href="index.html">Início</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#custom-project">Monte Sua Casa Smart</a>
+      <a href="#contact">Contato</a>
+    </nav>
+  </div>
+  <div id="mobile-menu" class="md:hidden fixed right-0 text-white shadow-lg transform transition-transform duration-300">
+    <div class="flex flex-col p-4">
+      <a href="index.html">Início</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#custom-project">Monte Sua Casa Smart</a>
+      <a href="#contact">Contato</a>
+    </div>
+  </div>
+</header>
 
   <!-- Hero Section com Vídeo -->
   <section class="relative text-white py-24 bg-cover bg-center mt-16 overflow-hidden">
@@ -776,34 +905,31 @@
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" defer></script>
   <script>
-    // Menu Mobile
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const closeMenu = document.getElementById('close-menu');
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-      document.querySelector('.menu-open').classList.toggle('hidden');
-      document.querySelector('.menu-close').classList.toggle('hidden');
-    });
-    closeMenu.addEventListener('click', () => {
+   // Menu Mobile
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+menuToggle.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+  const menuOpen = document.querySelector('.menu-open');
+  const menuClose = document.querySelector('.menu-close');
+  menuOpen.classList.toggle('hidden');
+  menuClose.classList.toggle('hidden');
+});
+
+// Navegação Suave (já existente, mas incluído para contexto)
+document.querySelectorAll('nav a, #mobile-menu a').forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    const href = anchor.getAttribute('href');
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
       mobileMenu.classList.remove('open');
       document.querySelector('.menu-open').classList.remove('hidden');
       document.querySelector('.menu-close').classList.add('hidden');
-    });
-
-    // Navegação Suave
-    document.querySelectorAll('nav a, #mobile-menu a').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        const href = anchor.getAttribute('href');
-        if (href.startsWith('#')) {
-          e.preventDefault();
-          document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
-          mobileMenu.classList.remove('open');
-          document.querySelector('.menu-open').classList.remove('hidden');
-          document.querySelector('.menu-close').classList.add('hidden');
-        }
-      });
-    });
+    }
+  });
+});
 
     // Controle do Cabeçalho
     let lastScrollTop = 0;
