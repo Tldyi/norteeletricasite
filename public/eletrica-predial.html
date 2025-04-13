@@ -28,70 +28,13 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
   <style>
-    /* Estilos mantidos iguais ao original - Copie e cole o mesmo CSS da página de Sistemas Fotovoltaicos aqui */
-    .header-branding {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  max-width: 300px;
-}
-.header-branding img {
-  width: 2rem;
-  height: 2rem;
-  transition: transform 0.3s ease;
-  flex-shrink: 0;
-}
-.header-branding img:hover {
-  transform: scale(1.1);
-}
-.header-branding .branding-text {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-.header-branding h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: white;
-  margin: 0;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.header-branding p {
-  font-size: 0.7rem;
-  color: #93c5fd;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-@media (max-width: 768px) {
-  .header-branding {
-    max-width: 200px;
-  }
-  .header-branding h1 {
-    font-size: 1rem;
-  }
-  .header-branding p {
-    font-size: 0.6rem;
-  }
-  .header-branding img {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-}
     :root {
-      --primary-blue: #1e3a8a;
-      --dark-blue: #1e293b;
-      --solar-green: #22c55e;
-      --solar-yellow: #fbbf24;
-      --light-bg: #f9fafb;
-      --shadow-sm: 0 4px 10px rgba(34, 197, 94, 0.1);
-      --shadow-md: 0 10px 30px rgba(34, 197, 94, 0.2);
+      --primary-blue: #1d4ed8; /* Azul elétrico vibrante */
+      --dark-blue: #172554; /* Tom mais escuro para profundidade */
+      --accent-yellow: #facc15; /* Amarelo para destacar energia elétrica */
+      --light-bg: #f5f5f5; /* Fundo claro para contraste limpo */
+      --shadow-sm: 0 4px 10px rgba(29, 78, 216, 0.15);
+      --shadow-md: 0 10px 30px rgba(29, 78, 216, 0.25);
     }
     html, body { 
       margin: 0; 
@@ -134,9 +77,9 @@
       transition: transform 0.4s ease, background 0.3s ease;
     }
     header.hidden { transform: translateY(-100%); }
-    header.scrolled { background: rgba(30, 58, 138, 0.95); }
+    header.scrolled { background: rgba(29, 78, 216, 0.95); }
     @media (max-width: 768px) { header { height: 60px; } }
-    .whatsapp-button, .cta-float, .back-to-top-button { 
+    .whatsapp-button, .cta-float, .scroll-top-button { 
       position: fixed; 
       color: white; 
       border-radius: 50px; 
@@ -151,7 +94,9 @@
       letter-spacing: 0.05em;
       animation: pulse 2s infinite;
     }
-    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05);
+
+System: } }
     .whatsapp-button { 
       bottom: 100px; 
       right: 20px; 
@@ -161,26 +106,33 @@
     .cta-float { 
       bottom: 20px; 
       left: 20px; 
-      background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); 
+      background: linear-gradient(135deg, var(--primary-blue), var(--accent-yellow)); 
       z-index: 1002;
     }
-    .back-to-top-button {
-      bottom: 160px;
+    .scroll-top-button {
+      bottom: 20px;
       right: 20px;
       background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-      z-index: 1003;
+      z-index: 1000;
+      display: none; /* Oculta por padrão */
     }
-    .whatsapp-button:hover, .cta-float:hover, .back-to-top-button:hover { 
+    .whatsapp-button:hover, .cta-float:hover, .scroll-top-button:hover { 
       transform: translateY(-3px); 
       box-shadow: var(--shadow-md); 
     }
     .whatsapp-button img { width: 28px; height: 28px; margin-right: 10px; }
     @media (max-width: 768px) {
-      .whatsapp-button, .cta-float, .back-to-top-button { padding: 8px 16px; font-size: 0.9rem; }
-      .whatsapp-button { bottom: 80px; right: 15px; }
-      .cta-float { bottom: 15px; left: 15px; }
-      .back-to-top-button { bottom: 140px; right: 15px; }
-      .whatsapp-button img { width: 20px; height: 20px; }
+      .whatsapp-button { 
+        bottom: 15px; 
+        right: 15px; 
+        padding: 6px 12px; 
+        font-size: 0.75rem; 
+      }
+      .whatsapp-button img { width: 16px; height: 16px; margin-right: 6px; }
+      .cta-float, .scroll-top-button { display: none; } /* Remove botões no mobile */
+    }
+    @media (min-width: 769px) {
+      .scroll-top-button.visible { display: flex; } /* Mostra apenas no desktop quando visível */
     }
     .service-card { 
       background: white; 
@@ -196,7 +148,7 @@
       box-shadow: var(--shadow-md); 
     }
     .btn-modern { 
-      background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); 
+      background: linear-gradient(135deg, var(--primary-blue), var(--accent-yellow)); 
       color: white; 
       padding: 12px 24px; 
       border-radius: 8px; 
@@ -211,7 +163,7 @@
     .btn-modern:hover { 
       transform: translateY(-2px); 
       box-shadow: var(--shadow-md); 
-      background: linear-gradient(135deg, var(--solar-yellow), var(--solar-green)); 
+      background: linear-gradient(135deg, var(--accent-yellow), var(--primary-blue)); 
     }
     .custom-kit-form {
       background: white;
@@ -229,131 +181,70 @@
       margin: 0 auto;
       padding: 0 15px;
     }
+    .header-branding {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      max-width: 300px;
+    }
+    .header-branding img {
+      width: 2rem;
+      height: 2rem;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+      box-shadow: 0 0 15px var(--accent-yellow);
+      border-radius: 50%;
+    }
+    .header-branding img:hover {
+      transform: scale(1.1);
+    }
+    .header-branding .branding-text {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
     .header-branding h1 {
-      font-size: 1.5rem;
+      font-family: 'Poppins', sans-serif;
       font-weight: 700;
+      font-size: 1.2rem;
       color: white;
       margin: 0;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .header-branding p {
-      font-size: 0.9rem;
-      color: #93c5fd;
+      font-size: 0.7rem;
+      color: #bfdbfe;
       margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     @media (max-width: 768px) {
-      .header-branding h1 { font-size: 1.2rem; }
-      .header-branding p { font-size: 0.8rem; }
+      .header-branding {
+        max-width: 200px;
+      }
+      .header-branding h1 {
+        font-size: 1rem;
+      }
+      .header-branding p {
+        font-size: 0.6rem;
+      }
+      .header-branding img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
       #mobile-menu {
-        background: #1e293b;
+        background: var(--dark-blue);
         width: 100%;
         max-width: 100vw;
         transform: translateX(100%);
       }
       #mobile-menu.open { transform: translateX(0); }
     }
-    /* Adicionando sombra moderna na foto do ícone da empresa para mobile e desktop */
-  .header-branding img {
-    box-shadow: 0 0 15px #39ff14;
-    border-radius: 50%;
-  }
-
-  /* Estilos dos botões flutuantes */
-.whatsapp-button, .cta-float, .scroll-top-button { 
-  position: fixed; 
-  color: white; 
-  border-radius: 50px; 
-  padding: 12px 24px; 
-  display: flex; 
-  align-items: center; 
-  box-shadow: var(--shadow-md); 
-  transition: all 0.3s ease; 
-  z-index: 1000; 
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse { 
-  0%, 100% { transform: scale(1); } 
-  50% { transform: scale(1.05); } 
-}
-
-.whatsapp-button { 
-  bottom: 100px; 
-  right: 20px; 
-  background: linear-gradient(135deg, #25D366, #128C7E); 
-  z-index: 1001; 
-}
-
-.scroll-top-button {
-  bottom: 20px;
-  right: 20px;
-  background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-  z-index: 1000;
-}
-
-.cta-float { 
-  bottom: 20px; 
-  left: 20px; 
-  background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow)); 
-  z-index: 1002;
-}
-
-.whatsapp-button:hover, .cta-float:hover, .scroll-top-button:hover { 
-  transform: translateY(-3px); 
-  box-shadow: var(--shadow-md); 
-}
-
-.whatsapp-button span, .cta-float span, .scroll-top-button span { transition: transform 0.3s ease; }
-.whatsapp-button:hover span, .cta-float:hover span, .scroll-top-button:hover span { transform: translateX(5px); }
-
-.whatsapp-button img { width: 28px; height: 28px; margin-right: 10px; }
-
-@media (max-width: 768px) {
-  .whatsapp-button, .cta-float, .scroll-top-button {
-    padding: 6px 12px;
-    font-size: 0.75rem;
-  }
-  .whatsapp-button { bottom: 80px; right: 15px; }
-  .scroll-top-button { bottom: 15px; right: 15px; }
-  .cta-float { bottom: 15px; left: 15px; }
-  .whatsapp-button img {
-    width: 16px;
-    height: 16px;
-  }
-}
-@media (max-width: 768px) {
-  .header-branding {
-    max-width: 200px;
-  }
-  .header-branding h1 { 
-    font-size: 1rem;
-  }
-  .header-branding p { 
-    font-size: 0.6rem;
-  }
-  .header-branding img {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-}
-.service-card img {
-  width: 100%; /* Mantém a largura total */
-  height: auto; /* Altura ajustada automaticamente */
-  max-height: 300px; /* Limite máximo - ajuste conforme necessário */
-  object-fit: contain; /* Garante que a imagem não seja cortada */
-}
-    :root {
-      --primary-blue: #1e3a8a;
-      --dark-blue: #1e293b;
-      --solar-green: #22c55e;
-      --solar-yellow: #fbbf24;
-      --light-bg: #f9fafb;
-      --shadow-sm: 0 4px 10px rgba(34, 197, 94, 0.1);
-      --shadow-md: 0 10px 30px rgba(34, 197, 94, 0.2);
-    }
-    /* ... (mantenha todo o CSS original, apenas ajustando onde necessário) ... */
     .service-card img {
       width: 100%;
       height: auto;
@@ -363,21 +254,20 @@
   </style>
 </head>
 <body>
-
   <!-- WhatsApp Button -->
   <a id="whatsapp-button" href="https://wa.me/5553981087746?text=Olá, gostaria de falar com um especialista sobre elétrica predial!" target="_blank" class="whatsapp-button">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
     <span>Fale Conosco</span>
   </a>
 
-  <!-- Botão Voltar ao Topo -->
-  <a id="scroll-top-button" href="#" class="scroll-top-button" onclick="scrollToTop()">
-    <span>Voltar ao Topo</span>
-  </a>
-
   <!-- CTA Flutuante -->
   <a href="#contact" class="cta-float">
     <span>Solicite Seu Orçamento!</span>
+  </a>
+
+  <!-- Botão Voltar ao Topo -->
+  <a id="scroll-top-button" href="#" class="scroll-top-button" onclick="scrollToTop()">
+    <span>Voltar ao Topo</span>
   </a>
 
   <!-- Header -->
@@ -386,7 +276,7 @@
       <div class="header-branding">
         <img src="/assets/icone-nort-eletrica.webp" alt="Ícone da Nort Elétrica" class="w-8 h-8 md:w-10 md:h-10" loading="lazy">
         <div class="branding-text">
-          <h1 onclick="scrollToTop()" class="cursor-pointer hover:text-[var(--solar-yellow)] transition-colors">Nort Elétrica</h1>
+          <h1 onclick="scrollToTop()" class="cursor-pointer hover:text-[var(--accent-yellow)] transition-colors">Nort Elétrica</h1>
           <p>Energia Inteligente para Todos</p>
         </div>
       </div>
@@ -397,25 +287,25 @@
         </svg>
       </button>
       <nav id="menu" class="hidden md:flex items-center space-x-4">
-        <a href="index.html" class="hover:text-[var(--solar-yellow)] transition-colors">Início</a>
-        <a href="#servicos" class="hover:text-[var(--solar-yellow)] transition-colors">Serviços</a>
-        <a href="#custom-project" class="hover:text-[var(--solar-yellow)] transition-colors">Monte Seu Projeto</a>
-        <a href="#contact" class="hover:text-[var(--solar-yellow)] transition-colors">Contato</a>
+        <a href="index.html" class="hover:text-[var(--accent-yellow)] transition-colors">Início</a>
+        <a href="#servicos" class="hover:text-[var(--accent-yellow)] transition-colors">Serviços</a>
+        <a href="#custom-project" class="hover:text-[var(--accent-yellow)] transition-colors">Monte Seu Projeto</a>
+        <a href="#contact" class="hover:text-[var(--accent-yellow)] transition-colors">Contato</a>
       </nav>
     </div>
     <div id="mobile-menu" class="md:hidden fixed top-16 right-0 w-full max-w-xs text-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out">
       <button id="close-menu" class="text-white p-4"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
       <div class="flex flex-col p-4 space-y-4">
-        <a href="index.html" class="hover:text-[var(--solar-yellow)] transition-colors">Início</a>
-        <a href="#servicos" class="hover:text-[var(--solar-yellow)] transition-colors">Serviços</a>
-        <a href="#custom-project" class="hover:text-[var(--solar-yellow)] transition-colors">Monte Seu Projeto</a>
-        <a href="#contact" class="hover:text-[var(--solar-yellow)] transition-colors">Contato</a>
+        <a href="index.html" class="hover:text-[var(--accent-yellow)] transition-colors">Início</a>
+        <a href="#servicos" class="hover:text-[var(--accent-yellow)] transition-colors">Serviços</a>
+        <a href="#custom-project" class="hover:text-[var(--accent-yellow)] transition-colors">Monte Seu Projeto</a>
+        <a href="#contact" class="hover:text-[var(--accent-yellow)] transition-colors">Contato</a>
       </div>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="text-white py-28 bg-cover bg-center mt-16 relative" style="background-image: linear-gradient(to right, rgba(37, 99, 235, 0.8), rgba(30, 64, 175, 0.8)), url('/assets/eletrica-predial-hero.webp');">
+  <section class="text-white py-28 bg-cover bg-center mt-16 relative" style="background-image: linear-gradient(to right, rgba(29, 78, 216, 0.8), rgba(23, 37, 84, 0.8)), url('/assets/eletrica-predial-hero.webp');">
     <div class="container mx-auto text-center">
       <h1 class="text-4xl md:text-5xl font-bold mb-6">Elétrica Predial com Segurança e Qualidade</h1>
       <p class="mb-8 text-lg md:text-xl text-blue-100 max-w-2xl mx-auto">Soluções completas em instalações elétricas para residências, comércios e indústrias em São José do Norte/RS.</p>
@@ -713,7 +603,7 @@
           <p class="text-gray-600 text-lg">Estamos prontos para atender você com rapidez e profissionalismo.</p>
           <div class="bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Contato</h3>
-            <p class="text-gray-600"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> E-mail: <a href="mailto:contato@norteletrica.com.br" class="text-[var(--primary-blue)] hover:underline">contato@norteletrica.com.br</a></p>
+            <p class="text-gray-600"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> E-mail: <a href="/cdn-cgi/l/email-protection#d0b3bfbea4b1a4bf90bebfa2a4b5bcb5a4a2b9b3b1feb3bfbdfeb2a2" class="text-[var(--primary-blue)] hover:underline"><span class="__cf_email__" data-cfemail="a0c3cfced4c1d4cfe0cecfd2d4c5ccc5d4d2c9c3c18ec3cfcd8ec2d2">[email&#160;protected]</span></a></p>
             <p class="text-gray-600 mt-2"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l4-4h-.586A1.994 1.994 0 019 14.414" /></svg> WhatsApp: <a href="https://wa.me/5533981087746" class="text-[var(--primary-blue)] hover:underline">+55 53 98108-7746</a></p>
           </div>
           <div class="bg-white p-6 rounded-lg shadow-md">
@@ -736,17 +626,17 @@
           <p class="text-blue-100">Energia Inteligente para Todos</p>
           <p class="text-blue-100 mt-2">Rua: 3, Canastreiro, 177, São José do Norte/RS</p>
           <div class="flex space-x-4 mt-4">
-            <a href="https://www.instagram.com/norteletrica" target="_blank" class="text-white hover:text-[var(--solar-yellow)]"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2m14-1v4M5 20v-4m0-10h4m10 10h-4M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg></a>
-            <a href="https://www.facebook.com/norteletrica" target="_blank" class="text-white hover:text-[var(--solar-yellow)]"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg></a>
+            <a href="https://www.instagram.com/norteletrica" target="_blank" class="text-white hover:text-[var(--accent-yellow)]"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2m14-1v4M5 20v-4m0-10h4m10 10h-4M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg></a>
+            <a href="https://www.facebook.com/norteletrica" target="_blank" class="text-white hover:text-[var(--accent-yellow)]"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg></a>
           </div>
         </div>
         <div>
           <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
           <ul class="space-y-2 text-blue-100">
-            <li><a href="index.html" class="hover:text-[var(--solar-yellow)]">Início</a></li>
-            <li><a href="#servicos" class="hover:text-[var(--solar-yellow)]">Serviços</a></li>
-            <li><a href="#custom-project" class="hover:text-[var(--solar-yellow)]">Monte Seu Projeto</a></li>
-            <li><a href="#contact" class="hover:text-[var(--solar-yellow)]">Contato</a></li>
+            <li><a href="index.html" class="hover:text-[var(--accent-yellow)]">Início</a></li>
+            <li><a href="#servicos" class="hover:text-[var(--accent-yellow)]">Serviços</a></li>
+            <li><a href="#custom-project" class="hover:text-[var(--accent-yellow)]">Monte Seu Projeto</a></li>
+            <li><a href="#contact" class="hover:text-[var(--accent-yellow)]">Contato</a></li>
           </ul>
         </div>
         <div>
@@ -761,9 +651,9 @@
         <div>
           <h3 class="text-xl font-semibold mb-4">Links Úteis</h3>
           <ul class="space-y-2 text-blue-100">
-            <li><a href="/politica-de-privacidade.html" class="hover:text-[var(--solar-yellow)]">Política de Privacidade</a></li>
-            <li><a href="/termos-de-uso.html" class="hover:text-[var(--solar-yellow)]">Termos de Uso</a></li>
-            <li><a href="/area-cliente.html" class="hover:text-[var(--solar-yellow)]">Área do Cliente</a></li>
+            <li><a href="/politica-de-privacidade.html" class="hover:text-[var(--accent-yellow)]">Política de Privacidade</a></li>
+            <li><a href="/termos-de-uso.html" class="hover:text-[var(--accent-yellow)]">Termos de Uso</a></li>
+            <li><a href="/area-cliente.html" class="hover:text-[var(--accent-yellow)]">Área do Cliente</a></li>
           </ul>
         </div>
       </div>
@@ -774,6 +664,7 @@
   </footer>
 
   <!-- Scripts -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" defer></script>
   <script>
     // Menu Mobile
@@ -826,13 +717,13 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    // Mostrar/esconder botão de voltar ao topo
+    // Mostrar/esconder botão de voltar ao topo apenas no desktop
     const scrollTopButton = document.getElementById('scroll-top-button');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        scrollTopButton.style.display = 'flex';
+      if (window.innerWidth > 768 && window.scrollY > 300) {
+        scrollTopButton.classList.add('visible');
       } else {
-        scrollTopButton.style.display = 'none';
+        scrollTopButton.classList.remove('visible');
       }
     });
 
