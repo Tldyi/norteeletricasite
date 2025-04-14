@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -60,7 +61,8 @@
     h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; }
     h2 { font-size: 4rem; letter-spacing: 0.025em; margin-bottom: 2.5rem; }
     p { font-size: 1.1rem; }
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
+  .scroll-top-button, .cta-float { display: none !important; } 
       h2 { font-size: 2.5rem; } 
       p { font-size: 1rem; }
     }
@@ -86,7 +88,8 @@
     }
     header.hidden { transform: translateY(-100%); }
     header.scrolled { background: rgba(30, 58, 138, 0.95); }
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
+  .scroll-top-button, .cta-float { display: none !important; } 
       header { 
         height: 60px; 
       } 
@@ -134,6 +137,7 @@
     .whatsapp-button:hover span, .cta-float:hover span, .scroll-top-button:hover span { transform: translateX(5px); }
     .whatsapp-button img { width: 28px; height: 28px; margin-right: 10px; }
     @media (max-width: 768px) {
+  .scroll-top-button, .cta-float { display: none !important; }
       .whatsapp-button, .cta-float, .scroll-top-button {
         padding: 6px 12px;
         font-size: 0.75rem;
@@ -225,6 +229,7 @@
       width: 100%;
     }
     @media (max-width: 768px) {
+  .scroll-top-button, .cta-float { display: none !important; }
       #gallery-carousel {
         display: flex;
         overflow-x: auto;
@@ -366,6 +371,7 @@
       text-overflow: ellipsis;
     }
     @media (max-width: 768px) {
+  .scroll-top-button, .cta-float { display: none !important; }
       .header-branding {
         max-width: 200px;
       }
@@ -409,6 +415,7 @@
 }
 
 @media (max-width: 768px) {
+  .scroll-top-button, .cta-float { display: none !important; }
   #typed {
     font-size: 1.5rem; /* Reduz o tamanho no mobile */
   }
@@ -428,6 +435,19 @@
   box-shadow: 0 0 20px rgba(34, 197, 94, 0.8);
   transform: scale(1.05);
 }
+@media (max-width: 768px) {
+  .whatsapp-button {
+    bottom: 15px;
+    right: 15px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+  .whatsapp-button img {
+    width: 16px;
+    height: 16px;
+  }
+}
+
   </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
@@ -876,8 +896,8 @@
           <p class="text-gray-600 text-lg">Estamos prontos para atender você com rapidez e profissionalismo.</p>
           <div class="bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Contato</h3>
-            <p class="text-gray-600"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> E-mail: <a href="/cdn-cgi/l/email-protection#d5b6babba1b4a1ba95bbbaa7a1b0b9b0a1a7bcb6b4fbb6bab8fbb7a7" class="text-[var(--primary-blue)] hover:underline"><span class="__cf_email__" data-cfemail="fbd8d4d5cfdacfd4fbd5d4c9cfded7decfc9d2d8da95d8d4d695d9c9">[email protected]</span></a></p>
-            <p class="text-gray-600 mt-2"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l4-4h-.586A1.994 1.994 0 019 14.414" /></svg> WhatsApp: <a href="https://wa.me/5533981087746" class="text-[var(--primary-blue)] hover:underline">+55 53 98108-7746</a></p>
+            <p class="text-gray-600"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> E-mail: <a href="mailto:contato@norteletrica.com.br" class="text-[var(--primary-blue)] hover:underline">contato@norteletrica.com.br</a></p>
+            <p class="text-gray-600 mt-2"><svg class="h-5 w-5 text-[var(--primary-blue)] inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l4-4h-.586A1.994 1.994 0 019 14.414" /></svg> WhatsApp: <a href="https://wa.me/5553981087746" class="text-[var(--primary-blue)] hover:underline">+55 53 98108-7746</a></p>
           </div>
           <div class="bg-white p-6 rounded-lg shadow-md">
             <h3 class="text-xl font-semibold mb-4 text-[var(--primary-blue)]">Horários de Atendimento</h3>
@@ -1219,7 +1239,7 @@
         const systemSize = document.getElementById('system-size').textContent;
         const systemCost = document.getElementById('system-cost').textContent;
         const message = `Olá, calculei meu sistema solar: ${systemSize} kWp, custo estimado R$ ${systemCost}. Gostaria de mais detalhes!`;
-        window.open(`https://wa.me/5533981087746?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/5553981087746?text=${encodeURIComponent(message)}`, '_blank');
       });
 
       // FAQ Toggle
