@@ -190,7 +190,7 @@
     }
     @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
     .whatsapp-button:hover { 
-      transform: scale(1.1); 
+      transform: scale(1.08); 
       box-shadow: var(--shadow-md); 
     }
     .whatsapp-button img { width: 28px; height: 28px; margin-right: 8px; }
@@ -366,10 +366,20 @@
     #mobile-menu {
       top: 60px;
       right: -100%;
+      width: 100%;
+      background: var(--dark-blue);
       transition: right 0.3s ease-in-out;
     }
     #mobile-menu.open {
       right: 0;
+    }
+    #mobile-menu a {
+      color: var(--white);
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+    }
+    #mobile-menu a:hover {
+      color: var(--solar-green);
     }
     @media (max-width: 1024px) {
       .blog-content { max-width: 100%; }
@@ -383,12 +393,12 @@
       .header-branding p { font-size: 0.7rem; }
       .header-branding img { width: 2rem; height: 2rem; }
       .whatsapp-button { 
-        padding: 10px 20px;
-        font-size: 1rem;
+        padding: 8px 16px;
+        font-size: 0.9rem;
         bottom: 20px;
         right: 20px;
       }
-      .whatsapp-button img { width: 24px; height: 24px; }
+      .whatsapp-button img { width: 20px; height: 20px; }
       .blog-hero { 
         height: 350px; 
         background-attachment: scroll;
@@ -432,7 +442,7 @@
         <a href="index.html#contact" class="hover:text-[var(--solar-green)] transition-colors">Contato</a>
       </nav>
     </div>
-    <div id="mobile-menu" class="md:hidden fixed w-full max-w-xs text-white bg-[var(--dark-blue)] shadow-lg z-50">
+    <div id="mobile-menu" class="md:hidden fixed top-60px w-full text-white shadow-lg z-50">
       <button id="close-menu" class="text-white p-4"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
       <div class="flex flex-col p-4 space-y-4">
         <a href="index.html" class="hover:text-[var(--solar-green)] transition-colors">Início</a>
