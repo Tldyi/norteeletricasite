@@ -4,27 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tudo Sobre Sistemas Fotovoltaicos - Nort Elétrica Blog</title>
-  <meta name="description" content="Nova no mercado, a Nort Elétrica oferece sistemas fotovoltaicos para residências, comércios e indústrias no Sul do Rio Grande do Sul. Economize em Rio Grande, Pelotas e região!">
-  <meta name="keywords" content="sistemas fotovoltaicos, energia solar, residencial, comercial, industrial, Sul do Rio Grande do Sul, Rio Grande, Pelotas, São José do Norte, Nort Elétrica">
+  <meta name="description" content="Nova no mercado, a Nort Elétrica oferece sistemas fotovoltaicos para residências, comércios e indústrias em todo o Sul do Rio Grande do Sul, como São José do Norte, Rio Grande e Pelotas. Economize com energia solar!">
+  <meta name="keywords" content="sistemas fotovoltaicos, energia solar, residências, comércios, indústrias, Sul do Rio Grande do Sul, São José do Norte, Rio Grande, Pelotas, Nort Elétrica">
   <meta name="author" content="Nort Elétrica">
-  <!-- Open Graph -->
   <meta property="og:title" content="Tudo Sobre Sistemas Fotovoltaicos - Nort Elétrica Blog">
-  <meta property="og:description" content="Nova no mercado, a Nort Elétrica transforma residências, comércios e indústrias no Sul do Rio Grande do Sul com energia solar econômica e sustentável.">
+  <meta property="og:description" content="A Nort Elétrica oferece soluções em energia solar para residências, comércios e indústrias em todo o Sul do Rio Grande do Sul, incluindo São José do Norte, Rio Grande e Pelotas.">
   <meta property="og:image" content="/assets/sistemas-fotovoltaicos-hero.webp">
   <meta property="og:url" content="https://www.norteletrica.com.br/blog-sistemas-fotovoltaicos.html">
   <meta property="og:type" content="article">
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Tudo Sobre Sistemas Fotovoltaicos - Nort Elétrica Blog">
-  <meta name="twitter:description" content="Nova no mercado, a Nort Elétrica transforma residências, comércios e indústrias no Sul do Rio Grande do Sul com energia solar econômica e sustentável.">
+  <meta name="twitter:description" content="A Nort Elétrica oferece soluções em energia solar para residências, comércios e indústrias em todo o Sul do Rio Grande do Sul, incluindo São José do Norte, Rio Grande e Pelotas.">
   <meta name="twitter:image" content="/assets/sistemas-fotovoltaicos-hero.webp">
-  <!-- Schema Markup -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Tudo Sobre Sistemas Fotovoltaicos",
-    "description": "Nova no mercado, a Nort Elétrica oferece sistemas fotovoltaicos para residências, comércios e indústrias no Sul do Rio Grande do Sul. Economize em Rio Grande, Pelotas e região!",
+    "description": "Nova no mercado, a Nort Elétrica oferece sistemas fotovoltaicos para residências, comércios e indústrias em todo o Sul do Rio Grande do Sul, como São José do Norte, Rio Grande e Pelotas. Economize com energia solar!",
     "author": {
       "@type": "Organization",
       "name": "Nort Elétrica"
@@ -42,7 +39,6 @@
     "url": "https://www.norteletrica.com.br/blog-sistemas-fotovoltaicos.html"
   }
   </script>
-  <!-- Stylesheets -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
@@ -366,7 +362,7 @@
     #mobile-menu {
       top: 60px;
       right: -100%;
-      width: 100%;
+      width: 80%;
       background: var(--dark-blue);
       transition: right 0.3s ease-in-out;
     }
@@ -380,6 +376,71 @@
     }
     #mobile-menu a:hover {
       color: var(--solar-green);
+    }
+    .solar-animation {
+      display: none;
+      margin-top: 1.5rem;
+      background: var(--white);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #e5e7eb;
+    }
+    .solar-animation svg {
+      width: 100%;
+      height: 200px;
+    }
+    .solar-animation .sun {
+      animation: glow 3s infinite;
+    }
+    .solar-animation .flow {
+      stroke-dasharray: 20;
+      stroke-dashoffset: 20;
+      animation: flow 2s infinite linear;
+    }
+    @keyframes glow {
+      0%, 100% { fill: #fbbf24; }
+      50% { fill: #fef08a; }
+    }
+    @keyframes flow {
+      to { stroke-dashoffset: 0; }
+    }
+    .benefits-section {
+      display: none;
+      margin-top: 1.5rem;
+      background: var(--white);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #e5e7eb;
+    }
+    .benefits-section ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .benefits-section li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+      color: #1f2937;
+    }
+    .benefits-section svg {
+      width: 16px;
+      height: 16px;
+    }
+    @media (min-width: 769px) {
+      .sidebar {
+        min-height: 100%;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .solar-animation, .benefits-section { display: block; }
+      .sidebar > div { flex: 0 0 auto; }
     }
     @media (max-width: 1024px) {
       .blog-content { max-width: 100%; }
@@ -413,13 +474,11 @@
   </style>
 </head>
 <body>
-  <!-- WhatsApp Button -->
   <a href="https://wa.me/5553981087746?text=Olá, gostaria de saber mais sobre sistemas fotovoltaicos!" target="_blank" class="whatsapp-button">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
     <span>Fale Conosco</span>
   </a>
 
-  <!-- Header -->
   <header class="text-white">
     <div class="header-container">
       <div class="header-branding">
@@ -453,7 +512,6 @@
     </div>
   </header>
 
-  <!-- Blog Hero -->
   <section class="blog-hero" style="background-image: url('/assets/sistemas-fotovoltaicos-hero.webp');">
     <div class="blog-hero-content">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">Tudo Sobre Sistemas Fotovoltaicos</h1>
@@ -462,21 +520,20 @@
     </div>
   </section>
 
-  <!-- Blog Content -->
   <div class="container mx-auto px-4 py-12 flex flex-col md:flex-row gap-8" id="main-content">
-    <!-- Main Article -->
     <article class="blog-content md:w-2/3">
       <h2 class="text-3xl font-bold">O que são Sistemas Fotovoltaicos?</h2>
-      <p>Sistemas fotovoltaicos convertem luz solar em eletricidade usando painéis com células fotovoltaicas. No Sul do Rio Grande do Sul, essa tecnologia está ganhando força em residências de Pelotas, comércios de Rio Grande e indústrias de São José do Norte, trazendo energia limpa e acessível.</p>
-      <p>Estamos começando com energia total para levar economia e sustentabilidade a todos os setores da região!</p>
+      <p>Sistemas fotovoltaicos são tecnologias que convertem a luz do sol diretamente em eletricidade, utilizando painéis solares compostos por células fotovoltaicas. Essas células, geralmente feitas de silício, geram energia elétrica ao absorver os fótons da luz solar, criando uma corrente elétrica por meio de um processo chamado efeito fotovoltaico. No Sul do Rio Grande do Sul, essa solução está ganhando força, trazendo energia limpa e acessível para diferentes perfis de consumidores em cidades como São José do Norte, Rio Grande e Pelotas.</p>
+      <p>Um sistema fotovoltaico típico inclui alguns componentes principais: os painéis solares, que captam a luz do sol; o inversor, que converte a corrente contínua (DC) gerada pelos painéis em corrente alternada (AC) para uso em eletrodomésticos; e, em alguns casos, baterias para armazenar energia excedente, ideais para sistemas off-grid. Além disso, há cabos, estruturas de suporte e medidores bidirecionais (para sistemas conectados à rede). No clima do Sul do RS, com boa incidência solar mesmo em dias nublados, esses sistemas são altamente eficientes, oferecendo economia na conta de luz e contribuindo para a sustentabilidade ambiental.</p>
+      <p>Estamos começando com energia total para levar economia e sustentabilidade a todos os setores da região, ajudando a reduzir a dependência de fontes de energia não renováveis e a construir um futuro mais verde!</p>
       
       <h2 class="text-3xl font-bold">Por que Escolher Energia Solar no Sul do RS?</h2>
-      <p>A energia solar oferece vantagens para todos:</p>
+      <p>A energia solar oferece vantagens para todos os setores em cidades como São José do Norte, Rio Grande e Pelotas:</p>
       <ul>
-        <li><strong>Residências:</strong> Economize até R$2.000 por ano na conta de luz, como muitas famílias em Pelotas desejam.</li>
-        <li><strong>Comércios:</strong> Lojas em Rio Grande atraem clientes com sustentabilidade e cortam custos fixos.</li>
-        <li><strong>Indústrias:</strong> Fábricas em São José do Norte ganham eficiência com energia barata e certificações verdes.</li>
-        <li><strong>Meio Ambiente:</strong> Ajude a construir um Sul do RS mais limpo com energia renovável.</li>
+        <li><strong>Residências:</strong> Economize até R$2.000 por ano na conta de luz em sua casa, aproveitando o sol abundante da região.</li>
+        <li><strong>Comércios:</strong> Lojas atraem clientes com sustentabilidade e cortam custos fixos, fortalecendo a imagem da marca.</li>
+        <li><strong>Indústrias:</strong> Fábricas ganham eficiência com energia barata e certificações verdes, reduzindo custos operacionais.</li>
+        <li><strong>Meio Ambiente:</strong> Ajude a construir um Sul do RS mais limpo com energia renovável, diminuindo a emissão de gases de efeito estufa.</li>
       </ul>
       <blockquote>“A energia solar é o caminho para um futuro sustentável no Sul do RS, e estamos prontos para liderar essa mudança!” – Equipe Nort Elétrica</blockquote>
       
@@ -485,7 +542,7 @@
       <div class="grid md:grid-cols-3 gap-6 mb-8">
         <div class="card">
           <h3 class="text-xl font-semibold text-[var(--industrial-gray)]">On-Grid</h3>
-          <p>Conectado à rede, ideal para casas e comércios em Pelotas. Transforme o excedente em créditos na conta de luz.</p>
+          <p>Conectado à rede, ideal para residências e comércios. Transforme o excedente em créditos na conta de luz.</p>
         </div>
         <div class="card">
           <h3 class="text-xl font-semibold text-[var(--industrial-gray)]">Off-Grid</h3>
@@ -493,10 +550,9 @@
         </div>
         <div class="card">
           <h3 class="text-xl font-semibold text-[var(--industrial-gray)]">Híbrido</h3>
-          <p>Une rede e baterias, ótimo para indústrias em Rio Grande que buscam estabilidade e autonomia.</p>
+          <p>Une rede e baterias, ótimo para indústrias que buscam estabilidade e autonomia.</p>
         </div>
       </div>
-      <!-- Infográfico SVG -->
       <svg class="w-full h-64 my-8" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
         <rect x="10" y="10" width="180" height="180" fill="#e6f3ea" rx="10"/>
         <circle cx="100" cy="40" r="20" fill="var(--solar-green)"/>
@@ -516,15 +572,15 @@
       </svg>
       
       <h2 class="text-3xl font-bold">Como Funciona a Instalação?</h2>
-      <p>Nossa equipe torna o processo simples e rápido:</p>
+      <p>Nossa equipe torna o processo simples e rápido, garantindo que cada etapa seja personalizada para atender às suas necessidades, seja para uma residência, comércio ou indústria no Sul do RS:</p>
       <ol class="list-decimal">
-        <li><strong>Consulta:</strong> Entendemos o consumo da sua casa, loja ou fábrica.</li>
-        <li><strong>Projeto:</strong> Criamos um sistema sob medida, respeitando o clima local.</li>
-        <li><strong>Instalação:</strong> Montamos tudo com segurança e qualidade certificada.</li>
-        <li><strong>Homologação:</strong> Conectamos à rede, seguindo normas regionais.</li>
-        <li><strong>Ativação:</strong> Você começa a economizar no mesmo dia!</li>
+        <li><strong>Consulta:</strong> Visitamos sua propriedade para entender o seu consumo de energia. Analisamos sua conta de luz, o espaço disponível para instalação e suas expectativas de economia.</li>
+        <li><strong>Projeto:</strong> Desenvolvemos um sistema sob medida, considerando o clima local do Sul do RS, como a incidência solar e os ventos da região. Escolhemos os melhores painéis e inversores para maximizar a eficiência e a durabilidade do sistema.</li>
+        <li><strong>Instalação:</strong> Nossa equipe realiza a montagem dos painéis solares no telhado ou em outra área adequada, instala o inversor e conecta todos os componentes. Tudo é feito com segurança e seguindo normas técnicas, garantindo um acabamento esteticamente agradável.</li>
+        <li><strong>Homologação:</strong> Para sistemas on-grid, cuidamos da documentação junto à concessionária de energia (como a CEEE) para conectar o sistema à rede elétrica. Isso permite que você receba créditos pelo excedente de energia gerada, que pode ser usado em meses de maior consumo.</li>
+        <li><strong>Ativação:</strong> Após a aprovação, ativamos o sistema e você começa a economizar no mesmo dia! Fornecemos um aplicativo para monitorar a produção de energia em tempo real, além de orientações para tirar o melhor proveito do seu sistema fotovoltaico.</li>
       </ol>
-      <img src="/assets/instalacao-fotovoltaica.webp" alt="Instalação profissional de painéis solares em Pelotas, RS" class="h-64 my-8" loading="lazy">
+      <img src="/assets/instalacao-fotovoltaica.webp" alt="Instalação profissional de painéis solares no Sul do RS" class="h-64 my-8" loading="lazy">
       
       <h2 class="text-3xl font-bold">Manutenção Fácil</h2>
       <p>Mantenha seu sistema sempre eficiente com cuidados simples:</p>
@@ -535,7 +591,7 @@
       </ul>
       
       <h2 class="text-3xl font-bold">Nort Elétrica: Sua Nova Parceira no Sul do RS</h2>
-      <p>Somos uma empresa nova, mas com uma equipe qualificada e paixão por energia solar. Atendemos residências em Pelotas, comércios em Rio Grande e indústrias em São José do Norte com projetos de 5kW a 1MW, garantindo economia em até 5 anos. Nosso compromisso é trazer inovação, qualidade e suporte local para você.</p>
+      <p>Somos uma empresa nova, mas com uma equipe qualificada e paixão por energia solar. Atendemos residências, comércios e indústrias em todo o Sul do Rio Grande do Sul, incluindo cidades como São José do Norte, Rio Grande e Pelotas, com projetos de 5kW a 1MW que garantem economia em até 5 anos. Nosso compromisso é trazer inovação, qualidade e suporte local para você, ajudando a transformar o Sul do RS em uma região mais sustentável.</p>
       
       <div class="divider"></div>
       
@@ -555,7 +611,6 @@
         </div>
       </div>
       
-      <!-- Share Buttons -->
       <div class="mt-8">
         <h3 class="text-xl font-semibold text-[var(--industrial-gray)] mb-4">Compartilhe este Artigo</h3>
         <div class="share-buttons flex space-x-4">
@@ -568,7 +623,6 @@
         </div>
       </div>
       
-      <!-- Call to Action -->
       <div class="text-center mt-12">
         <h2 class="text-3xl font-bold text-[var(--primary-blue)] mb-6">Energia Solar no Sul do RS? Comece com a Nort Elétrica!</h2>
         <p class="mb-8 text-lg">Nova no mercado, mas com qualidade garantida para sua casa, loja ou indústria!</p>
@@ -579,23 +633,76 @@
       </div>
     </article>
 
-    <!-- Sidebar -->
     <aside class="sidebar md:w-1/3">
       <div class="mb-8">
         <h3 class="font-bold">Sobre a Nort Elétrica</h3>
-        <p class="text-gray-600 text-sm mt-2">Nova no mercado, a Nort Elétrica traz inovação em energia solar para residências, comércios e indústrias no Sul do Rio Grande do Sul.</p>
+        <p class="text-gray-600 text-sm mt-2">Nova no mercado, a Nort Elétrica traz inovação em energia solar para residências, comércios e indústrias em todo o Sul do Rio Grande do Sul, incluindo São José do Norte, Rio Grande e Pelotas.</p>
         <a href="index.html#contact" class="btn-primary mt-4 inline-block">Entre em Contato</a>
+        <div class="solar-animation">
+          <svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="20" fill="#fbbf24" class="sun"/>
+            <path d="M20 30l-10-10M40 30l10-10M30 20l-10-10M30 40l-10 10M20 30l-10 10M40 30l10 10M30 20l10-10M30 40l10 10" stroke="#fef08a" stroke-width="2"/>
+            <path d="M50 30h40" stroke="var(--solar-green)" stroke-width="3" class="flow"/>
+            <rect x="90" y="20" width="40" height="20" fill="var(--primary-blue)"/>
+            <rect x="95" y="25" width="30" height="10" fill="var(--white)"/>
+            <path d="M130 30h40" stroke="var(--solar-green)" stroke-width="3" class="flow"/>
+            <rect x="170" y="20" width="30" height="20" fill="var(--industrial-gray)"/>
+            <rect x="175" y="25" width="20" height="10" fill="var(--white)"/>
+            <path d="M200 30h40" stroke="var(--solar-green)" stroke-width="3" class="flow"/>
+            <rect x="240" y="20" width="40" height="30" fill="var(--primary-blue)"/>
+            <path d="M240 20l20-15 20 15" fill="var(--solar-green)"/>
+            <text x="30" y="60" text-anchor="middle" fill="#1f2937" font-size="12">Sol</text>
+            <text x="110" y="60" text-anchor="middle" fill="#1f2937" font-size="12">Painel</text>
+            <text x="185" y="60" text-anchor="middle" fill="#1f2937" font-size="12">Inversor</text>
+            <text x="260" y="60" text-anchor="middle" fill="#1f2937" font-size="12">Casa</text>
+          </svg>
+        </div>
+        <div class="benefits-section">
+          <h4 class="text-lg font-semibold text-[var(--primary-blue)] mb-3">Por que Escolher a Nort Elétrica?</h4>
+          <ul>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="var(--solar-green)" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+              </svg>
+              Economize até R$2.000/ano na conta de luz
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="var(--solar-green)" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+              </svg>
+              Sustentabilidade para o Sul do RS
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="var(--solar-green)" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+              </svg>
+              Retorno em até 5 anos
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="var(--solar-green)" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+              </svg>
+              Projetos de 5kW a 1MW
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="var(--solar-green)" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+              </svg>
+              Suporte local em Pelotas e região
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="mb-8">
         <h3 class="font-bold">Projetos Recentes</h3>
         <div class="space-y-4 mt-2">
           <div class="project-item flex items-center space-x-4">
-            <img src="/assets/projeto-residencial.webp" alt="Instalação residencial em Pelotas" class="w-16 h-16 object-cover rounded" loading="lazy">
-            <a href="#" class="text-sm">Residência em Pelotas (Em Breve)</a>
+            <img src="/assets/projeto-residencial.webp" alt="Instalação residencial no Sul do RS" class="w-16 h-16 object-cover rounded" loading="lazy">
+            <a href="#" class="text-sm">Residência no Sul do RS (Em Breve)</a>
           </div>
           <div class="project-item flex items-center space-x-4">
-            <img src="/assets/projeto-comercial.webp" alt="Loja em Rio Grande" class="w-16 h-16 object-cover rounded" loading="lazy">
-            <a href="#" class="text-sm">Loja em Rio Grande (Em Breve)</a>
+            <img src="/assets/projeto-comercial.webp" alt="Loja no Sul do RS" class="w-16 h-16 object-cover rounded" loading="lazy">
+            <a href="#" class="text-sm">Loja no Sul do RS (Em Breve)</a>
           </div>
         </div>
       </div>
@@ -620,7 +727,6 @@
     </aside>
   </div>
 
-  <!-- Footer -->
   <footer class="text-white py-12">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -644,78 +750,27 @@
           </ul>
         </div>
         <div>
-          <h3 class="text-xl font-semibold mb-4">Formas de Pagamento</h3>
-          <div class="flex flex-wrap gap-4">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="h-8" loading="lazy">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="h-8" loading="lazy">
-            <img src="/assets/pix.webp" alt="PIX" class="h-8" loading="lazy">
-          </div>
-          <p class="text-blue-100 mt-2 text-lg">Parcelamento em até 12x</p>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-4">Links Úteis</h3>
+          <h3 class="text-xl font-semibold mb-4">Políticas</h3>
           <ul class="space-y-2 text-blue-100 text-lg">
-            <li><a href="/politica-de-privacidade.html" class="hover:text-[var(--solar-green)]">Política de Privacidade</a></li>
-            <li><a href="/termos-de-uso.html" class="hover:text-[var(--solar-green)]">Termos de Uso</a></li>
-            <li><a href="index.html#contact" class="hover:text-[var(--solar-green)]">Contato</a></li>
+            <li><a href="politica-de-privacidade.html" class="hover:text-[var(--solar-green)]">Política de Privacidade</a></li>
+            <li><a href="termos-de-uso.html" class="hover:text-[var(--solar-green)]">Termos de Uso</a></li>
+            <li><a href="area-do-cliente.html" class="hover:text-[var(--solar-green)]">Área do Cliente</a></li>
           </ul>
         </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Contato</h3>
+          <p class="text-blue-100 text-lg">Email: contato@norteletrica.com.br</p>
+          <p class="text-blue-100 mt-2 text-lg">Telefone: (53) 98108-7746</p>
+          <p class="text-blue-100 mt-2 text-lg">Horário: Seg-Sex, 8h-18h</p>
+        </div>
       </div>
-      <div class="mt-8 text-center border-t border-blue-700 pt-4">
-        <p id="footer-year" class="text-blue-100 text-lg">© 2025 Nort Elétrica. Todos os direitos reservados.</p>
+      <div class="text-center mt-8 text-blue-100">
+        <p>© 2025 Nort Elétrica. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script>
-    // Menu Mobile
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const closeMenu = document.getElementById('close-menu');
-
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-      document.querySelector('.menu-open').classList.toggle('hidden');
-      document.querySelector('.menu-close').classList.toggle('hidden');
-    });
-
-    closeMenu.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      document.querySelector('.menu-open').classList.remove('hidden');
-      document.querySelector('.menu-close').classList.add('hidden');
-    });
-
-    // Fechar menu ao clicar em links
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        document.querySelector('.menu-open').classList.remove('hidden');
-        document.querySelector('.menu-close').classList.add('hidden');
-      });
-    });
-
-    // Fechar menu ao clicar fora
-    document.addEventListener('click', (e) => {
-      if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target) && mobileMenu.classList.contains('open')) {
-        mobileMenu.classList.remove('open');
-        document.querySelector('.menu-open').classList.remove('hidden');
-        document.querySelector('.menu-close').classList.add('hidden');
-      }
-    });
-
-    // Navegação suave
-    document.querySelectorAll('nav a, #mobile-menu a, .blog-hero-content a').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        const href = anchor.getAttribute('href');
-        if (href.startsWith('#')) {
-          e.preventDefault();
-          document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-
-    // Controle do cabeçalho ao rolar
     let lastScrollTop = 0;
     const header = document.querySelector('header');
     window.addEventListener('scroll', () => {
@@ -725,23 +780,31 @@
       } else {
         header.classList.remove('hidden');
       }
-      header.classList.toggle('scrolled', scrollTop > 50);
+      if (scrollTop > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
 
-    // Animações de entrada
-    const sections = document.querySelectorAll('.blog-content');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    sections.forEach(section => observer.observe(section));
+    const blogContent = document.querySelector('.blog-content');
+    window.addEventListener('scroll', () => {
+      const rect = blogContent.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.8) {
+        blogContent.classList.add('visible');
+      }
+    });
 
-    // Atualizar ano no footer
-    document.getElementById('footer-year').textContent = `© ${new Date().getFullYear()} Nort Elétrica. Todos os direitos reservados.`;
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuOpen = document.querySelector('.menu-open');
+    const menuClose = document.querySelector('.menu-close');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      menuOpen.classList.toggle('hidden');
+      menuClose.classList.toggle('hidden');
+    });
   </script>
 </body>
 </html>
