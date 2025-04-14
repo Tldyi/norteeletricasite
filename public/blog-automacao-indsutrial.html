@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automação Residencial: O Futuro Hoje - Nort Elétrica Blog</title>
+  <meta name="description" content="Transforme sua casa com automação residencial! A Nort Elétrica traz tecnologia inteligente para o Sul do Rio Grande do Sul, incluindo São José do Norte, Rio Grande e Pelotas.">
+  <meta name="keywords" content="automação residencial, tecnologia inteligente, casa inteligente, Sul do Rio Grande do Sul, São José do Norte, Rio Grande, Pelotas, Nort Elétrica">
+  <meta name="author" content="Nort Elétrica">
+  <meta property="og:title" content="Automação Residencial: O Futuro Hoje - Nort Elétrica Blog">
+  <meta property="og:description" content="A Nort Elétrica oferece soluções em automação residencial para transformar sua casa no Sul do Rio Grande do Sul, incluindo São José do Norte, Rio Grande e Pelotas.">
+  <meta property="og:image" content="/assets/automacao-residencial-hero.webp">
+  <meta property="og:url" content="https://www.norteletrica.com.br/blog-automacao-residencial.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Automação Residencial: O Futuro Hoje - Nort Elétrica Blog">
+  <meta name="twitter:description" content="A Nort Elétrica oferece soluções em automação residencial para transformar sua casa no Sul do Rio Grande do Sul, incluindo São José do Norte, Rio Grande e Pelotas.">
+  <meta name="twitter:image" content="/assets/automacao-residencial-hero.webp">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Automação Residencial: O Futuro Hoje",
+    "description": "Transforme sua casa com automação residencial! A Nort Elétrica traz tecnologia inteligente para o Sul do Rio Grande do Sul, incluindo São José do Norte, Rio Grande e Pelotas.",
+    "author": {
+      "@type": "Organization",
+      "name": "Nort Elétrica"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Nort Elétrica",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/assets/icone-nort-eletrica.webp"
+      }
+    },
+    "datePublished": "2025-04-14",
+    "image": "/assets/automacao-residencial-hero.webp",
+    "url": "https://www.norteletrica.com.br/blog-automacao-residencial.html"
+  }
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #1e3a8a;
+      --secondary-blue: #3b82f6;
+      --dark-blue: #1e293b;
+      --industrial-orange: #F97316;
+      --metallic-gray: #6B7280;
+      --light-bg: #e5e7eb;
+      --white: #ffffff;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 6px 12px rgba(0, 0, 0, 0.08);
+      --neon-blue: #00ddeb;
+      --neon-purple: #d400ff;
+    }
+    html, body { 
+      margin: 0; 
+      padding: 0; 
+      width: 100%;
+      overflow-x: hidden;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body { 
+      background: var(--white); 
+      padding-top: 80px; 
+      color: #1f2937;
+      line-height: 1.7;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+    h1, h2, h3 { font-family: 'Orbitron', sans-serif; font-weight: 700; }
+    header { 
+      background: var(--dark-blue); 
+      box-shadow: var(--shadow-sm); 
+      height: 80px; 
+      position: fixed; 
+      top: 0; 
+      width: 100%; 
+      z-index: 50; 
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    header.hidden { transform: translateY(-100%); }
+    header.scrolled { 
+      background: rgba(30, 41, 59, 0.98); 
+      border-bottom: 2px solid var(--neon-blue); 
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .header-branding {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      max-width: 300px;
+    }
+    .header-branding img {
+      width: 2.5rem;
+      height: 2.5rem;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 10px rgba(0, 221, 235, 0.5));
+    }
+    .header-branding img:hover {
+      transform: rotate(15deg);
+    }
+    .header-branding .branding-text {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .header-branding h1 {
+      font-size: 1.6rem;
+      color: var(--white);
+      margin: 0;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .header-branding p {
+      font-size: 0.85rem;
+      color: #93c5fd;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .btn-primary { 
+      background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple)); 
+      color: var(--white); 
+      padding: 14px 28px; 
+      border-radius: 6px; 
+      transition: all 0.3s ease; 
+      font-weight: 600; 
+      display: inline-flex; 
+      align-items: center; 
+      box-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .btn-primary:hover { 
+      transform: translateY(-2px); 
+      box-shadow: 0 0 20px rgba(0, 221, 235, 0.8);
+    }
+    .btn-secondary { 
+      background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue)); 
+      color: var(--white); 
+      padding: 14px 28px; 
+      border-radius: 6px; 
+      transition: all 0.3s ease; 
+      font-weight: 600; 
+      display: inline-flex; 
+      align-items: center; 
+      box-shadow: 0 0 10px rgba(212, 0, 255, 0.5);
+      text-transform: uppercase;
+    }
+    .btn-secondary:hover { 
+      transform: translateY(-2px); 
+      box-shadow: 0 0 20px rgba(212, 0, 255, 0.8);
+    }
+    .whatsapp-button { 
+      position: fixed; 
+      color: var(--white); 
+      border-radius: 50px; 
+      padding: 12px 24px; 
+      display: flex; 
+      align-items: center; 
+      box-shadow: 0 0 10px rgba(0, 221, 235, 0.5); 
+      transition: all 0.3s ease; 
+      z-index: 1000; 
+      font-weight: 600;
+      text-transform: uppercase;
+      animation: pulse 2s infinite;
+      bottom: 30px; 
+      right: 30px; 
+      background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    .whatsapp-button:hover { 
+      transform: scale(1.08); 
+      box-shadow: 0 0 20px rgba(0, 221, 235, 0.8); 
+    }
+    .whatsapp-button img { width: 28px; height: 28px; margin-right: 8px; }
+    footer { background: var(--dark-blue); }
+    .blog-hero {
+      position: relative;
+      height: 500px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      margin-bottom: 3rem;
+      background-attachment: fixed;
+      background-image: linear-gradient(to bottom, rgba(0, 221, 235, 0.3), rgba(212, 0, 255, 0.3)), url('/assets/automacao-residencial-hero.webp');
+    }
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAHUlEQVQYV2N89uzZfwY0wEBjY2NjY2NjY2NjY2NjAQD7vBL7gT6hRwAAAABJRU5ErkJggg==') repeat;
+      opacity: 0.1;
+    }
+    .blog-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      padding: 0 20px;
+      text-shadow: 0 0 10px rgba(0, 221, 235, 0.8);
+    }
+    .blog-hero-content h1 {
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-purple); }
+      to { text-shadow: 0 0 20px var(--neon-blue), 0 0 30px var(--neon-purple); }
+    }
+    .blog-content {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      border: 1px solid rgba(0, 221, 235, 0.2);
+    }
+    .blog-content.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .blog-content img {
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+      transition: transform 0.3s ease;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .blog-content img:hover {
+      transform: scale(1.02);
+    }
+    .blog-content ul, .blog-content ol {
+      list-style-position: inside;
+      margin: 2rem 0;
+      color: #1f2937;
+      font-weight: 300;
+    }
+    .blog-content h2 {
+      color: var(--neon-blue);
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      font-size: 2.25rem;
+      position: relative;
+      text-shadow: 0 0 5px rgba(0, 221, 235, 0.5);
+    }
+    .blog-content h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+      margin-top: 0.5rem;
+    }
+    .blog-content h3 {
+      color: var(--metallic-gray);
+      margin-top: 2rem;
+      font-size: 1.75rem;
+    }
+    .blog-content p {
+      font-weight: 300;
+      color: #1f2937;
+      margin-bottom: 2rem;
+    }
+    .blog-content blockquote {
+      border-left: 4px solid var(--neon-blue);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      color: #1f2937;
+      font-style: italic;
+      font-weight: 400;
+      background: rgba(0, 221, 235, 0.1);
+      padding: 1.5rem;
+      border-radius: 6px;
+    }
+    .sidebar {
+      background: var(--light-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+    .sidebar h3 {
+      color: var(--neon-blue);
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .sidebar a {
+      color: var(--metallic-gray);
+      transition: color 0.3s ease;
+    }
+    .sidebar a:hover {
+      color: var(--neon-blue);
+    }
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 221, 235, 0.3);
+      transition: all 0.3s ease;
+      border: 2px solid rgba(0, 221, 235, 0.2);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .benefit-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--neon-blue);
+      box-shadow: 0 0 20px rgba(0, 221, 235, 0.5);
+    }
+    .benefit-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 221, 235, 0.3), transparent);
+      transition: 0.5s;
+    }
+    .benefit-item:hover::before {
+      left: 100%;
+    }
+    .benefit-item h3 {
+      color: var(--metallic-gray);
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .benefit-item p {
+      font-size: 0.95rem;
+      margin: 0;
+    }
+    .share-buttons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--metallic-gray);
+      color: var(--white);
+      transition: background 0.3s ease;
+    }
+    .share-buttons a:hover {
+      background: var(--neon-blue);
+    }
+    .divider {
+      border-top: 1px solid var(--light-bg);
+      margin: 2rem 0;
+    }
+    .newsletter-form input {
+      border: 1px solid rgba(0, 221, 235, 0.5);
+      padding: 12px;
+      border-radius: 8px;
+      width: 100%;
+      margin-bottom: 1rem;
+      font-weight: 300;
+      background: var(--white);
+      color: #1f2937;
+    }
+    .newsletter-form input::placeholder {
+      color: #6b7280;
+    }
+    .newsletter-form button {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+    .project-item {
+      background: var(--white);
+      padding: 0.75rem;
+      border-radius: 8px;
+    }
+    #mobile-menu {
+      top: 60px;
+      right: -100%;
+      width: 80%;
+      background: var(--dark-blue);
+      transition: right 0.3s ease-in-out;
+    }
+    #mobile-menu.open {
+      right: 0;
+    }
+    #mobile-menu a {
+      color: var(--white);
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+    }
+    #mobile-menu a:hover {
+      color: var(--neon-blue);
+    }
+    .futuristic-animation {
+      display: none;
+      margin-top: 1.5rem;
+      background: var(--white);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 221, 235, 0.3);
+      border: 1px solid rgba(0, 221, 235, 0.2);
+    }
+    .futuristic-animation svg {
+      width: 100%;
+      height: 200px;
+    }
+    .futuristic-animation .light {
+      animation: flicker 1.5s infinite;
+    }
+    .futuristic-animation .pulse {
+      animation: pulse-light 2s infinite;
+    }
+    @keyframes flicker {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    @keyframes pulse-light {
+      0%, 100% { fill: var(--neon-blue); }
+      50% { fill: var(--neon-purple); }
+    }
+    .benefits-section {
+      display: none;
+      margin-top: 1.5rem;
+      background: var(--white);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 221, 235, 0.3);
+      border: 1px solid rgba(0, 221, 235, 0.2);
+    }
+    .benefits-section ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .benefits-section li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+      color: #1f2937;
+    }
+    .benefits-section svg {
+      width: 16px;
+      height: 16px;
+    }
+    .simulator {
+      background: rgba(0, 221, 235, 0.1);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+      box-shadow: 0 0 10px rgba(0, 221, 235, 0.3);
+    }
+    .simulator input, .simulator button {
+      padding: 10px;
+      border-radius: 6px;
+      margin: 0.5rem 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .simulator input {
+      border: 1px solid rgba(0, 221, 235, 0.5);
+    }
+    .simulator button {
+      background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+      color: var(--white);
+      font-weight: 600;
+      border: none;
+      transition: all 0.3s ease;
+    }
+    .simulator button:hover {
+      box-shadow: 0 0 20px rgba(0, 221, 235, 0.8);
+    }
+    .simulator p {
+      margin-top: 1rem;
+      font-weight: 400;
+      color: var(--neon-blue);
+    }
+    @media (min-width: 769px) {
+      .sidebar {
+        min-height: 100%;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .futuristic-animation, .benefits-section { display: block; }
+      .sidebar > div { flex: 0 0 auto; }
+    }
+    @media (max-width: 1024px) {
+      .blog-content { max-width: 100%; }
+      .sidebar { margin-top: 2rem; }
+    }
+    @media (max-width: 768px) {
+      body { padding-top: 60px; }
+      header { height: 60px; }
+      .header-branding { max-width: 200px; }
+      .header-branding h1 { font-size: 1.3rem; }
+      .header-branding p { font-size: 0.7rem; }
+      .header-branding img { width: 2rem; height: 2rem; }
+      .whatsapp-button { 
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        bottom: 20px;
+        right: 20px;
+      }
+      .whatsapp-button img { width: 20px; height: 20px; }
+      .blog-hero { 
+        height: 400px; 
+        background-attachment: scroll;
+      }
+      .blog-hero-content h1 { font-size: 2.5rem; }
+      .blog-hero-content .btn-primary { padding: 12px 24px; }
+      .blog-content { padding: 1.5rem; }
+      .blog-content h2 { font-size: 1.65rem; }
+      .blog-content h3 { font-size: 1.4rem; }
+      .blog-content p, .blog-content ul li, .blog-content ol li { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="https://wa.me/5553981087746?text=Olá, gostaria de saber mais sobre automação residencial!" target="_blank" class="whatsapp-button">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+    <span>Fale Conosco</span>
+  </a>
+
+  <header class="text-white">
+    <div class="header-container">
+      <div class="header-branding">
+        <img src="/assets/icone-nort-eletrica.webp" alt="Ícone da Nort Elétrica" class="w-10 h-10" loading="lazy">
+        <div class="branding-text">
+          <h1 onclick="window.location.href='index.html'" class="cursor-pointer hover:text-[var(--neon-blue)] transition-colors">Nort Elétrica</h1>
+          <p>Energia Inteligente para Todos</p>
+        </div>
+      </div>
+      <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menu">
+        <svg class="w-8 h-8 text-white transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" class="menu-open"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" class="menu-close hidden"></path>
+        </svg>
+      </button>
+      <nav id="menu" class="hidden md:flex items-center space-x-6">
+        <a href="index.html" class="hover:text-[var(--neon-blue)] transition-colors">Início</a>
+        <a href="blog.html" class="hover:text-[var(--neon-blue)] transition-colors">Blog</a>
+        <a href="sistemas-fotovoltaicos.html" class="hover:text-[var(--neon-blue)] transition-colors">Serviços</a>
+        <a href="index.html#contact" class="hover:text-[var(--neon-blue)] transition-colors">Contato</a>
+      </nav>
+    </div>
+    <div id="mobile-menu" class="md:hidden fixed top-60px w-full text-white shadow-lg z-50">
+      <button id="close-menu" class="text-white p-4"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+      <div class="flex flex-col p-4 space-y-4">
+        <a href="index.html" class="hover:text-[var(--neon-blue)] transition-colors">Início</a>
+        <a href="blog.html" class="hover:text-[var(--neon-blue)] transition-colors">Blog</a>
+        <a href="sistemas-fotovoltaicos.html" class="hover:text-[var(--neon-blue)] transition-colors">Serviços</a>
+        <a href="index.html#contact" class="hover:text-[var(--neon-blue)] transition-colors">Contato</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="blog-hero">
+    <div class="blog-hero-content">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Automação Residencial: O Futuro Hoje</h1>
+      <p class="text-xl mb-6 font-semibold text-[var(--neon-blue)]">Transforme sua Casa com Tecnologia Inteligente</p>
+      <p class="text-lg mb-6">Por Nort Elétrica | 14 de Abril de 2025</p>
+      <a href="#main-content" class="btn-primary text-lg">Descubra Mais</a>
+    </div>
+  </section>
+
+  <div class="container mx-auto px-4 py-12 flex flex-col md:flex-row gap-8" id="main-content">
+    <article class="blog-content md:w-2/3">
+      <h2 class="text-3xl font-bold">O que é Automação Residencial?</h2>
+      <p>Automação residencial é a integração de tecnologias inteligentes para controlar e gerenciar sistemas da sua casa, como iluminação, climatização, segurança e entretenimento, tudo de forma prática e eficiente. Imagine ajustar as luzes, abrir as cortinas ou monitorar câmeras de segurança com um simples toque no celular ou comando de voz. No Sul do Rio Grande do Sul, a Nort Elétrica traz essas soluções futuristas para cidades como São José do Norte, Rio Grande e Pelotas, transformando casas em espaços inteligentes e conectados.</p>
+      <p>Com sistemas como Google Home, Alexa ou soluções personalizadas, a automação residencial não é mais coisa de filme de ficção científica – é uma realidade acessível que pode melhorar sua qualidade de vida, trazer conforto e economizar energia.</p>
+      
+      <h2 class="text-3xl font-bold">Benefícios da Automação Residencial</h2>
+      <p>Investir em automação residencial traz vantagens incríveis para sua casa:</p>
+      <div class="mb-8">
+        <div class="benefit-item">
+          <div>
+            <h3 class="font-semibold">Conforto e Praticidade</h3>
+            <p>Controle luzes, ar-condicionado e eletrodomésticos pelo celular ou por voz, sem sair do sofá.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div>
+            <h3 class="font-semibold">Economia de Energia</h3>
+            <p>Programe sistemas para desligar automaticamente e economize até 25% na conta de luz.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div>
+            <h3 class="font-semibold">Segurança Avançada</h3>
+            <p>Monitore câmeras, receba alertas de movimento e controle fechaduras de qualquer lugar.</p>
+          </div>
+        </div>
+      </div>
+      
+      <h2 class="text-3xl font-bold">Como Funciona o Processo?</h2>
+      <p>A Nort Elétrica segue um processo claro para trazer a automação residencial ao Sul do RS:</p>
+      <ol class="list-decimal">
+        <li><strong>Consultoria:</strong> Avaliamos sua casa e suas necessidades para criar um projeto personalizado.</li>
+        <li><strong>Planejamento:</strong> Escolhemos os melhores dispositivos e sistemas para sua residência.</li>
+        <li><strong>Instalação:</strong> Integramos os equipamentos com segurança e sem complicações.</li>
+        <li><strong>Configuração:</strong> Configuramos tudo para funcionar com seu celular ou assistente de voz.</li>
+        <li><strong>Suporte:</strong> Oferecemos suporte contínuo para ajustes e melhorias.</li>
+      </ol>
+      <img src="/assets/automacao-residencial-instalacao.webp" alt="Instalação de automação residencial no Sul do RS" class="h-64 my-8" loading="lazy">
+      
+      <h2 class="text-3xl font-bold">Exemplos Práticos de Automação</h2>
+      <p>Veja como a automação pode transformar sua rotina:</p>
+      <ul>
+        <li><strong>Iluminação Inteligente:</strong> Programe luzes para acender ao entardecer ou crie cenários para diferentes momentos, como "jantar" ou "cinema".</li>
+        <li><strong>Climatização:</strong> Ajuste o ar-condicionado para ligar antes de você chegar em casa, mantendo a temperatura perfeita.</li>
+        <li><strong>Segurança:</strong> Receba notificações no celular se uma porta for aberta ou integre câmeras para monitoramento em tempo real.</li>
+        <li><strong>Entretenimento:</strong> Controle a TV, som e cortinas com um único comando para uma noite de filme perfeita.</li>
+      </ul>
+      <blockquote>“A automação residencial é o futuro que você pode viver hoje. Deixe a Nort Elétrica transformar sua casa!” – Equipe Nort Elétrica</blockquote>
+      
+      <h2 class="text-3xl font-bold">Simule sua Economia</h2>
+      <div class="simulator">
+        <p class="mb-4">Insira o consumo mensal da sua casa (em kWh) e veja quanto pode economizar com automação:</p>
+        <input type="number" id="consumption" placeholder="Ex: 300 kWh" min="0">
+        <button onclick="calculateSavings()">Calcular Economia</button>
+        <p id="savings-result"></p>
+      </div>
+      
+      <h2 class="text-3xl font-bold">Nort Elétrica: Tecnologia no Sul do RS</h2>
+      <p>Somos uma empresa nova, mas apaixonada por inovação. Atendemos residências em São José do Norte, Rio Grande, Pelotas e outras cidades do Sul do Rio Grande do Sul, oferecendo projetos de automação residencial que combinam tecnologia, conforto e economia. Nosso foco é tornar sua casa mais inteligente, segura e eficiente, com suporte local e personalizado.</p>
+      
+      <div class="divider"></div>
+      
+      <h2 class="text-3xl font-bold">Perguntas Frequentes</h2>
+      <div class="space-y-4">
+        <div>
+          <h3 class="text-xl font-semibold text-[var(--metallic-gray)]">Quanto custa um projeto de automação residencial?</h3>
+          <p>A partir de R$5.000 para projetos básicos, com opções de parcelamento.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-[var(--metallic-gray)]">Preciso de internet para automação?</h3>
+          <p>Sim, a maioria dos sistemas depende de Wi-Fi para controle remoto, mas algumas funções podem operar offline.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-[var(--metallic-gray)]">Quanto tempo leva a instalação?</h3>
+          <p>De 2 a 5 dias, dependendo do tamanho do projeto.</p>
+        </div>
+      </div>
+      
+      <div class="mt-8">
+        <h3 class="text-xl font-semibold text-[var(--metallic-gray)] mb-4">Compartilhe este Artigo</h3>
+        <div class="share-buttons flex space-x-4">
+          <a href="https://wa.me/?text=Confira este artigo sobre automação residencial: https://www.norteletrica.com.br/blog-automacao-residencial.html" target="_blank">
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.134.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.074-.149-.669-.719-.889-.986-.219-.267-.422-.356-.622-.256-.198.099-.469.396-.692.692-.222.297-.356.623-.356.998 0 .375.148.713.445.986.297.273.667.645 1.114.89.445.247.963.494 1.408.692.445.198.841.346 1.135.445.297.099.592.099.889-.025.297-.124.642-.396.94-.692.297-.297.593-.571.692-.842.099-.272.099-.497-.050-.645-.148-.149-.346-.198-.644-.347zM12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.norteletrica.com.br/blog-automacao-residencial.html" target="_blank">
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <h2 class="text-3xl font-bold text-[var(--neon-blue)] mb-6">Automação Residencial no Sul do RS? A Nort Elétrica Faz Acontecer!</h2>
+        <p class="mb-8 text-lg">Transforme sua casa com tecnologia de ponta!</p>
+        <div class="space-x-4">
+          <a href="index.html#contact" class="btn-primary">Solicitar Orçamento</a>
+          <a href="https://wa.me/5553981087746?text=Olá, quero saber mais sobre automação residencial no Sul do RS!" target="_blank" class="btn-secondary">Fale pelo WhatsApp</a>
+        </div>
+      </div>
+    </article>
+
+    <aside class="sidebar md:w-1/3">
+      <div class="mb-8">
+        <h3 class="font-bold">Sobre a Nort Elétrica</h3>
+        <p class="text-gray-600 text-sm mt-2">Nova no mercado, a Nort Elétrica traz soluções em automação residencial para casas em todo o Sul do Rio Grande do Sul, incluindo São José do Norte, Rio Grande e Pelotas.</p>
+        <a href="index.html#contact" class="btn-primary mt-4 inline-block">Entre em Contato</a>
+        <div class="futuristic-animation">
+          <svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">
+            <rect x="100" y="20" width="100" height="60" fill="var(--metallic-gray)" stroke="var(--neon-blue)" stroke-width="2"/>
+            <rect x="120" y="40" width="20" height="10" fill="var(--neon-blue)" class="light"/>
+            <rect x="160" y="40" width="20" height="10" fill="var(--neon-blue)" class="light" style="animation-delay: 0.5s;"/>
+            <path d="M100 20l-20-15h40z" fill="var(--neon-purple)" class="pulse"/>
+            <path d="M200 20l20-15h-40z" fill="var(--neon-purple)" class="pulse"/>
+            <circle cx="150" cy="90" r="5" fill="var(--neon-blue)" class="pulse"/>
+            <text x="150" y="110" text-anchor="middle" fill="#1f2937" font-size="12">Casa Inteligente</text>
+          </svg>
+        </div>
+        <div class="benefits-section">
+          <h4 class="text-lg font-semibold text-[var(--neon-blue)] mb-3">Por que Escolher a Nort Elétrica?</h4>
+          <ul>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="var(--neon-blue)" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+              </svg>
+              Projetos personalizados
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="var(--neon-blue)" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+              </svg>
+              Tecnologia de ponta
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="var(--neon-blue)" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+              </svg>
+              Economia de energia
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="var(--neon-blue)" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+              </svg>
+              Suporte local no Sul do RS
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="var(--neon-blue)" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+              </svg>
+              Atendimento personalizado
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mb-8">
+        <h3 class="font-bold">Projetos Recentes</h3>
+        <div class="space-y-4 mt-2">
+          <div class="project-item flex items-center space-x-4">
+            <img src="/assets/automacao-casa.webp" alt="Automação residencial no Sul do RS" class="w-16 h-16 object-cover rounded" loading="lazy">
+            <a href="#" class="text-sm">Casa Inteligente no Sul do RS (Em Breve)</a>
+          </div>
+          <div class="project-item flex items-center space-x-4">
+            <span class="text-sm">Residência em Pelotas (Em Breve)</span>
+          </div>
+        </div>
+      </div>
+      <div class="mb-8">
+        <h3 class="font-bold">Receba Novidades</h3>
+        <div class="newsletter-form mt-2">
+          <input type="email" placeholder="Digite seu e-mail" required>
+          <button type="button" class="btn-secondary">Inscrever-se</button>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-bold">Siga-nos</h3>
+        <div class="flex space-x-4 mt-2">
+          <a href="https://www.instagram.com/norteletrica" target="_blank" class="text-[var(--metallic-gray)] hover:text-[var(--neon-blue)]">
+            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2m14-1v4M5 20v-4m0-10h4m10 10h-4M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg>
+          </a>
+          <a href="https://www.facebook.com/norteletrica" target="_blank" class="text-[var(--metallic-gray)] hover:text-[var(--neon-blue)]">
+            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg>
+          </a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Nort Elétrica</h3>
+          <p class="text-blue-100 text-lg">Energia Inteligente para Todos</p>
+          <p class="text-blue-100 mt-2 text-lg">Rua: 3, Canastreiro, 177, São José do Norte/RS</p>
+          <p class="text-blue-100 mt-2 text-lg">Compromisso com inovação e qualidade</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="https://www.instagram.com/norteletrica" target="_blank" class="text-white hover:text-[var(--neon-blue)]"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2m14-1v4M5 20v-4m0-10h4m10 10h-4M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg></a>
+            <a href="https://www.facebook.com/norteletrica" target="_blank" class="text-white hover:text-[var(--neon-blue)]"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
+          <ul class="space-y-2 text-blue-100 text-lg">
+            <li><a href="index.html" class="hover:text-[var(--neon-blue)]">Início</a></li>
+            <li><a href="blog.html" class="hover:text-[var(--neon-blue)]">Blog</a></li>
+            <li><a href="sistemas-fotovoltaicos.html" class="hover:text-[var(--neon-blue)]">Serviços</a></li>
+            <li><a href="index.html#contact" class="hover:text-[var(--neon-blue)]">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Políticas</h3>
+          <ul class="space-y-2 text-blue-100 text-lg">
+            <li><a href="politica-de-privacidade.html" class="hover:text-[var(--neon-blue)]">Política de Privacidade</a></li>
+            <li><a href="termos-de-uso.html" class="hover:text-[var(--neon-blue)]">Termos de Uso</a></li>
+            <li><a href="area-do-cliente.html" class="hover:text-[var(--neon-blue)]">Área do Cliente</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Contato</h3>
+          <p class="text-blue-100 text-lg">Email: contato@norteletrica.com.br</p>
+          <p class="text-blue-100 mt-2 text-lg">Telefone: (53) 98108-7746</p>
+          <p class="text-blue-100 mt-2 text-lg">Horário: Seg-Sex, 8h-18h</p>
+        </div>
+      </div>
+      <div class="text-center mt-8 text-blue-100">
+        <p>© 2025 Nort Elétrica. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+      if (scrollTop > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+
+    const blogContent = document.querySelector('.blog-content');
+    window.addEventListener('scroll', () => {
+      const rect = blogContent.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.8) {
+        blogContent.classList.add('visible');
+      }
+    });
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuOpen = document.querySelector('.menu-open');
+    const menuClose = document.querySelector('.menu-close');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      menuOpen.classList.toggle('hidden');
+      menuClose.classList.toggle('hidden');
+    });
+
+    function calculateSavings() {
+      const consumption = parseFloat(document.getElementById('consumption').value);
+      const resultElement = document.getElementById('savings-result');
+      if (isNaN(consumption) || consumption <= 0) {
+        resultElement.textContent = 'Por favor, insira um valor válido para o consumo.';
+        return;
+      }
+      const savings = consumption * 0.25 * 0.7; // Supondo 25% de economia e R$0,70/kWh
+      resultElement.textContent = `Você pode economizar até R$${savings.toFixed(2)} por mês!`;
+    }
+  </script>
+</body>
+</html>
