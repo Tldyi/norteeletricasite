@@ -5,65 +5,278 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Termos de Uso - Nort Elétrica</title>
   <meta name="description" content="Leia os Termos de Uso da Nort Elétrica para entender as condições de uso do nosso site e serviços.">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <meta name="keywords" content="termos de uso, Nort Elétrica, condições de uso">
+  <meta name="author" content="Nort Elétrica">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Termos de Uso - Nort Elétrica">
+  <meta property="og:description" content="Conheça os Termos de Uso da Nort Elétrica para utilizar nosso site e serviços.">
+  <meta property="og:image" content="https://www.norteletrica.com.br/Logo-Marca.png">
+  <meta property="og:url" content="https://www.norteletrica.com.br/termos-de-uso.html">
+  <meta property="og:type" content="website">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Termos de Uso - Nort Elétrica">
+  <meta name="twitter:description" content="Conheça os Termos de Uso da Nort Elétrica para utilizar nosso site e serviços.">
+  <meta name="twitter:image" content="https://www.norteletrica.com.br/Logo-Marca.png">
+  <link rel="canonical" href="https://www.norteletrica.com.br/termos-de-uso.html">
+  <link rel="icon" href="https://www.norteletrica.com.br/favicon.ico" type="image/x-icon">
+  <!-- Preload -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" as="style" onload="this.rel='stylesheet'">
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     :root {
-      --primary-blue: #2563eb;
-      --dark-blue: #1e40af;
+      --primary-blue: #1e3a8a;
+      --dark-blue: #1e293b;
       --solar-green: #22c55e;
+      --solar-yellow: #fbbf24;
       --light-bg: #f9fafb;
-      --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.05);
+      --shadow-sm: 0 4px 10px rgba(34, 197, 94, 0.1);
+      --shadow-md: 0 10px 30px rgba(34, 197, 94, 0.2);
     }
-    body { font-family: 'Roboto', sans-serif; background: var(--light-bg); padding-top: 80px; }
-    header { background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue)); position: fixed; top: 0; width: 100%; z-index: 50; }
-    .btn-modern { background: linear-gradient(135deg, var(--solar-green), #16a34a); color: white; padding: 12px 24px; border-radius: 8px; transition: all 0.3s ease; }
-    .btn-modern:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); }
-    footer { background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue)); }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light-bg);
+      padding-top: 80px;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 50;
+      box-shadow: var(--shadow-sm);
+      height: 80px;
+      display: flex;
+      align-items: center;
+      transition: background 0.3s ease;
+    }
+    header.scrolled { background: rgba(30, 58, 138, 0.95); }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    .header-branding {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .header-branding img {
+      width: 2rem;
+      height: 2rem;
+      border: 2px solid transparent;
+      box-shadow: 0 4px 10px rgba(34, 197, 94, 0.5);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+    .header-branding img:hover {
+      border: 2px solid rgba(34, 197, 94, 0.8);
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.8);
+      transform: scale(1.05);
+    }
+    .header-branding h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: white;
+      margin: 0;
+      text-transform: uppercase;
+    }
+    .header-branding p {
+      font-size: 0.7rem;
+      color: #93c5fd;
+      margin: 0;
+    }
+    nav a {
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav a:hover { color: var(--solar-yellow); }
+    .btn-modern {
+      background: linear-gradient(135deg, var(--solar-green), var(--solar-yellow));
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+    .btn-modern:hover {
+      background: linear-gradient(135deg, var(--solar-yellow), var(--solar-green));
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    footer {
+      background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+    }
+    footer a:hover { color: var(--solar-yellow); }
+    .prose h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--primary-blue);
+    }
+    .prose p, .prose li {
+      font-size: 1.1rem;
+      color: #374151;
+    }
+    .prose ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+    }
+    section {
+      padding: 6rem 0;
+    }
+    @media (max-width: 768px) {
+      body { padding-top: 60px; }
+      header { height: 60px; }
+      .header-branding img { width: 1.5rem; height: 1.5rem; }
+      .header-branding h1 { font-size: 1rem; }
+      .header-branding p { font-size: 0.6rem; }
+      .prose h2 { font-size: 1.5rem; }
+      .prose p, .prose li { font-size: 1rem; }
+    }
   </style>
 </head>
 <body>
-  <header class="text-white py-4">
-    <div class="container mx-auto px-4 flex justify-between items-center">
-      <div class="flex items-center space-x-4">
-        <a href="index.html" class="flex flex-col">
-          <span class="text-2xl font-bold">Nort Elétrica</span>
-          <span class="text-sm text-blue-200 hidden md:block">Energia Inteligente para Todos</span>
-        </a>
+  <!-- Header -->
+  <header class="text-white">
+    <div class="header-container">
+      <div class="header-branding">
+        <img src="/assets/icone-nort-eletrica.webp" alt="Ícone da Nort Elétrica" loading="lazy">
+        <div>
+          <h1>Nort Elétrica</h1>
+          <p>Energia Inteligente para Todos</p>
+        </div>
       </div>
       <nav class="hidden md:flex items-center space-x-6">
-        <a href="index.html" class="hover:text-blue-200">Home</a>
-        <a href="index.html#services" class="hover:text-blue-200">Serviços</a>
-        <a href="index.html#contact" class="hover:text-blue-200">Contato</a>
+        <a href="index.html">Início</a>
+        <a href="index.html#services">Serviços</a>
+        <a href="index.html#contact">Contato</a>
       </nav>
     </div>
   </header>
 
-  <section class="py-20">
+  <!-- Termos de Uso Section -->
+  <section id="terms">
     <div class="container mx-auto px-4">
-      <h1 class="text-4xl font-bold text-center mb-12 text-[var(--primary-blue)]">Termos de Uso</h1>
-      <div class="prose max-w-3xl mx-auto text-gray-700">
-        <p>Bem-vindo ao site da Nort Elétrica. Ao acessar este site, você concorda com os termos abaixo.</p>
-        <h2 class="text-2xl font-semibold mt-8 text-[var(--primary-blue)]">Uso do Site</h2>
-        <p>O conteúdo deste site é para fins informativos. Não reproduza ou distribua sem permissão.</p>
-        <h2 class="text-2xl font-semibold mt-8 text-[var(--primary-blue)]">Responsabilidade</h2>
-        <p>Não nos responsabilizamos por danos decorrentes do uso das informações aqui fornecidas.</p>
-        <h2 class="text-2xl font-semibold mt-8 text-[var(--primary-blue)]">Alterações</h2>
-        <p>Podemos atualizar estes termos a qualquer momento. Verifique periodicamente.</p>
-        <h2 class="text-2xl font-semibold mt-8 text-[var(--primary-blue)]">Contato</h2>
-        <p>Dúvidas? Entre em contato pelo e-mail <a href="mailto:lucassjn1999@gmail.com" class="text-[var(--primary-blue)] hover:underline">lucassjn1999@gmail.com</a>.</p>
+      <h2 class="text-4xl font-bold text-center text-[var(--primary-blue)]">Termos de Uso</h2>
+      <div class="prose max-w-3xl mx-auto text-gray-700 mt-8">
+        <p class="text-lg">Bem-vindo ao site da Nort Elétrica. Ao acessar este site, você concorda com os termos e condições descritos abaixo. Recomendamos que leia atentamente este documento, pois ele regula o uso do nosso site e serviços.</p>
+
+        <h2 class="mt-10">1. Uso do Site</h2>
+        <p>O conteúdo deste site é destinado exclusivamente para fins informativos e promocionais sobre os serviços da Nort Elétrica. Não é permitida a reprodução, distribuição ou modificação de qualquer material sem autorização prévia por escrito.</p>
+        <ul>
+          <li>Você concorda em usar o site de maneira lícita e em conformidade com todas as leis aplicáveis;</li>
+          <li>Não deve utilizar o site para atividades que possam prejudicar a Nort Elétrica ou terceiros;</li>
+          <li>O acesso não autorizado a áreas restritas do site é estritamente proibido.</li>
+        </ul>
+
+        <h2 class="mt-10">2. Responsabilidade</h2>
+        <p>A Nort Elétrica não se responsabiliza por danos diretos, indiretos ou incidentais decorrentes do uso ou da incapacidade de usar as informações ou serviços fornecidos no site. Embora nos esforcemos para manter as informações precisas e atualizadas, não garantimos a exatidão ou completude do conteúdo.</p>
+
+        <h2 class="mt-10">3. Propriedade Intelectual</h2>
+        <p>Todos os conteúdos do site, incluindo textos, imagens, logotipos e vídeos, são propriedade da Nort Elétrica ou de seus licenciadores e estão protegidos por leis de direitos autorais e marcas registradas. O uso não autorizado pode resultar em ações legais.</p>
+
+        <h2 class="mt-10">4. Alterações</h2>
+        <p>Reservamo-nos o direito de atualizar ou modificar estes Termos de Uso a qualquer momento, sem aviso prévio. Alterações significativas serão comunicadas no site, e a versão mais recente estará sempre disponível. Recomendamos que você revise este documento periodicamente. A data da última atualização é 27 de fevereiro de 2025.</p>
+
+        <h2 class="mt-10">5. Resolução de Conflitos</h2>
+        <p>Qualquer disputa relacionada ao uso do site será regida pelas leis do Brasil. As partes concordam em tentar resolver conflitos de forma amigável antes de recorrer a medidas judiciais, com foro exclusivo na cidade de São Paulo, SP.</p>
+
+        <h2 class="mt-10">6. Contato</h2>
+        <p>Se você tiver dúvidas ou preocupações sobre estes Termos de Uso, entre em contato conosco pelo e-mail: <a href="/cdn-cgi/l/email-protection#7a160f191b090910144b4343433a1d171b131654191517" class="text-[var(--primary-blue)] hover:underline"><span class="__cf_email__" data-cfemail="b1ddc4d2d0c2c2dbdf80888888f1d6dcd0d8dd9fd2dedc">[email&#160;protected]</span></a>.</p>
+        <p class="mt-6">
+          <a href="index.html#contact" class="btn-modern inline-block">Entre em Contato</a>
+        </p>
       </div>
     </div>
   </section>
 
-  <footer class="text-white py-12">
-    <div class="container mx-auto px-4 text-center">
-      <p id="footer-year" class="text-blue-100">© 2025 Nort Elétrica. Todos os direitos reservados.</p>
-      <p class="mt-2"><a href="politica-de-privacidade.html" class="text-blue-200 hover:underline">Política de Privacidade</a> | <a href="termos-de-uso.html" class="text-blue-200 hover:underline">Termos de Uso</a> | <a href="area-cliente.html" class="text-blue-200 hover:underline">Área do Cliente</a></p>
+  <!-- Footer -->
+  <footer class="text-white py-12" style="background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Nort Elétrica</h3>
+          <p class="text-blue-100">Energia Inteligente para Todos</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="https://www.instagram.com/norteletrica" target="_blank" class="text-white hover:text-[var(--solar-yellow)]"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2m14-1v4M5 20v-4m0-10h4m10 10h-4M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg></a>
+            <a href="https://www.facebook.com/norteletrica" target="_blank" class="text-white hover:text-[var(--solar-yellow)]"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
+          <ul class="space-y-2 text-blue-100">
+            <li><a href="index.html#about" class="hover:underline">Sobre</a></li>
+            <li><a href="index.html#services" class="hover:underline">Serviços</a></li>
+            <li><a href="index.html#blog" class="hover:underline">Blog</a></li>
+            <li><a href="index.html#contact" class="hover:underline">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Formas de Pagamento</h3>
+          <div class="flex flex-wrap gap-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="h-8" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="h-8" loading="lazy">
+            <img src="/assets/pix.webp" alt="PIX" class="h-8" loading="lazy">
+          </div>
+          <p class="text-blue-100 mt-2 text-sm">Parcelamento em até 12x</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Newsletter</h3>
+          <form id="newsletter-form" class="space-y-4">
+            <input type="email" id="newsletter-email" placeholder="Seu E-mail" class="border border-gray-300 p-2 w-full rounded-lg text-gray-700" required>
+            <button type="submit" class="btn-modern w-full">Inscreva-se</button>
+          </form>
+        </div>
+      </div>
+      <div class="mt-8 text-center border-t border-blue-700 pt-4">
+        <p id="footer-year" class="text-blue-100 text-sm">© 2025 Nort Elétrica. Todos os direitos reservados.</p>
+        <p class="mt-2 text-sm"><a href="politica-de-privacidade.html" class="text-blue-200 hover:underline">Política de Privacidade</a> | <a href="termos-de-uso.html" class="text-blue-200 hover:underline">Termos de Uso</a> | <a href="area-cliente.html" class="text-blue-200 hover:underline">Área do Cliente</a></p>
+      </div>
     </div>
   </footer>
 
+  <!-- Scripts -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
-    document.getElementById('footer-year').innerHTML = `© ${new Date().getFullYear()} Nort Elétrica. Todos os direitos reservados.`;
+    document.addEventListener('DOMContentLoaded', () => {
+      // Header scroll effect
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        header.classList.toggle('scrolled', window.scrollY > 0);
+      });
+
+      // Newsletter form
+      const newsletterForm = document.getElementById('newsletter-form');
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('newsletter-email');
+        if (email.value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
+          console.log('Newsletter inscrita:', email.value);
+          alert('Inscrição realizada com sucesso!');
+          newsletterForm.reset();
+        } else {
+          alert('Por favor, insira um e-mail válido.');
+        }
+      });
+
+      // Dynamic footer year
+      document.getElementById('footer-year').textContent = `© ${new Date().getFullYear()} Nort Elétrica. Todos os direitos reservados.`;
+    });
   </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'930437156bba875c',t:'MTc0NDY0NDMxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
